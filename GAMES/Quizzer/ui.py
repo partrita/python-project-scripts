@@ -9,25 +9,27 @@ class QuizInterface(Tk):
     def __init__(self, quiz_brain: QuizBrain):
         super().__init__()
         self.quiz = quiz_brain
-        self.title('Quizzer')
+        self.title("Quizzer")
         self.config(bg=THEME_COLOR, padx=20, pady=20)
 
         self.label = Label(self, text="Score: 0", bg=THEME_COLOR, foreground="white")
         self.label.grid(row=0, column=1)
 
         self.canvas = Canvas(self, width=300, height=250, bg="white")
-        self.question_text = self.canvas.create_text(150, 125,
-                                                     text="",
-                                                     fill=THEME_COLOR,
-                                                     font=("Arial", 15, "italic"),
-                                                     width=280)
+        self.question_text = self.canvas.create_text(
+            150, 125, text="", fill=THEME_COLOR, font=("Arial", 15, "italic"), width=280
+        )
         self.canvas.grid(row=1, column=0, columnspan=2, pady=50)
 
         true_img = PhotoImage(file="images/true.png")
-        self.true = Button(self, image=true_img, command=self.true_press, highlightthickness=0)
+        self.true = Button(
+            self, image=true_img, command=self.true_press, highlightthickness=0
+        )
         self.true.grid(row=2, column=0)
         false_img = PhotoImage(file="images/false.png")
-        self.false = Button(self, image=false_img, command=self.false_press, highlightthickness=0)
+        self.false = Button(
+            self, image=false_img, command=self.false_press, highlightthickness=0
+        )
         self.false.grid(row=2, column=1)
 
         self.question_box()
@@ -41,7 +43,9 @@ class QuizInterface(Tk):
             self.canvas.itemconfig(self.question_text, text=q_text)
 
         else:
-            self.canvas.itemconfig(self.question_text, text="You have reached the end of the quiz!")
+            self.canvas.itemconfig(
+                self.question_text, text="You have reached the end of the quiz!"
+            )
             self.true.destroy()
             self.false.destroy()
 

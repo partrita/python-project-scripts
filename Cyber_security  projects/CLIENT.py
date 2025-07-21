@@ -5,27 +5,28 @@ import threading
 
 
 def send_msg():
-	while True:
+    while True:
 
-		msg =input().encode()
-		s.send(msg)
+        msg = input().encode()
+        s.send(msg)
+
 
 def recv_msg():
-	while True:
-		recevied = s.recv(1024)
-		print(recevied.decode())
+    while True:
+        recevied = s.recv(1024)
+        print(recevied.decode())
 
 
-s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 print("connecting..")
 while True:
-	try:
-		s.connect("127.0.0.1",8888)
-		break
-	except CoonectionRefusedError:
-		continue
+    try:
+        s.connect("127.0.0.1", 8888)
+        break
+    except CoonectionRefusedError:
+        continue
 
-print("connected....")		
+print("connected....")
 
 t1 = threading.Thread(target=send_msg)
 t1.start()

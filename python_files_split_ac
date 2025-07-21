@@ -1,0 +1,100 @@
+./OTHERS/Hackerrank/frozensets.py
+./OTHERS/Hackerrank/list-removal.py
+./OTHERS/Hackerrank/immutable.py
+./OTHERS/Hackerrank/sequence.py
+./OTHERS/Hackerrank/exception.py
+./OTHERS/Hackerrank/tempCodeRunnerFile.py
+./OTHERS/Hackerrank/pattern.py
+./INVESTMENT_RULES/inflation_adjusted_return.py
+./INVESTMENT_RULES/rule_of_72.py
+./GUI/JSON Validator/main.py
+./GUI/JSON Validator/json_parser.py
+./GUI/Quadratic-Equation-Solver/quad.py
+./GUI/Quadratic-Equation-Solver/ui.py
+./GUI/Calculator/basic-calculator-gui.py
+./GUI/Password Generator/password_generator.py
+./GUI/PyQuiz/main.py
+./GUI/Pomodoro Timer/Pomodoro_timer.py
+./GUI/QtQuiz/main.py
+./GUI/QtQuiz/design.py
+./GUI/Dates/main.py
+./DJANGO PROJECTS/Chat/manage.py
+./DJANGO PROJECTS/Chat/chat/admin.py
+./DJANGO PROJECTS/Chat/chat/__init__.py
+./DJANGO PROJECTS/Chat/chat/forms.py
+./DJANGO PROJECTS/Chat/chat/tests.py
+./DJANGO PROJECTS/Chat/chat/apps.py
+./DJANGO PROJECTS/Chat/chat/views.py
+./DJANGO PROJECTS/Chat/chat/models.py
+./DJANGO PROJECTS/Chat/chat/migrations/__init__.py
+./DJANGO PROJECTS/Chat/chat/urls.py
+./DJANGO PROJECTS/Chat/room/admin.py
+./DJANGO PROJECTS/Chat/room/consumers.py
+./DJANGO PROJECTS/Chat/room/__init__.py
+./DJANGO PROJECTS/Chat/room/forms.py
+./DJANGO PROJECTS/Chat/room/tests.py
+./DJANGO PROJECTS/Chat/room/apps.py
+./DJANGO PROJECTS/Chat/room/views.py
+./DJANGO PROJECTS/Chat/room/models.py
+./DJANGO PROJECTS/Chat/room/migrations/__init__.py
+./DJANGO PROJECTS/Chat/room/migrations/0001_initial.py
+./DJANGO PROJECTS/Chat/room/urls.py
+./DJANGO PROJECTS/Chat/room/routing.py
+./DJANGO PROJECTS/Chat/project/__init__.py
+./DJANGO PROJECTS/Chat/project/asgi.py
+./DJANGO PROJECTS/Chat/project/wsgi.py
+./DJANGO PROJECTS/Chat/project/settings.py
+./DJANGO PROJECTS/Chat/project/urls.py
+./ART SCRIPTS/pencilSketch/main.py
+./ART SCRIPTS/Images to PDF/images-to-pdf.py
+./ART SCRIPTS/Draw python logo using python/main.py
+./ART SCRIPTS/image-ascii/image.py
+./TIME SCRIPTS/Pomodoro-App/main.py
+./TIME SCRIPTS/GUI Count Down Timer/Count Down Timer GUI.py
+./TIME SCRIPTS/DigitalClock/clock.py
+./TIME SCRIPTS/Alarm clock/alarm_clock.py
+./TIME SCRIPTS/Age calculator/age.py
+./TIME SCRIPTS/Age calculator/age1.py
+./TIME SCRIPTS/Umbrella Reminder/code.py
+./TIME SCRIPTS/Countdown Timer/timer.py
+./TIME SCRIPTS/current_time/getting_current_time_zone.py
+./TIME SCRIPTS/Script-RunTime/python-runtime.py
+./PYTHON APPS/PDF-Text-Extractor/app.py
+./PYTHON APPS/FinanceTracker/main.py
+./PYTHON APPS/FinanceTracker/financeDataBase.py
+./PYTHON APPS/Python IDE/app.py
+./PYTHON APPS/PDF_Downloader/pdf.py
+./PYTHON APPS/Spelling Corrector/spelling-corrector.py
+./PYTHON APPS/DownTube/Exceptions.py
+./PYTHON APPS/DownTube/Functionality.py
+./PYTHON APPS/DownTube/downtube.py
+./PYTHON APPS/CSV_files/read_csv.py
+./PYTHON APPS/CSV_files/write_csv.py
+./PYTHON APPS/mp3-MusicPlayer/music.py
+./PYTHON APPS/Moder_Calculator_IOS/widgets.py
+./PYTHON APPS/Moder_Calculator_IOS/main.py
+./PYTHON APPS/Moder_Calculator_IOS/configuration.py
+./PYTHON APPS/YoutubeDownloader/youtube.py
+./PYTHON APPS/PythonDictionary/find.py
+./PYTHON APPS/PythonDictionary/dictionary.py
+./PYTHON APPS/Alarm_Clock/widgets.py
+./PYTHON APPS/Alarm_Clock/toplevel.py
+./PYTHON APPS/Alarm_Clock/main.py
+./PYTHON APPS/Alarm_Clock/backend_alarm.py
+./PYTHON APPS/Alarm_Clock/configuration.py
+./PYTHON APPS/Alarm_Clock/frame_alarm.py
+./PYTHON APPS/Facebook/facebook.py
+./PYTHON APPS/URL Shortner/tiny-url-shortner.py
+./PYTHON APPS/ScreenRecorder/screen.py
+./PYTHON APPS/CLI-Based-TODO/task.py
+./PYTHON APPS/PhotoEditorApp/edit.py
+./PYTHON APPS/pyjokes/jokes.py
+./PYTHON APPS/pyjokes/laugh.py
+./PYTHON APPS/Chess/main.py
+./PYTHON APPS/Chess/engine.py
+./PYTHON APPS/Notepad/notepad.py
+./WEB SCRAPING/WebScraping-Data-Analytics/pydataanalytics.py
+./WEB SCRAPING/vocabulary log helper/LogHelperSync.py
+./WEB SCRAPING/vocabulary log helper/LogHelper.py
+./WEB SCRAPING/WebScraping/scrap.py
+./WEB SCRAPING/Bitcoin Price/bitcoin.py

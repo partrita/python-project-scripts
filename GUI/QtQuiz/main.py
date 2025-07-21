@@ -15,9 +15,18 @@ to extract and correct these errors.
 
 2022 Eduardo C. - https://github.com/ehcelino
 """
+
 import sys
+
 # import QtQuiz.design
-from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QVBoxLayout, QWidget
+from PyQt5.QtWidgets import (
+    QApplication,
+    QMainWindow,
+    QPushButton,
+    QLabel,
+    QVBoxLayout,
+    QWidget,
+)
 from QtQuiz.design import *
 
 datatable = {
@@ -55,6 +64,7 @@ datatable = {
 
 CORRECT = 0
 
+
 class ReportWindow(QWidget):
     """
     This is actually a QWidget, that will appear floating as a window.
@@ -62,32 +72,37 @@ class ReportWindow(QWidget):
     The button in it quits the whole application, same as the exit button on main window.
     Notice that instead of using a design file, we are creating this window on the fly.
     """
+
     def __init__(self):
         super().__init__()
         layout = QVBoxLayout()
         self.label1 = QLabel("Your result:")
         layout.addWidget(self.label1)
-        self.label1.setStyleSheet('font: 15px Calibri')  # The style is set using css rules
+        self.label1.setStyleSheet(
+            "font: 15px Calibri"
+        )  # The style is set using css rules
         self.label2 = QLabel(f"You got {CORRECT} from {len(datatable)}")
-        self.label2.setStyleSheet('font: 15px Calibri')
+        self.label2.setStyleSheet("font: 15px Calibri")
         layout.addWidget(self.label2)
-        self.button = QPushButton('Exit')
-        self.button.setStyleSheet('font: 15px Calibri')
+        self.button = QPushButton("Exit")
+        self.button.setStyleSheet("font: 15px Calibri")
         layout.addWidget(self.button)
         self.button.clicked.connect(QApplication.quit)
         self.setLayout(layout)
+
 
 class QuizApp(QMainWindow, Ui_MainWindow):
     """
     Main application window. All the logic goes here.
     """
+
     index = 1
     started = False
 
     def __init__(self, parent=None):
         super().__init__(parent)
         super().setupUi(self)
-        self.txtResult.setStyleSheet('border: 1px solid red; font: bold')
+        self.txtResult.setStyleSheet("border: 1px solid red; font: bold")
         self.btnStart.clicked.connect(self.start)
         self.btnAnswer.clicked.connect(self.answer)
         self.btnExit.clicked.connect(QApplication.quit)
@@ -106,30 +121,33 @@ class QuizApp(QMainWindow, Ui_MainWindow):
         self.txtAnswerC.setText(f'{datatable[str(self.index)]["answers"]["c"]}')
         self.txtAnswerD.setText(f'{datatable[str(self.index)]["answers"]["d"]}')
 
-
     def answer(self):
         """
         This function is called whenever the answer button is pressed.
         :return: None.
         """
         global CORRECT
-        if self.started and (self.radA.isChecked() or self.radB.isChecked()
-                             or self.radC.isChecked() or self.radD.isChecked()):
+        if self.started and (
+            self.radA.isChecked()
+            or self.radB.isChecked()
+            or self.radC.isChecked()
+            or self.radD.isChecked()
+        ):
             # couldn't find a better way to do this. If you do please drop me a line.
             if self.radA.isChecked():
-                choice = 'a'
+                choice = "a"
             elif self.radB.isChecked():
-                choice = 'b'
+                choice = "b"
             elif self.radC.isChecked():
-                choice = 'c'
+                choice = "c"
             elif self.radD.isChecked():
-                choice = 'd'
+                choice = "d"
             # started = False
             if choice == datatable[str(self.index)]["correct_answer"]:
-                self.txtResult.setText('Correct!')
+                self.txtResult.setText("Correct!")
                 CORRECT += 1
             else:
-                self.txtResult.setText('Wrong!')
+                self.txtResult.setText("Wrong!")
             if self.index < len(datatable):
                 self.index += 1
                 self.start()
@@ -145,7 +163,8 @@ class QuizApp(QMainWindow, Ui_MainWindow):
         self.win = ReportWindow()
         self.win.show()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     qt = QApplication(sys.argv)
     qtquiz = QuizApp()
     qtquiz.show()

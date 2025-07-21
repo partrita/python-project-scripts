@@ -1,12 +1,13 @@
 import string, random
 
+
 def random_id(N):
-    res = ''.join(random.choices(string.ascii_lowercase +
-                             string.ascii_uppercase, k=N))
+    res = "".join(random.choices(string.ascii_lowercase + string.ascii_uppercase, k=N))
     return res
+
 
 def handle_catch(caller, on_exception):
     try:
-         return caller()
+        return caller()
     except:
-         return on_exception
+        return on_exception

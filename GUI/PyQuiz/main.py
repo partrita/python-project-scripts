@@ -4,6 +4,7 @@ Demonstrates the use of PySimpleGui as an interface
 and simple dictionary interaction
 2022 Eduardo C. - https://github.com/ehcelino
 """
+
 import PySimpleGUI as sg
 
 # The dictionary containing our questions and answers (can come from a file, a database...)
@@ -37,6 +38,7 @@ datatable = {
     },
 }
 
+
 # Our window definition.
 def main_window():
     """
@@ -45,19 +47,25 @@ def main_window():
     """
     # Everything bound by []'s goes on one line.
     layout = [
-        [sg.Text('Quiz!', font='_ 12 bold')],
-        [sg.Text('Question:')],
-        [sg.Input('', size=(30, 1), key='-QUESTION-')],
-        [sg.Text('Answers:')],
-        [sg.Multiline('', size=(30, 8), key='-OPTIONS-')],
-        [sg.Radio('a', group_id='-RADIO-', key='a'),
-         sg.Radio('b', group_id='-RADIO-', key='b'),
-         sg.Radio('c', group_id='-RADIO-', key='c'),],
-        [sg.Button('Start', key='-START-'), sg.Button('Answer', key='-ANSWER-'),
-         sg.Button('Exit', key='-EXIT-')]
+        [sg.Text("Quiz!", font="_ 12 bold")],
+        [sg.Text("Question:")],
+        [sg.Input("", size=(30, 1), key="-QUESTION-")],
+        [sg.Text("Answers:")],
+        [sg.Multiline("", size=(30, 8), key="-OPTIONS-")],
+        [
+            sg.Radio("a", group_id="-RADIO-", key="a"),
+            sg.Radio("b", group_id="-RADIO-", key="b"),
+            sg.Radio("c", group_id="-RADIO-", key="c"),
+        ],
+        [
+            sg.Button("Start", key="-START-"),
+            sg.Button("Answer", key="-ANSWER-"),
+            sg.Button("Exit", key="-EXIT-"),
+        ],
     ]
 
-    return sg.Window('Quiz!', layout, finalize=True)
+    return sg.Window("Quiz!", layout, finalize=True)
+
 
 window = main_window()
 
@@ -69,46 +77,48 @@ QUESTIONING = False  # If there's an active question
 CORRECT = 0
 
 # aliases
-question = window['-QUESTION-']
-answers = window['-OPTIONS-']
+question = window["-QUESTION-"]
+answers = window["-OPTIONS-"]
 
 while True:  # This is the main loop.
     event, values = window.read()
 
-    if event == '-START-':
+    if event == "-START-":
         if not END:
             QUESTIONING = True
-            answers.update(value='')
+            answers.update(value="")
             question.update(value=f'{datatable[str(QUESTIONS_INDEX)]["question"]}')
-            for answer, answer_data in datatable[str(QUESTIONS_INDEX)]["answers"].items():
-                answers.print(f'({answer}): {answer_data}')
+            for answer, answer_data in datatable[str(QUESTIONS_INDEX)][
+                "answers"
+            ].items():
+                answers.print(f"({answer}): {answer_data}")
             correct_answer = datatable[str(QUESTIONS_INDEX)]["correct_answer"]
             ANSWERED = False
         else:
             QUESTIONING = False
-            sg.popup('End of Quiz.')
+            sg.popup("End of Quiz.")
 
-    if event == '-ANSWER-':
-        if (values['a'] or values['b'] or values['c']) and QUESTIONING:
-            for idx in ('a', 'b', 'c'):
+    if event == "-ANSWER-":
+        if (values["a"] or values["b"] or values["c"]) and QUESTIONING:
+            for idx in ("a", "b", "c"):
                 if values[idx]:
                     USER_CHOICE = idx
             if not ANSWERED:
                 if USER_CHOICE == correct_answer:
-                    sg.popup('Correct!')
+                    sg.popup("Correct!")
                     CORRECT += 1
                 else:
-                    sg.popup('Wrong.')
+                    sg.popup("Wrong.")
             if not ANSWERED:
                 QUESTIONS_INDEX += 1
                 ANSWERED = True
             if QUESTIONS_INDEX > len(datatable):
                 END = True
-                sg.popup(f'The end. You got {CORRECT} of {len(datatable)}.')
+                sg.popup(f"The end. You got {CORRECT} of {len(datatable)}.")
             if not END:
-                window.write_event_value('-START-', '')
+                window.write_event_value("-START-", "")
 
-    if event in (sg.WIN_CLOSED, '-EXIT-'):
+    if event in (sg.WIN_CLOSED, "-EXIT-"):
         break
 
 

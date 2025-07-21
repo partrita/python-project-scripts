@@ -1,22 +1,39 @@
 import time
 
 start = time.time()
-from cv2 import VideoCapture, flip, COLOR_BGR2RGB, cvtColor, circle, FILLED, destroyAllWindows, imshow, CAP_PROP_FRAME_WIDTH, CAP_PROP_FRAME_HEIGHT
+from cv2 import (
+    VideoCapture,
+    flip,
+    COLOR_BGR2RGB,
+    cvtColor,
+    circle,
+    FILLED,
+    destroyAllWindows,
+    imshow,
+    CAP_PROP_FRAME_WIDTH,
+    CAP_PROP_FRAME_HEIGHT,
+)
+
 print("Importing cv stuff")
 import mediapipe.python.solutions.drawing_utils as mp_drawing
+
 print("Importing hand module  stuff")
 
 import mediapipe.python.solutions.hands as mp_hands
+
 print("Importing more hand module  stuff")
 
 import pygame
+
 print("Importing pygame")
 
 from math import sqrt
+
 print("Importing math")
 
 import pyautogui
 import os
+
 print("Importing other stuff")
 
 
@@ -44,7 +61,7 @@ WHITE = (255, 255, 255)
 color = RED
 rainbow = [VIOLET, INDIGO, BLUE, GREEN, YELLOW, ORANGE, RED]
 
-desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
+desktop = os.path.join(os.path.join(os.environ["USERPROFILE"]), "Desktop")
 ss_count = 1
 
 run = True
@@ -61,8 +78,6 @@ camera.set(CAP_PROP_FRAME_WIDTH, WIDTH)
 camera.set(CAP_PROP_FRAME_HEIGHT, HEIGHT)
 
 
-
-
 def generate_rainbow(rainbow):
     it = iter(rainbow)
     while True:
@@ -75,8 +90,9 @@ def generate_rainbow(rainbow):
 
 def convert_to_pixel_coordinates():
     normalized_landmark = handlms.landmark[id]
-    pixel_coordinate = mp_drawing._normalized_to_pixel_coordinates(normalized_landmark.x,
-                                                                   normalized_landmark.y, width, height)
+    pixel_coordinate = mp_drawing._normalized_to_pixel_coordinates(
+        normalized_landmark.x, normalized_landmark.y, width, height
+    )
     return pixel_coordinate
 
 
@@ -128,12 +144,16 @@ while run:
                     try:
                         x_distance = index_coordinates[0] - thumb_coordinates[0]
                         y_distance = index_coordinates[1] - thumb_coordinates[1]
-                        distance = sqrt((x_distance ** 2) + (y_distance ** 2))
+                        distance = sqrt((x_distance**2) + (y_distance**2))
 
                         # try:
                         if 0 <= distance <= 20:
-                            pygame.draw.circle(window, color,
-                                               (index_coordinates[0], index_coordinates[1]), 5)
+                            pygame.draw.circle(
+                                window,
+                                color,
+                                (index_coordinates[0], index_coordinates[1]),
+                                5,
+                            )
                     except TypeError:
                         print("ERROR")
 
@@ -143,10 +163,15 @@ while run:
 
                     try:
 
-                        x_middle_distance = index_coordinates[0] - middle_tip_coordinates[0]
-                        y_middle_distance = index_coordinates[1] - middle_tip_coordinates[1]
+                        x_middle_distance = (
+                            index_coordinates[0] - middle_tip_coordinates[0]
+                        )
+                        y_middle_distance = (
+                            index_coordinates[1] - middle_tip_coordinates[1]
+                        )
                         distance_middle_to_index = distance = sqrt(
-                            (x_middle_distance ** 2) + (y_middle_distance ** 2))
+                            (x_middle_distance**2) + (y_middle_distance**2)
+                        )
 
                         if 0 <= distance_middle_to_index <= 20:
                             print(desktop)

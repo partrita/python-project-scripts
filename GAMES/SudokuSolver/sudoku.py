@@ -1,6 +1,7 @@
 import numpy as np
 from move import Move
 
+
 class Sudoku:
 
     def __init__(self, grid: np.ndarray) -> None:
@@ -47,7 +48,7 @@ class Sudoku:
 
         return row_check and column_check and region_check
 
-    def get_region_from_move(self, move: Move) -> np.ndarray :
+    def get_region_from_move(self, move: Move) -> np.ndarray:
 
         if move.row <= 2 and move.column <= 2:
             return self.region1

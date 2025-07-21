@@ -9,17 +9,7 @@ import requests
 NUM_OF_QUESTIONS = 20
 category = 31
 
-parameters = {
-    "category": category,
-    "amount": NUM_OF_QUESTIONS,
-    "type": "boolean"
-}
+parameters = {"category": category, "amount": NUM_OF_QUESTIONS, "type": "boolean"}
 
 response = requests.get("https://opentdb.com/api.php", params=parameters)
 question_data = response.json()["results"]
-
-
-
-
-
-

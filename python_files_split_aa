@@ -1,0 +1,100 @@
+./GAMES/Tic-Tac-Bot-Player/main.py
+./GAMES/Tic-Tac-Bot-Player/packages/module_for_bot.py
+./GAMES/Tic-Tac-Bot-Player/packages/config.py
+./GAMES/Tic-Tac-Bot-Player/packages/common_module.py
+./GAMES/Tic-Tac-Bot-Player/bot.py
+./GAMES/Tic-Tac-Bot-Player/with_person.py
+./GAMES/SNAKE_GAME/snake.py
+./GAMES/Number Guessing Game/numberGuessingGame.py
+./GAMES/randomshuffle/random.py
+./GAMES/Brick-Breaker_Game/brick_breaker.py
+./GAMES/guess-the-number/guess-the-number.py
+./GAMES/GUI Rock-Paper-Scissors Game/Rock-Paper-Scissors Game.py
+./GAMES/dino-game/dino.py
+./GAMES/Software-Eng-UI-Quiz/hacktoberfest_quiz.py
+./GAMES/Software-Eng-UI-Quiz/quiz_tests.py
+./GAMES/BlackJackGame/BlackJackGame.py
+./GAMES/Hangman/hangman.py
+./GAMES/Hangman/hangman_words.py
+./GAMES/Hangman/hangman_art.py
+./GAMES/Turtle-Race-Game/main.py
+./GAMES/BullsAndCows/game.py
+./GAMES/Hacktoberfest Quiz/hacktoberfest-quiz.py
+./GAMES/FastRun/configurer.py
+./GAMES/FastRun/GUI.py
+./GAMES/Snake_Game(Using Turtle)/snake-game.py
+./GAMES/Pong Game in Python/PingPong.py
+./GAMES/ROCK PAPER SCISSORS GAME/rock_paper_scissor.py
+./GAMES/Quizzer/main.py
+./GAMES/Quizzer/quiz_brain.py
+./GAMES/Quizzer/question_model.py
+./GAMES/Quizzer/ui.py
+./GAMES/Quizzer/data.py
+./GAMES/Maze-Solver/Main.py
+./GAMES/Maze-Solver/Draw.py
+./GAMES/Maze-Solver/BFS.py
+./GAMES/Maze-Solver/DFS.py
+./GAMES/Maze-Solver/Path_Backtrack.py
+./GAMES/Hangman (using classes)/hangman.py
+./GAMES/SudokuSolver/main.py
+./GAMES/SudokuSolver/sudoku.py
+./GAMES/SudokuSolver/sudoku_solver.py
+./GAMES/SudokuSolver/move.py
+./GAMES/SudokuSolver/read_sudoku.py
+./GAMES/Hunter_Island/Hunters_Island.py
+./GAMES/VirtualHandPainter/main.py
+./GAMES/Tetris/tetris.py
+./GAMES/tic_tac_toe/main.py
+./GAMES/sudoku_solver/sudoku_solver.py
+./GAMES/Guess the US States/main.py
+./GAMES/ConsoleMinesweeper/main.py
+./GAMES/chess/src/main.py
+./GAMES/chess/src/color.py
+./GAMES/chess/src/sound.py
+./GAMES/chess/src/dragger.py
+./GAMES/chess/src/move.py
+./GAMES/chess/src/piece.py
+./GAMES/chess/src/config.py
+./GAMES/chess/src/game.py
+./GAMES/chess/src/square.py
+./GAMES/chess/src/theme.py
+./GAMES/chess/src/board.py
+./GAMES/chess/src/const.py
+./GAMES/Tic Tac Toe Game/game.py
+./GAMES/snakeGame/snakeGame.py
+./GAMES/Flames_Game/flames_game_gui.py
+./GAMES/Dice-Rolling-Game/dice_roll_sim.py
+./GAMES/TIC_TAC_TOE/widgets.py
+./GAMES/TIC_TAC_TOE/main.py
+./GAMES/TIC_TAC_TOE/configuration.py
+./GAMES/ConsoleSnake/main.py
+./GAMES/ConsoleSnake/getch.py
+./OTHERS/Geocoding Google API/geo.py
+./OTHERS/RecursivePalindrome/main.py
+./OTHERS/Youtube Video Downloader/youtube-downloader.py
+./OTHERS/Star pattern/star_pattern.py
+./OTHERS/QrCodeGen/qr.py
+./OTHERS/drink-remider/main.py
+./OTHERS/Rain_Alert/main.py
+./OTHERS/FindLongestWord/main.py
+./OTHERS/Chimera_script/webGL_images.py
+./OTHERS/MultiprocessingLogger/main.py
+./OTHERS/MultiprocessingLogger/logger.py
+./OTHERS/Inven_Tree/dashboard/model.py
+./OTHERS/Inven_Tree/dashboard/admin.py
+./OTHERS/Inven_Tree/dashboard/__init__.py
+./OTHERS/Inven_Tree/dashboard/forms.py
+./OTHERS/Inven_Tree/dashboard/tests.py
+./OTHERS/Inven_Tree/dashboard/apps.py
+./OTHERS/Inven_Tree/dashboard/views.py
+./OTHERS/Inven_Tree/dashboard/migrations/0005_auto_20221008_0154.py
+./OTHERS/Inven_Tree/dashboard/migrations/__init__.py
+./OTHERS/Inven_Tree/dashboard/migrations/0003_remove_product_price.py
+./OTHERS/Inven_Tree/dashboard/migrations/0002_order_order_quantity.py
+./OTHERS/Inven_Tree/dashboard/migrations/0006_auto_20221008_2002.py
+./OTHERS/Inven_Tree/dashboard/migrations/0004_auto_20210320_1908.py
+./OTHERS/Inven_Tree/dashboard/migrations/0001_initial.py
+./OTHERS/Inven_Tree/dashboard/decorators.py
+./OTHERS/Inven_Tree/dashboard/filter.py
+./OTHERS/Inven_Tree/dashboard/urls.py
+./OTHERS/Inven_Tree/user/signals.py

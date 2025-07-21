@@ -15,21 +15,62 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Product',
+            name="Product",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100, null=True)),
-                ('price', models.PositiveIntegerField(null=True)),
-                ('quantity', models.PositiveIntegerField(null=True)),
-                ('category', models.CharField(choices=[('Stationary', 'Stationary'), ('Electronics', 'Electronics'), ('Cosmetics', 'Cosmetics')], max_length=50, null=True)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100, null=True)),
+                ("price", models.PositiveIntegerField(null=True)),
+                ("quantity", models.PositiveIntegerField(null=True)),
+                (
+                    "category",
+                    models.CharField(
+                        choices=[
+                            ("Stationary", "Stationary"),
+                            ("Electronics", "Electronics"),
+                            ("Cosmetics", "Cosmetics"),
+                        ],
+                        max_length=50,
+                        null=True,
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Order',
+            name="Order",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('customer', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-                ('name', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='dashboard.product')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "customer",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "name",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="dashboard.product",
+                    ),
+                ),
             ],
         ),
     ]

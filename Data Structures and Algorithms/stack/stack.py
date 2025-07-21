@@ -1,27 +1,29 @@
 class stack:
 
-	def __init__(self):
-		self.items=input()
-		print(self.items.lstrip)
+    def __init__(self):
+        self.items = input()
+        print(self.items.lstrip)
 
-	def is_empty(self):
-		return self.items==[]
+    def is_empty(self):
+        return self.items == []
 
-	def push(self,item):
-		self.items.insert(0,item)
+    def push(self, item):
+        self.items.insert(0, item)
 
-	def pop(self):
-		return self.items.pop(0)
+    def pop(self):
+        return self.items.pop(0)
 
-	def print_stack(self):
-		print(self.items)
+    def print_stack(self):
+        print(self.items)
 
-stack1=stack()
-stack1.push(5) #allows the user to add items to the stack
-stack1.pop() #allows one to remove items to the stack
+
+stack1 = stack()
+stack1.push(5)  # allows the user to add items to the stack
+stack1.pop()  # allows one to remove items to the stack
 stack1.print_stack()
 
 # stack implemetation using linkedlist
+
 
 # Create a class for Node that represents an individual element of the linked list
 class Node:
@@ -40,7 +42,7 @@ class StackLinked:
         newNode = Node(data)
 
         # If the stack is empty, make the new node the first element
-        if(self.start == None):
+        if self.start == None:
             self.start = newNode
         else:
 
@@ -49,19 +51,23 @@ class StackLinked:
             self.start = newNode
 
         # Method to remove the top element from the stack
+
     def pop(self):
         if self.start is not None:
             self.start = self.start.next
 
         # Method to get the top element of the stack
+
     def top(self):
         return self.start
 
         # Method to check if the stack is empty
+
     def isEmpty(self):
         return self.start == None
 
         # Method to check if the stack is full
+
     def isFull(self):
         newNode = Node(None)
         return newNode == None
@@ -77,9 +83,3 @@ print(S.isEmpty())
 print(S.isFull())
 top_element = S.top()
 print(top_element.data)
-
-
-
-	
-
-

@@ -1,7 +1,8 @@
 import math
 import random
 import turtle
-#import time
+
+# import time
 
 win_length = 500
 win_height = 500
@@ -16,7 +17,7 @@ class racer(object):
         self.pos = pos
         self.color = color
         self.turt = turtle.Turtle()
-        self.turt.shape('turtle')
+        self.turt.shape("turtle")
         self.turt.color(color)
         self.turt.penup()
         self.turt.setpos(pos)
@@ -34,9 +35,9 @@ class racer(object):
 
 
 def setupFile(name, colors):
-    file = open(name, 'w')
+    file = open(name, "w")
     for color in colors:
-        file.write(color + ' 0 \n')
+        file.write(color + " 0 \n")
     file.close()
 
 
@@ -44,11 +45,21 @@ def startGame():
     tList = []
     turtle.clearscreen()
     turtle.hideturtle()
-    colors = ["red", "green", "blue", 'yellow', 'pink', 'orange', 'purple', 'black', 'grey']
-    start = -(win_length/2) + 20
+    colors = [
+        "red",
+        "green",
+        "blue",
+        "yellow",
+        "pink",
+        "orange",
+        "purple",
+        "black",
+        "grey",
+    ]
+    start = -(win_length / 2) + 20
     for t in range(turtles):
-        newPosX = start + t*(win_length)//turtles
-        tList.append(racer(colors[t],(newPosX, -230)))
+        newPosX = start + t * (win_length) // turtles
+        tList.append(racer(colors[t], (newPosX, -230)))
         tList[t].turt.showturtle()
 
     run = True
@@ -69,12 +80,12 @@ def startGame():
 
         if len(maxColor) > 0:
             run = False
-            print('The winner is: ')
+            print("The winner is: ")
             for win in maxColor:
                 print(win)
 
     oldScore = []
-    file = open('scores.txt', 'r')
+    file = open("scores.txt", "r")
     for line in file:
         l = line.split()
         color = l[0]
@@ -83,32 +94,31 @@ def startGame():
 
     file.close()
 
-    file = open('scores.txt', 'w')
+    file = open("scores.txt", "w")
 
     for entry in oldScore:
         for winner in maxColor:
             if entry[0] == winner:
                 entry[1] = int(entry[1]) + 1
 
-        file.write(str(entry[0]) + ' ' + str(entry[1]) + '\n')
-
+        file.write(str(entry[0]) + " " + str(entry[1]) + "\n")
 
     file.close()
 
 
 start = input('Would you like to play, type "yes" or "no": ').lower()
 if start == "yes":
-    print('----------GAME IN PROGRESS--------')
+    print("----------GAME IN PROGRESS--------")
     startGame()
 else:
     quit()
 
 while True:
-    print('-----------------------------------')
+    print("-----------------------------------")
     start = input('Would you like to play again, type "yes" or "no": ').lower()
     if start == "yes":
-        print('----------GAME IN PROGRESS--------')
+        print("----------GAME IN PROGRESS--------")
         startGame()
     else:
-        print('----------THANK YOU FOR PLAYING--------')
+        print("----------THANK YOU FOR PLAYING--------")
         quit()

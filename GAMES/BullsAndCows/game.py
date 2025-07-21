@@ -18,8 +18,11 @@ import fire
 from itertools import permutations
 from typing import List
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s][%(filename)s:%(lineno)d]:%(message)s",
-                    datefmt='%Y-%m-%d %H:%M:%S')
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s][%(filename)s:%(lineno)d]:%(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
 
 logger = logging.getLogger(__name__)
 
@@ -85,7 +88,11 @@ class Node:
         return v + c * d
 
     def get_next(self, his):
-        cands = [(idx, e, e.get_val(self.n)) for idx, e in enumerate(self.children) if e.n and idx not in his]
+        cands = [
+            (idx, e, e.get_val(self.n))
+            for idx, e in enumerate(self.children)
+            if e.n and idx not in his
+        ]
         # logger.info(cands)
         item = max(cands, key=lambda x: x[2])
         return item
@@ -139,7 +146,11 @@ class TreePlayer(IPlayer):
 
     def notify(self, guess: List[int], judge_rs: dict):
         tmp = len(self.cands)
-        self.cands = [e for e in self.cands if judge_rs2str(judge_rs) == judge_rs2str(judge(e, guess))]
+        self.cands = [
+            e
+            for e in self.cands
+            if judge_rs2str(judge_rs) == judge_rs2str(judge(e, guess))
+        ]
         logger.info(f"cut cands from {tmp} to {len(self.cands)} after cuts")
         self.root.clear()
         for cand in self.cands:
@@ -220,5 +231,5 @@ def test_avg_step(test_num=100):
     logger.info(f"{ai} avg cost{avg:.3f} steps with {test_num} tests")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     fire.Fire(compete_with_ai)

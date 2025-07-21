@@ -1,13 +1,15 @@
 import sqlite3
 from matplotlib import pyplot as plt
 
-plt.style.use('ggplot')
+plt.style.use("ggplot")
 
 
 def send_bg_color(color):
     connection = sqlite3.connect("Finance.db")
     cur = connection.cursor()
-    cur.execute(f"UPDATE colorChoice SET color = (:color) WHERE rowid = 1", {"color": color})
+    cur.execute(
+        f"UPDATE colorChoice SET color = (:color) WHERE rowid = 1", {"color": color}
+    )
     connection.commit()
     connection.close()
 
@@ -33,7 +35,9 @@ def update_record(query, data):
     connection = sqlite3.connect("Finance.db")
     cur = connection.cursor()
     num_data = int(data)
-    cur.execute(f"UPDATE {query} SET userGoal = (:goal) WHERE rowid = 1", {"goal": num_data})
+    cur.execute(
+        f"UPDATE {query} SET userGoal = (:goal) WHERE rowid = 1", {"goal": num_data}
+    )
     connection.commit()
     connection.close()
 
@@ -132,10 +136,16 @@ def graph_all():
         labels.append("OTHER")
         slices.append(other)
 
-    colors = ("limegreen", "cyan", "yellow", "pink",
-              "red", "lightblue")
+    colors = ("limegreen", "cyan", "yellow", "pink", "red", "lightblue")
 
-    plt.pie(slices, labels=labels, shadow=True, wedgeprops={'edgecolor': 'black'}, autopct=f"%0.2f%%", colors=colors)
+    plt.pie(
+        slices,
+        labels=labels,
+        shadow=True,
+        wedgeprops={"edgecolor": "black"},
+        autopct=f"%0.2f%%",
+        colors=colors,
+    )
     plt.title("PIE CHART")
     plt.tight_layout()
     plt.show()
@@ -170,9 +180,11 @@ def delete_data_in_table(query):
     con = sqlite3.connect("Finance.db")
     cur = con.cursor()
     cur.execute(f"DROP TABLE {query}")
-    cur.execute(f"""CREATE TABLE {query}(
+    cur.execute(
+        f"""CREATE TABLE {query}(
                 payed real
-                )""")
+                )"""
+    )
     con.commit()
     con.close()
 
@@ -184,5 +196,3 @@ def delete_all():
     delete_data_in_table("clothes")
     delete_data_in_table("bills")
     delete_data_in_table("other")
-
-

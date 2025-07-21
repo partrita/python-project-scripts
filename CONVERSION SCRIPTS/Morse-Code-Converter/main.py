@@ -8,7 +8,7 @@ text = input("enter a message to convert to morse code: ")
 morse_code = translate.to_morse(text)
 print(morse_code)
 
-#Converting Morse to english (decode)
+# Converting Morse to english (decode)
 text = input("enter morse code to convert to actual message: ")
 english_text = translate.to_english(text)
 print(english_text)

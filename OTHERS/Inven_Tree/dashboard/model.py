@@ -5,9 +5,9 @@ from sqlalchemy import PrimaryKeyConstraint, null
 
 # Create your models here.
 CATEGORY = (
-    ('Stationary', 'Stationary'),
-    ('Electronics', 'Electronics'),
-    ('Food', 'Food'),
+    ("Stationary", "Stationary"),
+    ("Electronics", "Electronics"),
+    ("Food", "Food"),
 )
 
 
@@ -24,7 +24,7 @@ class Product(models.Model):
     total_quantity = models.IntegerField(null=True)
 
     def __str__(self):
-        return f'{self.product}'
+        return f"{self.product}"
 
 
 class Order(models.Model):
@@ -33,4 +33,4 @@ class Order(models.Model):
     order_quantity = models.PositiveIntegerField(null=True)
 
     def __str__(self):
-        return f'{self.auto_increment_id} - {self.product} - {self.order_quantity}'
+        return f"{self.auto_increment_id} - {self.product} - {self.order_quantity}"

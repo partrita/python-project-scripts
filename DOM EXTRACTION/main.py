@@ -2,13 +2,12 @@ import requests
 from bs4 import BeautifulSoup
 
 # Define the URL of the website you want to extract the DOM from
-url = 'https://example.com'
+url = "https://example.com"
 
 response = requests.get(url)
 
 if response.status_code == 200:
-    soup = BeautifulSoup(response.text, 'html.parser')
-
+    soup = BeautifulSoup(response.text, "html.parser")
 
     title = soup.title
     if title:
@@ -16,11 +15,10 @@ if response.status_code == 200:
     else:
         print("No title tag found.")
 
-
-    links = soup.find_all('a')
+    links = soup.find_all("a")
     print("Links in the page:")
     for link in links:
-        print(link.get('href'))
+        print(link.get("href"))
 
 else:
     print("Failed to retrieve the page. Status code:", response.status_code)

@@ -1,16 +1,18 @@
-'''
+"""
 Source : https://github.com/iSiddharth20/DeepLearning-ImageClassification-Toolkit
-'''
+"""
 
 import matplotlib.pyplot as plt
 import cv2
 import numpy as np
 
-'''
+"""
 Helper Function 
     - Used to Show 2 Images Side-By-Side
-'''
-def images_on_side(img_1,label_1,img_2,label_2):
+"""
+
+
+def images_on_side(img_1, label_1, img_2, label_2):
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 24))
     ax1.imshow(img_1)
     ax1.set_title(label_1)
@@ -18,10 +20,13 @@ def images_on_side(img_1,label_1,img_2,label_2):
     ax2.set_title(label_2)
     plt.show()
 
-'''
+
+"""
 Helper Function 
     - Used to Extract Object from Image
-'''
+"""
+
+
 def image_processing(image_path):
     # Read the image
     img = cv2.imread(image_path)
@@ -34,7 +39,9 @@ def image_processing(image_path):
     kernel = np.ones((kernel_size, kernel_size), np.uint8)
     closed_img = cv2.morphologyEx(thresholded, cv2.MORPH_CLOSE, kernel)
     # Find contours
-    contours, _ = cv2.findContours(closed_img, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    contours, _ = cv2.findContours(
+        closed_img, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE
+    )
     # Identify the largest contour
     largest_contour = max(contours, key=cv2.contourArea)
     # Create an empty mask and draw the largest contour onto it

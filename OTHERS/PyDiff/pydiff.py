@@ -4,20 +4,21 @@ import argparse
 
 
 class Colors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
+    HEADER = "\033[95m"
+    OKBLUE = "\033[94m"
+    OKCYAN = "\033[96m"
+    OKGREEN = "\033[92m"
+    WARNING = "\033[93m"
+    FAIL = "\033[91m"
+    ENDC = "\033[0m"
+    BOLD = "\033[1m"
+    UNDERLINE = "\033[4m"
 
 
 ADD = "Add"
 REMOVE = "Remove"
 IGNORE = "Ignore"
+
 
 def print_matrix(m1, m2):
     for i in range(len(m1) + 1):
@@ -35,10 +36,10 @@ def main():
     file1 = args.file1
     file2 = args.file2
 
-    with open(file1, 'r') as f:
+    with open(file1, "r") as f:
         file_content1 = f.read()
 
-    with open(file2, 'r') as f:
+    with open(file2, "r") as f:
         file_content2 = f.read()
 
     lines1 = file_content1.splitlines()
@@ -48,7 +49,7 @@ def main():
     m = len(lines2)
 
     distances = [[0 for _ in range(m + 1)] for _ in range(n + 1)]
-    action = [['0' for _ in range(m + 1)] for _ in range(n + 1)]
+    action = [["0" for _ in range(m + 1)] for _ in range(n + 1)]
 
     distances[0][0] = 0
     action[0][0] = IGNORE
@@ -104,14 +105,18 @@ def main():
         print(f"{Colors.HEADER}They are the same :){Colors.ENDC}")
         exit(0)
 
-    for (fname, ac, lineno, line) in res:
+    for fname, ac, lineno, line in res:
         if ac == ADD:
-            print(fr"{Colors.HEADER}{fname}{Colors.ENDC} | {
-                  Colors.OKGREEN}+ {lineno} | {line}{Colors.ENDC}")
+            print(
+                rf"{Colors.HEADER}{fname}{Colors.ENDC} | {
+                  Colors.OKGREEN}+ {lineno} | {line}{Colors.ENDC}"
+            )
 
         elif ac == REMOVE:
-            print(fr"{Colors.HEADER}{fname}{Colors.ENDC} | {
-                  Colors.FAIL}- {lineno} | {line}{Colors.ENDC}")
+            print(
+                rf"{Colors.HEADER}{fname}{Colors.ENDC} | {
+                  Colors.FAIL}- {lineno} | {line}{Colors.ENDC}"
+            )
 
 
 if __name__ == "__main__":

@@ -8,20 +8,24 @@ def choice_checker(choice):
     global choices
     while choice not in choices:
         print("Enter a valid choice!")
-        print("""Choose the mode of game.
+        print(
+            """Choose the mode of game.
         '1' to play with a friend,
         '2' to play with a bot (P.S: You might not win)
-        '3' to quit this\n""")
+        '3' to quit this\n"""
+        )
         choice = input()
     return choice
 
 
 # Giving the user a choice to select the mode of the game they want to play
-choices = ['1', '2', '3']
-print("""Choose the mode of game.
+choices = ["1", "2", "3"]
+print(
+    """Choose the mode of game.
 '1' to play with a friend,
 '2' to play with a bot (P.S: You might not win)
-'3' to quit this\n""")
+'3' to quit this\n"""
+)
 choice = input()
 choice = choice_checker(choice)
 
@@ -34,9 +38,11 @@ while True:
         break
 
     print("Would you like to try again..?")
-    print("""Choose the mode of game.
+    print(
+        """Choose the mode of game.
     '1' to play with a friend,
     '2' to play with a bot (P.S: You might not win)
-    '3' to quit this\n""")
+    '3' to quit this\n"""
+    )
     choice = input()
     choice = choice_checker(choice)

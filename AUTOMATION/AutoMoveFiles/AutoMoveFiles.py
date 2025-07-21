@@ -7,14 +7,16 @@ import time
 import os
 import json
 
+
 class Handler(FileSystemEventHandler):
-    def on_modified(self, event):
+    def on_modified(self, event) -> None:
         for file in os.listdir(watched_folder):
             src = f"{watched_folder}/{file}"
             dst = f"{destination_folder}/{file}"
             os.rename(src=src, dst=dst)
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     watched_folder = input("Paste the path to the folder to be tracked: ")
     destination_folder = input("Paste the path to the destination folder: ")
     handler = Handler()
@@ -27,4 +29,3 @@ if __name__=="__main__":
     except KeyboardInterrupt:
         observer.stop()
     observer.join()
-

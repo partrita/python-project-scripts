@@ -1,0 +1,40 @@
+./SYSTEM MANAGEMENT APPS/Student_management_system/django_project/settings.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/django_project/urls.py
+./SYSTEM MANAGEMENT APPS/Contact-management/contact_management.py
+./ENCRYPT-ENV-SCRIPT/envars_script.py
+./ENCRYPT-ENV-SCRIPT/__init__.py
+./ENCRYPT-ENV-SCRIPT/test_script.py
+./ENCRYPT-ENV-SCRIPT/envars_helper.py
+./FLASK PROJECTS/FlaskSimpleCalculator/app.py
+./FLASK PROJECTS/User Hash Generator/hash.py
+./FLASK PROJECTS/Url Shortening App in Flask/db.py
+./FLASK PROJECTS/Url Shortening App in Flask/app.py
+./FLASK PROJECTS/Url Shortening App in Flask/helpers.py
+./FLASK PROJECTS/Url Shortening App in Flask/run.py
+./FLASK PROJECTS/Teacher Promotion Flask API/main.py
+./FLASK PROJECTS/Teacher Promotion Flask API/load_process_prediction.py
+./FLASK PROJECTS/Excel to Firebase/main.py
+./FLASK PROJECTS/Career ready/Flask_Setup/app.py
+./FLASK PROJECTS/Career ready/Flask_Setup/models.py
+./FLASK PROJECTS/Inventory Billing Management System using Flask/helper.py
+./FLASK PROJECTS/Inventory Billing Management System using Flask/db.py
+./FLASK PROJECTS/Inventory Billing Management System using Flask/app.py
+./FLASK PROJECTS/Instagram Scraper using Flask/helper.py
+./FLASK PROJECTS/Instagram Scraper using Flask/app.py
+./FLASK PROJECTS/Web Dev with Flask/server.py
+./FLASK PROJECTS/E-commerce/app.py
+./FLASK PROJECTS/E-commerce/helpers.py
+./FLASK PROJECTS/Firebase Authenticatio in Flask Application/main.py
+./FLASK PROJECTS/Firebase Authenticatio in Flask Application/db.py
+./FLASK PROJECTS/Firebase Authenticatio in Flask Application/run.py
+./Cyber_security  projects/threading.py
+./Cyber_security  projects/hotelbill.py
+./Cyber_security  projects/CLIENT.py
+./Cyber_security  projects/Remote Code Execution.py
+./Cyber_security  projects/SERVER.py
+./PASSWORD RELATED/PasswordHashingUtility/python_hashing_utility.py
+./PASSWORD RELATED/RandomPassword/password.py
+./PASSWORD RELATED/passwordbreachchecker/passwordbreach.py
+./PASSWORD RELATED/password-strength/password_strength_checker.py
+./PASSWORD RELATED/password-validator/PASSWORD_VALIDATOR.py
+./PASSWORD RELATED/Saved Wi-FI Password/get-wifi-passwords.py

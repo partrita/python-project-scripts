@@ -53,7 +53,8 @@ def go_home():
     print(f"this is data {data}")
     financeapp.setStyleSheet(
         f"QDialog#Dialog {{ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1,"
-        f"y2:1, stop:0 {data}) }}")
+        f"y2:1, stop:0 {data}) }}"
+    )
 
     widget.addWidget(financeapp)
     widget.setCurrentIndex(widget.currentIndex() + 1)
@@ -91,14 +92,18 @@ class FinanceMenu(QDialog):
         loadUi("financeMenu.ui", self)
         self.enterAllDataButton.clicked.connect(self.send_all_data)
         self.viewTotalFunButton.clicked.connect(self.view_total_fun_expenses)
-        self.viewTotalTransportationButton.clicked.connect(self.view_total_transport_expenses)
+        self.viewTotalTransportationButton.clicked.connect(
+            self.view_total_transport_expenses
+        )
         self.viewTotalFoodButton.clicked.connect(self.view_total_food_expenses)
         self.viewTotalClothesButton.clicked.connect(self.view_total_clothes_expenses)
         self.viewTotalBillsButton.clicked.connect(self.view_total_bills_expenses)
         self.viewTotalOtherButton.clicked.connect(self.view_total_other_expenses)
         self.viewTotalExpenses.clicked.connect(self.view_all_expenses)
         self.viewFunGraph.clicked.connect(lambda: financeDataBase.graph("FUN"))
-        self.viewTransportGraph.clicked.connect(lambda: financeDataBase.graph("TRANSPORTATION"))
+        self.viewTransportGraph.clicked.connect(
+            lambda: financeDataBase.graph("TRANSPORTATION")
+        )
         self.viewFoodGraph.clicked.connect(lambda: financeDataBase.graph("FOOD"))
         self.viewClothesGraph.clicked.connect(lambda: financeDataBase.graph("CLOTHES"))
         self.viewBillsGraph.clicked.connect(lambda: financeDataBase.graph("BILLS"))
@@ -107,21 +112,45 @@ class FinanceMenu(QDialog):
         self.settingsButton.clicked.connect(lambda: go_settings())
         self.helpButton.clicked.connect(lambda: go_help())
         self.deletePrevFun.clicked.connect(lambda: financeDataBase.delete_recent("FUN"))
-        self.deletePrevTransportation.clicked.connect(lambda: financeDataBase.delete_recent("TRANSPORTATION"))
-        self.deletePrevFood.clicked.connect(lambda: financeDataBase.delete_recent("FOOD"))
-        self.deletePrevClothes.clicked.connect(lambda: financeDataBase.delete_recent("CLOTHES"))
-        self.deletePrevBills.clicked.connect(lambda: financeDataBase.delete_recent("BILLS"))
-        self.deletePrevOther.clicked.connect(lambda: financeDataBase.delete_recent("OTHER"))
-        self.del_table_fun.clicked.connect(lambda: financeDataBase.delete_data_in_table("fun"))
-        self.del_table_transportation.clicked.connect(lambda: financeDataBase.delete_data_in_table("transportation"))
-        self.del_table_food.clicked.connect(lambda: financeDataBase.delete_data_in_table("food"))
-        self.del_table_clothes.clicked.connect(lambda: financeDataBase.delete_data_in_table("clothes"))
-        self.del_table_bills.clicked.connect(lambda: financeDataBase.delete_data_in_table("bills"))
-        self.del_table_other.clicked.connect(lambda: financeDataBase.delete_data_in_table("other"))
+        self.deletePrevTransportation.clicked.connect(
+            lambda: financeDataBase.delete_recent("TRANSPORTATION")
+        )
+        self.deletePrevFood.clicked.connect(
+            lambda: financeDataBase.delete_recent("FOOD")
+        )
+        self.deletePrevClothes.clicked.connect(
+            lambda: financeDataBase.delete_recent("CLOTHES")
+        )
+        self.deletePrevBills.clicked.connect(
+            lambda: financeDataBase.delete_recent("BILLS")
+        )
+        self.deletePrevOther.clicked.connect(
+            lambda: financeDataBase.delete_recent("OTHER")
+        )
+        self.del_table_fun.clicked.connect(
+            lambda: financeDataBase.delete_data_in_table("fun")
+        )
+        self.del_table_transportation.clicked.connect(
+            lambda: financeDataBase.delete_data_in_table("transportation")
+        )
+        self.del_table_food.clicked.connect(
+            lambda: financeDataBase.delete_data_in_table("food")
+        )
+        self.del_table_clothes.clicked.connect(
+            lambda: financeDataBase.delete_data_in_table("clothes")
+        )
+        self.del_table_bills.clicked.connect(
+            lambda: financeDataBase.delete_data_in_table("bills")
+        )
+        self.del_table_other.clicked.connect(
+            lambda: financeDataBase.delete_data_in_table("other")
+        )
         self.enterGoalButton.clicked.connect(self.send_goal)
         self.checkGoalButton.clicked.connect(self.check_at_goal)
-        self.setStyleSheet(f"QDialog#Dialog {{ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1,"
-                           f"y2:1, stop:0 {financeDataBase.get_bg_color()}) }})")
+        self.setStyleSheet(
+            f"QDialog#Dialog {{ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1,"
+            f"y2:1, stop:0 {financeDataBase.get_bg_color()}) }})"
+        )
 
     """
     Method Name: send_all_data
@@ -193,13 +222,21 @@ class FinanceMenu(QDialog):
         goal = financeDataBase.get_data("GOAL")
         if financeDataBase.get_total_spent() > goal[0][0]:
             print("You have exceeded your budget!")
-            self.spentSpecificLabel.setText(f"You are over budget, your budget was ${goal[0][0]}")
+            self.spentSpecificLabel.setText(
+                f"You are over budget, your budget was ${goal[0][0]}"
+            )
         elif 0 <= (goal[0][0] - financeDataBase.get_total_spent()) <= 500:
-            self.spentSpecificLabel.setText(f"You are $500 within the budget, your budget is ${goal[0][0]}")
+            self.spentSpecificLabel.setText(
+                f"You are $500 within the budget, your budget is ${goal[0][0]}"
+            )
         elif financeDataBase.get_total_spent() < goal[0][0]:
-            self.spentSpecificLabel.setText(f"You are under budget don't worry! Budget: ${goal[0][0]}")
+            self.spentSpecificLabel.setText(
+                f"You are under budget don't worry! Budget: ${goal[0][0]}"
+            )
         else:
-            self.spentSpecificLabel.setText(f"You reached budget! Budget: ${goal[0][0]}")
+            self.spentSpecificLabel.setText(
+                f"You reached budget! Budget: ${goal[0][0]}"
+            )
 
     """
     Method Name: view_total_fun_expenses
@@ -212,7 +249,9 @@ class FinanceMenu(QDialog):
         if spent is not None:
             self.spentSpecificLabel.setText(f"You spent ${round(spent)} on Fun")
         else:
-            self.spentSpecificLabel.setText("Nothing spent on fun yet! Try entering something")
+            self.spentSpecificLabel.setText(
+                "Nothing spent on fun yet! Try entering something"
+            )
 
     """
     Method Name: view_total_transport_expenses
@@ -223,9 +262,13 @@ class FinanceMenu(QDialog):
     def view_total_transport_expenses(self):
         spent = financeDataBase.sum_partic_expense("TRANSPORTATION")
         if spent is not None:
-            self.spentSpecificLabel.setText(f"You spent ${round(spent)} on Transportation")
+            self.spentSpecificLabel.setText(
+                f"You spent ${round(spent)} on Transportation"
+            )
         else:
-            self.spentSpecificLabel.setText("Nothing spent on transportation yet! Try entering something")
+            self.spentSpecificLabel.setText(
+                "Nothing spent on transportation yet! Try entering something"
+            )
 
     """
     Method Name: view_total_food_expenses
@@ -238,7 +281,9 @@ class FinanceMenu(QDialog):
         if spent is not None:
             self.spentSpecificLabel.setText(f"You spent ${round(spent)} on Food")
         else:
-            self.spentSpecificLabel.setText("Nothing spent on food yet! Try entering something")
+            self.spentSpecificLabel.setText(
+                "Nothing spent on food yet! Try entering something"
+            )
 
     """
     Method Name: view_total_clothes_expenses
@@ -251,7 +296,9 @@ class FinanceMenu(QDialog):
         if spent is not None:
             self.spentSpecificLabel.setText(f"You spent ${round(spent)} on Clothes")
         else:
-            self.spentSpecificLabel.setText("Nothing spent on clothes yet! Try entering something")
+            self.spentSpecificLabel.setText(
+                "Nothing spent on clothes yet! Try entering something"
+            )
 
     """
     Method Name: view_total_bills_expenses
@@ -264,7 +311,9 @@ class FinanceMenu(QDialog):
         if spent is not None:
             self.spentSpecificLabel.setText(f"You spent ${round(spent)} on Bills")
         else:
-            self.spentSpecificLabel.setText("Nothing spent on bills yet! Try entering something")
+            self.spentSpecificLabel.setText(
+                "Nothing spent on bills yet! Try entering something"
+            )
 
     """
     Method Name: view_total_other_expenses
@@ -277,7 +326,9 @@ class FinanceMenu(QDialog):
         if spent is not None:
             self.spentSpecificLabel.setText(f"You spent ${round(spent)} on Other")
         else:
-            self.spentSpecificLabel.setText("Nothing spent on other yet! Try entering something")
+            self.spentSpecificLabel.setText(
+                "Nothing spent on other yet! Try entering something"
+            )
 
     """
     Method Name: view_all_expenses

@@ -5,7 +5,7 @@ ENVIRONMENT = os.environ["ENVIRONMENT"]
 if ENVIRONMENT == "local":
     connection_string = "mongodb://localhost:27017"
     DB_NAME = "url_shortener"
-else:    
+else:
     MONGO_CLUSTER = os.environ["MONGO_URI"]
     MONGO_USERNAME = os.environ["MONGO_USERNAME"]
     MONGO_PASSWORD = os.environ["MONGO_PASSWORD"]
@@ -16,5 +16,4 @@ else:
 db_client = pymongo.MongoClient(connection_string)
 db_client = db_client.get_database(DB_NAME)
 
-url_data_collection = db_client['url_data']
-
+url_data_collection = db_client["url_data"]

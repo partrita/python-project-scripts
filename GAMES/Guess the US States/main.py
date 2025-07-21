@@ -22,15 +22,17 @@ def reveal_state(x, y):
 
 
 while len(guessed_states) < 50:
-    ans = screen.textinput(title=f" Score: {len(guessed_states)}/50", prompt="Name a State: ").title()
+    ans = screen.textinput(
+        title=f" Score: {len(guessed_states)}/50", prompt="Name a State: "
+    ).title()
 
     if ans == "exit".title():
         correction = [state for state in state_list if state not in guessed_states]
- 
+
         ans_file = pandas.DataFrame(correction)
         ans_file.to_csv("correct_ans.")
         break
-        
+
         # ALl the states you have missed will be written in the correct_ans.csv file
 
     if ans in state_list:

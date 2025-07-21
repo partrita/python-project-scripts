@@ -1,0 +1,100 @@
+./CONVERSION SCRIPTS/Morse-Code-Converter/converter_app.py
+./CONVERSION SCRIPTS/Morse-Code-Converter/morse.py
+./CONVERSION SCRIPTS/Morse-Code-Converter/data.py
+./CONVERSION SCRIPTS/ShortenLinks/code.py
+./CONVERSION SCRIPTS/Currency Converter/Currency.py
+./MachineLearning Projects/Book Recommendation using KNN/book.py
+./MachineLearning Projects/Twitter-sentiments-analysis/twitter-sentiment-analysis.py
+./MachineLearning Projects/prediction-of-CO2-emission/model.py
+./MachineLearning Projects/prediction-of-CO2-emission/app.py
+./MachineLearning Projects/traffic sign recognition using CNN and Keras/traffic_sign.py
+./MachineLearning Projects/traffic sign recognition using CNN and Keras/gui.py
+./MachineLearning Projects/Landmark Recognition using TensorFlow/recognition.py
+./MachineLearning Projects/tracking live sentiment analysis to trade/latest_bot.py
+./MachineLearning Projects/Student-Feedback-Sentiment-Analysis-main/Student-Feedback-Sentiment-Analysis-main/drawFigure.py
+./MachineLearning Projects/Student-Feedback-Sentiment-Analysis-main/Student-Feedback-Sentiment-Analysis-main/app.py
+./MachineLearning Projects/Student-Feedback-Sentiment-Analysis-main/Student-Feedback-Sentiment-Analysis-main/faculty.py
+./MachineLearning Projects/Fakenews/app.py
+./MachineLearning Projects/Fakenews/fake_news_detection.py
+./MachineLearning Projects/Twitter-sentiment-analysis/twitter-sentiment-analysis.py
+./MachineLearning Projects/Face-detecting/detect_face_from_image.py
+./MachineLearning Projects/Face-detecting/main.py
+./MachineLearning Projects/Image Classification using CNN TensorFlow OpenCV/HelperFunctions.py
+./MachineLearning Projects/Plant Disease Prediction/app/app.py
+./MachineLearning Projects/Vehicle-Detection/yad2k/utils/__init__.py
+./MachineLearning Projects/Vehicle-Detection/yad2k/utils/utils.py
+./MachineLearning Projects/Vehicle-Detection/yad2k/models/keras_darknet19.py
+./MachineLearning Projects/Vehicle-Detection/yad2k/models/keras_yolo.py
+./MachineLearning Projects/Vehicle-Detection/yolo_utils.py
+./MachineLearning Projects/Cricket Score Predictor/app.py
+./MachineLearning Projects/Poisonous_Mushroom-project/Script/app.py
+./MachineLearning Projects/sudoku_solver/full_stack_http.py
+./MachineLearning Projects/sudoku_solver/test_full_stack.py
+./MachineLearning Projects/sudoku_solver/temp.py
+./MachineLearning Projects/sudoku_solver/sudoku.py
+./MachineLearning Projects/sudoku_solver/verify_image.py
+./MachineLearning Projects/sudoku_solver/web_interface.py
+./MachineLearning Projects/sudoku_solver/perspective.py
+./MachineLearning Projects/sudoku_solver/image.py
+./MachineLearning Projects/Driver-Drowsiness-Detection/model.py
+./MachineLearning Projects/Driver-Drowsiness-Detection/main.py
+./MachineLearning Projects/House-Price-Predictor/main.py
+./MachineLearning Projects/Stock-Analysis/StockAnalysis.py
+./MachineLearning Projects/Emotion Detector using Google's Teachable ML/main.py
+./AUDIO RELATED SCRIPTS/AudioBuk/audio.py
+./AUDIO RELATED SCRIPTS/audiobookfinder/audiobookfinder.py
+./AUDIO RELATED SCRIPTS/Audio Captcha Generator/code.py
+./AUDIO RELATED SCRIPTS/texttoaudio/code.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/donor/admin.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/donor/__init__.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/donor/forms.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/donor/tests.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/donor/apps.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/donor/views.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/donor/models.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/donor/migrations/__init__.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/donor/migrations/0002_auto_20210213_1602.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/donor/migrations/0001_initial.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/donor/urls.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/manage.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/bloodbankmanagement/__init__.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/bloodbankmanagement/asgi.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/bloodbankmanagement/wsgi.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/bloodbankmanagement/settings.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/bloodbankmanagement/urls.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/blood/admin.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/blood/__init__.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/blood/forms.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/blood/tests.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/blood/apps.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/blood/views.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/blood/models.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/blood/migrations/0003_auto_20210213_1053.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/blood/migrations/0004_bloodrequest_date.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/blood/migrations/__init__.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/blood/migrations/0002_bloodrequest.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/blood/migrations/0001_initial.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/patient/admin.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/patient/__init__.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/patient/forms.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/patient/tests.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/patient/apps.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/patient/views.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/patient/models.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/patient/migrations/__init__.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/patient/migrations/0001_initial.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/patient/urls.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/manage.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/students/admin.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/students/__init__.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/students/forms.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/students/tests.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/students/apps.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/students/views.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/students/models.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/students/migrations/__init__.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/students/migrations/0001_initial.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/students/urls.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/django_project/__init__.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/django_project/asgi.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/django_project/wsgi.py

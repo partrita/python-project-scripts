@@ -33,8 +33,8 @@ def script_with_bot():
             break
 
     if state == 1:
-        print('The bot has won the game...\n')
+        print("The bot has won the game...\n")
     elif state == -1:
-        print('The player has won the game!\n')
+        print("The player has won the game!\n")
     else:
-        print('The game is a draw!\n')
+        print("The game is a draw!\n")

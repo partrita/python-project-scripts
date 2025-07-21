@@ -19,7 +19,8 @@ LONG_BREAK_MIN = 20
 reps = 0
 check = ""
 timer = None
-# ---------------------------- TIMER RESET ------------------------------- # 
+# ---------------------------- TIMER RESET ------------------------------- #
+
 
 def on_reset(count="00:00"):
     global reps, check
@@ -27,12 +28,13 @@ def on_reset(count="00:00"):
     check = ""
 
     window.after_cancel(timer)
-    label.config(text="TIMER",fg=RED)
+    label.config(text="TIMER", fg=RED)
     canvas.itemconfig(countdown_text, text="00:00")
     check_mark.config(text=check)
-    
 
-# ---------------------------- TIMER MECHANISM ------------------------------- # 
+
+# ---------------------------- TIMER MECHANISM ------------------------------- #
+
 
 def on_start():
     global reps
@@ -44,20 +46,21 @@ def on_start():
     long_break_min = LONG_BREAK_MIN * 60
 
     if reps == 9:
-       label.config(text="WELL DONE",fg=RED)
-    elif reps % 8 == 0:  
+        label.config(text="WELL DONE", fg=RED)
+    elif reps % 8 == 0:
         label.config(text="BREAK", fg=RED)
         countdown(long_break_min)
-    elif reps % 2 == 0:   
+    elif reps % 2 == 0:
         label.config(text="BREAK", fg=PINK)
         countdown(short_break_min)
     else:
-      
+
         label.config(text="WORK", fg=GREEN)
         countdown(work_min)
-           
 
-# ---------------------------- COUNTDOWN MECHANISM ------------------------------- # 
+
+# ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
+
 
 def countdown(count):
     global check, timer
@@ -70,12 +73,13 @@ def countdown(count):
 
     canvas.itemconfig(countdown_text, text=f"{min}:{sec}")
     if count > 0:
-        timer = window.after(1000, countdown, count-1)
+        timer = window.after(1000, countdown, count - 1)
     else:
         if reps % 2 != 0:
             check += "✔"
             check_mark.config(text=check)
         on_start()
+
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
@@ -89,7 +93,9 @@ label.grid(row=0, column=1)
 canvas = Canvas(width=200, height=224, bg=YELLOW, highlightthickness=0)
 tomato_img = PhotoImage(file="tomato.png")
 canvas.create_image(100, 112, image=tomato_img)
-countdown_text = canvas.create_text(100, 130, text="00:00", fill="black", font=(FONT_NAME, 22, "bold"))
+countdown_text = canvas.create_text(
+    100, 130, text="00:00", fill="black", font=(FONT_NAME, 22, "bold")
+)
 canvas.grid(row=1, column=1)
 
 start_button = Button(text="Start", command=on_start, width=10)

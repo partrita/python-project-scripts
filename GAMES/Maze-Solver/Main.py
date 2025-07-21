@@ -3,14 +3,14 @@ import DFS
 import os
 import time
 
-'''
+"""
 Default parameters:
     1) maze.txt is the default maze file
     2) b is the default starting point
     3) p is the default destination point
-'''
-grid = str(os.getcwd())+"\\maze.txt"
-#grid = "D:\Code\Txt\maze.txt"
+"""
+grid = str(os.getcwd()) + "\\maze.txt"
+# grid = "D:\Code\Txt\maze.txt"
 start_point = "b"
 end_point = "p"
 print("***Welcome to Maze Solver***\n")
@@ -31,7 +31,7 @@ elif choice == 2:
 
 elif choice == 3:
     print("You have selected Both")
-    
+
     time.sleep(1)
     BFS.runner(grid, start_point, end_point)
     DFS.runner(grid, start_point, end_point)

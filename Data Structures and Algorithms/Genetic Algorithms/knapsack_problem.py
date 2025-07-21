@@ -98,10 +98,10 @@ def genetic_algorithm():
             mutated_child1 = mutation(child1)
             mutated_child2 = mutation(child2)
             new_population.extend([mutated_child1, mutated_child2])
-        
+
         best_fit = max(calculate_fitness(chromosome) for chromosome in new_population)
         fitness_history.append(best_fit)
-        
+
         population = new_population
 
     best_chromosome = max(population, key=calculate_fitness)
@@ -117,7 +117,7 @@ print("Best Fitness Value:", best_fitness_value)
 
 # Plot fitness history
 plt.plot(fitness_history)
-plt.title('Fitness History')
-plt.xlabel('Generation')
-plt.ylabel('Fitness')
+plt.title("Fitness History")
+plt.xlabel("Generation")
+plt.ylabel("Fitness")
 plt.show()

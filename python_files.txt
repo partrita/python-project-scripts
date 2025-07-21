@@ -1,0 +1,540 @@
+./GAMES/Tic-Tac-Bot-Player/main.py
+./GAMES/Tic-Tac-Bot-Player/packages/module_for_bot.py
+./GAMES/Tic-Tac-Bot-Player/packages/config.py
+./GAMES/Tic-Tac-Bot-Player/packages/common_module.py
+./GAMES/Tic-Tac-Bot-Player/bot.py
+./GAMES/Tic-Tac-Bot-Player/with_person.py
+./GAMES/SNAKE_GAME/snake.py
+./GAMES/Number Guessing Game/numberGuessingGame.py
+./GAMES/randomshuffle/random.py
+./GAMES/Brick-Breaker_Game/brick_breaker.py
+./GAMES/guess-the-number/guess-the-number.py
+./GAMES/GUI Rock-Paper-Scissors Game/Rock-Paper-Scissors Game.py
+./GAMES/dino-game/dino.py
+./GAMES/Software-Eng-UI-Quiz/hacktoberfest_quiz.py
+./GAMES/Software-Eng-UI-Quiz/quiz_tests.py
+./GAMES/BlackJackGame/BlackJackGame.py
+./GAMES/Hangman/hangman.py
+./GAMES/Hangman/hangman_words.py
+./GAMES/Hangman/hangman_art.py
+./GAMES/Turtle-Race-Game/main.py
+./GAMES/BullsAndCows/game.py
+./GAMES/Hacktoberfest Quiz/hacktoberfest-quiz.py
+./GAMES/FastRun/configurer.py
+./GAMES/FastRun/GUI.py
+./GAMES/Snake_Game(Using Turtle)/snake-game.py
+./GAMES/Pong Game in Python/PingPong.py
+./GAMES/ROCK PAPER SCISSORS GAME/rock_paper_scissor.py
+./GAMES/Quizzer/main.py
+./GAMES/Quizzer/quiz_brain.py
+./GAMES/Quizzer/question_model.py
+./GAMES/Quizzer/ui.py
+./GAMES/Quizzer/data.py
+./GAMES/Maze-Solver/Main.py
+./GAMES/Maze-Solver/Draw.py
+./GAMES/Maze-Solver/BFS.py
+./GAMES/Maze-Solver/DFS.py
+./GAMES/Maze-Solver/Path_Backtrack.py
+./GAMES/Hangman (using classes)/hangman.py
+./GAMES/SudokuSolver/main.py
+./GAMES/SudokuSolver/sudoku.py
+./GAMES/SudokuSolver/sudoku_solver.py
+./GAMES/SudokuSolver/move.py
+./GAMES/SudokuSolver/read_sudoku.py
+./GAMES/Hunter_Island/Hunters_Island.py
+./GAMES/VirtualHandPainter/main.py
+./GAMES/Tetris/tetris.py
+./GAMES/tic_tac_toe/main.py
+./GAMES/sudoku_solver/sudoku_solver.py
+./GAMES/Guess the US States/main.py
+./GAMES/ConsoleMinesweeper/main.py
+./GAMES/chess/src/main.py
+./GAMES/chess/src/color.py
+./GAMES/chess/src/sound.py
+./GAMES/chess/src/dragger.py
+./GAMES/chess/src/move.py
+./GAMES/chess/src/piece.py
+./GAMES/chess/src/config.py
+./GAMES/chess/src/game.py
+./GAMES/chess/src/square.py
+./GAMES/chess/src/theme.py
+./GAMES/chess/src/board.py
+./GAMES/chess/src/const.py
+./GAMES/Tic Tac Toe Game/game.py
+./GAMES/snakeGame/snakeGame.py
+./GAMES/Flames_Game/flames_game_gui.py
+./GAMES/Dice-Rolling-Game/dice_roll_sim.py
+./GAMES/TIC_TAC_TOE/widgets.py
+./GAMES/TIC_TAC_TOE/main.py
+./GAMES/TIC_TAC_TOE/configuration.py
+./GAMES/ConsoleSnake/main.py
+./GAMES/ConsoleSnake/getch.py
+./OTHERS/Geocoding Google API/geo.py
+./OTHERS/RecursivePalindrome/main.py
+./OTHERS/Youtube Video Downloader/youtube-downloader.py
+./OTHERS/Star pattern/star_pattern.py
+./OTHERS/QrCodeGen/qr.py
+./OTHERS/drink-remider/main.py
+./OTHERS/Rain_Alert/main.py
+./OTHERS/FindLongestWord/main.py
+./OTHERS/Chimera_script/webGL_images.py
+./OTHERS/MultiprocessingLogger/main.py
+./OTHERS/MultiprocessingLogger/logger.py
+./OTHERS/Inven_Tree/dashboard/model.py
+./OTHERS/Inven_Tree/dashboard/admin.py
+./OTHERS/Inven_Tree/dashboard/__init__.py
+./OTHERS/Inven_Tree/dashboard/forms.py
+./OTHERS/Inven_Tree/dashboard/tests.py
+./OTHERS/Inven_Tree/dashboard/apps.py
+./OTHERS/Inven_Tree/dashboard/views.py
+./OTHERS/Inven_Tree/dashboard/migrations/0005_auto_20221008_0154.py
+./OTHERS/Inven_Tree/dashboard/migrations/__init__.py
+./OTHERS/Inven_Tree/dashboard/migrations/0003_remove_product_price.py
+./OTHERS/Inven_Tree/dashboard/migrations/0002_order_order_quantity.py
+./OTHERS/Inven_Tree/dashboard/migrations/0006_auto_20221008_2002.py
+./OTHERS/Inven_Tree/dashboard/migrations/0004_auto_20210320_1908.py
+./OTHERS/Inven_Tree/dashboard/migrations/0001_initial.py
+./OTHERS/Inven_Tree/dashboard/decorators.py
+./OTHERS/Inven_Tree/dashboard/filter.py
+./OTHERS/Inven_Tree/dashboard/urls.py
+./OTHERS/Inven_Tree/user/signals.py
+./OTHERS/Inven_Tree/user/admin.py
+./OTHERS/Inven_Tree/user/__init__.py
+./OTHERS/Inven_Tree/user/forms.py
+./OTHERS/Inven_Tree/user/tests.py
+./OTHERS/Inven_Tree/user/apps.py
+./OTHERS/Inven_Tree/user/views.py
+./OTHERS/Inven_Tree/user/models.py
+./OTHERS/Inven_Tree/user/migrations/__init__.py
+./OTHERS/Inven_Tree/user/migrations/0001_initial.py
+./OTHERS/Inven_Tree/manage.py
+./OTHERS/Inven_Tree/inventoryproject/__init__.py
+./OTHERS/Inven_Tree/inventoryproject/asgi.py
+./OTHERS/Inven_Tree/inventoryproject/wsgi.py
+./OTHERS/Inven_Tree/inventoryproject/settings.py
+./OTHERS/Inven_Tree/inventoryproject/urls.py
+./OTHERS/Fibonacci_Sequence_Generator/Fibonacci.py
+./OTHERS/RandomNameGen/user_generator.py
+./OTHERS/Virtual_Mouse-main/Virtual_Mouse.py
+./OTHERS/Face_recognition/main.py
+./OTHERS/RandomQuoteGenerator/random-quote.py
+./OTHERS/PyDiff/pydiff.py
+./OTHERS/Notification/notify.py
+./OTHERS/MyFavouriteCart/main.py
+./OTHERS/MyFavouriteCart/mfc/blog/admin.py
+./OTHERS/MyFavouriteCart/mfc/blog/__init__.py
+./OTHERS/MyFavouriteCart/mfc/blog/tests.py
+./OTHERS/MyFavouriteCart/mfc/blog/apps.py
+./OTHERS/MyFavouriteCart/mfc/blog/views.py
+./OTHERS/MyFavouriteCart/mfc/blog/models.py
+./OTHERS/MyFavouriteCart/mfc/blog/migrations/__init__.py
+./OTHERS/MyFavouriteCart/mfc/blog/migrations/0002_auto_20210415_1944.py
+./OTHERS/MyFavouriteCart/mfc/blog/migrations/0001_initial.py
+./OTHERS/MyFavouriteCart/mfc/blog/urls.py
+./OTHERS/MyFavouriteCart/mfc/manage.py
+./OTHERS/MyFavouriteCart/mfc/mfc/__init__.py
+./OTHERS/MyFavouriteCart/mfc/mfc/asgi.py
+./OTHERS/MyFavouriteCart/mfc/mfc/wsgi.py
+./OTHERS/MyFavouriteCart/mfc/mfc/views.py
+./OTHERS/MyFavouriteCart/mfc/mfc/settings.py
+./OTHERS/MyFavouriteCart/mfc/mfc/urls.py
+./OTHERS/MyFavouriteCart/mfc/shop/admin.py
+./OTHERS/MyFavouriteCart/mfc/shop/__init__.py
+./OTHERS/MyFavouriteCart/mfc/shop/tests.py
+./OTHERS/MyFavouriteCart/mfc/shop/apps.py
+./OTHERS/MyFavouriteCart/mfc/shop/views.py
+./OTHERS/MyFavouriteCart/mfc/shop/models.py
+./OTHERS/MyFavouriteCart/mfc/shop/migrations/0008_auto_20210417_1904.py
+./OTHERS/MyFavouriteCart/mfc/shop/migrations/0007_orders_amount.py
+./OTHERS/MyFavouriteCart/mfc/shop/migrations/__init__.py
+./OTHERS/MyFavouriteCart/mfc/shop/migrations/0004_orders.py
+./OTHERS/MyFavouriteCart/mfc/shop/migrations/0002_auto_20210222_2121.py
+./OTHERS/MyFavouriteCart/mfc/shop/migrations/0003_contact.py
+./OTHERS/MyFavouriteCart/mfc/shop/migrations/0005_orders_phone.py
+./OTHERS/MyFavouriteCart/mfc/shop/migrations/0006_orderupdate.py
+./OTHERS/MyFavouriteCart/mfc/shop/migrations/0001_initial.py
+./OTHERS/MyFavouriteCart/mfc/shop/urls.py
+./OTHERS/Secret Santa Program/main.py
+./OTHERS/Jarvis/ools/PyQt5/pylupdate_main.py
+./OTHERS/Jarvis/ools/PyQt5/__init__.py
+./OTHERS/Jarvis/ools/PyQt5/uic/properties.py
+./OTHERS/Jarvis/ools/PyQt5/uic/pyuic.py
+./OTHERS/Jarvis/ools/PyQt5/uic/widget-plugins/qscintilla.py
+./OTHERS/Jarvis/ools/PyQt5/uic/widget-plugins/qtwebenginewidgets.py
+./OTHERS/Jarvis/ools/PyQt5/uic/widget-plugins/qtcharts.py
+./OTHERS/Jarvis/ools/PyQt5/uic/widget-plugins/qtquickwidgets.py
+./OTHERS/Jarvis/ools/PyQt5/uic/widget-plugins/qaxcontainer.py
+./OTHERS/Jarvis/ools/PyQt5/uic/widget-plugins/qtwebkit.py
+./OTHERS/Jarvis/ools/PyQt5/uic/widget-plugins/qtprintsupport.py
+./OTHERS/Jarvis/ools/PyQt5/uic/port_v3/as_string.py
+./OTHERS/Jarvis/ools/PyQt5/uic/port_v3/proxy_base.py
+./OTHERS/Jarvis/ools/PyQt5/uic/port_v3/__init__.py
+./OTHERS/Jarvis/ools/PyQt5/uic/port_v3/ascii_upper.py
+./OTHERS/Jarvis/ools/PyQt5/uic/port_v3/string_io.py
+./OTHERS/Jarvis/ools/PyQt5/uic/port_v2/as_string.py
+./OTHERS/Jarvis/ools/PyQt5/uic/port_v2/proxy_base.py
+./OTHERS/Jarvis/ools/PyQt5/uic/port_v2/__init__.py
+./OTHERS/Jarvis/ools/PyQt5/uic/port_v2/ascii_upper.py
+./OTHERS/Jarvis/ools/PyQt5/uic/port_v2/string_io.py
+./OTHERS/Jarvis/ools/PyQt5/uic/Compiler/proxy_metaclass.py
+./OTHERS/Jarvis/ools/PyQt5/uic/Compiler/compiler.py
+./OTHERS/Jarvis/ools/PyQt5/uic/Compiler/indenter.py
+./OTHERS/Jarvis/ools/PyQt5/uic/Compiler/__init__.py
+./OTHERS/Jarvis/ools/PyQt5/uic/Compiler/misc.py
+./OTHERS/Jarvis/ools/PyQt5/uic/Compiler/qobjectcreator.py
+./OTHERS/Jarvis/ools/PyQt5/uic/Compiler/qtproxies.py
+./OTHERS/Jarvis/ools/PyQt5/uic/__init__.py
+./OTHERS/Jarvis/ools/PyQt5/uic/exceptions.py
+./OTHERS/Jarvis/ools/PyQt5/uic/Loader/__init__.py
+./OTHERS/Jarvis/ools/PyQt5/uic/Loader/loader.py
+./OTHERS/Jarvis/ools/PyQt5/uic/Loader/qobjectcreator.py
+./OTHERS/Jarvis/ools/PyQt5/uic/objcreator.py
+./OTHERS/Jarvis/ools/PyQt5/uic/driver.py
+./OTHERS/Jarvis/ools/PyQt5/uic/uiparser.py
+./OTHERS/Jarvis/ools/PyQt5/uic/icon_cache.py
+./OTHERS/Jarvis/ools/PyQt5/pyrcc_main.py
+./OTHERS/Jarvis/jarvisUi.py
+./OTHERS/Jarvis/jarvis.py
+./OTHERS/Multi_User_Chat_Application/client.py
+./OTHERS/Multi_User_Chat_Application/server.py
+./OTHERS/Hackerrank/tuples.py
+./OTHERS/Hackerrank/frozensets.py
+./OTHERS/Hackerrank/list-removal.py
+./OTHERS/Hackerrank/immutable.py
+./OTHERS/Hackerrank/sequence.py
+./OTHERS/Hackerrank/exception.py
+./OTHERS/Hackerrank/tempCodeRunnerFile.py
+./OTHERS/Hackerrank/pattern.py
+./INVESTMENT_RULES/inflation_adjusted_return.py
+./INVESTMENT_RULES/rule_of_72.py
+./GUI/JSON Validator/main.py
+./GUI/JSON Validator/json_parser.py
+./GUI/Quadratic-Equation-Solver/quad.py
+./GUI/Quadratic-Equation-Solver/ui.py
+./GUI/Calculator/basic-calculator-gui.py
+./GUI/Password Generator/password_generator.py
+./GUI/PyQuiz/main.py
+./GUI/Pomodoro Timer/Pomodoro_timer.py
+./GUI/QtQuiz/main.py
+./GUI/QtQuiz/design.py
+./GUI/Dates/main.py
+./DJANGO PROJECTS/Chat/manage.py
+./DJANGO PROJECTS/Chat/chat/admin.py
+./DJANGO PROJECTS/Chat/chat/__init__.py
+./DJANGO PROJECTS/Chat/chat/forms.py
+./DJANGO PROJECTS/Chat/chat/tests.py
+./DJANGO PROJECTS/Chat/chat/apps.py
+./DJANGO PROJECTS/Chat/chat/views.py
+./DJANGO PROJECTS/Chat/chat/models.py
+./DJANGO PROJECTS/Chat/chat/migrations/__init__.py
+./DJANGO PROJECTS/Chat/chat/urls.py
+./DJANGO PROJECTS/Chat/room/admin.py
+./DJANGO PROJECTS/Chat/room/consumers.py
+./DJANGO PROJECTS/Chat/room/__init__.py
+./DJANGO PROJECTS/Chat/room/forms.py
+./DJANGO PROJECTS/Chat/room/tests.py
+./DJANGO PROJECTS/Chat/room/apps.py
+./DJANGO PROJECTS/Chat/room/views.py
+./DJANGO PROJECTS/Chat/room/models.py
+./DJANGO PROJECTS/Chat/room/migrations/__init__.py
+./DJANGO PROJECTS/Chat/room/migrations/0001_initial.py
+./DJANGO PROJECTS/Chat/room/urls.py
+./DJANGO PROJECTS/Chat/room/routing.py
+./DJANGO PROJECTS/Chat/project/__init__.py
+./DJANGO PROJECTS/Chat/project/asgi.py
+./DJANGO PROJECTS/Chat/project/wsgi.py
+./DJANGO PROJECTS/Chat/project/settings.py
+./DJANGO PROJECTS/Chat/project/urls.py
+./ART SCRIPTS/pencilSketch/main.py
+./ART SCRIPTS/Images to PDF/images-to-pdf.py
+./ART SCRIPTS/Draw python logo using python/main.py
+./ART SCRIPTS/image-ascii/image.py
+./TIME SCRIPTS/Pomodoro-App/main.py
+./TIME SCRIPTS/GUI Count Down Timer/Count Down Timer GUI.py
+./TIME SCRIPTS/DigitalClock/clock.py
+./TIME SCRIPTS/Alarm clock/alarm_clock.py
+./TIME SCRIPTS/Age calculator/age.py
+./TIME SCRIPTS/Age calculator/age1.py
+./TIME SCRIPTS/Umbrella Reminder/code.py
+./TIME SCRIPTS/Countdown Timer/timer.py
+./TIME SCRIPTS/current_time/getting_current_time_zone.py
+./TIME SCRIPTS/Script-RunTime/python-runtime.py
+./PYTHON APPS/PDF-Text-Extractor/app.py
+./PYTHON APPS/FinanceTracker/main.py
+./PYTHON APPS/FinanceTracker/financeDataBase.py
+./PYTHON APPS/Python IDE/app.py
+./PYTHON APPS/PDF_Downloader/pdf.py
+./PYTHON APPS/Spelling Corrector/spelling-corrector.py
+./PYTHON APPS/DownTube/Exceptions.py
+./PYTHON APPS/DownTube/Functionality.py
+./PYTHON APPS/DownTube/downtube.py
+./PYTHON APPS/CSV_files/read_csv.py
+./PYTHON APPS/CSV_files/write_csv.py
+./PYTHON APPS/mp3-MusicPlayer/music.py
+./PYTHON APPS/Moder_Calculator_IOS/widgets.py
+./PYTHON APPS/Moder_Calculator_IOS/main.py
+./PYTHON APPS/Moder_Calculator_IOS/configuration.py
+./PYTHON APPS/YoutubeDownloader/youtube.py
+./PYTHON APPS/PythonDictionary/find.py
+./PYTHON APPS/PythonDictionary/dictionary.py
+./PYTHON APPS/Alarm_Clock/widgets.py
+./PYTHON APPS/Alarm_Clock/toplevel.py
+./PYTHON APPS/Alarm_Clock/main.py
+./PYTHON APPS/Alarm_Clock/backend_alarm.py
+./PYTHON APPS/Alarm_Clock/configuration.py
+./PYTHON APPS/Alarm_Clock/frame_alarm.py
+./PYTHON APPS/Facebook/facebook.py
+./PYTHON APPS/URL Shortner/tiny-url-shortner.py
+./PYTHON APPS/ScreenRecorder/screen.py
+./PYTHON APPS/CLI-Based-TODO/task.py
+./PYTHON APPS/PhotoEditorApp/edit.py
+./PYTHON APPS/pyjokes/jokes.py
+./PYTHON APPS/pyjokes/laugh.py
+./PYTHON APPS/Chess/main.py
+./PYTHON APPS/Chess/engine.py
+./PYTHON APPS/Notepad/notepad.py
+./WEB SCRAPING/WebScraping-Data-Analytics/pydataanalytics.py
+./WEB SCRAPING/vocabulary log helper/LogHelperSync.py
+./WEB SCRAPING/vocabulary log helper/LogHelper.py
+./WEB SCRAPING/WebScraping/scrap.py
+./WEB SCRAPING/Bitcoin Price/bitcoin.py
+./WEB SCRAPING/News_Article_Scraping/Article.py
+./WEB SCRAPING/Weather Updates/WeatherUpdates.py
+./WEB SCRAPING/Weather Forcasting/code.py
+./WEB SCRAPING/bot/booking/__init__.py
+./WEB SCRAPING/bot/booking/booking_report.py
+./WEB SCRAPING/bot/booking/constants.py
+./WEB SCRAPING/bot/booking/booking.py
+./WEB SCRAPING/bot/booking/booking_filteration.py
+./WEB SCRAPING/bot/additional.py
+./WEB SCRAPING/bot/run.py
+./WEB SCRAPING/Get-Dir-Github-Repo/get.py
+./WEB SCRAPING/PYDICTIONARY/pydictionary.py
+./WEB SCRAPING/wikipedia/lang.py
+./WEB SCRAPING/wikipedia/wiki3.py
+./WEB SCRAPING/wikipedia/wiki1.py
+./WEB SCRAPING/wikipedia/wiki2.py
+./WEB SCRAPING/devJobsScanner_Scraper/job_scraper_static.py
+./WEB SCRAPING/devJobsScanner_Scraper/job_scraper_dynamic.py
+./WEB SCRAPING/Most Popular Lyric/main.py
+./AUTOMATION/PDF Page Color Counter/main.py
+./AUTOMATION/InternetConnectivityMonitor/monitor.py
+./AUTOMATION/Sending-Emails/code.py
+./AUTOMATION/FileReplaceWithNewer/replace_with_newer.py
+./AUTOMATION/PDF merge/mergePDF.py
+./AUTOMATION/Email Automation/automatedSending.py
+./AUTOMATION/PhotoResizing/photo_resizing.py
+./AUTOMATION/Summarizer App/app.py
+./AUTOMATION/Automate Text Bombing/Bomber_Source_Code.py
+./AUTOMATION/ServerChecker/serverChecker.py
+./AUTOMATION/analyzing and writing .docx file/extract.py
+./AUTOMATION/Remove Duplicate Files in Folder/entduplicate.py
+./AUTOMATION/AutoMoveFiles/AutoMoveFiles.py
+./AUTOMATION/Getting Files and Folders sizes/GettingSizez.py
+./AUTOMATION/Google Search Automation/google-search-automatic.py
+./AUTOMATION/Web_Scraper/app.py
+./AUTOMATION/PDF To Text/pdfToText.py
+./BOTS/InstagramBot/instagram.py
+./BOTS/whatsapp-spam/spam-bot.py
+./BOTS/Chat-Bot/chatbots.py
+./BOTS/InstaSpamBot/bot.py
+./BOTS/pywhatkit/whatsapp.py
+./BOTS/pywhatkit/info.py
+./BOTS/pywhatkit/sendmsg.py
+./BOTS/pywhatkit/ascii_art.py
+./BOTS/pywhatkit/handwriting.py
+./BOTS/pywhatkit/play.py
+./BOTS/DiscordBotTemplate/Main.py
+./Data Structures and Algorithms/Sorting Algorithms/Cycle_Sort.py
+./Data Structures and Algorithms/Sorting Algorithms/quick_sort_v2.py
+./Data Structures and Algorithms/Sorting Algorithms/quick_sort_string.py
+./Data Structures and Algorithms/Sorting Algorithms/quick_sort.py
+./Data Structures and Algorithms/Sorting Algorithms/Insertion_sort.py
+./Data Structures and Algorithms/Sorting Algorithms/Pigeonhole_Sort.py
+./Data Structures and Algorithms/Sorting Algorithms/linked_list_merge_sort.py
+./Data Structures and Algorithms/Sorting Algorithms/Heap_sort.py
+./Data Structures and Algorithms/Sorting Algorithms/radix_sort.py
+./Data Structures and Algorithms/Sorting Algorithms/Bubble_sort.py
+./Data Structures and Algorithms/Sorting Algorithms/selection_sort.py
+./Data Structures and Algorithms/Sorting Algorithms/bogo_sort.py
+./Data Structures and Algorithms/Sorting Algorithms/shell_sort.py
+./Data Structures and Algorithms/Sorting Algorithms/bucket_sort.py
+./Data Structures and Algorithms/Sorting Algorithms/counting_sort.py
+./Data Structures and Algorithms/Sorting Algorithms/merge_sort_2.py
+./Data Structures and Algorithms/Sorting Algorithms/sleep_sort.py
+./Data Structures and Algorithms/Sorting Algorithms/cocktail_sort.py
+./Data Structures and Algorithms/Sorting Algorithms/merge_sort.py
+./Data Structures and Algorithms/Sorting Algorithms/counting_sort_2.py
+./Data Structures and Algorithms/Trees/binary_tree.py
+./Data Structures and Algorithms/radix_sort.py
+./Data Structures and Algorithms/linked_list.py
+./Data Structures and Algorithms/queues.py
+./Data Structures and Algorithms/Dictionary_Functions/dictionaryFunctions.py
+./Data Structures and Algorithms/Genetic Algorithms/knapsack_problem.py
+./Data Structures and Algorithms/stack/stack.py
+./Data Structures and Algorithms/union_find/union_find.py
+./Data Structures and Algorithms/recursion.py
+./Data Structures and Algorithms/Search Algorithms/binary_search_strings.py
+./Data Structures and Algorithms/Search Algorithms/recursive_binary_search.py
+./Data Structures and Algorithms/Search Algorithms/linear_search_strings.py
+./Data Structures and Algorithms/Search Algorithms/binary_search.py
+./Data Structures and Algorithms/Search Algorithms/linear_search.py
+./Data Structures and Algorithms/len_nth_word_from_end.py
+./IMAGES & PHOTO SCRIPTS/photo editor/photo.py
+./IMAGES & PHOTO SCRIPTS/Image-Inverter/inverter.py
+./IMAGES & PHOTO SCRIPTS/ImageDivider/ImageDivider.py
+./IMAGES & PHOTO SCRIPTS/Capture Image and Save in Local/capture_img.py
+./IMAGES & PHOTO SCRIPTS/Extract Texts from Image/image-text.py
+./IMAGES & PHOTO SCRIPTS/Image Grayscalling/code.py
+./IMAGES & PHOTO SCRIPTS/Compress Image/img_comp.py
+./IMAGES & PHOTO SCRIPTS/Image Captcha Generator/code.py
+./IMAGES & PHOTO SCRIPTS/CLI-Photo-Watermark/main.py
+./IMAGES & PHOTO SCRIPTS/Image to PDF/image2pdf.py
+./DOM EXTRACTION/main.py
+./CONVERSION SCRIPTS/Weight Converter/weight.py
+./CONVERSION SCRIPTS/HTML to Excel/HTML to Excel.py
+./CONVERSION SCRIPTS/Hex to Base64 Converter/Hex to Base64 Converter (condensed).py
+./CONVERSION SCRIPTS/Hex to Base64 Converter/Hex to Base64 Converter (commented).py
+./CONVERSION SCRIPTS/Temperature and Distance Converter/converter.py
+./CONVERSION SCRIPTS/CSV to JSON/csv-to-json.py
+./CONVERSION SCRIPTS/Morse-Code-Converter/main.py
+./CONVERSION SCRIPTS/Morse-Code-Converter/converter_app.py
+./CONVERSION SCRIPTS/Morse-Code-Converter/morse.py
+./CONVERSION SCRIPTS/Morse-Code-Converter/data.py
+./CONVERSION SCRIPTS/ShortenLinks/code.py
+./CONVERSION SCRIPTS/Currency Converter/Currency.py
+./MachineLearning Projects/Book Recommendation using KNN/book.py
+./MachineLearning Projects/Twitter-sentiments-analysis/twitter-sentiment-analysis.py
+./MachineLearning Projects/prediction-of-CO2-emission/model.py
+./MachineLearning Projects/prediction-of-CO2-emission/app.py
+./MachineLearning Projects/traffic sign recognition using CNN and Keras/traffic_sign.py
+./MachineLearning Projects/traffic sign recognition using CNN and Keras/gui.py
+./MachineLearning Projects/Landmark Recognition using TensorFlow/recognition.py
+./MachineLearning Projects/tracking live sentiment analysis to trade/latest_bot.py
+./MachineLearning Projects/Student-Feedback-Sentiment-Analysis-main/Student-Feedback-Sentiment-Analysis-main/drawFigure.py
+./MachineLearning Projects/Student-Feedback-Sentiment-Analysis-main/Student-Feedback-Sentiment-Analysis-main/app.py
+./MachineLearning Projects/Student-Feedback-Sentiment-Analysis-main/Student-Feedback-Sentiment-Analysis-main/faculty.py
+./MachineLearning Projects/Fakenews/app.py
+./MachineLearning Projects/Fakenews/fake_news_detection.py
+./MachineLearning Projects/Twitter-sentiment-analysis/twitter-sentiment-analysis.py
+./MachineLearning Projects/Face-detecting/detect_face_from_image.py
+./MachineLearning Projects/Face-detecting/main.py
+./MachineLearning Projects/Image Classification using CNN TensorFlow OpenCV/HelperFunctions.py
+./MachineLearning Projects/Plant Disease Prediction/app/app.py
+./MachineLearning Projects/Vehicle-Detection/yad2k/utils/__init__.py
+./MachineLearning Projects/Vehicle-Detection/yad2k/utils/utils.py
+./MachineLearning Projects/Vehicle-Detection/yad2k/models/keras_darknet19.py
+./MachineLearning Projects/Vehicle-Detection/yad2k/models/keras_yolo.py
+./MachineLearning Projects/Vehicle-Detection/yolo_utils.py
+./MachineLearning Projects/Cricket Score Predictor/app.py
+./MachineLearning Projects/Poisonous_Mushroom-project/Script/app.py
+./MachineLearning Projects/sudoku_solver/full_stack_http.py
+./MachineLearning Projects/sudoku_solver/test_full_stack.py
+./MachineLearning Projects/sudoku_solver/temp.py
+./MachineLearning Projects/sudoku_solver/sudoku.py
+./MachineLearning Projects/sudoku_solver/verify_image.py
+./MachineLearning Projects/sudoku_solver/web_interface.py
+./MachineLearning Projects/sudoku_solver/perspective.py
+./MachineLearning Projects/sudoku_solver/image.py
+./MachineLearning Projects/Driver-Drowsiness-Detection/model.py
+./MachineLearning Projects/Driver-Drowsiness-Detection/main.py
+./MachineLearning Projects/House-Price-Predictor/main.py
+./MachineLearning Projects/Stock-Analysis/StockAnalysis.py
+./MachineLearning Projects/Emotion Detector using Google's Teachable ML/main.py
+./AUDIO RELATED SCRIPTS/AudioBuk/audio.py
+./AUDIO RELATED SCRIPTS/audiobookfinder/audiobookfinder.py
+./AUDIO RELATED SCRIPTS/Audio Captcha Generator/code.py
+./AUDIO RELATED SCRIPTS/texttoaudio/code.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/donor/admin.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/donor/__init__.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/donor/forms.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/donor/tests.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/donor/apps.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/donor/views.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/donor/models.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/donor/migrations/__init__.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/donor/migrations/0002_auto_20210213_1602.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/donor/migrations/0001_initial.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/donor/urls.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/manage.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/bloodbankmanagement/__init__.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/bloodbankmanagement/asgi.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/bloodbankmanagement/wsgi.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/bloodbankmanagement/settings.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/bloodbankmanagement/urls.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/blood/admin.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/blood/__init__.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/blood/forms.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/blood/tests.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/blood/apps.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/blood/views.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/blood/models.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/blood/migrations/0003_auto_20210213_1053.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/blood/migrations/0004_bloodrequest_date.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/blood/migrations/__init__.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/blood/migrations/0002_bloodrequest.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/blood/migrations/0001_initial.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/patient/admin.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/patient/__init__.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/patient/forms.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/patient/tests.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/patient/apps.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/patient/views.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/patient/models.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/patient/migrations/__init__.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/patient/migrations/0001_initial.py
+./SYSTEM MANAGEMENT APPS/bloodbankmanagement/patient/urls.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/manage.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/students/admin.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/students/__init__.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/students/forms.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/students/tests.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/students/apps.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/students/views.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/students/models.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/students/migrations/__init__.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/students/migrations/0001_initial.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/students/urls.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/django_project/__init__.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/django_project/asgi.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/django_project/wsgi.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/django_project/settings.py
+./SYSTEM MANAGEMENT APPS/Student_management_system/django_project/urls.py
+./SYSTEM MANAGEMENT APPS/Contact-management/contact_management.py
+./ENCRYPT-ENV-SCRIPT/envars_script.py
+./ENCRYPT-ENV-SCRIPT/__init__.py
+./ENCRYPT-ENV-SCRIPT/test_script.py
+./ENCRYPT-ENV-SCRIPT/envars_helper.py
+./FLASK PROJECTS/FlaskSimpleCalculator/app.py
+./FLASK PROJECTS/User Hash Generator/hash.py
+./FLASK PROJECTS/Url Shortening App in Flask/db.py
+./FLASK PROJECTS/Url Shortening App in Flask/app.py
+./FLASK PROJECTS/Url Shortening App in Flask/helpers.py
+./FLASK PROJECTS/Url Shortening App in Flask/run.py
+./FLASK PROJECTS/Teacher Promotion Flask API/main.py
+./FLASK PROJECTS/Teacher Promotion Flask API/load_process_prediction.py
+./FLASK PROJECTS/Excel to Firebase/main.py
+./FLASK PROJECTS/Career ready/Flask_Setup/app.py
+./FLASK PROJECTS/Career ready/Flask_Setup/models.py
+./FLASK PROJECTS/Inventory Billing Management System using Flask/helper.py
+./FLASK PROJECTS/Inventory Billing Management System using Flask/db.py
+./FLASK PROJECTS/Inventory Billing Management System using Flask/app.py
+./FLASK PROJECTS/Instagram Scraper using Flask/helper.py
+./FLASK PROJECTS/Instagram Scraper using Flask/app.py
+./FLASK PROJECTS/Web Dev with Flask/server.py
+./FLASK PROJECTS/E-commerce/app.py
+./FLASK PROJECTS/E-commerce/helpers.py
+./FLASK PROJECTS/Firebase Authenticatio in Flask Application/main.py
+./FLASK PROJECTS/Firebase Authenticatio in Flask Application/db.py
+./FLASK PROJECTS/Firebase Authenticatio in Flask Application/run.py
+./Cyber_security  projects/threading.py
+./Cyber_security  projects/hotelbill.py
+./Cyber_security  projects/CLIENT.py
+./Cyber_security  projects/Remote Code Execution.py
+./Cyber_security  projects/SERVER.py
+./PASSWORD RELATED/PasswordHashingUtility/python_hashing_utility.py
+./PASSWORD RELATED/RandomPassword/password.py
+./PASSWORD RELATED/passwordbreachchecker/passwordbreach.py
+./PASSWORD RELATED/password-strength/password_strength_checker.py
+./PASSWORD RELATED/password-validator/PASSWORD_VALIDATOR.py
+./PASSWORD RELATED/Saved Wi-FI Password/get-wifi-passwords.py

@@ -1,0 +1,100 @@
+./WEB SCRAPING/News_Article_Scraping/Article.py
+./WEB SCRAPING/Weather Updates/WeatherUpdates.py
+./WEB SCRAPING/Weather Forcasting/code.py
+./WEB SCRAPING/bot/booking/__init__.py
+./WEB SCRAPING/bot/booking/booking_report.py
+./WEB SCRAPING/bot/booking/constants.py
+./WEB SCRAPING/bot/booking/booking.py
+./WEB SCRAPING/bot/booking/booking_filteration.py
+./WEB SCRAPING/bot/additional.py
+./WEB SCRAPING/bot/run.py
+./WEB SCRAPING/Get-Dir-Github-Repo/get.py
+./WEB SCRAPING/PYDICTIONARY/pydictionary.py
+./WEB SCRAPING/wikipedia/lang.py
+./WEB SCRAPING/wikipedia/wiki3.py
+./WEB SCRAPING/wikipedia/wiki1.py
+./WEB SCRAPING/wikipedia/wiki2.py
+./WEB SCRAPING/devJobsScanner_Scraper/job_scraper_static.py
+./WEB SCRAPING/devJobsScanner_Scraper/job_scraper_dynamic.py
+./WEB SCRAPING/Most Popular Lyric/main.py
+./AUTOMATION/PDF Page Color Counter/main.py
+./AUTOMATION/InternetConnectivityMonitor/monitor.py
+./AUTOMATION/Sending-Emails/code.py
+./AUTOMATION/FileReplaceWithNewer/replace_with_newer.py
+./AUTOMATION/PDF merge/mergePDF.py
+./AUTOMATION/Email Automation/automatedSending.py
+./AUTOMATION/PhotoResizing/photo_resizing.py
+./AUTOMATION/Summarizer App/app.py
+./AUTOMATION/Automate Text Bombing/Bomber_Source_Code.py
+./AUTOMATION/ServerChecker/serverChecker.py
+./AUTOMATION/analyzing and writing .docx file/extract.py
+./AUTOMATION/Remove Duplicate Files in Folder/entduplicate.py
+./AUTOMATION/AutoMoveFiles/AutoMoveFiles.py
+./AUTOMATION/Getting Files and Folders sizes/GettingSizez.py
+./AUTOMATION/Google Search Automation/google-search-automatic.py
+./AUTOMATION/Web_Scraper/app.py
+./AUTOMATION/PDF To Text/pdfToText.py
+./BOTS/InstagramBot/instagram.py
+./BOTS/whatsapp-spam/spam-bot.py
+./BOTS/Chat-Bot/chatbots.py
+./BOTS/InstaSpamBot/bot.py
+./BOTS/pywhatkit/whatsapp.py
+./BOTS/pywhatkit/info.py
+./BOTS/pywhatkit/sendmsg.py
+./BOTS/pywhatkit/ascii_art.py
+./BOTS/pywhatkit/handwriting.py
+./BOTS/pywhatkit/play.py
+./BOTS/DiscordBotTemplate/Main.py
+./Data Structures and Algorithms/Sorting Algorithms/Cycle_Sort.py
+./Data Structures and Algorithms/Sorting Algorithms/quick_sort_v2.py
+./Data Structures and Algorithms/Sorting Algorithms/quick_sort_string.py
+./Data Structures and Algorithms/Sorting Algorithms/quick_sort.py
+./Data Structures and Algorithms/Sorting Algorithms/Insertion_sort.py
+./Data Structures and Algorithms/Sorting Algorithms/Pigeonhole_Sort.py
+./Data Structures and Algorithms/Sorting Algorithms/linked_list_merge_sort.py
+./Data Structures and Algorithms/Sorting Algorithms/Heap_sort.py
+./Data Structures and Algorithms/Sorting Algorithms/radix_sort.py
+./Data Structures and Algorithms/Sorting Algorithms/Bubble_sort.py
+./Data Structures and Algorithms/Sorting Algorithms/selection_sort.py
+./Data Structures and Algorithms/Sorting Algorithms/bogo_sort.py
+./Data Structures and Algorithms/Sorting Algorithms/shell_sort.py
+./Data Structures and Algorithms/Sorting Algorithms/bucket_sort.py
+./Data Structures and Algorithms/Sorting Algorithms/counting_sort.py
+./Data Structures and Algorithms/Sorting Algorithms/merge_sort_2.py
+./Data Structures and Algorithms/Sorting Algorithms/sleep_sort.py
+./Data Structures and Algorithms/Sorting Algorithms/cocktail_sort.py
+./Data Structures and Algorithms/Sorting Algorithms/merge_sort.py
+./Data Structures and Algorithms/Sorting Algorithms/counting_sort_2.py
+./Data Structures and Algorithms/Trees/binary_tree.py
+./Data Structures and Algorithms/radix_sort.py
+./Data Structures and Algorithms/linked_list.py
+./Data Structures and Algorithms/queues.py
+./Data Structures and Algorithms/Dictionary_Functions/dictionaryFunctions.py
+./Data Structures and Algorithms/Genetic Algorithms/knapsack_problem.py
+./Data Structures and Algorithms/stack/stack.py
+./Data Structures and Algorithms/union_find/union_find.py
+./Data Structures and Algorithms/recursion.py
+./Data Structures and Algorithms/Search Algorithms/binary_search_strings.py
+./Data Structures and Algorithms/Search Algorithms/recursive_binary_search.py
+./Data Structures and Algorithms/Search Algorithms/linear_search_strings.py
+./Data Structures and Algorithms/Search Algorithms/binary_search.py
+./Data Structures and Algorithms/Search Algorithms/linear_search.py
+./Data Structures and Algorithms/len_nth_word_from_end.py
+./IMAGES & PHOTO SCRIPTS/photo editor/photo.py
+./IMAGES & PHOTO SCRIPTS/Image-Inverter/inverter.py
+./IMAGES & PHOTO SCRIPTS/ImageDivider/ImageDivider.py
+./IMAGES & PHOTO SCRIPTS/Capture Image and Save in Local/capture_img.py
+./IMAGES & PHOTO SCRIPTS/Extract Texts from Image/image-text.py
+./IMAGES & PHOTO SCRIPTS/Image Grayscalling/code.py
+./IMAGES & PHOTO SCRIPTS/Compress Image/img_comp.py
+./IMAGES & PHOTO SCRIPTS/Image Captcha Generator/code.py
+./IMAGES & PHOTO SCRIPTS/CLI-Photo-Watermark/main.py
+./IMAGES & PHOTO SCRIPTS/Image to PDF/image2pdf.py
+./DOM EXTRACTION/main.py
+./CONVERSION SCRIPTS/Weight Converter/weight.py
+./CONVERSION SCRIPTS/HTML to Excel/HTML to Excel.py
+./CONVERSION SCRIPTS/Hex to Base64 Converter/Hex to Base64 Converter (condensed).py
+./CONVERSION SCRIPTS/Hex to Base64 Converter/Hex to Base64 Converter (commented).py
+./CONVERSION SCRIPTS/Temperature and Distance Converter/converter.py
+./CONVERSION SCRIPTS/CSV to JSON/csv-to-json.py
+./CONVERSION SCRIPTS/Morse-Code-Converter/main.py

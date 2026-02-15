@@ -1,0 +1,32 @@
+[workspace]
+authors = ["fkt <deepthought@postech.ac.kr>"]
+channels = ["conda-forge"]
+name = "python-project-scripts"
+platforms = ["osx-arm64", "linux-64"]
+version = "0.1.0"
+
+[dependencies]
+python = "3.12.*"
+quarto = ">=1.8.27"
+pyyaml = "*"
+# Common dependencies for many scripts (optional, but good for local dev)
+flask = "*"
+django = "*"
+pandas = "*"
+numpy = "*"
+requests = "*"
+beautifulsoup4 = "*"
+scikit-learn = "*"
+matplotlib = "*"
+pillow = "*"
+
+[tasks]
+generate-book = "python generate_book.py"
+render-book = "quarto render mybook"
+preview-book = "quarto preview mybook"
+
+[feature.publish.tasks]
+publish-book = "quarto publish gh-pages mybook --no-prompt --no-browser"
+
+[environments]
+default = ["publish"]

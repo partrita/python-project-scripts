@@ -1,0 +1,34 @@
+name: Publish Quarto Book
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Setup Pixi
+        uses: prefix-dev/setup-pixi@v0.8.1
+        with:
+          pixi-version: v0.39.5
+          cache: true
+
+      - name: Generate Quarto Book Content
+        run: pixi run generate-book
+
+      - name: Render and Publish
+        run: |
+          # Use pixi run to ensure quarto is in the environment
+          pixi run quarto publish gh-pages mybook --no-browser --no-prompt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

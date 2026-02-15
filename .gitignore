@@ -135,6 +135,10 @@ cython_debug/
 .history
 .idea
 
+# Quarto
+mybook/
+.quarto/
+
 # macOS files
 .DS_Store!/PYTHON APPS/Alarm_Clock/media/image/main.png
 

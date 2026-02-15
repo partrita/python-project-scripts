@@ -85,18 +85,13 @@ def generate_qmd(category_path, project_path):
                 # Sanitize to prevent YAML parsing errors
                 readme_content = re.sub(r'^---$', '***', readme_content, flags=re.MULTILINE)
                 
-                # Fix relative image paths
-                # Heuristic: Find <img src="path"> or ![alt](path)
-                # and prefix path with the project's original location relative to mybook/projects/category/project.qmd
-                # From mybook/projects/category/project.qmd, the root is ../../../
-                # So the original project path is ../../../category/project_name/
-                
+                # Fix relative paths for images and links
                 def fix_path(match):
                     prefix = match.group(1)
                     path = match.group(2)
                     suffix = match.group(3)
                     
-                    if path.startswith(('http', '/', '#')):
+                    if path.startswith(('http', '/', '#', 'mailto:')):
                         return match.group(0)
                     
                     # Decode URL-encoded paths (e.g., %2F -> /)
@@ -104,13 +99,19 @@ def generate_qmd(category_path, project_path):
                     decoded_path = urllib.parse.unquote(path)
                     
                     # New path relative to the .qmd file
+                    # .qmd files are at mybook/projects/<category>/<project_name>.qmd
+                    # To get to repo root from there, we need ../../../
                     new_path = f"../../../{category_path.name}/{project_path.name}/{decoded_path}"
                     return f"{prefix}{new_path}{suffix}"
 
-                # Markdown images: ![alt](path)
-                readme_content = re.sub(r'(!\[.*?\]\()(.*?)(\))', fix_path, readme_content)
+                # Markdown images and links: ![alt](path) or [text](path)
+                readme_content = re.sub(r'(\!??\[.*?\]\()(.*?)(\))', fix_path, readme_content)
                 # HTML images: <img ... src="path" ... >
                 readme_content = re.sub(r'(<img.*?src=["\'])(.*?)(["\'].*?>)', fix_path, readme_content)
+
+                # Escape @ symbols to prevent Quarto from interpreting them as citations
+                # Using HTML entity &#64; is more robust across different Pandoc versions/formats
+                readme_content = re.sub(r'(?<!\\)@', r'&#64;', readme_content)
 
                 content.append(readme_content)
                 content.append("")

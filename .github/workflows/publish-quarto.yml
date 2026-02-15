@@ -28,6 +28,9 @@ jobs:
 
       - name: Render and Publish
         run: |
+          # Configure Git
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           # Use pixi run to ensure quarto is in the environment
           pixi run quarto publish gh-pages mybook --no-browser --no-prompt
         env:

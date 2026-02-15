@@ -1,0 +1,76 @@
+# Chat-Bot
+
+![Star Badge](https://img.shields.io/static/v1?label=%F0%9F%8C%9F&message=If%20Useful&style=style=flat&color=BC4E99)
+![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)
+
+# Hello-to-CHATBOT
+A chatbot is a computer software able to interact with humans using a natural language. They usually rely on machine learning, especially on NLP.
+
+# ⚙️🛠️Preparing Dependencies:
+You’re only going to install the library ChatterBot for now. I recommend creating and using a new Python virtual environment for this purpose. Execute the following commands in your Python terminal:
+
+run these command:
+```sh
+pip install chatterbot
+```
+```sh
+pip install chatterbot_corpus
+```
+
+You can also try upgrading them:
+```sh
+pip install --upgrade chatterbot_corpus
+```
+```sh
+pip install --upgrade chatterbot
+```
+That’s it. We’re ready to go.
+
+# Communicating with a Bot🤖
+
+You can communicate with your bot using its method .get_response(). Here’s an example of how that might look like :
+<img width="543" alt="Screenshot 2022-07-09 133433" src="https://user-images.githubusercontent.com/102956488/178097413-38319234-ad36-43e0-84dc-97923f659d33.png">
+
+
+## Source Code: chatbots.py
+```python
+from chatterbot import ChatBot
+from chatterbot.trainers import ListTrainer
+my_bot=ChatBot(
+  name="PyBot",
+  read_only=True,
+)
+logic_adapters=["chatterbot.logic.MathematicalEvaluation","chatterbot.logic.BestMatch"]
+small_talk = ['hi there!',
+          'hi!',
+          'how do you do?',
+          'how are you?',
+          'i\'m cool.',
+          'fine, you?',
+          'always cool.',
+          'i\'m ok',
+          'glad to hear that.',
+          'i\'m fine',
+          'glad to hear that.',
+          'i feel awesome',
+          'excellent, glad to hear that.',
+          'not so good',
+          'sorry to hear that.',
+          'what\'s your name?',
+          'i\'m pybot. ask me a math question, please.']
+math_talk_1 = ['pythagorean theorem',
+          'a squared plus b squared equals c squared.']
+math_talk_2 = ['law of cosines',
+          'c**2 = a**2 + b**2 - 2 * a * b * cos(gamma)']
+list_trainer = ListTrainer(my_bot)
+
+for item in (small_talk, math_talk_1, math_talk_2):
+          list_trainer.train(item)
+          corpus_pusirainer(my_bot)
+corpus_tainer.train('chatterbot.corpus.english')
+print(my_bot.get_response("hi"))
+print(my_bot.get_response("Ifell awesome today"))
+print(my_bot.get_response("What's your name?"))
+print(my_bot.get_response("show me the pythagorean theorem"))
+print(my_bot.get_response("do you know the law of cosines?"))
+```

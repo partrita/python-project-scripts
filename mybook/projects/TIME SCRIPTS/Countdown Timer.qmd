@@ -1,0 +1,78 @@
+# Countdown Timer
+
+# Countdown Timer
+
+This program takes in the number of seconds to countdown and displays a message when the time elapses.
+
+# Prerequisites
+
+It requires no prerequisites, you only need to run the script. If you don't have Python installed, you can visit [here](https://www.python.org/downloads/) to download Python.
+
+# How to run the script
+
+Running the script is pretty easy, open a terminal in the folder where your script is located and run the following command :
+
+`python timer.py`
+
+# Sample use of the script
+
+![alt text](https://github.com/Mannuel25/Python-project-Scripts/blob/main/Countdown%20Timer/screenshot_1.png)
+
+![alt text](https://github.com/Mannuel25/Python-project-Scripts/blob/main/Countdown%20Timer/screenshot_2.png)
+
+# Author's name
+
+[Tanimowo Emmanuel](https://github.com/Mannuel25)
+
+
+## Source Code: timer.py
+```python
+import time
+
+def countdownTimer():
+	# get the number of seconds 
+	no_of_secs = int(input('How many seconds?: '))
+	while no_of_secs:
+		if no_of_secs < 60:
+			# calculate the number of hours, minutes and seconds
+			hrs = no_of_secs // 3600
+			mins = no_of_secs // 60
+			secs = no_of_secs % 60
+			# format the hours, minutes
+			# and seconds to be displayed
+			timer = '%02d:%02d:%02d' %(hrs, mins, secs)
+			print(timer, end='\r')
+			# delay execution of code by one second
+			time.sleep(1)
+			# countdown the number of seconds
+			no_of_secs -= 1
+		elif 60 <= no_of_secs < 3600:
+			# calculate the number of hours, minutes and seconds
+			hrs = no_of_secs // 3600
+			mins = no_of_secs // 60
+			secs = no_of_secs % 60
+			# format the hours, minutes
+			# and seconds to be displayed
+			timer = '%02d:%02d:%02d' %(hrs, mins, secs)
+			print(timer, end='\r')
+			# delay execution of code by one second
+			time.sleep(1)
+			# countdown the number of seconds
+			no_of_secs -= 1
+		elif 3600 <= no_of_secs <= 86400:
+			# calculate the number of hours, minutes and seconds
+			hrs = no_of_secs // 3600
+			mins = (no_of_secs % 3600) // 60
+			secs = (no_of_secs % 3600) % 60
+			# format the hours, minutes
+			# and seconds to be displayed
+			timer = '%02d:%02d:%02d' %(hrs, mins, secs)
+			print(timer, end='\r')
+			# delay execution of code by one second
+			time.sleep(1)
+			# countdown the number of seconds
+			no_of_secs -= 1
+	print('Time Up!')
+
+countdownTimer()
+```

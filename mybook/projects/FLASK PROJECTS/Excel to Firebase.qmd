@@ -1,0 +1,214 @@
+# Excel to Firebase
+
+<!--Please do not remove this part-->
+![Star Badge](https://img.shields.io/static/v1?label=%F0%9F%8C%9F&message=If%20Useful&style=style=flat&color=BC4E99)
+![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)
+
+# PDF Page Color Counter
+
+## 🛠️ Description
+This Python project provides the integration that eliminates the need for manual data entry and facilitates the quick and accurate transfer of data from Excel to Firebase. Push thousands of data from excel to firebase in mins.
+
+**Key Feature :**
+
+* Excel Data Parsing: We will create a feature to parse Excel spreadsheets, extracting structured data to be used in the Firebase Realtime Database. This parsing functionality will support various Excel formats, ensuring compatibility with a wide range of data sources.
+
+
+## ⚙️ Languages or Frameworks Used
+- **Python**: The primary programming language used for the project.
+- **Flask**: Flask is a micro web framework for Python that is lightweight and easy to use.
+- **Pandas**: Pandas is a popular open-source Python library used for data manipulation and analysis.
+
+## 🌟 How to run
+ - ### Install all the requirements
+   - Run `pip install -r requirements.txt` to install all the requirements.
+ - ### Firebase Setup for Project
+
+   - Create a [firebase](https://firebase.google.com/) project, set up a web project and get all the `Project Configurations` from `Project Settings`.
+
+   - Navigate to the **Authentication** section in your firebase project and enable the `Email and Password`
+    authentication.
+
+    - The `Project Configurations` will look as follows :-
+    ```bash
+    "apiKey": YOUR_API_KEY ,
+    "authDomain": YOUR_AUTH_DOMAIN,
+    "databaseURL": YOUR_DATABASEURL,
+    "projectId": YOUR_PROJECT_ID,
+    "storageBucket": YOUR_STORAGE_BUCKET,
+    "messagingSenderId": YOUR_MESSAGING_SENDER_ID,
+    "appId": YOUR_APP_ID,
+    "measurementId": YOUR_MEASUREMENT_ID 
+    ```
+    - ### Setup Environment for the project
+    - Now create a `.env` file in your project dreictory and include the following parameters as it is :-
+    ```bash
+    export FIREBASE_APIKEY=YOUR_API_KEY
+    export FIREBASE_AUTHDOMAIN=YOUR_AUTH_DOMAIN
+    export FIREBASE_DATABASEURL=YOUR_DATABASEURL
+    export FIREBASE_PROJECT_ID=YOUR_PROJECT_ID
+    export FIREBASE_STORAGE_BUCKET=YOUR_STORAGE_BUCKET
+    export FIREBASE_MESSAGING_SENDER_ID=YOUR_MESSAGING_SENDER_ID
+    export FIREBASE_APP_ID=YOUR_APP_ID
+    export FIREBASE_MEASUREMENT_ID=YOUR_MEASUREMENT_ID
+    ``` 
+
+ - ### Setup a Virtual Enviroment
+
+   - Run this command in your terminal `python -m venv myenv`.
+   - Change your directory by `cd myenv/Scripts` if on windows.
+   - Activate the virtual enviroment by running this command `source activate`.
+   - Move out from virtual env to your **Project Directory** by `cd..` .
+   - Install the packages if not present - `uvicorn`, `Flask`, `pandas`, `numpy`, `openpyxl`, `firebase`.
+
+- ###  Now Just, Run the project
+   
+   -Now Run the following command - `python main.py`.
+   -You will see output in your terminal indicating that the Flask app is running, usually on http://127.0.0.1:5000/
+   -Open your web browser and visit the URL specified in the output to access your Flask application.
+
+
+## 📺 Demo
+![image](https://github.com/Om25091210/Python-project-Scripts/assets/74484315/85873602-a1e2-4a1e-acef-8b66a27ae488)
+![image](https://github.com/Om25091210/Python-project-Scripts/assets/74484315/d7d7bb3f-eaf0-4963-97e7-f1204539b10f)
+
+
+
+## 🤖 Author
+
+Github - [OM YADAV](https://github.com/Om25091210)
+LinkedIn - [OM YADAV](www.linkedin.com/in/omyadav)
+
+
+
+
+
+
+## Source Code: main.py
+```python
+import firebase_admin
+from flask import Flask,render_template,request,redirect
+from flask.helpers import url_for
+from openpyxl import load_workbook
+import pandas as pd
+import numpy as np
+# from firebase_admin import db
+# from firebase_admin import credentials
+from datetime import date
+import datetime
+from firebase import Firebase
+import os
+
+firebase_config = {
+    "apiKey": "your apiKey",
+    "authDomain": "",
+    "databaseURL": "database url",
+    "projectId": "your project id",
+    "storageBucket": "your storage bucket id",
+    "messagingSenderId": "your sender id",
+    "appId": "your appId",
+    "measurementId": "your measurement id"
+}
+firebase = Firebase(firebase_config)
+db = firebase.database()
+
+
+app = Flask(__name__)
+
+@app.route("/",methods = ['GET','POST'])
+def start():
+    if request.method == 'POST':
+        global file,s_ds1
+        file = request.files['file']
+        #file.save("random.xlsx")
+        file.save("static/police_record_today.xlsx")
+        global wb
+        wb = load_workbook(file)  # Work Book
+          # Work Sheet MCRC.RM.COLL 
+        sheets=wb.sheetnames
+
+        return render_template("sheetname.html",sheets = sheets)
+    return render_template("index.html")
+
+@app.route("/sheet-selection",methods = ['GET','POST'])
+def sheet_selection():
+    if request.method == 'POST':
+        sheet_name_user = request.form.get("sheet_selected")
+        print(sheet_name_user)
+        today = date.today()
+        ds1 = pd.read_excel("static/police_record_today.xlsx", sheet_name_user)
+        ds2=pd.read_excel("static/police_record_yesterday.xlsx",sheet_name_user)
+        #appending both data
+        merged = ds1.append(ds2)
+        #dropping duplicates
+        merged = merged.drop_duplicates(keep=False).sort_index()
+        #converting to string 
+        data=merged.values.tolist()
+        for i in range(len(data)):
+            if(str(data[i][10])!="nan"):
+                fd=datetime.datetime.strptime(str(data[i][10]), '%d.%m.%Y').strftime('%Y.%m.%d').replace(".","")
+                key=fd+str(data[i][1])+str(data[i][2])+str(data[i][3])+str(data[i][4])+str(data[i][6])+str(data[i][7])+str(data[i][8]);
+                print(key)
+                push_key=key.replace(".","").replace(" ","")
+                if(str(data[i][1])=="nan" and str(data[i][2])=="nan"):
+                    continue
+                ct=str(data[i][3])
+                cn=str(data[i][4]).replace(".0","")
+                name=str(data[i][5])
+                ca_yr=str(data[i][6]).replace(".0","")
+                crn=str(data[i][7]).replace(".0","")
+                cr_yr=str(data[i][8]).replace(".0","")
+                d_r=str(data[i][9])
+                rm_date=str(data[i][10])
+                before=str(data[i][11])
+
+                if(str(data[i][3])=="nan"):
+                    ct="None"
+                if(str(data[i][4])=="nan"):
+                    cn="None"
+                if(str(data[i][5])=="nan"):
+                    name="None"
+                if(str(data[i][6])=="nan"):
+                    ca_yr="None"
+                if(str(data[i][7])=="nan"):
+                    crn="None"
+                if(str(data[i][8])=="nan"):
+                    cr_yr="None"
+                if(str(data[i][9])=="nan"):
+                    d_r="None"
+                if(str(data[i][10])=="nan"):
+                    rm_date="None"
+                if(str(data[i][11])=="nan"):
+                    before="None"
+                diction = {
+                            'A':"",
+                            'B':str(data[i][1]),
+                            'C':str(data[i][2]),
+                            'D':ct,
+                            'E':cn,
+                            'F':name,
+                            'G':ca_yr,
+                            'H':crn,
+                            'I':cr_yr,
+                            'J':d_r,
+                            'K':rm_date,
+                            'L':before,
+                            'date':str(today),
+                            'pushkey':push_key,
+                            'type':sheet_name_user.replace(".","_").strip()
+                        }
+                db.child('data').child(push_key).set(diction)
+        os.remove("static/police_record_yesterday.xlsx")
+        os.rename("static/police_record_today.xlsx","static/police_record_yesterday.xlsx")
+        #s_ds1.to_excel("static/police_record_yesterday.xlsx",index=False)#save today file as tomorrow
+        
+
+        return redirect(url_for('start'))
+
+
+
+if __name__ == '__main__':
+    app.run(debug = True)
+
+
+```

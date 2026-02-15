@@ -1,0 +1,40 @@
+# Image Captcha Generator
+
+# Image Captcha Generator
+
+## Description
+This snippet of code will Generate Image-Captcha (Numbers) of given number of length.
+
+## Requirements
+
+`$ pip install captcha`
+
+## Steps To Execution
+- Fork this repo and navigate to ShortenLinks folder
+- Run this code.py `$ python code.py`
+- Enter the length of captcha you want (i.e 6)
+- Boom !!! captcha with .png extension will be generate in dir.
+- Enjoy the Captcha Thing !!!!!
+
+## Code Output
+
+![output](https://user-images.githubusercontent.com/52918207/120620438-99c7e280-c47a-11eb-903d-a1a115c28b39.png)
+
+
+## Source Code: code.py
+```python
+from captcha.image import ImageCaptcha
+from random import randint
+
+def random_with_N_digits(n):
+    range_start = 10 ** (n - 1)
+    range_end = (10 ** n) - 1
+    return randint(range_start, range_end)
+
+num = random_with_N_digits(int(input("Enter number of digits:")))
+name = ("%d.png" % num)
+image = ImageCaptcha()
+data = image.generate("'%d'" % num)
+image.write("'%d'" % num, name)
+print("A {}.png is generated".format(num))
+```

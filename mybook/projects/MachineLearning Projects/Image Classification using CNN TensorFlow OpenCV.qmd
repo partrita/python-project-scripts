@@ -1,0 +1,106 @@
+# Image Classification using CNN TensorFlow OpenCV
+
+# CNN Image Classification using TensorFlow
+
+This guide will help you navigate and learn CNN Image Classification using TensorFlow. 
+This is an Introductory Codebase. For deeper knowledge visite [GitHub : DeepLearning-ImageClassification-Toolkit](https://github.com/iSiddharth20/DeepLearning-ImageClassification-Toolkit)
+
+#### TensorFlow is Required to run this Code.
+Install using [THIS](https://www.tensorflow.org/install/pip) Guide.
+#### Make sure to inastall necessary dependencies by running this command :
+pip install -r requirements.txt
+
+## Understanding the Functionalities
+
+### 1. PreProcessing
+- Load Dataset from 'DATA_DIR' Directory
+- Creates DataFrame containing Full Paths of Images and their Class Labels
+- (Change as per Requirement) Rescale Images to Computationally Efficient Resolution
+- (Optional but Recommended) Extracts Largest Object from Image using 'image_processing' Function
+    - Leverages Parallel Processing for Faster Results
+- Compares Original and Rescaled+Processed Image SIde-By-Side to make necessary changes
+- Converts Processed Images to NumPy Array and Exports as Pickle File
+    - Verifies If Exported Pickle File is Appropriate through 10 Random Samples
+- (Optional) Merge Certain Class Lables Together
+- Split Data for Training, Testing, Validation with Stratify to ensure data balancing
+    - Verify if Split is Appropriate through 2 random samples
+- (Optional) Perform Random Oversampling on Data to reduce Biasness
+    - Verify if Oversampling is Appropriate through 2 random samples
+- Perform One-Hot-Encoding of Class Labels
+- Training, Testing, Validation Data and One-Hot-Encoding is Exported as Pickle Files
+  
+### 2. Training CNN ResNet50
+- Training, Testing, Validation Data and One-Hot-Encoding are Imported
+    - All Data is converted to TensorFlow Format
+- Learning Rate Scheduler is Defined (Change If Desired) 
+- Stochastic Gradient Descent with Momentum is Used as Optimizer  (Change If Desired) 
+- Added Data Augmentation Techniques to improve Model Learning  (Change If Desired) 
+- Base Model (CNN ResNet50) is Loded from TensorFlow Library
+    - Custom Optimal Changes have been made to the Structure
+    - Final Model is Compiled
+- Final Model is Trained
+    - Final Model with Lowest Validation Loss is Exported as a '.h5' file
+- Traning Time (In Seconds) is Displayed
+  
+### 3. Verification and Confusion Matrix
+- Trained Model and One-Hot-Encoding are Imported
+- Entire Dataset is Run through the Trained Model to get Ground Truth of Accuracy
+- (Optional) Incorrectly Classified Image Files will be copied to a seprate folder with detected class label
+- Ground Truth Classification Confusion Matrix is Created
+    - (Optional) Confusion Matrix can be Exported as a '.png' file
+ 
+### HelperFunctions
+- Function to display 2 images side-by-side on screen
+- Function to Extract largest object from souruce image
+
+## Source Code: HelperFunctions.py
+```python
+'''
+Source : https://github.com/iSiddharth20/DeepLearning-ImageClassification-Toolkit
+'''
+
+import matplotlib.pyplot as plt
+import cv2
+import numpy as np
+
+'''
+Helper Function 
+    - Used to Show 2 Images Side-By-Side
+'''
+def images_on_side(img_1,label_1,img_2,label_2):
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 24))
+    ax1.imshow(img_1)
+    ax1.set_title(label_1)
+    ax2.imshow(img_2)
+    ax2.set_title(label_2)
+    plt.show()
+
+'''
+Helper Function 
+    - Used to Extract Object from Image
+'''
+def image_processing(image_path):
+    # Read the image
+    img = cv2.imread(image_path)
+    # Convert image to grayscale
+    gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    # Threshold the image to get a binary mask
+    _, thresholded = cv2.threshold(gray_img, 135, 255, cv2.THRESH_BINARY)
+    # Perform morphological closing
+    kernel_size = 5
+    kernel = np.ones((kernel_size, kernel_size), np.uint8)
+    closed_img = cv2.morphologyEx(thresholded, cv2.MORPH_CLOSE, kernel)
+    # Find contours
+    contours, _ = cv2.findContours(closed_img, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    # Identify the largest contour
+    largest_contour = max(contours, key=cv2.contourArea)
+    # Create an empty mask and draw the largest contour onto it
+    contour_mask = np.zeros_like(thresholded)
+    cv2.drawContours(contour_mask, [largest_contour], -1, (255), thickness=cv2.FILLED)
+    # Dilate the mask slightly
+    dilated_mask = cv2.dilate(contour_mask, kernel, iterations=1)
+    # Use the mask to extract the largest object from the original image
+    extracted_object = cv2.bitwise_and(img, img, mask=dilated_mask)
+    return extracted_object
+
+```

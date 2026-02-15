@@ -1,0 +1,91 @@
+# Teacher Promotion Flask API
+
+# teacher-promotion-flask-api
+Flask API for teacher promotion. Due to confidentiality agreements, I am unable to disclose the data used for training the model or the three promotion parameters labeled as 1, 2 and 3. However, you are welcome to utilize the API or customize it as needed. Thank you.
+
+## Install Requirements
+```bash
+pip install -r requirements.txt
+```
+
+
+
+## Setup
+- open the terminal
+- clone the repository
+	```bash
+	git clone https://github.com/saeedahmadicp/teacher-promotion-flask-api.git
+	```
+- change the directory
+
+	```bash
+	cd teacher-promotion-flask-api
+	```
+- execute the below commands
+ 	```bash
+	pip3 install pipenv
+	```
+	```bash
+	pipenv install
+	```
+	```bash
+	pipenv shell
+	```
+	
+- install the requirements 
+	```bash
+	pip install -r requirements.txt
+	```
+
+- execute the following commands
+	```bash
+	set FLASK_APP=main.py
+	```
+	```bash
+ 	set FLASK_ENV=development
+	```
+	```bash
+ 	flask run
+	```
+	
+- **If you are using Linux or Mac, use `export` instead of `set` in the above commands**
+
+
+## Source Code: main.py
+```python
+from flask import Flask, render_template, request, redirect
+from load_process_prediction import label_encoder, process_and_predict
+
+#Declaring the flask object
+app = Flask(__name__)
+
+
+#defining the home route
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+
+#defing the result route
+@app.route('/result', methods=['GET', 'POST'])
+def result():
+    if request.method == 'POST':               #use args if using get method
+        firstName = request.form['fname']
+        lastName = request.form['lname']
+        age = request.form['age']
+        experience = request.form['experience']
+        grade = request.form['grade']
+        lastPromotion = request.form['lpromotion']
+        promo1 = request.form['promo1']
+        promo2 = request.form['promo2']
+        promo3 = request.form['promo3']
+        data = [age, experience, grade, lastPromotion, label_encoder(promo1), label_encoder(promo2), label_encoder(promo3)]
+        prediction = process_and_predict(data)
+       
+        #redirecting the user to the  page    
+        return render_template('result.html', firstName=firstName, lastName=lastName, prediction=prediction)
+    else:
+        return redirect('/')
+        
+
+```

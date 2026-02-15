@@ -1,0 +1,34 @@
+# photo editor
+
+* This is a simple program to edit photos
+* It uses the Pillow package
+* Simply what it does it combines to images abd gives a good edited photo
+
+
+## Source Code: photo.py
+```python
+from PIL import Image
+me = Image.open('lary.png')
+back = Image.open('images.jpg')
+back.paste(me, (0,0), me)
+back.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#me = Image.open('lary.png')
+#bg = Image.open('images.jpg')
+#bg.paste(me,(0,0),me)
+#bg.show()
+```

@@ -1,0 +1,284 @@
+project:
+  type: book
+  output-dir: _book
+execute:
+  enabled: false
+book:
+  title: Python Project Scripts
+  author: Repo Contributors
+  date: today
+  chapters:
+  - index.qmd
+  - part: ART SCRIPTS
+    chapters:
+    - projects/ART SCRIPTS/Draw python logo using python.qmd
+    - projects/ART SCRIPTS/Images to PDF.qmd
+    - projects/ART SCRIPTS/image-ascii.qmd
+    - projects/ART SCRIPTS/pencilSketch.qmd
+  - part: AUDIO RELATED SCRIPTS
+    chapters:
+    - projects/AUDIO RELATED SCRIPTS/Audio Captcha Generator.qmd
+    - projects/AUDIO RELATED SCRIPTS/AudioBuk.qmd
+    - projects/AUDIO RELATED SCRIPTS/audiobookfinder.qmd
+    - projects/AUDIO RELATED SCRIPTS/texttoaudio.qmd
+  - part: AUTOMATION
+    chapters:
+    - projects/AUTOMATION/AutoMoveFiles.qmd
+    - projects/AUTOMATION/Automate Text Bombing.qmd
+    - projects/AUTOMATION/Email Automation.qmd
+    - projects/AUTOMATION/FileReplaceWithNewer.qmd
+    - projects/AUTOMATION/Getting Files and Folders sizes.qmd
+    - projects/AUTOMATION/Google Search Automation.qmd
+    - projects/AUTOMATION/InternetConnectivityMonitor.qmd
+    - projects/AUTOMATION/PDF Page Color Counter.qmd
+    - projects/AUTOMATION/PDF To Text.qmd
+    - projects/AUTOMATION/PDF merge.qmd
+    - projects/AUTOMATION/PhotoResizing.qmd
+    - projects/AUTOMATION/Remove Duplicate Files in Folder.qmd
+    - projects/AUTOMATION/Sending-Emails.qmd
+    - projects/AUTOMATION/ServerChecker.qmd
+    - projects/AUTOMATION/Summarizer App.qmd
+    - projects/AUTOMATION/Web_Scraper.qmd
+    - projects/AUTOMATION/analyzing and writing .docx file.qmd
+  - part: BOTS
+    chapters:
+    - projects/BOTS/Chat-Bot.qmd
+    - projects/BOTS/DiscordBotTemplate.qmd
+    - projects/BOTS/InstaSpamBot.qmd
+    - projects/BOTS/InstagramBot.qmd
+    - projects/BOTS/pywhatkit.qmd
+    - projects/BOTS/whatsapp-spam.qmd
+  - part: CONVERSION SCRIPTS
+    chapters:
+    - projects/CONVERSION SCRIPTS/CSV to JSON.qmd
+    - projects/CONVERSION SCRIPTS/Currency Converter.qmd
+    - projects/CONVERSION SCRIPTS/HTML to Excel.qmd
+    - projects/CONVERSION SCRIPTS/Hex to Base64 Converter.qmd
+    - projects/CONVERSION SCRIPTS/Morse-Code-Converter.qmd
+    - projects/CONVERSION SCRIPTS/ShortenLinks.qmd
+    - projects/CONVERSION SCRIPTS/Temperature and Distance Converter.qmd
+    - projects/CONVERSION SCRIPTS/Weight Converter.qmd
+  - part: Cyber_security  projects
+    chapters:
+    - projects/Cyber_security  projects/CLIENT.qmd
+    - projects/Cyber_security  projects/Remote Code Execution.qmd
+    - projects/Cyber_security  projects/SERVER.qmd
+    - projects/Cyber_security  projects/hotelbill.qmd
+    - projects/Cyber_security  projects/threading.qmd
+  - part: DJANGO PROJECTS
+    chapters:
+    - projects/DJANGO PROJECTS/Chat.qmd
+  - part: DOM EXTRACTION
+    chapters:
+    - projects/DOM EXTRACTION/main.qmd
+  - part: Data Structures and Algorithms
+    chapters:
+    - projects/Data Structures and Algorithms/Dictionary_Functions.qmd
+    - projects/Data Structures and Algorithms/Genetic Algorithms.qmd
+    - projects/Data Structures and Algorithms/Search Algorithms.qmd
+    - projects/Data Structures and Algorithms/Sorting Algorithms.qmd
+    - projects/Data Structures and Algorithms/Trees.qmd
+    - projects/Data Structures and Algorithms/len_nth_word_from_end.qmd
+    - projects/Data Structures and Algorithms/linked_list.qmd
+    - projects/Data Structures and Algorithms/queues.qmd
+    - projects/Data Structures and Algorithms/radix_sort.qmd
+    - projects/Data Structures and Algorithms/recursion.qmd
+    - projects/Data Structures and Algorithms/stack.qmd
+    - projects/Data Structures and Algorithms/union_find.qmd
+  - part: ENCRYPT-ENV-SCRIPT
+    chapters:
+    - projects/ENCRYPT-ENV-SCRIPT/__init__.qmd
+    - projects/ENCRYPT-ENV-SCRIPT/envars_helper.qmd
+    - projects/ENCRYPT-ENV-SCRIPT/envars_script.qmd
+    - projects/ENCRYPT-ENV-SCRIPT/test_script.qmd
+  - part: FLASK PROJECTS
+    chapters:
+    - projects/FLASK PROJECTS/Anniversary time.qmd
+    - projects/FLASK PROJECTS/Career ready.qmd
+    - projects/FLASK PROJECTS/E-commerce.qmd
+    - projects/FLASK PROJECTS/Excel to Firebase.qmd
+    - projects/FLASK PROJECTS/Firebase Authenticatio in Flask Application.qmd
+    - projects/FLASK PROJECTS/FlaskSimpleCalculator.qmd
+    - projects/FLASK PROJECTS/Instagram Scraper using Flask.qmd
+    - projects/FLASK PROJECTS/Inventory Billing Management System using Flask.qmd
+    - projects/FLASK PROJECTS/Teacher Promotion Flask API.qmd
+    - projects/FLASK PROJECTS/Url Shortening App in Flask.qmd
+    - projects/FLASK PROJECTS/User Hash Generator.qmd
+    - projects/FLASK PROJECTS/Web Dev with Flask.qmd
+  - part: GAMES
+    chapters:
+    - projects/GAMES/BlackJackGame.qmd
+    - projects/GAMES/Brick-Breaker_Game.qmd
+    - projects/GAMES/BullsAndCows.qmd
+    - projects/GAMES/ConsoleMinesweeper.qmd
+    - projects/GAMES/ConsoleSnake.qmd
+    - projects/GAMES/Dice-Rolling-Game.qmd
+    - projects/GAMES/FastRun.qmd
+    - projects/GAMES/Flames_Game.qmd
+    - projects/GAMES/GUI Rock-Paper-Scissors Game.qmd
+    - projects/GAMES/Guess the US States.qmd
+    - projects/GAMES/Hacktoberfest Quiz.qmd
+    - projects/GAMES/Hangman.qmd
+    - projects/GAMES/Hangman (using classes).qmd
+    - projects/GAMES/Hunter_Island.qmd
+    - projects/GAMES/Maze-Solver.qmd
+    - projects/GAMES/Number Guessing Game.qmd
+    - projects/GAMES/Pong Game in Python.qmd
+    - projects/GAMES/Quizzer.qmd
+    - projects/GAMES/ROCK PAPER SCISSORS GAME.qmd
+    - projects/GAMES/SNAKE_GAME.qmd
+    - projects/GAMES/Snake_Game(Using Turtle).qmd
+    - projects/GAMES/Software-Eng-UI-Quiz.qmd
+    - projects/GAMES/SudokuSolver.qmd
+    - projects/GAMES/TIC_TAC_TOE.qmd
+    - projects/GAMES/Tetris.qmd
+    - projects/GAMES/Tic Tac Toe Game.qmd
+    - projects/GAMES/Tic-Tac-Bot-Player.qmd
+    - projects/GAMES/Turtle-Race-Game.qmd
+    - projects/GAMES/VirtualHandPainter.qmd
+    - projects/GAMES/chess.qmd
+    - projects/GAMES/dino-game.qmd
+    - projects/GAMES/guess-the-number.qmd
+    - projects/GAMES/randomshuffle.qmd
+    - projects/GAMES/snakeGame.qmd
+    - projects/GAMES/sudoku_solver.qmd
+  - part: GUI
+    chapters:
+    - projects/GUI/Calculator.qmd
+    - projects/GUI/Dates.qmd
+    - projects/GUI/JSON Validator.qmd
+    - projects/GUI/Password Generator.qmd
+    - projects/GUI/Pomodoro Timer.qmd
+    - projects/GUI/PyQuiz.qmd
+    - projects/GUI/QtQuiz.qmd
+    - projects/GUI/Quadratic-Equation-Solver.qmd
+  - part: IMAGES & PHOTO SCRIPTS
+    chapters:
+    - projects/IMAGES & PHOTO SCRIPTS/CLI-Photo-Watermark.qmd
+    - projects/IMAGES & PHOTO SCRIPTS/Capture Image and Save in Local.qmd
+    - projects/IMAGES & PHOTO SCRIPTS/Compress Image.qmd
+    - projects/IMAGES & PHOTO SCRIPTS/Extract Texts from Image.qmd
+    - projects/IMAGES & PHOTO SCRIPTS/Image Captcha Generator.qmd
+    - projects/IMAGES & PHOTO SCRIPTS/Image Grayscalling.qmd
+    - projects/IMAGES & PHOTO SCRIPTS/Image to PDF.qmd
+    - projects/IMAGES & PHOTO SCRIPTS/Image-Inverter.qmd
+    - projects/IMAGES & PHOTO SCRIPTS/ImageDivider.qmd
+    - projects/IMAGES & PHOTO SCRIPTS/photo editor.qmd
+  - part: INVESTMENT_RULES
+    chapters:
+    - projects/INVESTMENT_RULES/inflation_adjusted_return.qmd
+    - projects/INVESTMENT_RULES/rule_of_72.qmd
+  - part: MachineLearning Projects
+    chapters:
+    - projects/MachineLearning Projects/Book Recommendation using KNN.qmd
+    - projects/MachineLearning Projects/Car Price Predictor.qmd
+    - projects/MachineLearning Projects/Cricket Score Predictor.qmd
+    - projects/MachineLearning Projects/Decision Tree.qmd
+    - projects/MachineLearning Projects/Driver-Drowsiness-Detection.qmd
+    - projects/MachineLearning Projects/Emotion Detector using Google's Teachable
+      ML.qmd
+    - projects/MachineLearning Projects/Face-detecting.qmd
+    - projects/MachineLearning Projects/Fakenews.qmd
+    - projects/MachineLearning Projects/Food-Data-Analysis.qmd
+    - projects/MachineLearning Projects/Heart-Disease-Prediction.qmd
+    - projects/MachineLearning Projects/House-Price-Predictor.qmd
+    - projects/MachineLearning Projects/Image Classification using CNN TensorFlow
+      OpenCV.qmd
+    - projects/MachineLearning Projects/Image to Sketch.qmd
+    - projects/MachineLearning Projects/Landmark Recognition using TensorFlow.qmd
+    - projects/MachineLearning Projects/Lung Cancer Detection using CNN.qmd
+    - projects/MachineLearning Projects/Movie recommendation system.qmd
+    - projects/MachineLearning Projects/Plant Disease Prediction.qmd
+    - projects/MachineLearning Projects/Poisonous_Mushroom-project.qmd
+    - projects/MachineLearning Projects/Resume Parser using NLP.qmd
+    - projects/MachineLearning Projects/Stock-Analysis.qmd
+    - projects/MachineLearning Projects/Stock-Market-Forecasting.qmd
+    - projects/MachineLearning Projects/Student-Feedback-Sentiment-Analysis-main.qmd
+    - projects/MachineLearning Projects/Twitter-sentiment-analysis.qmd
+    - projects/MachineLearning Projects/Twitter-sentiments-analysis.qmd
+    - projects/MachineLearning Projects/Vehicle-Detection.qmd
+    - projects/MachineLearning Projects/YouTube-Comments-Sentiment-Analysis.qmd
+    - projects/MachineLearning Projects/prediction-of-CO2-emission.qmd
+    - projects/MachineLearning Projects/sentiment-predictor-for-stress-detection.qmd
+    - projects/MachineLearning Projects/sudoku_solver.qmd
+    - projects/MachineLearning Projects/tracking live sentiment analysis to trade.qmd
+    - projects/MachineLearning Projects/traffic sign recognition using CNN and Keras.qmd
+  - part: PASSWORD RELATED
+    chapters:
+    - projects/PASSWORD RELATED/PasswordHashingUtility.qmd
+    - projects/PASSWORD RELATED/RandomPassword.qmd
+    - projects/PASSWORD RELATED/Saved Wi-FI Password.qmd
+    - projects/PASSWORD RELATED/password-strength.qmd
+    - projects/PASSWORD RELATED/password-validator.qmd
+    - projects/PASSWORD RELATED/passwordbreachchecker.qmd
+  - part: PYTHON APPS
+    chapters:
+    - projects/PYTHON APPS/Alarm_Clock.qmd
+    - projects/PYTHON APPS/CLI-Based-TODO.qmd
+    - projects/PYTHON APPS/CSV_files.qmd
+    - projects/PYTHON APPS/Chess.qmd
+    - projects/PYTHON APPS/DownTube.qmd
+    - projects/PYTHON APPS/Facebook.qmd
+    - projects/PYTHON APPS/FinanceTracker.qmd
+    - projects/PYTHON APPS/GestureControlledVolume.qmd
+    - projects/PYTHON APPS/Moder_Calculator_IOS.qmd
+    - projects/PYTHON APPS/Notepad.qmd
+    - projects/PYTHON APPS/PDF-Text-Extractor.qmd
+    - projects/PYTHON APPS/PDF_Downloader.qmd
+    - projects/PYTHON APPS/PhotoEditorApp.qmd
+    - projects/PYTHON APPS/Python IDE.qmd
+    - projects/PYTHON APPS/PythonDictionary.qmd
+    - projects/PYTHON APPS/ResolutionSwapper.qmd
+    - projects/PYTHON APPS/ScreenRecorder.qmd
+    - projects/PYTHON APPS/Spelling Corrector.qmd
+    - projects/PYTHON APPS/URL Shortner.qmd
+    - projects/PYTHON APPS/YoutubeDownloader.qmd
+    - projects/PYTHON APPS/mp3-MusicPlayer.qmd
+    - projects/PYTHON APPS/pyjokes.qmd
+  - part: SOCIAL MEDIA DATA ANALYSIS
+    chapters:
+    - projects/SOCIAL MEDIA DATA ANALYSIS/Facebook-Data-Analysis.qmd
+    - projects/SOCIAL MEDIA DATA ANALYSIS/Instagram-Data-Analysis.qmd
+  - part: SYSTEM MANAGEMENT APPS
+    chapters:
+    - projects/SYSTEM MANAGEMENT APPS/Bookstore management.qmd
+    - projects/SYSTEM MANAGEMENT APPS/Contact-management.qmd
+    - projects/SYSTEM MANAGEMENT APPS/Student_management_system.qmd
+    - projects/SYSTEM MANAGEMENT APPS/bloodbankmanagement.qmd
+  - part: TIME SCRIPTS
+    chapters:
+    - projects/TIME SCRIPTS/Age calculator.qmd
+    - projects/TIME SCRIPTS/Alarm clock.qmd
+    - projects/TIME SCRIPTS/Countdown Timer.qmd
+    - projects/TIME SCRIPTS/DigitalClock.qmd
+    - projects/TIME SCRIPTS/GUI Count Down Timer.qmd
+    - projects/TIME SCRIPTS/Pomodoro-App.qmd
+    - projects/TIME SCRIPTS/Script-RunTime.qmd
+    - projects/TIME SCRIPTS/Umbrella Reminder.qmd
+    - projects/TIME SCRIPTS/current_time.qmd
+  - part: WEB SCRAPING
+    chapters:
+    - projects/WEB SCRAPING/Bitcoin Price.qmd
+    - projects/WEB SCRAPING/Get-Dir-Github-Repo.qmd
+    - projects/WEB SCRAPING/Most Popular Lyric.qmd
+    - projects/WEB SCRAPING/News_Article_Scraping.qmd
+    - projects/WEB SCRAPING/PYDICTIONARY.qmd
+    - projects/WEB SCRAPING/Weather Forcasting.qmd
+    - projects/WEB SCRAPING/Weather Updates.qmd
+    - projects/WEB SCRAPING/WebScraping.qmd
+    - projects/WEB SCRAPING/WebScraping-Data-Analytics.qmd
+    - projects/WEB SCRAPING/bot.qmd
+    - projects/WEB SCRAPING/devJobsScanner_Scraper.qmd
+    - projects/WEB SCRAPING/vocabulary log helper.qmd
+    - projects/WEB SCRAPING/wikipedia.qmd
+  - part: WEB-BASED PROJECTS
+    chapters:
+    - projects/WEB-BASED PROJECTS/Akan-names-main.qmd
+    - projects/WEB-BASED PROJECTS/StopWatch.qmd
+  - references.qmd
+bibliography: references.bib
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: false

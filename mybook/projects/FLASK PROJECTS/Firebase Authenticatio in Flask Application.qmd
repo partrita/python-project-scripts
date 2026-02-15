@@ -1,0 +1,161 @@
+# Firebase Authenticatio in Flask Application
+
+<!--Please do not remove this part-->
+![Star Badge](https://img.shields.io/static/v1?label=%F0%9F%8C%9F&message=If%20Useful&style=style=flat&color=BC4E99)
+![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)
+
+# Firebase Authentication for Flask Application
+
+## 🛠️ Description
+This project enables developers to implement secure user authentication features in their Flask applications with ease using Firebase Authentication which offers various authentication methods, including email/password, social media login (such as Google, Facebook, Twitter), and more. It handles the entire authentication process, including user registration, login, and password reset, taking care of security best practices like password hashing and token-based authentication.
+
+## ⚙️ Languages or Frameworks Used
+ - Flask, Firebase
+ - HTML, CSS, Bootstrap
+
+
+## 🌟 How to run
+ - ### Install all the requirements
+    Run `pip install -r requirements.txt` to install all the requirements.
+ - ### Firebase Setup for Project
+
+   - Create a [firebase](https://firebase.google.com/) project, set up a web project and get all the `Project Configurations` from `Project Settings`.
+
+   - Navigate to the **Authentication** section in your firebase project and enable the `Email and Password`
+ authentication.
+
+   - The `Project Configurations` will look as follows :-
+```bash
+  "apiKey": YOUR_API_KEY ,
+  "authDomain": YOUR_AUTH_DOMAIN,
+  "databaseURL": YOUR_DATABASEURL,
+  "projectId": YOUR_PROJECT_ID,
+  "storageBucket": YOUR_STORAGE_BUCKET,
+  "messagingSenderId": YOUR_MESSAGING_SENDER_ID,
+  "appId": YOUR_APP_ID,
+  "measurementId": YOUR_MEASUREMENT_ID 
+```
+- ### Setup Environment for the project
+   - Now create a `.env` file in your project dreictory and include the following parameters as it is :-
+```bash
+export FIREBASE_APIKEY=YOUR_API_KEY
+export FIREBASE_AUTHDOMAIN=YOUR_AUTH_DOMAIN
+export FIREBASE_DATABASEURL=YOUR_DATABASEURL
+export FIREBASE_PROJECT_ID=YOUR_PROJECT_ID
+export FIREBASE_STORAGE_BUCKET=YOUR_STORAGE_BUCKET
+export FIREBASE_MESSAGING_SENDER_ID=YOUR_MESSAGING_SENDER_ID
+export FIREBASE_APP_ID=YOUR_APP_ID
+export FIREBASE_MEASUREMENT_ID=YOUR_MEASUREMENT_ID
+``` 
+
+- ###  Now Just, Run the project
+  - To the run the project, go to the `bash` terminal of VSCode or any other code editor and run `./start_server.sh`.
+  - You don't have to care about setting `.env` then yourself then.
+
+
+## 📺 Demo
+![image](https://github.com/MBSA-INFINITY/MBSA-Forms/assets/85332648/2200ef81-57de-4619-ba33-4bed2cf31780)
+![image](https://github.com/MBSA-INFINITY/MBSA-Forms/assets/85332648/ad83c91d-e140-4f4b-9b30-81b4903f1011)
+
+## 🤖 Author
+
+Github - [MBSA-INFINITY](https://github.com/MBSA-INFINITY)
+LinkedIn - [MBSAIADITYA](https://www.linkedin.com/in/mbsaiaditya/)
+Portfolio - [MBSA](https://mbsaiaditya.in/)
+
+
+
+
+
+
+## Source Code: main.py
+```python
+#Importing Flask and other important functions
+from flask import Flask, render_template, request, redirect, abort, flash, session ,url_for
+#Importing firebase auth from db.py
+from db import auth
+
+app = Flask(__name__)
+app.secret_key = "MBSAIADITYA"
+
+exempted_endpoints = ['signup','login','static']
+
+'''
+Signup Route
+''' 
+@app.route("/signup", methods = ['GET','POST'])
+def signup():
+    if request.method=='POST':
+        name = request.form.get("name")
+        username = request.form.get("email")
+        password = request.form.get("password")
+        repassword = request.form.get("repassword")
+        if password == repassword:
+            if len(password)>=6:
+                try:
+                    #Creating User in firebase using create_user_with_email_and_password method of firebase/auth
+                    _user_ = auth.create_user_with_email_and_password(username ,password)
+                    flash("User has been created successfully! Please Login")
+                    return redirect("/")
+                except Exception as e:
+                    abort(500, {'message': str(e)})
+            else:
+                flash('Password is less than 6 characters!')
+                return redirect("/signup")
+        else:
+            flash('Both Passwords do not match!')
+            return redirect("/signup")
+    return render_template("signup.html")
+
+'''
+Login Route
+'''  
+@app.route("/login",methods = ['GET','POST'] )
+def login():
+    if request.method == 'POST':
+        data = dict(request.form)
+        email = data.get("email")
+        password = data.get("password")
+        try:
+            #Signing User in firebase using sign_in_with_email_and_password method of firebase/auth
+            user = auth.sign_in_with_email_and_password(email ,password)
+            print(user)
+            session['user'] = user['localId']
+            session['email'] = user['email']
+            return redirect("/")     
+        except Exception as e:
+            abort(500, {'message': str(e)})
+
+    if 'user' in session:
+        return redirect("/")
+    return render_template("login.html")
+
+'''
+Main dashboard route which has to be protected
+'''   
+@app.route("/",methods = ['GET','POST'])
+def start():
+    return render_template("index.html", user=session['email'])
+
+'''
+Logout Route
+'''
+@app.route("/logout",methods = ['GET','POST'])
+def logout():
+    session.pop('user')
+    session.pop('email')
+    flash("User logged out successfully!")
+    return redirect("/")
+
+
+'''This is an important middleware that run before any request made to flask application and checks
+when user is authenticated or not!
+'''
+
+@app.before_request
+def before_request_func():
+    if request.endpoint in exempted_endpoints:
+        return 
+    if 'user' not in session:
+        return redirect(url_for('login'))
+```

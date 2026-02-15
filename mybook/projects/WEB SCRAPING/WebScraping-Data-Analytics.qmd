@@ -1,0 +1,92 @@
+# WebScraping-Data-Analytics
+
+# WebScraping-for-job-Website   
+
+In this code we are fetching information from a job website named totaljobs about job listing available, filters them out according to skills and saves the output
+in a local file
+
+This program is able to fetch the: 
+* Job Title/Role needed
+* Company name
+* location   
+* salary
+
+### User Story 
+As a data analyst I want to be able to get web large information in csv file.
+
+###  Acceptance Criteria
+Acceptance Criteria 
+
+- It is done when I can make a request to a specified url.
+- It is done when I get response from that url.
+- It is done when I get the target content from the url.
+- It is done when that content is saved in csv file.
+
+
+#### Sample Output
+![](https://github.com/larymak/Python-project-Scripts/blob/main/WebScraping/posts/Capture.PNG)
+
+### Packages used
+- BeautifulSoup
+- requests 
+- csv file
+
+### Challenges encountered: 
+- The only real difficulty was trying to locate the precise ID and passing robots elements (such as find element by ID, x-path, class, and find_all) that would appropriately transmit the information back.
+- In overall our team was succussful to apply python on web scraping to complete our assignment.
+
+
+## Steps To Execution
+- Fork this repository and navigate to the WebScraping-Data-Analytics folder
+- Execute the program by running the pydatanalytics.py file using `$ python  pydatanalytics.py`
+- The program will then fetch the information and put the information into a csv file.
+
+### Team Members
+- [@gideonclottey](https://github.com/gideonclottey)
+- [@Dev-Godswill](https://github.com/Dev-Godswill)
+- [@ozomata](https://github.com/ozomata)
+- [@narinder-bit](https://github.com/narinder-bit)
+- [@Sonia-devi](https://github.com/Sonia-devi)
+
+
+
+
+
+
+## Source Code: pydataanalytics.py
+```python
+import csv
+import requests 
+from bs4 import BeautifulSoup
+
+#Url to the jobsite (using tottal job as an examples)
+url =  'https://www.totaljobs.com/jobs/in-london'
+
+r = requests.get(url)
+
+# parsing the html to beautiful soup
+html_soup= BeautifulSoup(r.content, 'html.parser')
+
+# Targeting the jobs container
+job_details = html_soup.find('div', class_='ResultsContainer-sc-1rtv0xy-2')
+
+# Pulling out the needed tags
+job_titles =job_details.find_all(['h2','li','dl'])
+company_name =job_details.find_all('div', class_='sc-fzoiQi')
+
+total_job_info = job_titles + company_name
+
+# Writing the data to a CSV file
+with open('job_data_2.csv', mode='w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow(['Job Title', 'Location', 'Salary', 'Company Name']) # header row
+    min_length = min(len(job_titles), len(company_name))
+    for i in range(0, min_length - 3):
+        job_title = job_titles[i].text.strip()
+        location = job_titles[i+1].text.strip()
+        salary = job_titles[i+2].text.strip()
+        company = company_name[i+3].text.strip()
+        writer.writerow([job_title, location, salary, company])
+       # print(job_title)
+
+```

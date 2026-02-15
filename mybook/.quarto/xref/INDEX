@@ -1,0 +1,662 @@
+{
+  "index.qmd": {
+    "index.html": "ce378543"
+  },
+  "projects/ART SCRIPTS/Draw python logo using python.qmd": {
+    "Draw python logo using python.html": "933d3592"
+  },
+  "projects/ART SCRIPTS/Images to PDF.qmd": {
+    "Images to PDF.html": "c5fd5c4b"
+  },
+  "projects/ART SCRIPTS/image-ascii.qmd": {
+    "image-ascii.html": "53ea0648"
+  },
+  "projects/ART SCRIPTS/pencilSketch.qmd": {
+    "pencilSketch.html": "1d99bd57"
+  },
+  "projects/AUDIO RELATED SCRIPTS/Audio Captcha Generator.qmd": {
+    "Audio Captcha Generator.html": "7426010f"
+  },
+  "projects/AUDIO RELATED SCRIPTS/AudioBuk.qmd": {
+    "AudioBuk.html": "dd02c915"
+  },
+  "projects/AUDIO RELATED SCRIPTS/audiobookfinder.qmd": {
+    "audiobookfinder.html": "c248ed8d"
+  },
+  "projects/AUDIO RELATED SCRIPTS/texttoaudio.qmd": {
+    "texttoaudio.html": "33035b94"
+  },
+  "projects/AUTOMATION/AutoMoveFiles.qmd": {
+    "AutoMoveFiles.html": "ebec6651"
+  },
+  "projects/AUTOMATION/Automate Text Bombing.qmd": {
+    "Automate Text Bombing.html": "f0ce12bc"
+  },
+  "projects/AUTOMATION/Email Automation.qmd": {
+    "Email Automation.html": "7b56fcff"
+  },
+  "projects/AUTOMATION/FileReplaceWithNewer.qmd": {
+    "FileReplaceWithNewer.html": "30bc056b"
+  },
+  "projects/AUTOMATION/Getting Files and Folders sizes.qmd": {
+    "Getting Files and Folders sizes.html": "7d60f2ca"
+  },
+  "projects/AUTOMATION/Google Search Automation.qmd": {
+    "Google Search Automation.html": "51e0f2e1"
+  },
+  "projects/AUTOMATION/InternetConnectivityMonitor.qmd": {
+    "InternetConnectivityMonitor.html": "83d520c1"
+  },
+  "projects/AUTOMATION/PDF Page Color Counter.qmd": {
+    "PDF Page Color Counter.html": "81336bf7"
+  },
+  "projects/AUTOMATION/PDF To Text.qmd": {
+    "PDF To Text.html": "d0e285c3"
+  },
+  "projects/AUTOMATION/PDF merge.qmd": {
+    "PDF merge.html": "778d7ffe"
+  },
+  "projects/AUTOMATION/PhotoResizing.qmd": {
+    "PhotoResizing.html": "c468d9a4"
+  },
+  "projects/AUTOMATION/Remove Duplicate Files in Folder.qmd": {
+    "Remove Duplicate Files in Folder.html": "b1023ee9"
+  },
+  "projects/AUTOMATION/Sending-Emails.qmd": {
+    "Sending-Emails.html": "07c19942"
+  },
+  "projects/AUTOMATION/ServerChecker.qmd": {
+    "ServerChecker.html": "83be2b12"
+  },
+  "projects/AUTOMATION/Summarizer App.qmd": {
+    "Summarizer App.html": "f6ce7abf"
+  },
+  "projects/AUTOMATION/Web_Scraper.qmd": {
+    "Web_Scraper.html": "71480b98"
+  },
+  "projects/AUTOMATION/analyzing and writing .docx file.qmd": {
+    "analyzing and writing .docx file.html": "ed4f7928"
+  },
+  "projects/BOTS/Chat-Bot.qmd": {
+    "Chat-Bot.html": "6fe4afd4"
+  },
+  "projects/BOTS/DiscordBotTemplate.qmd": {
+    "DiscordBotTemplate.html": "8fa283ca"
+  },
+  "projects/BOTS/InstaSpamBot.qmd": {
+    "InstaSpamBot.html": "e29929f5"
+  },
+  "projects/BOTS/InstagramBot.qmd": {
+    "InstagramBot.html": "e8b36c1c"
+  },
+  "projects/BOTS/pywhatkit.qmd": {
+    "pywhatkit.html": "cd5d23b6"
+  },
+  "projects/BOTS/whatsapp-spam.qmd": {
+    "whatsapp-spam.html": "fb59a87e"
+  },
+  "projects/CONVERSION SCRIPTS/CSV to JSON.qmd": {
+    "CSV to JSON.html": "866b8183"
+  },
+  "projects/CONVERSION SCRIPTS/Currency Converter.qmd": {
+    "Currency Converter.html": "a71465b0"
+  },
+  "projects/CONVERSION SCRIPTS/HTML to Excel.qmd": {
+    "HTML to Excel.html": "3fd1f35b"
+  },
+  "projects/CONVERSION SCRIPTS/Hex to Base64 Converter.qmd": {
+    "Hex to Base64 Converter.html": "7e484396"
+  },
+  "projects/CONVERSION SCRIPTS/Morse-Code-Converter.qmd": {
+    "Morse-Code-Converter.html": "937fd40d"
+  },
+  "projects/CONVERSION SCRIPTS/ShortenLinks.qmd": {
+    "ShortenLinks.html": "f7a70b26"
+  },
+  "projects/CONVERSION SCRIPTS/Temperature and Distance Converter.qmd": {
+    "Temperature and Distance Converter.html": "e89db79f"
+  },
+  "projects/CONVERSION SCRIPTS/Weight Converter.qmd": {
+    "Weight Converter.html": "67b71bb2"
+  },
+  "projects/Cyber_security  projects/CLIENT.qmd": {
+    "CLIENT.html": "aa18f60a"
+  },
+  "projects/Cyber_security  projects/Remote Code Execution.qmd": {
+    "Remote Code Execution.html": "368c4eff"
+  },
+  "projects/Cyber_security  projects/SERVER.qmd": {
+    "SERVER.html": "211c7eb3"
+  },
+  "projects/Cyber_security  projects/hotelbill.qmd": {
+    "hotelbill.html": "d6048083"
+  },
+  "projects/Cyber_security  projects/threading.qmd": {
+    "threading.html": "f38e9066"
+  },
+  "projects/DJANGO PROJECTS/Chat.qmd": {
+    "Chat.html": "71fa6467"
+  },
+  "projects/DOM EXTRACTION/main.qmd": {
+    "main.html": "02b66855"
+  },
+  "projects/Data Structures and Algorithms/Dictionary_Functions.qmd": {
+    "Dictionary_Functions.html": "87555ba2"
+  },
+  "projects/Data Structures and Algorithms/Genetic Algorithms.qmd": {
+    "Genetic Algorithms.html": "be4298e3"
+  },
+  "projects/Data Structures and Algorithms/Search Algorithms.qmd": {
+    "Search Algorithms.html": "a3ea1b37"
+  },
+  "projects/Data Structures and Algorithms/Sorting Algorithms.qmd": {
+    "Sorting Algorithms.html": "e769aa76"
+  },
+  "projects/Data Structures and Algorithms/Trees.qmd": {
+    "Trees.html": "89980136"
+  },
+  "projects/Data Structures and Algorithms/len_nth_word_from_end.qmd": {
+    "len_nth_word_from_end.html": "4466a3cc"
+  },
+  "projects/Data Structures and Algorithms/linked_list.qmd": {
+    "linked_list.html": "e8824988"
+  },
+  "projects/Data Structures and Algorithms/queues.qmd": {
+    "queues.html": "5e4389bf"
+  },
+  "projects/Data Structures and Algorithms/radix_sort.qmd": {
+    "radix_sort.html": "be5cc225"
+  },
+  "projects/Data Structures and Algorithms/recursion.qmd": {
+    "recursion.html": "da762149"
+  },
+  "projects/Data Structures and Algorithms/stack.qmd": {
+    "stack.html": "d5a9f539"
+  },
+  "projects/Data Structures and Algorithms/union_find.qmd": {
+    "union_find.html": "1b0df79e"
+  },
+  "projects/ENCRYPT-ENV-SCRIPT/__init__.qmd": {
+    "__init__.html": "84724f21"
+  },
+  "projects/ENCRYPT-ENV-SCRIPT/envars_helper.qmd": {
+    "envars_helper.html": "a425c126"
+  },
+  "projects/ENCRYPT-ENV-SCRIPT/envars_script.qmd": {
+    "envars_script.html": "880e2497"
+  },
+  "projects/ENCRYPT-ENV-SCRIPT/test_script.qmd": {
+    "test_script.html": "757b782b"
+  },
+  "projects/FLASK PROJECTS/Anniversary time.qmd": {
+    "Anniversary time.html": "04db03f3"
+  },
+  "projects/FLASK PROJECTS/Career ready.qmd": {
+    "Career ready.html": "97769aaa"
+  },
+  "projects/FLASK PROJECTS/E-commerce.qmd": {
+    "E-commerce.html": "af4f5a48"
+  },
+  "projects/FLASK PROJECTS/Excel to Firebase.qmd": {
+    "Excel to Firebase.html": "37cc6cc7"
+  },
+  "projects/FLASK PROJECTS/Firebase Authenticatio in Flask Application.qmd": {
+    "Firebase Authenticatio in Flask Application.html": "a3b682a2"
+  },
+  "projects/FLASK PROJECTS/FlaskSimpleCalculator.qmd": {
+    "FlaskSimpleCalculator.html": "bc1119a9"
+  },
+  "projects/FLASK PROJECTS/Instagram Scraper using Flask.qmd": {
+    "Instagram Scraper using Flask.html": "8d1a39bb"
+  },
+  "projects/FLASK PROJECTS/Inventory Billing Management System using Flask.qmd": {
+    "Inventory Billing Management System using Flask.html": "2ea5dbb5"
+  },
+  "projects/FLASK PROJECTS/Teacher Promotion Flask API.qmd": {
+    "Teacher Promotion Flask API.html": "29bff05f"
+  },
+  "projects/FLASK PROJECTS/Url Shortening App in Flask.qmd": {
+    "Url Shortening App in Flask.html": "37d5cfc9"
+  },
+  "projects/FLASK PROJECTS/User Hash Generator.qmd": {
+    "User Hash Generator.html": "44683997"
+  },
+  "projects/FLASK PROJECTS/Web Dev with Flask.qmd": {
+    "Web Dev with Flask.html": "6478198c"
+  },
+  "projects/GAMES/BlackJackGame.qmd": {
+    "BlackJackGame.html": "a2b7caa8"
+  },
+  "projects/GAMES/Brick-Breaker_Game.qmd": {
+    "Brick-Breaker_Game.html": "42da8379"
+  },
+  "projects/GAMES/BullsAndCows.qmd": {
+    "BullsAndCows.html": "d2c2c049"
+  },
+  "projects/GAMES/ConsoleMinesweeper.qmd": {
+    "ConsoleMinesweeper.html": "fac67797"
+  },
+  "projects/GAMES/ConsoleSnake.qmd": {
+    "ConsoleSnake.html": "a2c9ca26"
+  },
+  "projects/GAMES/Dice-Rolling-Game.qmd": {
+    "Dice-Rolling-Game.html": "c76c0879"
+  },
+  "projects/GAMES/FastRun.qmd": {
+    "FastRun.html": "76daed61"
+  },
+  "projects/GAMES/Flames_Game.qmd": {
+    "Flames_Game.html": "37e93c06"
+  },
+  "projects/GAMES/GUI Rock-Paper-Scissors Game.qmd": {
+    "GUI Rock-Paper-Scissors Game.html": "bb831b73"
+  },
+  "projects/GAMES/Guess the US States.qmd": {
+    "Guess the US States.html": "364b0ba7"
+  },
+  "projects/GAMES/Hacktoberfest Quiz.qmd": {
+    "Hacktoberfest Quiz.html": "471c856e"
+  },
+  "projects/GAMES/Hangman.qmd": {
+    "Hangman.html": "e2d3cfd6"
+  },
+  "projects/GAMES/Hangman (using classes).qmd": {
+    "Hangman (using classes).html": "2f7abeec"
+  },
+  "projects/GAMES/Hunter_Island.qmd": {
+    "Hunter_Island.html": "0457e1ec"
+  },
+  "projects/GAMES/Maze-Solver.qmd": {
+    "Maze-Solver.html": "162fd07d"
+  },
+  "projects/GAMES/Number Guessing Game.qmd": {
+    "Number Guessing Game.html": "58c4de97"
+  },
+  "projects/GAMES/Pong Game in Python.qmd": {
+    "Pong Game in Python.html": "79d0cce0"
+  },
+  "projects/GAMES/Quizzer.qmd": {
+    "Quizzer.html": "c015362d"
+  },
+  "projects/GAMES/ROCK PAPER SCISSORS GAME.qmd": {
+    "ROCK PAPER SCISSORS GAME.html": "cfa443f9"
+  },
+  "projects/GAMES/SNAKE_GAME.qmd": {
+    "SNAKE_GAME.html": "a37034f5"
+  },
+  "projects/GAMES/Snake_Game(Using Turtle).qmd": {
+    "Snake_Game(Using Turtle).html": "e8737347"
+  },
+  "projects/GAMES/Software-Eng-UI-Quiz.qmd": {
+    "Software-Eng-UI-Quiz.html": "142f95e1"
+  },
+  "projects/GAMES/SudokuSolver.qmd": {
+    "SudokuSolver.html": "57866bab"
+  },
+  "projects/GAMES/TIC_TAC_TOE.qmd": {
+    "TIC_TAC_TOE.html": "5337cf64"
+  },
+  "projects/GAMES/Tetris.qmd": {
+    "Tetris.html": "8c841ec3"
+  },
+  "projects/GAMES/Tic Tac Toe Game.qmd": {
+    "Tic Tac Toe Game.html": "347c16b4"
+  },
+  "projects/GAMES/Tic-Tac-Bot-Player.qmd": {
+    "Tic-Tac-Bot-Player.html": "cf8db127"
+  },
+  "projects/GAMES/Turtle-Race-Game.qmd": {
+    "Turtle-Race-Game.html": "8aa92b7f"
+  },
+  "projects/GAMES/VirtualHandPainter.qmd": {
+    "VirtualHandPainter.html": "6328416a"
+  },
+  "projects/GAMES/chess.qmd": {
+    "chess.html": "51ff85ab"
+  },
+  "projects/GAMES/dino-game.qmd": {
+    "dino-game.html": "fa72b89d"
+  },
+  "projects/GAMES/guess-the-number.qmd": {
+    "guess-the-number.html": "b7c3c711"
+  },
+  "projects/GAMES/randomshuffle.qmd": {
+    "randomshuffle.html": "510bf9d4"
+  },
+  "projects/GAMES/snakeGame.qmd": {
+    "snakeGame.html": "19969151"
+  },
+  "projects/GAMES/sudoku_solver.qmd": {
+    "sudoku_solver.html": "ca43942a"
+  },
+  "projects/GUI/Calculator.qmd": {
+    "Calculator.html": "45af8027"
+  },
+  "projects/GUI/Dates.qmd": {
+    "Dates.html": "e985ab93"
+  },
+  "projects/GUI/JSON Validator.qmd": {
+    "JSON Validator.html": "32aace0b"
+  },
+  "projects/GUI/Password Generator.qmd": {
+    "Password Generator.html": "6c9c6f30"
+  },
+  "projects/GUI/Pomodoro Timer.qmd": {
+    "Pomodoro Timer.html": "8bc69087"
+  },
+  "projects/GUI/PyQuiz.qmd": {
+    "PyQuiz.html": "4170835e"
+  },
+  "projects/GUI/QtQuiz.qmd": {
+    "QtQuiz.html": "c953af80"
+  },
+  "projects/GUI/Quadratic-Equation-Solver.qmd": {
+    "Quadratic-Equation-Solver.html": "20bc9ad7"
+  },
+  "projects/IMAGES & PHOTO SCRIPTS/CLI-Photo-Watermark.qmd": {
+    "CLI-Photo-Watermark.html": "b089e5bf"
+  },
+  "projects/IMAGES & PHOTO SCRIPTS/Capture Image and Save in Local.qmd": {
+    "Capture Image and Save in Local.html": "a7761d2f"
+  },
+  "projects/IMAGES & PHOTO SCRIPTS/Compress Image.qmd": {
+    "Compress Image.html": "6ad7f740"
+  },
+  "projects/IMAGES & PHOTO SCRIPTS/Extract Texts from Image.qmd": {
+    "Extract Texts from Image.html": "c277a860"
+  },
+  "projects/IMAGES & PHOTO SCRIPTS/Image Captcha Generator.qmd": {
+    "Image Captcha Generator.html": "2454c221"
+  },
+  "projects/IMAGES & PHOTO SCRIPTS/Image Grayscalling.qmd": {
+    "Image Grayscalling.html": "6717e37f"
+  },
+  "projects/IMAGES & PHOTO SCRIPTS/Image to PDF.qmd": {
+    "Image to PDF.html": "11bb582d"
+  },
+  "projects/IMAGES & PHOTO SCRIPTS/Image-Inverter.qmd": {
+    "Image-Inverter.html": "22bca242"
+  },
+  "projects/IMAGES & PHOTO SCRIPTS/ImageDivider.qmd": {
+    "ImageDivider.html": "ea69adf2"
+  },
+  "projects/IMAGES & PHOTO SCRIPTS/photo editor.qmd": {
+    "photo editor.html": "780b655c"
+  },
+  "projects/INVESTMENT_RULES/inflation_adjusted_return.qmd": {
+    "inflation_adjusted_return.html": "4af2f6e7"
+  },
+  "projects/INVESTMENT_RULES/rule_of_72.qmd": {
+    "rule_of_72.html": "c97afb68"
+  },
+  "projects/MachineLearning Projects/Book Recommendation using KNN.qmd": {
+    "Book Recommendation using KNN.html": "b39b5b3b"
+  },
+  "projects/MachineLearning Projects/Car Price Predictor.qmd": {
+    "Car Price Predictor.html": "fc45fb52"
+  },
+  "projects/MachineLearning Projects/Cricket Score Predictor.qmd": {
+    "Cricket Score Predictor.html": "db4c8cfa"
+  },
+  "projects/MachineLearning Projects/Decision Tree.qmd": {
+    "Decision Tree.html": "cbaf1b70"
+  },
+  "projects/MachineLearning Projects/Driver-Drowsiness-Detection.qmd": {
+    "Driver-Drowsiness-Detection.html": "bace22fd"
+  },
+  "projects/MachineLearning Projects/Emotion Detector using Google's Teachable ML.qmd": {
+    "Emotion Detector using Google's Teachable ML.html": "5fdc91b7"
+  },
+  "projects/MachineLearning Projects/Face-detecting.qmd": {
+    "Face-detecting.html": "b23fa5c6"
+  },
+  "projects/MachineLearning Projects/Fakenews.qmd": {
+    "Fakenews.html": "7bd66480"
+  },
+  "projects/MachineLearning Projects/Food-Data-Analysis.qmd": {
+    "Food-Data-Analysis.html": "82a112dc"
+  },
+  "projects/MachineLearning Projects/Heart-Disease-Prediction.qmd": {
+    "Heart-Disease-Prediction.html": "2d218b09"
+  },
+  "projects/MachineLearning Projects/House-Price-Predictor.qmd": {
+    "House-Price-Predictor.html": "adcb4a44"
+  },
+  "projects/MachineLearning Projects/Image Classification using CNN TensorFlow OpenCV.qmd": {
+    "Image Classification using CNN TensorFlow OpenCV.html": "8c8be19a"
+  },
+  "projects/MachineLearning Projects/Image to Sketch.qmd": {
+    "Image to Sketch.html": "86fbaa1e"
+  },
+  "projects/MachineLearning Projects/Landmark Recognition using TensorFlow.qmd": {
+    "Landmark Recognition using TensorFlow.html": "10c8de39"
+  },
+  "projects/MachineLearning Projects/Lung Cancer Detection using CNN.qmd": {
+    "Lung Cancer Detection using CNN.html": "48dfe5de"
+  },
+  "projects/MachineLearning Projects/Movie recommendation system.qmd": {
+    "Movie recommendation system.html": "204f908d"
+  },
+  "projects/MachineLearning Projects/Plant Disease Prediction.qmd": {
+    "Plant Disease Prediction.html": "738195a7"
+  },
+  "projects/MachineLearning Projects/Poisonous_Mushroom-project.qmd": {
+    "Poisonous_Mushroom-project.html": "65861bb7"
+  },
+  "projects/MachineLearning Projects/Resume Parser using NLP.qmd": {
+    "Resume Parser using NLP.html": "2aa5172e"
+  },
+  "projects/MachineLearning Projects/Stock-Analysis.qmd": {
+    "Stock-Analysis.html": "0e448684"
+  },
+  "projects/MachineLearning Projects/Stock-Market-Forecasting.qmd": {
+    "Stock-Market-Forecasting.html": "685cd4f6"
+  },
+  "projects/MachineLearning Projects/Student-Feedback-Sentiment-Analysis-main.qmd": {
+    "Student-Feedback-Sentiment-Analysis-main.html": "c97fe414"
+  },
+  "projects/MachineLearning Projects/Twitter-sentiment-analysis.qmd": {
+    "Twitter-sentiment-analysis.html": "2d369356"
+  },
+  "projects/MachineLearning Projects/Twitter-sentiments-analysis.qmd": {
+    "Twitter-sentiments-analysis.html": "fd33c258"
+  },
+  "projects/MachineLearning Projects/Vehicle-Detection.qmd": {
+    "Vehicle-Detection.html": "8b4d3ff2"
+  },
+  "projects/MachineLearning Projects/YouTube-Comments-Sentiment-Analysis.qmd": {
+    "YouTube-Comments-Sentiment-Analysis.html": "bbda5035"
+  },
+  "projects/MachineLearning Projects/prediction-of-CO2-emission.qmd": {
+    "prediction-of-CO2-emission.html": "3f10d03d"
+  },
+  "projects/MachineLearning Projects/sentiment-predictor-for-stress-detection.qmd": {
+    "sentiment-predictor-for-stress-detection.html": "881affbf"
+  },
+  "projects/MachineLearning Projects/sudoku_solver.qmd": {
+    "sudoku_solver.html": "42b815cb"
+  },
+  "projects/MachineLearning Projects/tracking live sentiment analysis to trade.qmd": {
+    "tracking live sentiment analysis to trade.html": "a2622435"
+  },
+  "projects/MachineLearning Projects/traffic sign recognition using CNN and Keras.qmd": {
+    "traffic sign recognition using CNN and Keras.html": "0db238d8"
+  },
+  "projects/PASSWORD RELATED/PasswordHashingUtility.qmd": {
+    "PasswordHashingUtility.html": "e59aaa1f"
+  },
+  "projects/PASSWORD RELATED/RandomPassword.qmd": {
+    "RandomPassword.html": "2ddf1fe7"
+  },
+  "projects/PASSWORD RELATED/Saved Wi-FI Password.qmd": {
+    "Saved Wi-FI Password.html": "b7e8d60c"
+  },
+  "projects/PASSWORD RELATED/password-strength.qmd": {
+    "password-strength.html": "2626d852"
+  },
+  "projects/PASSWORD RELATED/password-validator.qmd": {
+    "password-validator.html": "39b9afb6"
+  },
+  "projects/PASSWORD RELATED/passwordbreachchecker.qmd": {
+    "passwordbreachchecker.html": "e163b034"
+  },
+  "projects/PYTHON APPS/Alarm_Clock.qmd": {
+    "Alarm_Clock.html": "55d31d62"
+  },
+  "projects/PYTHON APPS/CLI-Based-TODO.qmd": {
+    "CLI-Based-TODO.html": "f76b3aeb"
+  },
+  "projects/PYTHON APPS/CSV_files.qmd": {
+    "CSV_files.html": "fd7389bc"
+  },
+  "projects/PYTHON APPS/Chess.qmd": {
+    "Chess.html": "d47256dd"
+  },
+  "projects/PYTHON APPS/DownTube.qmd": {
+    "DownTube.html": "58f2cfd6"
+  },
+  "projects/PYTHON APPS/Facebook.qmd": {
+    "Facebook.html": "1da07bd4"
+  },
+  "projects/PYTHON APPS/FinanceTracker.qmd": {
+    "FinanceTracker.html": "cfe8e253"
+  },
+  "projects/PYTHON APPS/GestureControlledVolume.qmd": {
+    "GestureControlledVolume.html": "dde0858e"
+  },
+  "projects/PYTHON APPS/Moder_Calculator_IOS.qmd": {
+    "Moder_Calculator_IOS.html": "07bc81ca"
+  },
+  "projects/PYTHON APPS/Notepad.qmd": {
+    "Notepad.html": "eda9dba6"
+  },
+  "projects/PYTHON APPS/PDF-Text-Extractor.qmd": {
+    "PDF-Text-Extractor.html": "2189c1d9"
+  },
+  "projects/PYTHON APPS/PDF_Downloader.qmd": {
+    "PDF_Downloader.html": "d3a07be8"
+  },
+  "projects/PYTHON APPS/PhotoEditorApp.qmd": {
+    "PhotoEditorApp.html": "8403af9f"
+  },
+  "projects/PYTHON APPS/Python IDE.qmd": {
+    "Python IDE.html": "f129846e"
+  },
+  "projects/PYTHON APPS/PythonDictionary.qmd": {
+    "PythonDictionary.html": "81ee775e"
+  },
+  "projects/PYTHON APPS/ResolutionSwapper.qmd": {
+    "ResolutionSwapper.html": "51e3a712"
+  },
+  "projects/PYTHON APPS/ScreenRecorder.qmd": {
+    "ScreenRecorder.html": "5407a08f"
+  },
+  "projects/PYTHON APPS/Spelling Corrector.qmd": {
+    "Spelling Corrector.html": "4fdbe9f0"
+  },
+  "projects/PYTHON APPS/URL Shortner.qmd": {
+    "URL Shortner.html": "186f2162"
+  },
+  "projects/PYTHON APPS/YoutubeDownloader.qmd": {
+    "YoutubeDownloader.html": "28e40cfd"
+  },
+  "projects/PYTHON APPS/mp3-MusicPlayer.qmd": {
+    "mp3-MusicPlayer.html": "940548dc"
+  },
+  "projects/PYTHON APPS/pyjokes.qmd": {
+    "pyjokes.html": "991b75a2"
+  },
+  "projects/SOCIAL MEDIA DATA ANALYSIS/Facebook-Data-Analysis.qmd": {
+    "Facebook-Data-Analysis.html": "04692e82"
+  },
+  "projects/SOCIAL MEDIA DATA ANALYSIS/Instagram-Data-Analysis.qmd": {
+    "Instagram-Data-Analysis.html": "49722d2f"
+  },
+  "projects/SYSTEM MANAGEMENT APPS/Bookstore management.qmd": {
+    "Bookstore management.html": "dff270fa"
+  },
+  "projects/SYSTEM MANAGEMENT APPS/Contact-management.qmd": {
+    "Contact-management.html": "40485099"
+  },
+  "projects/SYSTEM MANAGEMENT APPS/Student_management_system.qmd": {
+    "Student_management_system.html": "c12eb89e"
+  },
+  "projects/SYSTEM MANAGEMENT APPS/bloodbankmanagement.qmd": {
+    "bloodbankmanagement.html": "5a52d653"
+  },
+  "projects/TIME SCRIPTS/Age calculator.qmd": {
+    "Age calculator.html": "f9065ee8"
+  },
+  "projects/TIME SCRIPTS/Alarm clock.qmd": {
+    "Alarm clock.html": "d0672e4b"
+  },
+  "projects/TIME SCRIPTS/Countdown Timer.qmd": {
+    "Countdown Timer.html": "761ff331"
+  },
+  "projects/TIME SCRIPTS/DigitalClock.qmd": {
+    "DigitalClock.html": "297ad882"
+  },
+  "projects/TIME SCRIPTS/GUI Count Down Timer.qmd": {
+    "GUI Count Down Timer.html": "11b93040"
+  },
+  "projects/TIME SCRIPTS/Pomodoro-App.qmd": {
+    "Pomodoro-App.html": "a111f828"
+  },
+  "projects/TIME SCRIPTS/Script-RunTime.qmd": {
+    "Script-RunTime.html": "b6cd2d8d"
+  },
+  "projects/TIME SCRIPTS/Umbrella Reminder.qmd": {
+    "Umbrella Reminder.html": "1c9f5f43"
+  },
+  "projects/TIME SCRIPTS/current_time.qmd": {
+    "current_time.html": "6e7f1672"
+  },
+  "projects/WEB SCRAPING/Bitcoin Price.qmd": {
+    "Bitcoin Price.html": "a3bd3b43"
+  },
+  "projects/WEB SCRAPING/Get-Dir-Github-Repo.qmd": {
+    "Get-Dir-Github-Repo.html": "2d15c07a"
+  },
+  "projects/WEB SCRAPING/Most Popular Lyric.qmd": {
+    "Most Popular Lyric.html": "fa960b3e"
+  },
+  "projects/WEB SCRAPING/News_Article_Scraping.qmd": {
+    "News_Article_Scraping.html": "fe7d6232"
+  },
+  "projects/WEB SCRAPING/PYDICTIONARY.qmd": {
+    "PYDICTIONARY.html": "5ecdac0f"
+  },
+  "projects/WEB SCRAPING/Weather Forcasting.qmd": {
+    "Weather Forcasting.html": "77d0a91a"
+  },
+  "projects/WEB SCRAPING/Weather Updates.qmd": {
+    "Weather Updates.html": "e64978a9"
+  },
+  "projects/WEB SCRAPING/WebScraping.qmd": {
+    "WebScraping.html": "1fd4be72"
+  },
+  "projects/WEB SCRAPING/WebScraping-Data-Analytics.qmd": {
+    "WebScraping-Data-Analytics.html": "4c51403a"
+  },
+  "projects/WEB SCRAPING/bot.qmd": {
+    "bot.html": "de75dda6"
+  },
+  "projects/WEB SCRAPING/devJobsScanner_Scraper.qmd": {
+    "devJobsScanner_Scraper.html": "724abc91"
+  },
+  "projects/WEB SCRAPING/vocabulary log helper.qmd": {
+    "vocabulary log helper.html": "69d83d54"
+  },
+  "projects/WEB SCRAPING/wikipedia.qmd": {
+    "wikipedia.html": "88ea992e"
+  },
+  "projects/WEB-BASED PROJECTS/Akan-names-main.qmd": {
+    "Akan-names-main.html": "257a84ba"
+  },
+  "projects/WEB-BASED PROJECTS/StopWatch.qmd": {
+    "StopWatch.html": "9a3c3f90"
+  },
+  "references.qmd": {
+    "references.html": "d185d41a"
+  }
+}

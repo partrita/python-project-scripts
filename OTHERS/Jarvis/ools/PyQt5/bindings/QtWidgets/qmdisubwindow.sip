@@ -117,3 +117,7 @@ protected:
 };
 
 QFlags<QMdiSubWindow::SubWindowOption> operator|(QMdiSubWindow::SubWindowOption f1, QFlags<QMdiSubWindow::SubWindowOption> f2);
+QFlags<QMdiSubWindow::SubWindowOption> operator|(QMdiSubWindow::SubWindowOption f1, QMdiSubWindow::SubWindowOption f2);
+QFlags<QMdiSubWindow::SubWindowOption> operator&(QMdiSubWindow::SubWindowOption f1, QFlags<QMdiSubWindow::SubWindowOption> f2);
+QFlags<QMdiSubWindow::SubWindowOption> operator^(QMdiSubWindow::SubWindowOption f1, QFlags<QMdiSubWindow::SubWindowOption> f2);
+QFlags<QMdiSubWindow::SubWindowOption> operator~(QMdiSubWindow::SubWindowOption f1);

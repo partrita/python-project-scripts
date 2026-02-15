@@ -77,7 +77,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-3778d3e438078121318a23701f9f68bb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-803ae4f7a8810f475153517dc3c4ebae.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -823,6 +823,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <a href="../../projects/GAMES/sudoku_solver.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">sudoku_solver</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../projects/GAMES/tic_tac_toe.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">tic_tac_toe</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -1560,10 +1565,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(example)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Python dictionaries can have any object as a value. And since functions are objects, we can assign them into dictionaries. We can then get a value at a given hash and call it.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>example[<span class="st">'1'</span>] <span class="op">=</span> foo</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>example[<span class="st">'1'</span>]()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>example[<span class="st">'1'</span>](..<span class="op">/</span>..<span class="op">/</span>..<span class="op">/</span>Data Structures <span class="kw">and</span> Algorithms<span class="op">/</span>Dictionary_Functions<span class="op">/</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Finally, we want to call these dicts without checking if it a valid key. A common practice in python is to use try and except blocks. Get used to using these blocks. Unlike other languages, it is common place to have these in your code. One major mistake many new programmers make is to <code>except</code> on everything. Instead, you should only catch known exceptions. There are many reasons for this but one of the biggest is because you don’t want to catch exceptions such as user interupts. If I wanted to kill a program, I would use ctrl+c.&nbsp;But if I catch all exceptions, it wouldn’t end the program.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    example[<span class="st">'9'</span>]()</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    example[<span class="st">'9'</span>](..<span class="op">/</span>..<span class="op">/</span>..<span class="op">/</span>Data Structures <span class="kw">and</span> Algorithms<span class="op">/</span>Dictionary_Functions<span class="op">/</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> (<span class="pp">KeyError</span>, <span class="pp">TypeError</span>) <span class="im">as</span> e:</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Key error is when the dict does not have that key in its list. </span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Type error would be called if the dict has values that are not functions but we try to call it.</span></span>
@@ -1579,7 +1584,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    two()</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>...</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Can be converted to</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>funcs[x]()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>funcs[x](..<span class="op">/</span>..<span class="op">/</span>..<span class="op">/</span>Data Structures <span class="kw">and</span> Algorithms<span class="op">/</span>Dictionary_Functions<span class="op">/</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 <section id="running-this-demo" class="level2">

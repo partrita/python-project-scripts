@@ -77,7 +77,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-3778d3e438078121318a23701f9f68bb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-803ae4f7a8810f475153517dc3c4ebae.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -823,6 +823,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <a href="../../projects/GAMES/sudoku_solver.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">sudoku_solver</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../projects/GAMES/tic_tac_toe.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">tic_tac_toe</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -1514,7 +1519,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#how-to-run" id="toc-how-to-run" class="nav-link" data-scroll-target="#how-to-run">🌟 How to run</a></li>
   <li><a href="#demo" id="toc-demo" class="nav-link" data-scroll-target="#demo">📺 Demo</a></li>
   <li><a href="#author" id="toc-author" class="nav-link" data-scroll-target="#author">🤖 Author</a></li>
-  <li><a href="#source-code-db.py" id="toc-source-code-db.py" class="nav-link" data-scroll-target="#source-code-db.py">Source Code: db.py</a></li>
+  <li><a href="#source-code-helpers.py" id="toc-source-code-helpers.py" class="nav-link" data-scroll-target="#source-code-helpers.py">Source Code: helpers.py</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -1601,28 +1606,34 @@ Run <code>pip install -r requirements.txt</code> to install all the requirements
 <h2 class="anchored" data-anchor-id="author">🤖 Author</h2>
 <p>Github - <a href="https://github.com/MBSA-INFINITY">MBSA-INFINITY</a> LinkedIn - <a href="https://www.linkedin.com/in/mbsaiaditya/">MBSAIADITYA</a> Portfolio - <a href="https://mbsaiaditya.in/">MBSA</a></p>
 </section>
-<section id="source-code-db.py" class="level2">
-<h2 class="anchored" data-anchor-id="source-code-db.py">Source Code: db.py</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pymongo</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>ENVIRONMENT <span class="op">=</span> os.environ[<span class="st">"ENVIRONMENT"</span>]</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> ENVIRONMENT <span class="op">==</span> <span class="st">"local"</span>:</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    connection_string <span class="op">=</span> <span class="st">"mongodb://localhost:27017"</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    DB_NAME <span class="op">=</span> <span class="st">"url_shortener"</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:    </span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    MONGO_CLUSTER <span class="op">=</span> os.environ[<span class="st">"MONGO_URI"</span>]</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    MONGO_USERNAME <span class="op">=</span> os.environ[<span class="st">"MONGO_USERNAME"</span>]</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    MONGO_PASSWORD <span class="op">=</span> os.environ[<span class="st">"MONGO_PASSWORD"</span>]</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    DB_NAME <span class="op">=</span> os.environ[<span class="st">"DB_NAME"</span>]</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    connection_string <span class="op">=</span> <span class="ss">f"mongodb+srv://</span><span class="sc">{</span>MONGO_USERNAME<span class="sc">}</span><span class="ss">:</span><span class="sc">{</span>MONGO_PASSWORD<span class="sc">}</span><span class="ss">@</span><span class="sc">{</span>MONGO_CLUSTER<span class="sc">}</span><span class="ss">/?retryWrites=true&amp;ssl=true&amp;ssl_cert_reqs=CERT_NONE&amp;w=majority"</span></span>
+<section id="source-code-helpers.py" class="level2">
+<h2 class="anchored" data-anchor-id="source-code-helpers.py">Source Code: helpers.py</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> string</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> random_string_generator(N):</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> <span class="st">''</span>.join(random.choices(string.ascii_lowercase <span class="op">+</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                             string.digits, k<span class="op">=</span>N))</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">str</span>(res)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> random_string_generator_only_alpha(N):</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> <span class="st">''</span>.join(random.choices(string.ascii_lowercase <span class="op">+</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>                             string.ascii_uppercase, k<span class="op">=</span>N))</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">str</span>(res)</span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>db_client <span class="op">=</span> pymongo.MongoClient(connection_string)</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>db_client <span class="op">=</span> db_client.get_database(DB_NAME)</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>url_data_collection <span class="op">=</span> db_client[<span class="st">'url_data'</span>]</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_valid_url(url):</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define a regular expression pattern to match URLs</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    url_pattern <span class="op">=</span> re.<span class="bu">compile</span>(</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="vs">r'</span><span class="dv">^</span><span class="kw">(</span><span class="vs">https</span><span class="op">?</span><span class="cf">|</span><span class="vs">ftp</span><span class="kw">)</span><span class="vs">://'</span>  <span class="co"># Match the scheme (http, https, or ftp)</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="vs">r'</span>(?:(?:<span class="pp">[A-Z0-9]</span>(?:<span class="pp">[A-Z0-9-]</span><span class="op">{0,61}</span><span class="pp">[A-Z0-9]</span>)<span class="op">?</span><span class="ch">\.</span>)<span class="op">+</span><span class="pp">[A-Z]</span><span class="op">{2,6}</span><span class="ch">\.</span><span class="op">?</span><span class="cf">|</span><span class="vs">'</span>  <span class="co"># Match domain</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        <span class="vs">r'localhost</span><span class="cf">|</span><span class="vs">'</span>  <span class="co"># Match "localhost"</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        <span class="vs">r'</span><span class="dv">\d</span><span class="op">{1,3}</span><span class="ch">\.</span><span class="dv">\d</span><span class="op">{1,3}</span><span class="ch">\.</span><span class="dv">\d</span><span class="op">{1,3}</span><span class="ch">\.</span><span class="dv">\d</span><span class="op">{1,3}</span><span class="er">)</span><span class="vs">'</span>  <span class="co"># Match IP address</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        <span class="vs">r'</span>(?:<span class="vs">:</span><span class="dv">\d</span><span class="op">+</span>)<span class="op">?</span><span class="vs">'</span>  <span class="co"># Match optional port number</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        <span class="vs">r'</span>(?:<span class="vs">/</span><span class="op">?</span><span class="cf">|</span><span class="pp">[/?]</span><span class="dv">\S</span><span class="op">+</span>)<span class="dv">$</span><span class="vs">'</span>, re.IGNORECASE)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">bool</span>(url_pattern.match(url))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>

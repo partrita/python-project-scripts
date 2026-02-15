@@ -77,7 +77,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-3778d3e438078121318a23701f9f68bb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-803ae4f7a8810f475153517dc3c4ebae.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -823,6 +823,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <a href="../../projects/GAMES/sudoku_solver.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">sudoku_solver</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../projects/GAMES/tic_tac_toe.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">tic_tac_toe</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -1517,7 +1522,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#the-evaluate-method-replaces-the-x-in-ax²-bx-c-with-an-integer-or-float-and-returns-the-calculated-value" id="toc-the-evaluate-method-replaces-the-x-in-ax²-bx-c-with-an-integer-or-float-and-returns-the-calculated-value" class="nav-link" data-scroll-target="#the-evaluate-method-replaces-the-x-in-ax²-bx-c-with-an-integer-or-float-and-returns-the-calculated-value">The evaluate method replaces the x in ax² + bx + c with an integer or float and returns the calculated value</a></li>
   <li><a href="#the-draw-figure-method-draws-a-quadratic-equation-graph-using-numpy-and-matplotlib" id="toc-the-draw-figure-method-draws-a-quadratic-equation-graph-using-numpy-and-matplotlib" class="nav-link" data-scroll-target="#the-draw-figure-method-draws-a-quadratic-equation-graph-using-numpy-and-matplotlib">The draw figure method draws a quadratic equation graph using numpy and matplotlib</a></li>
   </ul></li>
-  <li><a href="#source-code-quad.py" id="toc-source-code-quad.py" class="nav-link" data-scroll-target="#source-code-quad.py">Source Code: quad.py</a></li>
+  <li><a href="#source-code-ui.py" id="toc-source-code-ui.py" class="nav-link" data-scroll-target="#source-code-ui.py">Source Code: ui.py</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -1592,55 +1597,103 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p># returns 4, 4 ``` &gt; A matplotlib figure is returned and can be added to a matplotlib graph</p>
 </section>
 </section>
-<section id="source-code-quad.py" class="level2">
-<h2 class="anchored" data-anchor-id="source-code-quad.py">Source Code: quad.py</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Quadratic:</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Representing a quadratic expression in the form of ax² + bx + c"""</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,a : <span class="bu">float</span>, b : <span class="bu">float</span>, c : <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># A class is created succesfully if the arguments of the class are either of float type or int type</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (<span class="bu">type</span>(a) <span class="op">==</span> <span class="bu">type</span>(<span class="fl">0.1</span>) <span class="kw">or</span> <span class="bu">type</span>(a) <span class="op">==</span> <span class="bu">type</span>(<span class="dv">1</span>)) <span class="kw">and</span> (<span class="bu">type</span>(b) <span class="op">==</span> <span class="bu">type</span>(<span class="fl">0.1</span>) <span class="kw">or</span> <span class="bu">type</span>(b) <span class="op">==</span> <span class="bu">type</span>(<span class="dv">1</span>)) <span class="kw">and</span> (<span class="bu">type</span>(c) <span class="op">==</span> <span class="bu">type</span>(<span class="fl">0.1</span>) <span class="kw">or</span> <span class="bu">type</span>(c) <span class="op">==</span> <span class="bu">type</span>(<span class="dv">1</span>)):</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.a <span class="op">=</span> a</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.b <span class="op">=</span> b</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.c <span class="op">=</span> c</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"Argument must be of type int or float"</span>)</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        <span class="co">""" Printing a quadratic class """</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Quad( </span><span class="sc">{0}</span><span class="st">x² + </span><span class="sc">{1}</span><span class="st">x + </span><span class="sc">{2}</span><span class="st"> )"</span>.<span class="bu">format</span>(<span class="va">self</span>.a,<span class="va">self</span>.b,<span class="va">self</span>.c)</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> solveQuad(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">tuple</span>[<span class="bu">float</span>,<span class="bu">float</span>]:</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Solving the expression assuming it is equal to 0. </span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co">        returns a tuple of 2 values"""</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>        determinant <span class="op">=</span> ((<span class="va">self</span>.b <span class="op">**</span> <span class="dv">2</span>) <span class="op">-</span> (<span class="dv">4</span> <span class="op">*</span> <span class="va">self</span>.a <span class="op">*</span> <span class="va">self</span>.c)) <span class="op">**</span> <span class="fl">0.5</span> <span class="co"># The determinant of a quadratic equation is the root of b² - 4ac</span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        firstSolution <span class="op">=</span> ((<span class="op">-</span><span class="dv">1</span> <span class="op">*</span> <span class="va">self</span>.b) <span class="op">+</span> determinant) <span class="op">/</span> (<span class="dv">2</span> <span class="op">*</span> <span class="va">self</span>.a)</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>        secondSolution <span class="op">=</span> ((<span class="op">-</span><span class="dv">1</span> <span class="op">*</span> <span class="va">self</span>.b) <span class="op">-</span> determinant) <span class="op">/</span> (<span class="dv">2</span> <span class="op">*</span> <span class="va">self</span>.a)</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (firstSolution,secondSolution)</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> evaluate(<span class="va">self</span>, value):</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Evaluate the Quadratic expression. with x in ax² + bx + c as a numeric type"""</span></span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>        solution <span class="op">=</span> ((<span class="va">self</span>.a <span class="op">*</span> (value <span class="op">**</span> <span class="dv">2</span>)) <span class="op">+</span> (<span class="va">self</span>.b <span class="op">*</span> value) <span class="op">+</span> <span class="va">self</span>.c)</span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> solution</span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> drawFigure(<span class="va">self</span>):</span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Draws a quadratic graph of the quadratic expression and returns a matplotlib figure"""</span></span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>        x_axis <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">50</span>)</span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>        y_axis <span class="op">=</span> <span class="va">self</span>.evaluate(x_axis)</span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>        figure, axes <span class="op">=</span> plt.subplots()</span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>        axes.plot(x_axis,y_axis, linewidth <span class="op">=</span> <span class="dv">1</span>)</span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>        axes.grid(visible <span class="op">=</span> <span class="va">True</span>)</span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>        axes.set_title(<span class="va">self</span>)</span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>        axes.xaxis.set_minor_formatter(<span class="bu">str</span>(x_axis))</span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> figure</span>
-<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="source-code-ui.py" class="level2">
+<h2 class="anchored" data-anchor-id="source-code-ui.py">Source Code: ui.py</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> ttkbootstrap <span class="im">as</span> tb</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ttkbootstrap.constants <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tkinter <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ttkbootstrap.scrolled <span class="im">import</span> ScrolledFrame</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> quad <span class="im">import</span> Quadratic</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.backends.backend_tkagg <span class="im">import</span> FigureCanvasTkAgg, NavigationToolbar2Tk</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ttkbootstrap.dialogs <span class="im">import</span> Messagebox</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Most variables are named a,b,c according to ax² + bx + c in a quadratic equation</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot():</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Collect all inputs</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    a_entryInput  <span class="op">=</span> a_entry.get()</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    b_entryInput <span class="op">=</span> b_entry.get()</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    c_entryInput <span class="op">=</span> c_entry.get()</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        a <span class="op">=</span> <span class="bu">float</span>(a_entryInput)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>        b <span class="op">=</span> <span class="bu">float</span>(b_entryInput)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>        c <span class="op">=</span> <span class="bu">float</span>(c_entryInput)</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        eqn <span class="op">=</span> Quadratic(a,b,c)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>        <span class="co">#--------------------------------------------------------------------------</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Background Graph Frame</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        graph_frame <span class="op">=</span> ScrolledFrame(root, width <span class="op">=</span> <span class="dv">800</span>, height <span class="op">=</span> <span class="dv">500</span>)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>        graph_frame.grid(row <span class="op">=</span> <span class="dv">1</span>, column  <span class="op">=</span> <span class="dv">0</span>,pady <span class="op">=</span> <span class="dv">10</span>)</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>        fig <span class="op">=</span> eqn.drawFigure()</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>        canvas <span class="op">=</span> FigureCanvasTkAgg(figure <span class="op">=</span> fig, master <span class="op">=</span> graph_frame)</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>        canvas.draw()</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>        canvas.get_tk_widget().pack()</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>        toolbar <span class="op">=</span> NavigationToolbar2Tk(canvas, graph_frame)</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>        toolbar.update()</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>        canvas.get_tk_widget().pack()</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>        solution_label.config(text <span class="op">=</span> <span class="st">"Solution : x₁ = </span><span class="sc">{0}</span><span class="st">, x₂ = </span><span class="sc">{1}</span><span class="st">"</span>.<span class="bu">format</span>(eqn.solveQuad()[<span class="dv">0</span>], eqn.solveQuad()[<span class="dv">1</span>]))</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span>:</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>        Messagebox.show_error(title <span class="op">=</span> <span class="st">"Error"</span>, message <span class="op">=</span> <span class="st">"User entered wrong value"</span>)</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Base window widget</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>root <span class="op">=</span> tb.Window(themename<span class="op">=</span><span class="st">"vapor"</span>)</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>root.geometry(<span class="st">"720x720"</span>)</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>root.title(<span class="st">"Quadratic Equation Solver"</span>)</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Font data</span></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>font <span class="op">=</span> (<span class="st">"Nunito"</span>, <span class="dv">12</span>)</span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a><span class="co"># Frame containing the entry for the three arguments</span></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>top_frame <span class="op">=</span> tb.Frame(root)</span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>top_frame.grid(row <span class="op">=</span> <span class="dv">0</span>, column <span class="op">=</span> <span class="dv">0</span>,padx  <span class="op">=</span> <span class="dv">10</span>, pady <span class="op">=</span> <span class="dv">20</span>)</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a><span class="co"># Entry for the three arguments</span></span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>a_frame <span class="op">=</span> tb.Frame(top_frame)</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>a_frame.grid(row <span class="op">=</span> <span class="dv">0</span>, column <span class="op">=</span> <span class="dv">0</span>, padx<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>a_label <span class="op">=</span> tb.Label(a_frame, text<span class="op">=</span> <span class="st">"a ="</span>, font <span class="op">=</span> font)</span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>a_label.grid(row <span class="op">=</span> <span class="dv">0</span>, column <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>a_entry <span class="op">=</span> tb.Entry(a_frame, width <span class="op">=</span> <span class="dv">30</span>, font <span class="op">=</span> font)</span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>a_entry.grid(row <span class="op">=</span> <span class="dv">0</span>, column <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>b_frame <span class="op">=</span> tb.Frame(top_frame)</span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>b_frame.grid(row <span class="op">=</span> <span class="dv">0</span>, column <span class="op">=</span> <span class="dv">1</span>, padx<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>b_label <span class="op">=</span> tb.Label(b_frame, text <span class="op">=</span> <span class="st">"b ="</span>, font <span class="op">=</span> font)</span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>b_label.grid(row <span class="op">=</span> <span class="dv">0</span>, column <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>b_entry <span class="op">=</span> tb.Entry(b_frame, width <span class="op">=</span> <span class="dv">30</span>, font <span class="op">=</span> font)</span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>b_entry.grid(row <span class="op">=</span> <span class="dv">0</span>, column <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>c_frame <span class="op">=</span> tb.Frame(top_frame)</span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>c_frame.grid(row <span class="op">=</span> <span class="dv">0</span>, column <span class="op">=</span> <span class="dv">2</span>, padx<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>c_label <span class="op">=</span> tb.Label(c_frame, text <span class="op">=</span> <span class="st">"c ="</span>, font <span class="op">=</span> font)</span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a>c_label.grid(row <span class="op">=</span> <span class="dv">0</span>, column <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>c_entry <span class="op">=</span> tb.Entry(c_frame, width <span class="op">=</span> <span class="dv">30</span>, font <span class="op">=</span> font)</span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>c_entry.grid(row <span class="op">=</span> <span class="dv">0</span>, column <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a><span class="co"># Button to plot the matplotlib graph</span></span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a>plot_button <span class="op">=</span> tb.Button(top_frame, width <span class="op">=</span> <span class="dv">70</span>, text <span class="op">=</span> <span class="st">"Plot"</span>, command <span class="op">=</span> plot)</span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a>plot_button.grid(row <span class="op">=</span> <span class="dv">1</span>, column <span class="op">=</span> <span class="dv">1</span>, pady <span class="op">=</span> <span class="dv">15</span>)</span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a><span class="co"># Label containing the solution to the equation</span></span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a>solution_label <span class="op">=</span> tb.Label(root,font <span class="op">=</span> (font[<span class="dv">0</span>], <span class="dv">15</span>), text <span class="op">=</span> <span class="st">""</span>)</span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>solution_label.grid(row <span class="op">=</span> <span class="dv">2</span>, column <span class="op">=</span> <span class="dv">0</span>, pady <span class="op">=</span> <span class="dv">10</span>)</span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>root.mainloop()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>

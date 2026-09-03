@@ -6,7 +6,7 @@ h11==0.14.0
 idna==3.4
 numpy==1.24.2
 opencv-python==4.7.0.72
-Pillow==9.4.0
+Pillow==10.0.1
 pydantic==1.10.5
 PyMuPDF==1.21.1
 python-multipart==0.0.6

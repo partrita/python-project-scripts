@@ -1,2 +1,2 @@
 forex_python==1.6
-Pillow==8.4.0
+Pillow==10.0.1

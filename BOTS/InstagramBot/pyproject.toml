@@ -1,0 +1,9 @@
+[project]
+name = "instagrambot"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "instapy==0.6.13",
+]

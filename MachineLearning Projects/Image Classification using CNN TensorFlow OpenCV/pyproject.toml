@@ -1,0 +1,17 @@
+[project]
+name = "image-classification-using-cnn-tensorflow-opencv"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "pandas",
+    "pytest-shutil",
+    "DateTime",
+    "matplotlib",
+    "seaborn",
+    "opencv-python",
+    "scikit-image",
+    "scikit-learn",
+]

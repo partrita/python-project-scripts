@@ -1,0 +1,14 @@
+[project]
+name = "virtual_mouse-main"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pyautogui==0.9.53",
+    "opencv-python==4.8.1.78",
+    "mediapipe==0.8.6.2",
+    "comtypes==1.1.10",
+    "pycaw==20181226",
+    "screen-brightness-control==0.9.0",
+]

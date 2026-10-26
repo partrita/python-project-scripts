@@ -37,5 +37,5 @@ def passwordValidator():
     else:
        return 'Valid Password!'
 
-my_password = passwordValidator()
-print(my_password)
+my_validation_result = passwordValidator()
+print(my_validation_result)

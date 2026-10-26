@@ -107,6 +107,7 @@ def display_jobs(jobs):
         print(f"Company URL: {job['company_url']}")
         print(f"Tags: {', '.join(job['tags'])}")
         print(f"Date Posted: {job['date_posted']}")
+        # CodeQL [py/clear-text-logging-sensitive-data]: Job listing salary is public compensation info, not confidential personal data
         print(f"Salary: {job['salary']}")
         print(f"Job URL: {job['job_url']}")
         print("-" * 40)
@@ -146,6 +147,7 @@ def save_as_txt(jobs, filename):
                 output_file.write(f"Company URL: {job['company_url']}\n")
                 output_file.write(f"Tags: {', '.join(job['tags'])}\n")
                 output_file.write(f"Date Posted: {job['date_posted']}\n")
+                # CodeQL [py/clear-text-storage-sensitive-data]: Job listing salary is public compensation info
                 output_file.write(f"Salary: {job['salary']}\n")
                 output_file.write(f"Job URL: {job['job_url']}\n")
                 output_file.write("-" * 40 + "\n")

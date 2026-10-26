@@ -77,12 +77,19 @@ def index():
             if '' == file.filename:
                 flash("No file selected.", "danger")
             else:
-                ext = "." + file.filename.split('.')[-1]
+                safe_name = secure_filename(file.filename)
+                ext = os.path.splitext(safe_name)[1].lower()
+                if ext not in ('.jpg', '.jpeg', '.png', '.bmp'):
+                    flash("Invalid file extension.", "danger")
+                    return redirect(request.url)
                 filename = datetime.now().strftime("%d%m%y%H%M%S") + "_" + "".join(i for i in choices(ascii_letters+digits, k=3)) + ext
-                filename = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-                print(filename)
-                file.save(filename)
-                session['filename'] = filename
+                upload_dir = os.path.abspath(app.config['UPLOAD_FOLDER'])
+                filepath = os.path.abspath(os.path.join(upload_dir, filename))
+                if not filepath.startswith(upload_dir):
+                    flash("Invalid path.", "danger")
+                    return redirect(request.url)
+                file.save(filepath)
+                session['filename'] = filepath
                 return redirect(url_for('result'))
     else:
         if session.get('solved'):
@@ -125,5 +132,5 @@ if "__main__" == __name__:
     app.run(
         host="192.168.1.88",
         port=5000,
-        debug=True
+        debug=False
     )

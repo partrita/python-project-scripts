@@ -34,12 +34,16 @@
         chatSocket.onmessage = function(e) {
             const data = JSON.parse(e.data);
             
-            let html =  '<div class="container mini-card card">'
-            html += '<b>' + data.username +'</b>'
-            html += '<p>' + data.message + '</p>'
-            html += '</div>'
+            const div = document.createElement('div');
+            div.className = 'container mini-card card';
+            const b = document.createElement('b');
+            b.textContent = data.username;
+            const p = document.createElement('p');
+            p.textContent = data.message;
+            div.appendChild(b);
+            div.appendChild(p);
 
-            document.querySelector('#chat-log').innerHTML += html
+            document.querySelector('#chat-log').appendChild(div);
         };
 
         chatSocket.onclose = function(e) {

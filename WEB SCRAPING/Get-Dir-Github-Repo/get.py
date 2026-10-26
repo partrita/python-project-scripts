@@ -4,6 +4,7 @@ import fnmatch
 import sys
 import os
 import subprocess
+import urllib.parse
 from itertools import product
 
 __version__ = "1.1"
@@ -87,7 +88,8 @@ args = parser.parse_args()
 
 ### Functions ###
 def check_url(url):
-    if not "https://github.com/" in url:
+    parsed = urllib.parse.urlparse(url)
+    if parsed.scheme != "https" or parsed.netloc != "github.com":
         sys.exit("The url must to be a valid and public Github repository.")
 
     if url[-1] == "/":

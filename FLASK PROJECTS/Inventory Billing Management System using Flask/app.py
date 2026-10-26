@@ -96,9 +96,9 @@ def checkout():
     bill_data['selected_products'] = json.loads(bill_data['selected_products'])
     unavailable_items = []
     for product in bill_data['selected_products']:
-        item_id = product['item_id']
+        item_id = str(product['item_id'])
         qty = int(product['qty'])
-        product_details = products_collection.find_one({"merchant_id": session.get('user'),"item_id": item_id})
+        product_details = products_collection.find_one({"merchant_id": str(session.get('user')), "item_id": {"$eq": item_id}})
         current_stock = product_details.get("item_stock")
         item_name = product_details.get("name")
         if int(current_stock)<=int(qty):
@@ -131,7 +131,7 @@ def bill(bill_key):
             incoming_updates['amount_to_be_collected'] = incoming_updates['checkout_amount'].replace(",",'')
             incoming_updates['paid_amount'] = "0"
         invoices_collection.update_one({"merchant_id":session.get('user'),"bill_id": bill_key},{"$set":incoming_updates})
-        return redirect(f"/bill/{bill_key}")
+        return redirect(url_for('bills_display', bill_key=bill_key))
     try:
         bill_details = invoices_collection.find_one({"merchant_id": session.get('user'),"bill_id": bill_key},{"_id":0,"created_on": 0})
     except:
@@ -185,12 +185,12 @@ def products_update(merchant_id, item_id,page_index):
     item_data = dict(request.form)
     item_data['item_stock'] = int(item_data['item_stock'] )
     products_collection.update_one({"item_id": item_id,"merchant_id": merchant_id},{"$set":item_data})
-    return redirect(f"/products/{page_index}")
+    return redirect(url_for('products_idx', page_index=int(page_index) if page_index.isdigit() else 0))
 
 @app.route("/products_delete/<string:merchant_id>/<string:item_id>/<string:page_index>", methods = ['POST'])
 def products_delete(merchant_id, item_id,page_index):
     products_collection.delete_one({"item_id": item_id,"merchant_id": merchant_id})
-    return redirect(f"/products/{page_index}")
+    return redirect(url_for('products_idx', page_index=int(page_index) if page_index.isdigit() else 0))
 
 @app.route("/bills", methods = ['GET','POST'])
 def bills_temp():
@@ -233,4 +233,4 @@ def before_request_func():
     
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=False, port=5000)

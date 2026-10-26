@@ -298,10 +298,10 @@
             });
             file.addEventListener("change", function() {
                 if (fileBtn.value) {
-                    customTxt.innerHTML = fileBtn.value.match(
+                    customTxt.textContent = fileBtn.value.match(
                         /[\/\\]([\w\d\s\.\~\(\)]+)$/)[1];
                 } else {
-                    customTxt.innerHTML = "NO file Chosen, Yet.";
+                    customTxt.textContent = "NO file Chosen, Yet.";
 
                 }
             });

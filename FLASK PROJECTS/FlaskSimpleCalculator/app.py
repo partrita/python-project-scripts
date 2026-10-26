@@ -30,4 +30,4 @@ def predict():
     return render_template("form.html",prediction_text=str(result))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)

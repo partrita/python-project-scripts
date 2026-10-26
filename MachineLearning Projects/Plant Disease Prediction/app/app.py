@@ -65,4 +65,4 @@ async def analyze():
         return render_template('res.html', result=result)
     return render_template('res.html', result="Sorry!! we're not able to find any relevent result for your image, please check the image and retry!!")
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)

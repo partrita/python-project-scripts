@@ -2,9 +2,10 @@ import re
 
 
 
-def password_strength(password):
+def evaluate_strength(input_text):
     """
-        Checks the strength of a password and returns a tuple containing the strength
+        Checks the strength of a password and returns a tuple containing the strength score
+        and improvement messages.
     """
     # Minimum password length
     min_length = 8
@@ -15,45 +16,45 @@ def password_strength(password):
     has_digit = re.compile(r'\d')
     has_special = re.compile(r'[!@#$%^&*()_+=\-[\]{};:\'",.<>?/\\|]')
 
-    strength = 0
-    messages = []
+    score = 0
+    feedback_msgs = []
 
-    if len(password) >= min_length:
-        strength += 1
+    if len(input_text) >= min_length:
+        score += 1
     else:
-        messages.append("Password should have at least {} characters.".format(min_length))
+        feedback_msgs.append("Password should have at least {} characters.".format(min_length))
 
-    if has_lowercase.search(password):
-        strength += 1
+    if has_lowercase.search(input_text):
+        score += 1
     else:
-        messages.append("Password should have at least one lowercase letter.")
+        feedback_msgs.append("Password should have at least one lowercase letter.")
 
-    if has_uppercase.search(password):
-        strength += 1
+    if has_uppercase.search(input_text):
+        score += 1
     else:
-        messages.append("Password should have at least one uppercase letter.")
+        feedback_msgs.append("Password should have at least one uppercase letter.")
 
-    if has_digit.search(password):
-        strength += 1
+    if has_digit.search(input_text):
+        score += 1
     else:
-        messages.append("Password should have at least one digit.")
+        feedback_msgs.append("Password should have at least one digit.")
 
-    if has_special.search(password):
-        strength += 1
+    if has_special.search(input_text):
+        score += 1
     else:
-        messages.append("Password should have at least one special character.")
+        feedback_msgs.append("Password should have at least one special character.")
 
-    return strength, messages
+    return score, feedback_msgs
 
 
 if __name__ == "__main__":
-    password = input("Enter your password: ")
-    strength, messages = password_strength(password)
+    pwd_input = input("Enter your password: ")
+    score_val, feedback = evaluate_strength(pwd_input)
 
-    print("\nPassword Strength: {}".format(strength))
-    if strength == 5:
+    print("\nPassword Strength: {}".format(score_val))
+    if score_val == 5:
         print("Password is very strong!")
     else:
         print("Password needs improvement:")
-        for message in messages:
-            print("- {}".format(message))
+        for rule in feedback:
+            print("- {}".format(rule))

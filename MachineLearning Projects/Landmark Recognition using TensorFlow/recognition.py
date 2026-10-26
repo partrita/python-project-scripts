@@ -23,11 +23,13 @@ def image_processing(image):
     img = img[np.newaxis]
     result = classifier.predict(img)
     fresult = labels[np.argmax(result)],img1
-    print("Prediction Location is ",fresult[0])
+    print("Prediction Landmark is ", fresult[0])
     geolocator = Nominatim(user_agent="Your_Name")
     location = geolocator.geocode(fresult[0])
-    floc = location.address,location.latitude, location.longitude
-    print(location.address,location.latitude, location.longitude) 
+    floc = None
+    if location:
+        floc = location.address, location.latitude, location.longitude
+    return floc 
 
 
 def run():

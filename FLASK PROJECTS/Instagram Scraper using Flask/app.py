@@ -25,10 +25,10 @@ def get_instagram_profile(username):
         return jsonify(response)
     except instaloader.exceptions.ProfileNotExistsException:
         return jsonify({"error": "Profile does not exist"}), 404
-    except instaloader.exceptions.InstaloaderException as e:
-        return jsonify({"error": f"An error occurred: {str(e)}"}), 500
-    except Exception as e:
-        return jsonify({"error": f"{str(e)}"}), 400
+    except instaloader.exceptions.InstaloaderException:
+        return jsonify({"error": "An error occurred while fetching Instagram data."}), 500
+    except Exception:
+        return jsonify({"error": "An unexpected error occurred processing the request."}), 400
 
 
 if __name__ == '__main__':

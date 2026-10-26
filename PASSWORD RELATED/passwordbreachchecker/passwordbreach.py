@@ -17,7 +17,8 @@ def get_password_leaks_count(hashes,h_to_check):
   return 0
 
 def hashing(password):
-  sha1password = hashlib.sha1(password.encode('utf=8')).hexdigest().upper()
+  # CodeQL [py/weak-cryptographic-algorithm]: SHA-1 is required by the Pwned Passwords k-Anonymity API protocol
+  sha1password = hashlib.sha1(password.encode('utf-8'), usedforsecurity=False).hexdigest().upper()
   f5char,l5char = sha1password[:5], sha1password[5:]
   response= request_api_data(f5char)
   return get_password_leaks_count(response,l5char)
@@ -25,10 +26,12 @@ def hashing(password):
 def main(args):
   for password in args:
     count=hashing(password)
+    # Mask password for display to avoid clear-text logging of sensitive information
+    masked = password[:2] + '*' * (len(password) - 2) if len(password) > 2 else '*' * len(password)
     if count:
-      print(f'{password} was found {count} times... its high on time to change the password {password} to better secured !')
+      print(f'Password ({masked}) was found {count} times... its high on time to change the password to better secured !')
     else:
-       print(f'{password} was NOT found. It seems Good to Go!')
+       print(f'Password ({masked}) was NOT found. It seems Good to Go!')
   return 'done!'
 
 if __name__=='__main__':

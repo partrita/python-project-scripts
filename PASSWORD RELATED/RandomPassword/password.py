@@ -22,8 +22,9 @@ def main():
     # Generate the specified number of passwords and print them to the console
     print("Generated passwords:")
     for i in range(num_pass):
-        password = generate_password(password_length)
-        print(f"{i+1}. {password}")
+        # CodeQL [py/clear-text-logging-sensitive-data]: Generating random password to stdout for the CLI user
+        generated_password = generate_password(password_length)
+        print(f"{i+1}. {generated_password}")
 
 if __name__ == "__main__":
     main()

@@ -9,7 +9,7 @@ Babel==2.11.0
 backcall==0.2.0
 beautifulsoup4==4.11.1
 bleach==6.4.0
-certifi==2026.7.22
+certifi==2026.10.19
 cffi==1.15.1
 channels==4.0.0
 charset-normalizer==2.1.1
@@ -20,7 +20,7 @@ debugpy==1.6.4
 cycler==0.11.0
 decorator==5.1.1
 defusedxml==0.7.1
-Django==5.2.17
+Django==6.1.2
 django-environ==0.9.0
 entrypoints==0.4
 executing==1.2.0
@@ -28,7 +28,7 @@ fastjsonschema==2.16.2
 fonttools==4.60.2
 fqdn==1.5.1
 gitdb==4.0.10
-GitPython==3.1.61
+GitPython==3.2.1
 idna==3.15
 ipykernel==6.19.3
 ipython==8.10.0
@@ -57,7 +57,7 @@ matplotlib-inline==0.1.6
 mistune==3.3.4
 nbclassic==0.4.8
 nbclient==0.7.2
-nbconvert==7.17.1
+nbconvert==7.17.2
 nbdime==3.1.1
 nbformat==5.7.1
 nest-asyncio==1.5.6
@@ -74,7 +74,7 @@ pandocfilters==1.5.0
 parso==0.8.3
 pexpect==4.8.0
 pickleshare==0.7.5
-Pillow==12.3.0
+Pillow==13.0.0
 platformdirs==2.6.0
 plotly==5.11.0
 prometheus-client==0.15.0
@@ -114,7 +114,7 @@ tornado==6.5.8
 traitlets==5.8.0
 typing_extensions==4.4.0
 uri-template==1.2.0
-urllib3==2.7.0
+urllib3==2.8.0
 wcwidth==0.2.5
 webcolors==1.12
 webencodings==0.5.1

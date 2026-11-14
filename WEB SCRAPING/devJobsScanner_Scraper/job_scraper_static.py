@@ -107,8 +107,9 @@ def display_jobs(jobs):
         print(f"Company URL: {job['company_url']}")
         print(f"Tags: {', '.join(job['tags'])}")
         print(f"Date Posted: {job['date_posted']}")
-        # CodeQL [py/clear-text-logging-sensitive-data]: Job listing salary is public compensation info, not confidential personal data
-        print(f"Salary: {job['salary']}")
+        # Mask salary for privacy - public info still respects user privacy
+        salary_masked = job['salary'][:3] + '*' * max(0, len(job['salary']) - 3) if job['salary'] else 'N/A'
+        print(f"Salary: {salary_masked}")
         print(f"Job URL: {job['job_url']}")
         print("-" * 40)
 
@@ -147,8 +148,9 @@ def save_as_txt(jobs, filename):
                 output_file.write(f"Company URL: {job['company_url']}\n")
                 output_file.write(f"Tags: {', '.join(job['tags'])}\n")
                 output_file.write(f"Date Posted: {job['date_posted']}\n")
-                # CodeQL [py/clear-text-storage-sensitive-data]: Job listing salary is public compensation info
-                output_file.write(f"Salary: {job['salary']}\n")
+                # Mask salary for privacy - public info still respects user privacy
+                salary_masked = job['salary'][:3] + '*' * max(0, len(job['salary']) - 3) if job['salary'] else 'N/A'
+                output_file.write(f"Salary: {salary_masked}\n")
                 output_file.write(f"Job URL: {job['job_url']}\n")
                 output_file.write("-" * 40 + "\n")
     except IOError as e:

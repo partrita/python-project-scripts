@@ -116,7 +116,7 @@ def mask_salary(salary):
 
 def display_jobs(jobs):
     """
-    Display job details to the console.
+    Display job details to the console without exposing sensitive data.
 
     Args:
         jobs (list): A list of dictionaries containing job details.
@@ -129,6 +129,7 @@ def display_jobs(jobs):
         print(f"Date Posted: {job['date_posted']}")
         # Mask salary for privacy - public info still respects user privacy
         salary_masked = mask_salary(job['salary'])
+        # Log masked salary only (no raw salary data exposed)
         print(f"Salary: {salary_masked}")
         print(f"Job URL: {job['job_url']}")
         print("-" * 40)
@@ -154,7 +155,7 @@ def save_as_csv(jobs, filename):
 
 def save_as_txt(jobs, filename):
     """
-    Save job details as text file.
+    Save job details as text file without clear-text sensitive data.
 
     Args:
         jobs (list): A list of dictionaries containing job details.
@@ -168,13 +169,13 @@ def save_as_txt(jobs, filename):
                 output_file.write(f"Company URL: {job['company_url']}\n")
                 output_file.write(f"Tags: {', '.join(job['tags'])}\n")
                 output_file.write(f"Date Posted: {job['date_posted']}\n")
-                # Mask salary for privacy - public info still respects user privacy
+                # Mask salary for privacy - only store masked version
                 salary_masked = mask_salary(job['salary'])
                 output_file.write(f"Salary: {salary_masked}\n")
                 output_file.write(f"Job URL: {job['job_url']}\n")
                 output_file.write("-" * 40 + "\n")
     except IOError as e:
-        print("Error saving as TXT:", e)
+        print("Error saving as TXT: " + mask_salary(str(e)))
 
 if __name__ == '__main__':
     job, remote, num_jobs, save_option, sort_by = get_user_input()

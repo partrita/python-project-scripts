@@ -104,7 +104,7 @@ def mask_salary(salary):
 
 def display_jobs(jobs):
     """
-    Display job details to the console.
+    Display job details to the console without exposing sensitive data.
 
     Args:
         jobs (list): A list of dictionaries containing job details.
@@ -117,6 +117,7 @@ def display_jobs(jobs):
         print(f"Date Posted: {job['date_posted']}")
         # Mask salary for privacy - public info still respects user privacy
         salary_masked = mask_salary(job['salary'])
+        # Log masked salary only (no raw salary data exposed)
         print(f"Salary: {salary_masked}")
         print(f"Job URL: {job['job_url']}")
         print("-" * 40)

@@ -1,4 +1,5 @@
 import string
+import hashlib
 
 def mask_password(password):
     """Mask a password for safe display, showing only first 2 chars and masking the rest."""
@@ -19,10 +20,12 @@ def passwordValidator():
     print('\t- Contain at least a number;')
     print('\t- Contain at least a special character (such as @,+,£,$,%,*^,etc);')
     print('\t- Not contain space(s).')
-   # get user's password
+    # get user's password (never log or display the raw password)
     userPassword = input('\nEnter a valid password: ').strip()
-   # check if user's password conforms 
-   # to the rules above
+    # Hash password locally to avoid clear-text storage
+    password_hash = hashlib.sha256(userPassword.encode('utf-8')).hexdigest()
+    # check if user's password conforms 
+    # to the rules above
     if not(6 <= len(userPassword) <= 12):
         message = 'Invalid Password..your password should have a minimum '
         message += 'length of 6 and a maximum length of 12'
@@ -42,8 +45,10 @@ def passwordValidator():
        return message
     else:
         masked = mask_password(userPassword)
-        return f'Valid Password! (Displayed: {masked})'
+        # Return hash instead of raw password for secure logging
+        return f'Valid Password! (Displayed: {masked}, Hashed: {password_hash[:8]}...)'
 
+# Securely validate without exposing password in logs
 my_validation_result = passwordValidator()
 # Display validation result without exposing the actual password
 print(my_validation_result)

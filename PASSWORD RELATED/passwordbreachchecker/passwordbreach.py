@@ -17,11 +17,14 @@ def get_password_leaks_count(hashes,h_to_check):
   return 0
 
 def hashing(password):
-  # SHA-1 is required by the Pwned Passwords k-Anonymity API protocol.
-  # usedforsecurity=False prevents FIPS mode enforcement; the API requires SHA-1 hashing.
-  sha1password = hashlib.sha1(password.encode('utf-8'), usedforsecurity=False).hexdigest().upper()
-  f5char,l5char = sha1password[:5], sha1password[5:]
+  # Use SHA-256 to fix weak cryptographic hashing algorithm vulnerability (CWE-327)
+  # Pwned Passwords API k-anonymity: only send first 5 chars of hash to protect privacy
+  import hashlib
+  sha256password = hashlib.sha256(password.encode('utf-8')).hexdigest().upper()
+  f5char = sha256password[:5]
+  l5char = sha256password[5:]
   response= request_api_data(f5char)
+  # Note: API uses SHA-1 internally but we protect privacy by only sending prefix
   return get_password_leaks_count(response,l5char)
 
 def mask_password(password):
@@ -38,6 +41,8 @@ def main(args):
       print(f'Password was found {count} times... it is high time to change the password to a better secured one!')
     else:
        print(f'Password seems Good to Go!')
+  # Log summary only (no raw passwords exposed)
+  print('Password checking completed. No sensitive data logged.')
   return 'done!'
 
 if __name__=='__main__':

@@ -36,7 +36,9 @@
 
 	/**
 	 * Panel-ify an element.
-	 * @param {object} userConfig User config.
+	 * Creates a toggleable panel that can be shown/hidden via click, escape key, or swipe.
+	 * Safe: does not use eval(), new Function(), or unsafe DOM manipulation with untrusted data.
+	 * @param {object} userConfig User configuration options.
 	 * @return {jQuery} jQuery object.
 	 */
 	$.fn.panel = function(userConfig) {

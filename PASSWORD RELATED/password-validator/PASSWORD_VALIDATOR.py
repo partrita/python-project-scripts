@@ -1,5 +1,11 @@
 import string
 
+def mask_password(password):
+    """Mask a password for safe display, showing only first 2 chars and masking the rest."""
+    if len(password) <= 2:
+        return '*' * len(password)
+    return password[:2] + '*' * (len(password) - 2)
+
 def passwordValidator():
     """
     Validates passwords to match specific rules
@@ -35,7 +41,9 @@ def passwordValidator():
        message = 'Invalid Password..your password should contain at least a special character'
        return message
     else:
-       return 'Valid Password!'
+        masked = mask_password(userPassword)
+        return f'Valid Password! (Displayed: {masked})'
 
 my_validation_result = passwordValidator()
+# Display validation result without exposing the actual password
 print(my_validation_result)

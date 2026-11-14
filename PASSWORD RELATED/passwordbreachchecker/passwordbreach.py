@@ -17,21 +17,27 @@ def get_password_leaks_count(hashes,h_to_check):
   return 0
 
 def hashing(password):
-  # CodeQL [py/weak-cryptographic-algorithm]: SHA-1 is required by the Pwned Passwords k-Anonymity API protocol
+  # SHA-1 is required by the Pwned Passwords k-Anonymity API protocol.
+  # usedforsecurity=False prevents FIPS mode enforcement; the API requires SHA-1 hashing.
   sha1password = hashlib.sha1(password.encode('utf-8'), usedforsecurity=False).hexdigest().upper()
   f5char,l5char = sha1password[:5], sha1password[5:]
   response= request_api_data(f5char)
   return get_password_leaks_count(response,l5char)
 
+def mask_password(password):
+    """Mask a password for safe display, showing only first 2 chars and masking the rest."""
+    if len(password) <= 2:
+        return '*' * len(password)
+    return password[:2] + '*' * (len(password) - 2)
+
 def main(args):
   for password in args:
     count=hashing(password)
-    # Mask password for display to avoid clear-text logging of sensitive information
-    masked = password[:2] + '*' * (len(password) - 2) if len(password) > 2 else '*' * len(password)
+    masked = mask_password(password)
     if count:
-      print(f'Password ({masked}) was found {count} times... its high on time to change the password to better secured !')
+      print(f'Password was found {count} times... it is high time to change the password to a better secured one!')
     else:
-       print(f'Password ({masked}) was NOT found. It seems Good to Go!')
+       print(f'Password seems Good to Go!')
   return 'done!'
 
 if __name__=='__main__':

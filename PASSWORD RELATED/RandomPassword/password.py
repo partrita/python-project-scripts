@@ -1,6 +1,5 @@
 import string
 import secrets
-import hashlib
 
 # Define the set of characters to be used in the password
 CHARACTER_SET = string.ascii_letters + string.digits + string.punctuation
@@ -23,11 +22,8 @@ def main():
     # Generate the specified number of passwords and print them to the console
     print("Generated passwords:")
     for i in range(num_pass):
-        # CodeQL [py/clear-text-logging-sensitive-data]: Hash password before displaying
         generated_password = generate_password(password_length)
-        # Hash the password for secure display
-        hashed_pw = hashlib.sha256(generated_password.encode('utf-8')).hexdigest()[:8]
-        print(f"{i+1}. {hashed_pw}...")
+        print(f"{i+1}. {generated_password}...")
 
 if __name__ == "__main__":
     main()

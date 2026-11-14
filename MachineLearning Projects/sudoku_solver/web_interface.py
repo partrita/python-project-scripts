@@ -80,16 +80,16 @@ def index():
                 safe_name = secure_filename(file.filename)
                 ext = os.path.splitext(safe_name)[1].lower()
                 if ext not in ('.jpg', '.jpeg', '.png', '.bmp'):
-# Safe: redirect to same page (same origin), not user-controllable
+# Safe: redirect to the index page using url_for (same origin, not user-controllable)
                     flash("Invalid file extension.", "danger")
-                    return redirect(request.url)
+                    return redirect(url_for('index'))
                 filename = datetime.now().strftime("%d%m%y%H%M%S") + "_" + "".join(i for i in choices(ascii_letters+digits, k=3)) + ext
                 upload_dir = os.path.abspath(app.config['UPLOAD_FOLDER'])
                 filepath = os.path.abspath(os.path.join(upload_dir, filename))
                 if not filepath.startswith(upload_dir):
-# Safe: redirect to same page (same origin), not user-controllable
+# Safe: redirect to the index page using url_for (same origin, not user-controllable)
                     flash("Invalid path.", "danger")
-                    return redirect(request.url)
+                    return redirect(url_for('index'))
                 file.save(filepath)
                 session['filename'] = filepath
                 return redirect(url_for('result'))

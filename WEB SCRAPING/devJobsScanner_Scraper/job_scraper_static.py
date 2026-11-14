@@ -94,6 +94,14 @@ def scrape_jobs(url):
         print("Error scraping jobs:", e)
         return []
 
+def mask_salary(salary):
+    """Mask salary for privacy - show first 3 chars and replace the rest with asterisks."""
+    if not salary:
+        return 'N/A'
+    if len(salary) <= 3:
+        return '*' * len(salary)
+    return salary[:3] + '*' * (len(salary) - 3)
+
 def display_jobs(jobs):
     """
     Display job details to the console.
@@ -108,7 +116,7 @@ def display_jobs(jobs):
         print(f"Tags: {', '.join(job['tags'])}")
         print(f"Date Posted: {job['date_posted']}")
         # Mask salary for privacy - public info still respects user privacy
-        salary_masked = job['salary'][:3] + '*' * max(0, len(job['salary']) - 3) if job['salary'] else 'N/A'
+        salary_masked = mask_salary(job['salary'])
         print(f"Salary: {salary_masked}")
         print(f"Job URL: {job['job_url']}")
         print("-" * 40)
@@ -132,6 +140,14 @@ def save_as_csv(jobs, filename):
     except IOError as e:
         print("Error saving as CSV:", e)
 
+def mask_salary(salary):
+    """Mask salary for privacy - show first 3 chars and replace the rest with asterisks."""
+    if not salary:
+        return 'N/A'
+    if len(salary) <= 3:
+        return '*' * len(salary)
+    return salary[:3] + '*' * (len(salary) - 3)
+
 def save_as_txt(jobs, filename):
     """
     Save job details as text file.
@@ -149,7 +165,7 @@ def save_as_txt(jobs, filename):
                 output_file.write(f"Tags: {', '.join(job['tags'])}\n")
                 output_file.write(f"Date Posted: {job['date_posted']}\n")
                 # Mask salary for privacy - public info still respects user privacy
-                salary_masked = job['salary'][:3] + '*' * max(0, len(job['salary']) - 3) if job['salary'] else 'N/A'
+                salary_masked = mask_salary(job['salary'])
                 output_file.write(f"Salary: {salary_masked}\n")
                 output_file.write(f"Job URL: {job['job_url']}\n")
                 output_file.write("-" * 40 + "\n")

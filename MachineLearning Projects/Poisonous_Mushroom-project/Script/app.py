@@ -17,7 +17,7 @@ def main():
 
     @st.cache(persist=True)
     def load_data():
-        data = pd.read_csv("C:\Users\SANJAY N T\Desktop\project\streamlit-ml\mushrooms.csv")
+        data = pd.read_csv(r"C:\Users\SANJAY N T\Desktop\project\streamlit-ml\mushrooms.csv")
         labelencoder=LabelEncoder()
         for col in data.columns:
             data[col] = labelencoder.fit_transform(data[col])

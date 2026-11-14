@@ -40,9 +40,5 @@ model.compile(optimizer='adam',loss='categorical_crossentropy',metrics=['accurac
 
 model.fit_generator(train_batch, validation_data=valid_batch,epochs=15,steps_per_epoch=SPE ,validation_steps=VS)
 
-<<<<<<< HEAD
-model.save('models/cnnCat2.h5', overwrite=True)
-=======
 model.save('models/cnnCat2.h5', overwrite=True)
 model = load_model('model.h5')
->>>>>>> 79e42d9 (Updated)

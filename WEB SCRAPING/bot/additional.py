@@ -30,3 +30,4 @@ def booking_count():
      #               time.sleep(0.02)
      #               rooms-=1
      #          print("rooms adjusted")
+     pass

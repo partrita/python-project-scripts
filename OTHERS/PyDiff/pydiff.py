@@ -106,12 +106,10 @@ def main():
 
     for (fname, ac, lineno, line) in res:
         if ac == ADD:
-            print(fr"{Colors.HEADER}{fname}{Colors.ENDC} | {
-                  Colors.OKGREEN}+ {lineno} | {line}{Colors.ENDC}")
+            print(fr"{Colors.HEADER}{fname}{Colors.ENDC} | {Colors.OKGREEN}+ {lineno} | {line}{Colors.ENDC}")
 
         elif ac == REMOVE:
-            print(fr"{Colors.HEADER}{fname}{Colors.ENDC} | {
-                  Colors.FAIL}- {lineno} | {line}{Colors.ENDC}")
+            print(fr"{Colors.HEADER}{fname}{Colors.ENDC} | {Colors.FAIL}- {lineno} | {line}{Colors.ENDC}")
 
 
 if __name__ == "__main__":

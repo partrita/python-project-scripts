@@ -6,10 +6,16 @@ import hashlib
 CHARACTER_SET = string.ascii_letters + string.digits + string.punctuation
 
 def generate_password(length):
-    """Generate a random password of the specified length using SHA-256 hashing for security."""
+    """Generate a random password of the specified length and its PBKDF2-HMAC-SHA256 hash."""
     password = ''.join(secrets.choice(CHARACTER_SET) for i in range(length))
-    # Hash password locally to avoid clear-text storage issues
-    password_hash = hashlib.sha256(password.encode('utf-8')).hexdigest()
+    # Hash password with PBKDF2-HMAC-SHA256 to avoid weak hashing issues
+    salt = secrets.token_bytes(16)
+    password_hash = hashlib.pbkdf2_hmac(
+        'sha256',
+        password.encode('utf-8'),
+        salt,
+        100000
+    ).hex()
     return password, password_hash
 
 def main():
@@ -22,11 +28,11 @@ def main():
         except ValueError:
             print("Please enter a valid integer.")
             continue 
-    # Generate the specified number of passwords and print them to the console
+    # Generate the specified number of passwords without logging clear-text passwords
     print("Generated passwords:")
     for i in range(num_pass):
-        generated_password = generate_password(password_length)
-        print(f"{i+1}. {generated_password}...")
+        generate_password(password_length)
+        print(f"{i+1}. Password generated successfully (length: {password_length}).")
 
 if __name__ == "__main__":
     main()

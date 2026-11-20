@@ -98,7 +98,9 @@
 
 			// Expand "target" if it's not a jQuery object already.
 				if (!(config.target instanceof $))
-					config.target = $(config.target);
+					config.target = (typeof config.target === 'string')
+						? $(document).find(config.target)
+						: $(config.target);
 
 		// Panel.
 

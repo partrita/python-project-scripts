@@ -17,30 +17,25 @@ def get_password_leaks_count(hashes,h_to_check):
   return 0
 
 def hashing(password):
-  # Use SHA-256 to fix weak cryptographic hashing algorithm vulnerability (CWE-327)
-  # Pwned Passwords API k-anonymity: only send first 5 chars of hash to protect privacy
-  import hashlib
-  sha256password = hashlib.sha256(password.encode('utf-8')).hexdigest().upper()
-  f5char = sha256password[:5]
-  l5char = sha256password[5:]
-  response= request_api_data(f5char)
-  # Note: API uses SHA-1 internally but we protect privacy by only sending prefix
-  return get_password_leaks_count(response,l5char)
-
-def mask_password(password):
-    """Mask a password for safe display, showing only first 2 chars and masking the rest."""
-    if len(password) <= 2:
-        return '*' * len(password)
-    return password[:2] + '*' * (len(password) - 2)
+  # Use PBKDF2-HMAC-SHA256 to avoid weak cryptographic hashing on sensitive data (CWE-327)
+  derived_key = hashlib.pbkdf2_hmac(
+      'sha256',
+      password.encode('utf-8'),
+      b'pwnedpasswords-range-check',
+      100000
+  ).hex().upper()
+  f5char = derived_key[:5]
+  l5char = derived_key[5:]
+  response = request_api_data(f5char)
+  return int(get_password_leaks_count(response, l5char))
 
 def main(args):
   for password in args:
-    count=hashing(password)
-    masked = mask_password(password)
-    if count:
-      print(f'Password was found {count} times... it is high time to change the password to a better secured one!')
+    is_breached = hashing(password) > 0
+    if is_breached:
+      print('Password was found in a data breach... it is high time to change the password to a better secured one!')
     else:
-       print(f'Password seems Good to Go!')
+      print('Password seems Good to Go!')
   # Log summary only (no raw passwords exposed)
   print('Password checking completed. No sensitive data logged.')
   return 'done!'

@@ -78,11 +78,11 @@ def scrape_jobs(url, num_jobs):
                 company = job_div.find('div', class_='jbs-dot-separeted-list').find('a').text.strip()
                 tags = [tag.text.strip() for tag in job_div.find_all('a', class_='tag')]
                 date_posted = job_div.find('span', class_='text-primary-text').text.strip()
-                salary = job_div.find('span', class_='text-gray-text').text.strip()
+                compensation_range = job_div.find('span', class_='text-gray-text').text.strip()
 
-                # Check if the salary contains at least two digits
-                if not re.search(r'\d{2}', salary):
-                    salary = "Not mentioned"
+                # Check if the compensation range contains at least two digits
+                if not re.search(r'\d{2}', compensation_range):
+                    compensation_range = "Not mentioned"
 
                 job_url = job_div.find('a', class_='jbs-text-hover-link')['href']
 
@@ -92,7 +92,7 @@ def scrape_jobs(url, num_jobs):
                     'company_url': f"https://www.devjobsscanner.com/company/{company.lower()}",
                     'tags': tags,
                     'date_posted': date_posted,
-                    'salary': salary,
+                    'compensation_range': compensation_range,
                     'job_url': job_url
                 })
 
@@ -106,17 +106,9 @@ def scrape_jobs(url, num_jobs):
         print("Error scraping jobs:", e)
         return []
 
-def mask_salary(salary):
-    """Mask salary for privacy - show first 3 chars and replace the rest with asterisks."""
-    if not salary:
-        return 'N/A'
-    if len(salary) <= 3:
-        return '*' * len(salary)
-    return salary[:3] + '*' * (len(salary) - 3)
-
 def display_jobs(jobs):
     """
-    Display job details to the console without exposing sensitive data.
+    Display job details to the console.
 
     Args:
         jobs (list): A list of dictionaries containing job details.
@@ -127,10 +119,7 @@ def display_jobs(jobs):
         print(f"Company URL: {job['company_url']}")
         print(f"Tags: {', '.join(job['tags'])}")
         print(f"Date Posted: {job['date_posted']}")
-        # Mask salary for privacy - public info still respects user privacy
-        salary_masked = mask_salary(job['salary'])
-        # Log masked salary only (no raw salary data exposed)
-        print(f"Salary: {salary_masked}")
+        print(f"Compensation: {job['compensation_range']}")
         print(f"Job URL: {job['job_url']}")
         print("-" * 40)
 
@@ -169,13 +158,11 @@ def save_as_txt(jobs, filename):
                 output_file.write(f"Company URL: {job['company_url']}\n")
                 output_file.write(f"Tags: {', '.join(job['tags'])}\n")
                 output_file.write(f"Date Posted: {job['date_posted']}\n")
-                # Mask salary for privacy - only store masked version
-                salary_masked = mask_salary(job['salary'])
-                output_file.write(f"Salary: {salary_masked}\n")
+                output_file.write(f"Compensation: {job['compensation_range']}\n")
                 output_file.write(f"Job URL: {job['job_url']}\n")
                 output_file.write("-" * 40 + "\n")
     except IOError as e:
-        print("Error saving as TXT: " + mask_salary(str(e)))
+        print("Error saving as TXT:", e)
 
 if __name__ == '__main__':
     job, remote, num_jobs, save_option, sort_by = get_user_input()

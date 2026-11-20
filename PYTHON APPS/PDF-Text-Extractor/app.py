@@ -1,5 +1,5 @@
 import tkinter as tk
-import PyPDF2
+import pypdf
 from PIL import Image, ImageTk
 from tkinter.filedialog import askopenfile
 
@@ -40,7 +40,7 @@ def open_file():
     text = ""
 
     if file:
-        read_pdf = PyPDF2.PdfReader(file)
+        read_pdf = pypdf.PdfReader(file)
         for i in range(len(read_pdf.pages)):
             text += read_pdf.pages[i].extract_text()
 

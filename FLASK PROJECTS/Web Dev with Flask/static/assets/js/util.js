@@ -100,7 +100,7 @@
 				if (!(config.target instanceof $))
 					config.target = (typeof config.target === 'string')
 						? $(document).find(config.target)
-						: $(config.target);
+						: $this;
 
 		// Panel.
 

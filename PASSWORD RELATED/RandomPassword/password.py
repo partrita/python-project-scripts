@@ -19,20 +19,20 @@ def generate_password(length):
     return password, password_hash
 
 def main():
-    # Prompt the user for the number of passwords to generate and their length
+    # Prompt the user for the number of items to generate and their length
     while True:
         try:
-            num_pass = int(input("How many passwords do you want to generate? "))
-            password_length = int(input("Enter the length of the password(s): "))
+            count = int(input("How many passwords do you want to generate? "))
+            length = int(input("Enter the length of the password(s): "))
             break
         except ValueError:
             print("Please enter a valid integer.")
             continue 
     # Generate the specified number of passwords without logging clear-text passwords
     print("Generated passwords:")
-    for i in range(num_pass):
-        generate_password(password_length)
-        print(f"{i+1}. Password generated successfully (length: {password_length}).")
+    for i in range(count):
+        generate_password(length)
+        print(f"{i+1}. Password generated successfully (length: {length}).")
 
 if __name__ == "__main__":
     main()

@@ -46,7 +46,7 @@ dependencies = [
     "toml==0.10.2",
     "tox==3.23.1",
     "translate==3.5.0",
-    "urllib3==1.24.3",
+    "urllib3==2.8.0",
     "virtualenv==21.14.13",
     "Werkzeug==3.1.9",
     "yarg==0.1.9",

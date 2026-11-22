@@ -1,5 +1,6 @@
-from packages import common_module, config
 from time import sleep
+
+from packages import common_module, config
 
 
 def modify_board_bot(letter, position, the_matrix):
@@ -42,8 +43,7 @@ def the_algorithm(the_matrix, is_bot):
                     score = the_algorithm(the_matrix, False)
                     the_matrix[row][column] = '_'
 
-                    if score > best_score:
-                        best_score = score
+                    best_score = max(best_score, score)
         return best_score
     else:
         best_score = 1000
@@ -53,8 +53,7 @@ def the_algorithm(the_matrix, is_bot):
                     the_matrix[row][column] = 'X'
                     score = the_algorithm(the_matrix, True)
                     the_matrix[row][column] = '_'
-                    if score < best_score:
-                        best_score = score
+                    best_score = min(best_score, score)
         return best_score
 
 

@@ -1,11 +1,11 @@
 import colorsys
 import imghdr
-import os
 import random
-from keras import backend as K
 
 import numpy as np
+from keras import backend as K
 from PIL import Image, ImageDraw, ImageFont
+
 
 def read_classes(classes_path):
     with open(classes_path) as f:
@@ -22,8 +22,8 @@ def read_anchors(anchors_path):
 
 def generate_colors(class_names):
     hsv_tuples = [(x / len(class_names), 1., 1.) for x in range(len(class_names))]
-    colors = list(map(lambda x: colorsys.hsv_to_rgb(*x), hsv_tuples))
-    colors = list(map(lambda x: (int(x[0] * 255), int(x[1] * 255), int(x[2] * 255)), colors))
+    colors = [colorsys.hsv_to_rgb(*x) for x in hsv_tuples]
+    colors = [(int(x[0] * 255), int(x[1] * 255), int(x[2] * 255)) for x in colors]
     random.seed(10101)  # Fixed seed for consistent colors across runs.
     random.shuffle(colors)  # Shuffle colors to decorrelate adjacent classes.
     random.seed(None)  # Reset seed to default.
@@ -39,7 +39,7 @@ def scale_boxes(boxes, image_shape):
     return boxes
 
 def preprocess_image(img_path, model_image_size):
-    image_type = imghdr.what(img_path)
+    imghdr.what(img_path)
     image = Image.open(img_path)
     resized_image = image.resize(tuple(reversed(model_image_size)), Image.BICUBIC)
     image_data = np.array(resized_image, dtype='float32')
@@ -57,7 +57,7 @@ def draw_boxes(image, out_scores, out_boxes, out_classes, class_names, colors):
         box = out_boxes[i]
         score = out_scores[i]
 
-        label = '{} {:.2f}'.format(predicted_class, score)
+        label = f'{predicted_class} {score:.2f}'
 
         draw = ImageDraw.Draw(image)
         label_size = draw.textsize(label, font)

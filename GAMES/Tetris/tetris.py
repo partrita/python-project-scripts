@@ -1,5 +1,7 @@
-import pygame
 import random
+
+import pygame
+
 pygame.init()
 
 blocks = [ 
@@ -63,9 +65,8 @@ def rotate(block,rows,cols,game_board):
     can_rotate = True
     for y in range(3):
         for x in range(3):
-            if y * 3 + x in block.shape():
-                if collides(block,rows,cols,game_board,ny=0):
-                    can_rotate = False
+            if y * 3 + x in block.shape() and collides(block,rows,cols,game_board,ny=0):
+                can_rotate = False
     if not can_rotate:
         block.rotation = last_rotate
 
@@ -80,9 +81,8 @@ def dropBlock(block,rows,cols,game_board):
     can_drop = True
     for y in range(3):
         for x in range(3):
-            if y * 3 + x in block.shape():
-                if collides(block,rows,cols,game_board,ny=1):
-                    can_drop = False
+            if y * 3 + x in block.shape() and collides(block,rows,cols,game_board,ny=1):
+                can_drop = False
     if can_drop:
         block.y += 1
     else:
@@ -97,11 +97,8 @@ def sideMove(block,cols,dx):
     can_move = True
     for y in range(3):
         for x in range(3):
-            if y * 3 + x in block.shape():
-                if block.x + x >= cols - 1 and dx == 1:
-                    can_move = False
-                elif block.x + x < 1 and dx == -1:
-                    can_move = False
+            if y * 3 + x in block.shape() and (block.x + x >= cols - 1 and dx == 1 or block.x + x < 1 and dx == -1):
+                can_move = False
     if can_move:
         block.x += dx
 
@@ -151,15 +148,13 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 game_over = True
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_UP:
-                    rotate(block,rows,cols,game_board)
-        if event.type == pygame.KEYDOWN:
-            if block is not None:
-                if event.key == pygame.K_LEFT:
-                    sideMove(block,cols,-1)
-                if event.key == pygame.K_RIGHT:
-                    sideMove(block,cols,1)
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_UP:
+                rotate(block,rows,cols,game_board)
+        if event.type == pygame.KEYDOWN and block is not None:
+            if event.key == pygame.K_LEFT:
+                sideMove(block,cols,-1)
+            if event.key == pygame.K_RIGHT:
+                sideMove(block,cols,1)
 
         screen.fill((0,0,0))
         drawGrid(screen,rows,cols,x_gap,y_gap,grid_size,game_board)

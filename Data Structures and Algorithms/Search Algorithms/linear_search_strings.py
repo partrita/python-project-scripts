@@ -1,4 +1,3 @@
-import sys
 # from load import load_strings
 
 # names = load_string[sys.argv[1]]
@@ -7,7 +6,7 @@ search_names = ["habib", "adam", "nasir", "jelilat"]
 
 
 def index_of_item(collection, target):
-    for i in range(0, len(collection)):
+    for i in range(len(collection)):
         if target == collection[i]:
             return i
     return None

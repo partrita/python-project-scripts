@@ -16,7 +16,6 @@
     """
 
 
-from docx import Document
 from docx.api import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 
@@ -116,8 +115,6 @@ def write_data(docxFile, data):
     and reads and appends the 'data' to end of docx file
     """
 
-    global wordsList
-
     document = Document(docxFile)
 
     def save_document():
@@ -142,7 +139,7 @@ def write_data(docxFile, data):
             else:
                 wordsList = wordsList + f", {word}"
 
-    title_p = document.add_paragraph(f"\n========== Extracted Words ==========\n")
+    title_p = document.add_paragraph("\n========== Extracted Words ==========\n")
 
     title_p.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
@@ -173,22 +170,19 @@ def write_data(docxFile, data):
     ending_p.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
     save_document()
-    return
 
 
 # function calls inside main()
 
 
 def main():
-    global total_words
-
     data = analyze(docx)
     write_data(docx, data)
 
 
 if __name__ == "__main__":
-    from sys import argv
     import time
+    from sys import argv
 
     # get docx file
     docx = argv[1]

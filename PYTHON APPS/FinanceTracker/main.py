@@ -1,8 +1,9 @@
 import sys
-from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QDialog, QApplication
-from PyQt5.uic import loadUi
+
 import financeDataBase
+from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import QApplication, QDialog
+from PyQt5.uic import loadUi
 
 mauve = "rgba(66, 39, 90, 1), stop:1 rgba(115, 75, 109, 1)"
 green_blue = "rgba(67, 206, 162, 1), stop:1 rgba(24, 90, 157, 1)"
@@ -87,7 +88,7 @@ def go_confirm():
 
 class FinanceMenu(QDialog):
     def __init__(self):
-        super(FinanceMenu, self).__init__()
+        super().__init__()
         loadUi("financeMenu.ui", self)
         self.enterAllDataButton.clicked.connect(self.send_all_data)
         self.viewTotalFunButton.clicked.connect(self.view_total_fun_expenses)
@@ -292,7 +293,7 @@ class FinanceMenu(QDialog):
 
 class Help(QDialog):
     def __init__(self):
-        super(Help, self).__init__()
+        super().__init__()
         loadUi("help.ui", self)
         self.homeButton1.clicked.connect(lambda: go_home())
         self.explain.setWordWrap(True)
@@ -300,7 +301,7 @@ class Help(QDialog):
 
 class Trial(QDialog):
     def __init__(self):
-        super(Trial, self).__init__()
+        super().__init__()
         loadUi("trial.ui", self)
         self.setWindowTitle("Warning")
         self.exitButton.clicked.connect(self.close)
@@ -308,7 +309,7 @@ class Trial(QDialog):
 
 class Settings(QDialog):
     def __init__(self):
-        super(Settings, self).__init__()
+        super().__init__()
         loadUi("settings.ui", self)
         self.homeButton.clicked.connect(lambda: go_home())
         self.submitButton.clicked.connect(self.change_back_colour)  # this is defualt
@@ -354,7 +355,7 @@ class Settings(QDialog):
 
 class Confirm(QDialog):
     def __init__(self):
-        super(Confirm, self).__init__()
+        super().__init__()
         loadUi("confirm.ui", self)
         self.warning.setWordWrap(True)
         self.cancelButton.clicked.connect(lambda: go_settings())

@@ -1,6 +1,6 @@
-import turtle
-import time
 import random
+import time
+import turtle
 
 delay = 0.1
 score = 0
@@ -107,8 +107,7 @@ while True:
         delay = 0.1
         
         pen.clear()
-        pen.write("Score : {} High Score : {} ".format(
-            score, high_score), align="center", font=("Times New Roman", 24, "bold"))
+        pen.write(f"Score : {score} High Score : {high_score} ", align="center", font=("Times New Roman", 24, "bold"))
         
     #checking collision with food
     if head.distance(food) < 20:
@@ -134,11 +133,9 @@ while True:
         delay -= 0.001
         score += 10
         
-        if score>high_score:
-            high_score = score
+        high_score = max(high_score, score)
         pen.clear()
-        pen.write("Score : {} High Score : {} ".format(
-            score, high_score), align="center", font=("Times New Roman", 24, "bold"))
+        pen.write(f"Score : {score} High Score : {high_score} ", align="center", font=("Times New Roman", 24, "bold"))
         
     #moving segments in reverse order
     for i in range(len(segments)-1,0,-1):
@@ -167,8 +164,7 @@ while True:
             score = 0
             delay = 0.1
             pen.clear()
-            pen.write("Score : {} High Score : {} ".format(
-                score, high_score), align="center", font=("Times New Roman", 24, "bold"))
+            pen.write(f"Score : {score} High Score : {high_score} ", align="center", font=("Times New Roman", 24, "bold"))
     time.sleep(delay)
 
 turtle.done()

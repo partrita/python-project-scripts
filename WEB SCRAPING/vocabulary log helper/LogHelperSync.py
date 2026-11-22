@@ -1,10 +1,9 @@
 import time
-import requests
 from json import dumps
-from typing import Dict
 from random import choice
-from bs4 import BeautifulSoup as Beau_Soup
 
+import requests
+from bs4 import BeautifulSoup as Beau_Soup
 
 
 def get_page(word: str) -> str:    
@@ -16,11 +15,11 @@ def get_page(word: str) -> str:
     return response.text
 
 
-def get_syn_ant(word: str) -> Dict[str, str]:
+def get_syn_ant(word: str) -> dict[str, str]:
     page = get_page(word=word)
     soup =  Beau_Soup(page,'html.parser')
-    synonyms_list = list()
-    antonyms_list = list()
+    synonyms_list = []
+    antonyms_list = []
     
     # getting all the synonyms
     for a in soup.select('ul a.css-1kg1yv8'):

@@ -1,5 +1,5 @@
-# coding=utf-8
 import random
+
 # random module is a built-in module to generate pseudo-random variables
 
 def display_gameplay():
@@ -17,7 +17,7 @@ def startGame():
     : return: str
     """
     # call the function to display gameplay
-    displayGameplay = display_gameplay()
+    display_gameplay()
     # make a list of the possible inputs
     # to start or end the game
     possible_responses = ['Y','YES','N','NO','EXIT']
@@ -26,7 +26,7 @@ def startGame():
     while user_response not in possible_responses:
         print('\nInvalid Input!')
         user_response = input('\nStart game? (yes/no): ').strip().upper()
-    else: return user_response
+    return user_response
 
 def game():
     """

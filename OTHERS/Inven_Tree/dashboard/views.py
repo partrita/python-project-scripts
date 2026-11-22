@@ -1,12 +1,13 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
-from sqlalchemy import null
-from .model import Product, Order
-from .forms import ProductForm, OrderForm
+import pandas as pd
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .decorators import auth_users, allowed_users
-import pandas as pd
+from django.contrib.auth.models import User
+from django.shortcuts import redirect, render
+
+from .decorators import allowed_users
+from .forms import OrderForm, ProductForm
+from .model import Order, Product
+
 # Create your views here.
 
 
@@ -47,7 +48,7 @@ def products(request):
     customer_count = customer.count()
     order = Order.objects.all()
     order_count = order.count()
-    product_quantity = Product.objects.filter(product='')
+    Product.objects.filter(product='')
     if request.method == 'POST':
         form = ProductForm(request.POST)
         if form.is_valid():
@@ -71,7 +72,7 @@ def products(request):
         lst.append(df.iloc[i])
 
     for column in lst:
-        _, created = Product.objects.update_or_create(
+        _, _created = Product.objects.update_or_create(
             product = column[1],
             category = column[2],
             sub_category = column[3],

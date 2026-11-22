@@ -1,13 +1,14 @@
+import math
+from ctypes import POINTER, cast
+from enum import IntEnum
+
 import cv2
 import mediapipe as mp
 import pyautogui
-import math
-from enum import IntEnum
-from ctypes import cast, POINTER
-from comtypes import CLSCTX_ALL
-from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
-from google.protobuf.json_format import MessageToDict
 import screen_brightness_control as sbcontrol
+from comtypes import CLSCTX_ALL
+from google.protobuf.json_format import MessageToDict
+from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 
 pyautogui.FAILSAFE = False
 mp_drawing = mp.solutions.drawing_utils
@@ -86,7 +87,7 @@ class HandRecog:
             
             try:
                 ratio = round(dist/dist2,1)
-            except:
+            except ZeroDivisionError:
                 ratio = round(dist/0.01,1)
 
             self.finger = self.finger << 1
@@ -336,7 +337,7 @@ class GestureController:
                 right = results.multi_hand_landmarks[0]
             else :
                 left = results.multi_hand_landmarks[0]
-        except:
+        except (IndexError, KeyError, TypeError):
             pass
 
         try:
@@ -345,14 +346,13 @@ class GestureController:
                 right = results.multi_hand_landmarks[1]
             else :
                 left = results.multi_hand_landmarks[1]
-        except:
+        except (IndexError, KeyError, TypeError):
             pass
         
         if GestureController.dom_hand == True:
             GestureController.hr_major = right
             GestureController.hr_minor = left
         else :
-            GestureController.dom_hand == True
             GestureController.hr_major = left
             GestureController.hr_minor = right
 

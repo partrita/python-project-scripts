@@ -1,8 +1,7 @@
-import pickle       #pip install pickle
+import pickle  #pip install pickle
 
-from flask import Flask, render_template, request   #pip install flask
-
-from flask_sqlalchemy import SQLAlchemy #pip install Flask-SQLAlchemy
+from flask import Flask, render_template, request  #pip install flask
+from flask_sqlalchemy import SQLAlchemy  #pip install Flask-SQLAlchemy
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///contact.db"
@@ -10,9 +9,8 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
 
-file = open('model.pkl', 'rb')
-clf = pickle.load(file)
-file.close()
+with open('model.pkl', 'rb') as file:
+    clf = pickle.load(file)
 
 
 class Contact(db.Model):

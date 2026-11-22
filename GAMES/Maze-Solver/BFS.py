@@ -1,10 +1,8 @@
-import Path_Backtrack
-
 import copy
+import timeit
 
 import Draw
-import timeit
-import time
+import Path_Backtrack
 
 
 class Queue:
@@ -58,7 +56,7 @@ class Queue:
 
     def is_empty(self):
 
-        return True if len(self.Queue) == 0 else False
+        return len(self.Queue) == 0
 
 
 
@@ -174,25 +172,21 @@ def Available_move(map, pos, walls, explored):
 
         # print(i)
 
-        if (i[0]) < 0:
-            if i in result:
+        if (i[0]) < 0 and i in result:
 
-                result.remove(i)
+            result.remove(i)
 
-        if (i[1]) < 0:
-            if i in result:
+        if (i[1]) < 0 and i in result:
 
-                result.remove(i)
+            result.remove(i)
 
-        if i[0] >= row:
-            if i in result:
+        if i[0] >= row and i in result:
 
-                result.remove(i)
+            result.remove(i)
 
-        if i[1] >= column:
-            if i in result:
+        if i[1] >= column and i in result:
 
-                result.remove(i)
+            result.remove(i)
 
 
     moves = copy.deepcopy(result)
@@ -271,7 +265,7 @@ def BFS_Algorithm(grid, start_point, end_point):
 
             property = {"method":"BFS",
 
-                        "speed":str(elapsed_time)+str(" nano seconds"),
+                        "speed":str(elapsed_time)+" nano seconds",
 
                         "cost":str(len(explored)),
 
@@ -306,9 +300,8 @@ def BFS_Algorithm(grid, start_point, end_point):
 
                 frontier.Add_element(moves)
 
-    else:
 
-        print("No Solutions Found !")
+    print("No Solutions Found !")
 
 
     #path.Trace(start_point, end_point)

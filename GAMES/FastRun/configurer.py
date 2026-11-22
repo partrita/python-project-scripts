@@ -1,9 +1,12 @@
-import os
-import json
-import sys
-import ctypes, time, subprocess
+import ctypes
 import getpass
+import json
+import os
+import subprocess
+import sys
+import time
 import webbrowser
+
 from win32com.client import Dispatch
 
 # file in which all configurations will be stored
@@ -71,9 +74,7 @@ def find_config(configs, name):
     return None
 
 def isUrl(program):
-    if "http" in program or "www." in program:
-        return True
-    return False
+    return bool("http" in program or "www." in program)
 
 def isValid(program):
     return isUrl(program) or isFile(program)
@@ -97,7 +98,7 @@ def run_config(configs, name):
             time.sleep(1)
             print("Run ", program)
     else : 
-        err_code = "No config {0} found".format(name)
+        err_code = f"No config {name} found"
     return err_code
 
 def create_config(programs, nScreen, name, filename = FILE):
@@ -118,9 +119,8 @@ def create_executable(config):
     print(config)
     filename = config.name + ".bat"
     print(filename)
-    f = open(filename, "w")
-    f.write("python configurer.py {0}".format(config.name))
-    f.close()
+    with open(filename, "w") as f:
+        f.write(f"python configurer.py {config.name}")
 
     createShortcut(filename, config.name, icon="C:\\Users\\Ugo\\Documents\\Projet\\FastRun\\icone\\beeboop.ico")
 

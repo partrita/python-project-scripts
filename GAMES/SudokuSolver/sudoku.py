@@ -1,6 +1,7 @@
 import numpy as np
 from move import Move
 
+
 class Sudoku:
 
     def __init__(self, grid: np.ndarray) -> None:

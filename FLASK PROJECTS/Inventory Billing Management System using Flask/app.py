@@ -1,11 +1,20 @@
-from flask import Flask, render_template, request, redirect, abort, flash, session ,url_for
-from werkzeug.exceptions import HTTPException
-from firebase import Firebase
 import json
-from datetime import datetime
-from db import products_collection, invoices_collection, users_collection
-from helper import *
 import os
+from datetime import datetime
+
+from db import invoices_collection, products_collection, users_collection
+from firebase import Firebase
+from flask import (
+    Flask,
+    abort,
+    flash,
+    redirect,
+    render_template,
+    request,
+    session,
+    url_for,
+)
+from helper import *
 
 app = Flask(__name__)
 app.secret_key = os.environ['APP_SECRET']
@@ -43,7 +52,7 @@ def signup():
                     user_details['merchant_id'] = _user_['localId']
                     users_collection.insert_one(user_details)
                     return render_template("success.html")
-                except Exception as e:
+                except Exception:  # noqa: BLE001
                     return redirect(url_for('login'))
             else:
                 flash('Password is less than 6 characters!')
@@ -134,7 +143,7 @@ def bill(bill_key):
         return redirect(url_for('bills_display', bill_key=bill_key))
     try:
         bill_details = invoices_collection.find_one({"merchant_id": session.get('user'),"bill_id": bill_key},{"_id":0,"created_on": 0})
-    except:
+    except Exception:  # noqa: BLE001
         bill_details = None
     if bill_details is not None:
         return render_template("bill.html",bill_key=bill_key, bill_details=json.dumps(bill_details),bill_details_json=bill_details)

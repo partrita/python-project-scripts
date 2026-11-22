@@ -1,9 +1,9 @@
 import argparse
 import concurrent.futures
 import fnmatch
-import sys
 import os
 import subprocess
+import sys
 import urllib.parse
 from itertools import product
 
@@ -16,31 +16,33 @@ modules = ["requests"]
 
 try:
     import requests
-except:
+except ImportError:
     print("Attempting to install the requirements...")
 
     try:
         for module in modules:
             subprocess.run(
                 ["python", "-m", "pip", "install", module],
+                check=True,
                 stdout=subprocess.DEVNULL,
                 stderr=subprocess.DEVNULL,
             )
         import requests
 
         print("Requirements was successful installed!")
-    except:
+    except (subprocess.CalledProcessError, ImportError):
         try:
             for module in modules:
                 subprocess.run(
                     ["python3", "-m", "pip", "install", module],
+                    check=True,
                     stdout=subprocess.DEVNULL,
                     stderr=subprocess.DEVNULL,
                 )
             import requests
 
             print("Requirements was successful installed!")
-        except:
+        except (subprocess.CalledProcessError, ImportError):
             sys.exit("Could not install requirements :(")
 
 
@@ -142,17 +144,19 @@ def Get(url):
                 r = requests.get(api_url, timeout=30)
                 code = r.status_code
 
-                if code == 403:
-                    if r.headers["content-type"] == "application/json; charset=utf-8":
-                        if "message" in r.json():
-                            sys.exit("You reached requests limit, try again later!")
+                if (
+                    code == 403
+                    and r.headers["content-type"] == "application/json; charset=utf-8"
+                    and "message" in r.json()
+                ):
+                    sys.exit("You reached requests limit, try again later!")
                 if code == 404:
                     sys.exit(f"error: {code}")
             except requests.exceptions.RequestException as e:
                 sys.exit(f"error:\n{e}")
         else:
             sys.exit(f"error: could not extract information about repo: {url}.")
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
         print(e)
         sys.exit(f"error: could not extract information about repo: {url}.")
     else:
@@ -161,7 +165,7 @@ def Get(url):
 
 def search_pattern(obj, pattern_list):
     matches = 0
-    for token in range(0, len(obj)):
+    for token in range(len(obj)):
         f = obj[token]["name"]
         for p in pattern_list:
             if fnmatch.fnmatch(f, p):
@@ -174,7 +178,7 @@ def include(obj, pattern_list):
     include_list = []
     matches = 0
 
-    for index in range(0, len(obj)):
+    for index in range(len(obj)):
         f = obj[index]["name"]
         t = obj[index]["type"]
         if t != "dir":
@@ -211,9 +215,8 @@ def fetch(obj):
 
     content = requests.get(url).content
     filename = os.path.join(directory, file)
-    f = open(filename, "bw")
-    f.write(content)
-    f.close()
+    with open(filename, "bw") as f:
+        f.write(content)
 
     if verbose:
         print(file)
@@ -257,7 +260,7 @@ if os.path.isdir(directory):  # Check is directory exist.
 else:
     try:
         os.makedirs(directory)
-    except:
+    except OSError:
         sys.exit(f"Could not create '{directory}'.")
 
 r = ""
@@ -270,7 +273,7 @@ except requests.exceptions.RequestException:
 try:
     obj = r.json()
     obj_len = len(obj)
-except:
+except Exception:  # noqa: BLE001
     sys.exit(f"error: Could not load files on {url}")
 
 

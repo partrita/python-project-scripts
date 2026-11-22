@@ -1,7 +1,8 @@
-from threading import Thread, Event
-from configuration import LIST_DAY
+from threading import Event, Thread
+
 import ttkbootstrap as ttk
 from backend_alarm import AlarmClock
+from configuration import LIST_DAY
 
 
 def start_alarm(clock: str, event: Event, days: str) -> None:
@@ -38,11 +39,11 @@ class AlarmsFrame(ttk.Frame):
         # set grid layout
         self.event = Event()
         self.rowconfigure((0, 1), weight = 1, uniform = 'a')
-        self.columnconfigure(list(range(0, 7)), weight = 1, uniform = 'a')
+        self.columnconfigure(list(range(7)), weight = 1, uniform = 'a')
         
         #  set data
         self.day_label = list(range(7))
-        self.days_on = list()
+        self.days_on = []
         self.time_str = text
         self.variable_checkbutton = ttk.BooleanVar()
         

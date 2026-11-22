@@ -1,7 +1,7 @@
 from tkinter import *
+from tkinter import font
 
-from PIL import ImageTk, Image
-import tkinter.font as font
+from PIL import Image, ImageTk
 
 root = Tk()
 root.title("CURRENCY CONVERTER 2000")
@@ -88,8 +88,10 @@ button4.place(relx = 0.7, rely = 0.4, relwidth = 0.12, relheight = 0.07)
 #-----------THE LOGIC---------------
 
 from tkinter import messagebox
-from forex_python.converter import CurrencyRates
+
 from forex_python.bitcoin import BtcConverter
+from forex_python.converter import CurrencyRates
+
 
 def clear():
     entry.delete(0,END)
@@ -120,7 +122,7 @@ def convert(c1,c2,amount):
             except ValueError:
                 messagebox.showerror("Error", "Invalid amount")
                 clear()
-    except Exception:
+    except Exception:  # noqa: BLE001
         messagebox.showerror("Error", "Something went wrong. Please try again")
 
 def help():

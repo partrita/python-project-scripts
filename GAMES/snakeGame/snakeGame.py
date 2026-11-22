@@ -1,11 +1,15 @@
 # Snake Game!
 
 # Game imports
-import pygame, sys, random, time
+import random
+import sys
+import time
+
+import pygame
 
 check_errors = pygame.init()
 if check_errors[1] > 0:
-    print("(!) Had {0} initializing errors, exiting...".format(check_errors[1]))
+    print(f"(!) Had {check_errors[1]} initializing errors, exiting...")
     sys.exit(-1)
 else:
     print("(+) PyGame successfully initialized")
@@ -55,7 +59,7 @@ def gameOver():
 
 def showScore(choice=1):
     scoreFont = pygame.font.SysFont("monaco", 25)
-    scoreSurf = scoreFont.render("Score : {0}".format(score), True, black)
+    scoreSurf = scoreFont.render(f"Score : {score}", True, black)
     scoreRect = scoreSurf.get_rect()
     if choice == 1:
         scoreRect.midtop = (80, 10)
@@ -83,13 +87,13 @@ while True:
                 pygame.event.post(pygame.event.Event(pygame.QUIT))
 
     # validation of direction
-    if changeto == "RIGHT" and not direction == "LEFT":
+    if changeto == "RIGHT" and direction != "LEFT":
         direction = "RIGHT"
-    if changeto == "LEFT" and not direction == "RIGHT":
+    if changeto == "LEFT" and direction != "RIGHT":
         direction = "LEFT"
-    if changeto == "UP" and not direction == "DOWN":
+    if changeto == "UP" and direction != "DOWN":
         direction = "UP"
-    if changeto == "DOWN" and not direction == "UP":
+    if changeto == "DOWN" and direction != "UP":
         direction = "DOWN"
 
     # Update snake position [x, y]

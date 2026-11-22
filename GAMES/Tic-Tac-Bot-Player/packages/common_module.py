@@ -1,5 +1,6 @@
 from os import system
 from time import sleep
+
 from packages import config
 
 
@@ -21,10 +22,7 @@ def printer(the_matrix):
 
 
 def check_for_draw():
-    if config.empty_cells != 0:
-        return False
-    else:
-        return True
+    return config.empty_cells == 0
 
 
 def the_judge():
@@ -47,9 +45,9 @@ def finder(letter):
 
     # Checking by ROWS
     matrix = config.the_matrix
-    for i in range(0, 3):
+    for i in range(3):
         counter = 0
-        for j in range(0, 3):
+        for j in range(3):
             if matrix[i][j] == letter:
                 counter += 1
 
@@ -58,9 +56,9 @@ def finder(letter):
             return True
 
     # Checking by COLUMNS
-    for i in range(0, 3):
+    for i in range(3):
         counter = 0
-        for j in range(0, 3):
+        for j in range(3):
             if matrix[j][i] == letter:
                 counter += 1
 
@@ -69,7 +67,7 @@ def finder(letter):
 
     # Checking by first diagonal by indices
     counter = 0
-    for i in range(0, 3):
+    for i in range(3):
         if matrix[i][i] == letter:
             counter += 1
 
@@ -79,15 +77,12 @@ def finder(letter):
     # Checking by second diagonal by indices
     counter = 0
     j_index = 2
-    for i in range(0, 3):
+    for i in range(3):
         if matrix[i][j_index] == letter:
             counter += 1
         j_index -= 1
 
-    if counter == 3:
-        return True
-
-    return False
+    return counter == 3
     
 
 def board_modifier(the_matrix, player=None):

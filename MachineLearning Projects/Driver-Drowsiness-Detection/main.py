@@ -1,11 +1,10 @@
-import cv2
 import os
-from keras.models import load_model
-import numpy as np
-from pygame import mixer
-import time
 
-import os
+import cv2
+import numpy as np
+from keras.models import load_model
+from pygame import mixer
+
 print(os.path.abspath('haar cascade files/haarcascade_frontalface_alt.xml'))
 
 
@@ -83,21 +82,19 @@ while(True):
         cv2.putText(frame,"Open",(10,height-20), font, 1,(255,255,255),1,cv2.LINE_AA)
     
         
-    if(score<0):
-        score=0   
+    score = max(score, 0)   
     cv2.putText(frame,'Score:'+str(score),(100,height-20), font, 1,(255,255,255),1,cv2.LINE_AA)
     if(score>15):
         cv2.imwrite(os.path.join(path,'image.jpg'),frame)
         try:
             sound.play()
-        except:  
-            pass
+        except (OSError, RuntimeError) as e:
+            print(f"Sound playback error: {e}")
         if(thicc<16):
             thicc= thicc+2
         else:
             thicc=thicc-2
-            if(thicc<2):
-                thicc=2
+            thicc = max(thicc, 2)
         cv2.rectangle(frame,(0,0),(width,height),(0,0,255),thicc) 
     cv2.imshow('frame',frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):

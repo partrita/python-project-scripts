@@ -4,7 +4,7 @@ def countingSort(array, place):
     count = [0] * 10
 
     # Calculate count of elements
-    for i in range(0, size):
+    for i in range(size):
         index = array[i] // place
         count[index % 10] += 1
 
@@ -20,7 +20,7 @@ def countingSort(array, place):
         count[index % 10] -= 1
         i -= 1
 
-    for i in range(0, size):
+    for i in range(size):
         array[i] = output[i]
 
 

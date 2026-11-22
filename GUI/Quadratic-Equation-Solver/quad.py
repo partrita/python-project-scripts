@@ -7,7 +7,7 @@ class Quadratic:
     
     def __init__(self,a : float, b : float, c : float) -> None:
         # A class is created succesfully if the arguments of the class are either of float type or int type
-        if (type(a) == type(0.1) or type(a) == type(1)) and (type(b) == type(0.1) or type(b) == type(1)) and (type(c) == type(0.1) or type(c) == type(1)):
+        if (type(a) == float or type(a) == int) and (type(b) == float or type(b) == int) and (type(c) == float or type(c) == int):
             self.a = a
             self.b = b
             self.c = c
@@ -16,7 +16,7 @@ class Quadratic:
     
     def __repr__(self) -> str:
         """ Printing a quadratic class """
-        return "Quad( {0}x² + {1}x + {2} )".format(self.a,self.b,self.c)
+        return f"Quad( {self.a}x² + {self.b}x + {self.c} )"
     
     def solveQuad(self) -> tuple[float,float]:
         """Solving the expression assuming it is equal to 0. 

@@ -1,10 +1,7 @@
-from concurrent.futures import process
-from distutils.cmd import Command
+import subprocess
 from tkinter import *
 from tkinter import messagebox
-from tkinter.filedialog import asksaveasfilename, askopenfilename
-import subprocess
-import os
+from tkinter.filedialog import askopenfilename, asksaveasfilename
 
 root=Tk()
 root.title("Python IDE")

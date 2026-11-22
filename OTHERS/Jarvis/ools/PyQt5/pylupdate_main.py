@@ -19,8 +19,14 @@
 import locale
 import sys
 
-from PyQt5.QtCore import (PYQT_VERSION_STR, QDir, QFile, QFileInfo, QIODevice,
-        QTextStream)
+from PyQt5.QtCore import (
+    PYQT_VERSION_STR,
+    QDir,
+    QFile,
+    QFileInfo,
+    QIODevice,
+    QTextStream,
+)
 
 from .pylupdate import *
 

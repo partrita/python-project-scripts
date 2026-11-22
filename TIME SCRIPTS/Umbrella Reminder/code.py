@@ -1,9 +1,10 @@
-import schedule
 import smtplib
+
 import requests
+import schedule
 from bs4 import BeautifulSoup
-  
-  
+
+
 def umbrellaReminder():
     city = "Hyderabad"
       
@@ -33,8 +34,7 @@ def umbrellaReminder():
         body = f"Take an umbrella before leaving the house.\
         Weather condition for today is {sky} and temperature is\
         {temperature} in {city}."
-        msg = f"Subject:{subject}\n\n{body}\n\nRegards,\nGeeksforGeeks".encode(
-            'utf-8')
+        msg = f"Subject:{subject}\n\n{body}\n\nRegards,\nGeeksforGeeks".encode()
           
         # sending the mail
         smtp_object.sendmail("FROM EMAIL",

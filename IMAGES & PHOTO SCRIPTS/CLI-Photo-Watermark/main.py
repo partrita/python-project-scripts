@@ -1,6 +1,7 @@
 import argparse
-import cv2
 import os
+
+import cv2
 
 # Watermark Configuration
 font = cv2.FONT_HERSHEY_COMPLEX
@@ -72,5 +73,5 @@ def process_image(filename, watermark, pos):
 
 # Call function on all files in CWD ending with .png or .jpg
 for file in os.listdir(os.getcwd()):
-    if file.endswith('.jpg') or file.endswith('.png'):
+    if file.endswith(('.jpg', '.png')):
         process_image(os.getcwd() + '\\' + file, args.watermark, args.position)

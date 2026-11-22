@@ -1,4 +1,5 @@
 import os
+
 import pymongo
 
 ENVIRONMENT = os.environ["ENVIRONMENT"]

@@ -1,6 +1,4 @@
-from packages import module_for_bot
-from packages import common_module
-from packages import config
+from packages import common_module, config, module_for_bot
 
 
 def script_with_bot():

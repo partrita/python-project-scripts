@@ -1,5 +1,6 @@
 import os
 
+
 class Create_Graph:
     def __init__(self,path,walls,dimension,properties,explored):
         self.path = path
@@ -15,10 +16,8 @@ class Create_Graph:
         for i in path:
             temp = str(i)+" --> "
             self.path_string += temp
-        else:
-             self.path_string = self.path_string[:-3]      
+        self.path_string = self.path_string[:-3]      
         self.doc = []
-        return None
     def Create_script(self):
         #doc = self.doc
         doc = [

@@ -1,5 +1,7 @@
+import time
+
 from booking.booking import booking
-import time 
+
 bot=booking()
 try:
     with bot:

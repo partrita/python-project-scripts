@@ -1,6 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 from plyer import notification
+
+
 def get_data(url):
     data = requests.get(url)
     return data

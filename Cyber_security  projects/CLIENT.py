@@ -22,7 +22,7 @@ while True:
 	try:
 		s.connect("127.0.0.1",8888)
 		break
-	except CoonectionRefusedError:
+	except ConnectionRefusedError:
 		continue
 
 print("connected....")		

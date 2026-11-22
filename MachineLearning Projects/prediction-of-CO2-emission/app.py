@@ -1,11 +1,13 @@
 #import libraries
-import numpy as np
-from flask import Flask, request, jsonify, render_template
 import pickle
+
+import numpy as np
+from flask import Flask, render_template, request
 
 #Initialize the flask App
 app = Flask(__name__)
-model = pickle.load(open('model.pkl', 'rb'))
+with open('model.pkl', 'rb') as f:
+    model = pickle.load(f)
 
 #default page of our web-app
 @app.route('/')
@@ -24,7 +26,7 @@ def predict():
 
     output = round(prediction[0], 2)
 
-    return render_template('index.html', prediction_text='CO2 Emission of the vehicle is :{}'.format(output))
+    return render_template('index.html', prediction_text=f'CO2 Emission of the vehicle is :{output}')
 
 if __name__ == "__main__":
     app.run(debug=False)

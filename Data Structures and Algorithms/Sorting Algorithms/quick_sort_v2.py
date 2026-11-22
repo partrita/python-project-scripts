@@ -1,4 +1,3 @@
-from typing import List
 
 
 def partition(nums, low, high) -> int:
@@ -13,7 +12,7 @@ def partition(nums, low, high) -> int:
     return i
 
 
-def quick_sort(nums: List, low, high):
+def quick_sort(nums: list, low, high):
     if low < high:
         p = partition(nums, low, high)
         quick_sort(nums, low, p - 1)

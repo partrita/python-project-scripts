@@ -11,7 +11,7 @@ class Node:
         self.data = data
 
     def __repr__(self):
-        return "<Node data: %s>" % self.data
+        return f"<Node data: {self.data}>"
 
 
 class LinkedList:
@@ -131,11 +131,11 @@ class LinkedList:
 
         while current:
             if current is self.head:
-                nodes.append("[head: %s]" % current.data)
+                nodes.append(f"[head: {current.data}]")
             elif current.next_node is None:
-                nodes.append("[Tail: %s]" % current.data)
+                nodes.append(f"[Tail: {current.data}]")
             else:
-                nodes.append("[%s]" % current.data)
+                nodes.append(f"[{current.data}]")
 
             current = current.next_node
         return "->".join(nodes)

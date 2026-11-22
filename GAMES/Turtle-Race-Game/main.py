@@ -1,6 +1,7 @@
-import math
 import random
+import sys
 import turtle
+
 #import time
 
 win_length = 500
@@ -11,7 +12,7 @@ turtles = 8
 turtle.screensize(win_length, win_height)
 
 
-class racer(object):
+class racer:
     def __init__(self, color, pos):
         self.pos = pos
         self.color = color
@@ -34,10 +35,8 @@ class racer(object):
 
 
 def setupFile(name, colors):
-    file = open(name, 'w')
-    for color in colors:
-        file.write(color + ' 0 \n')
-    file.close()
+    with open(name, 'w') as file:
+        file.writelines(color + ' 0 \n' for color in colors)
 
 
 def startGame():
@@ -74,23 +73,20 @@ def startGame():
                 print(win)
 
     oldScore = []
-    file = open('scores.txt', 'r')
-    for line in file:
-        l = line.split()
-        color = l[0]
-        score = l[1]
-        oldScore.append([color, score])
+    with open('scores.txt', 'r') as file:
+        for line in file:
+            l = line.split()
+            color = l[0]
+            score = l[1]
+            oldScore.append([color, score])
 
-    file.close()
+    with open('scores.txt', 'w') as file:
+        for entry in oldScore:
+            for winner in maxColor:
+                if entry[0] == winner:
+                    entry[1] = int(entry[1]) + 1
 
-    file = open('scores.txt', 'w')
-
-    for entry in oldScore:
-        for winner in maxColor:
-            if entry[0] == winner:
-                entry[1] = int(entry[1]) + 1
-
-        file.write(str(entry[0]) + ' ' + str(entry[1]) + '\n')
+            file.write(str(entry[0]) + ' ' + str(entry[1]) + '\n')
 
 
     file.close()
@@ -101,7 +97,7 @@ if start == "yes":
     print('----------GAME IN PROGRESS--------')
     startGame()
 else:
-    quit()
+    sys.exit()
 
 while True:
     print('-----------------------------------')
@@ -111,4 +107,4 @@ while True:
         startGame()
     else:
         print('----------THANK YOU FOR PLAYING--------')
-        quit()
+        sys.exit()

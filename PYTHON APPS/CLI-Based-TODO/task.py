@@ -2,6 +2,7 @@
 # Python todo list
 
 import os
+import sys
 from argparse import ArgumentParser as aparse
 
 # change the path of the files here to the actual desired paths
@@ -20,11 +21,11 @@ def func():
 
     # check if files exist, create if not
     if not os.path.exists(taskTxt):
-        with open(taskTxt, "w") as filet:
+        with open(taskTxt, "w"):
             pass
 
     if not os.path.exists(completedTxt):
-        with open(completedTxt, "w") as filec:
+        with open(completedTxt, "w"):
             pass
     
     if args.toDo == "ls":
@@ -37,8 +38,7 @@ def func():
         taskList = read_list()
         taskList.insert((args.p - 1), args.i)
         with open(taskTxt, "w") as f:
-            for line in taskList:
-                f.write(line + "\n")
+            f.writelines(line + "\n" for line in taskList)
 
 
     # deleting the task
@@ -53,10 +53,10 @@ def func():
             try:
                 index = taskList.index(args.i)
                 delete_item(index, taskList)
-                exit(0)
+                sys.exit(0)
             except(ValueError):
                 print(f"Item {args.i} not found. Maybe run ls and try again?")
-                exit(0)
+                sys.exit(0)
 
     # marking done
     if args.toDo == "done":
@@ -70,10 +70,10 @@ def func():
             try:
                 index = taskList.index(args.i)
                 do_item(index, taskList)
-                exit(0)
+                sys.exit(0)
             except(ValueError):
                 print(f"Item {args.i} not found. Maybe run ls and try again?")
-                exit(0)
+                sys.exit(0)
 
     # generating the report
     if args.toDo == "report":
@@ -111,12 +111,11 @@ def delete_item(index, taskList):
     if answer == "y":
         taskList.pop(index)
         with open(taskTxt, "w") as f:
-            for line in taskList:
-                f.write(line + "\n")
+            f.writelines(line + "\n" for line in taskList)
         print("Item Deleted")
-        exit(0)
+        sys.exit(0)
     print("No item deleted")
-    exit(0)
+    sys.exit(0)
 
 def do_item(index, taskList):
     print("\n")
@@ -125,17 +124,15 @@ def do_item(index, taskList):
     if answer == "y":
         task = taskList.pop(index)
         with open(taskTxt, "w") as f:
-            for line in taskList:
-                f.write(line + "\n")
+            f.writelines(line + "\n" for line in taskList)
         completed = read_complete()
         completed.append(task)
         with open(completedTxt, "w") as f:
-            for line in completed:
-                f.write(line + "\n")
+            f.writelines(line + "\n" for line in completed)
         print("Item marked done")
-        exit(0)
+        sys.exit(0)
     print("No item changed")
-    exit(0)
+    sys.exit(0)
 
 def lister(items):
     for item, line in enumerate(items, 1):

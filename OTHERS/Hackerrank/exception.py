@@ -6,7 +6,7 @@ try:
     try:
         print(list_a[index])     
     except IndexError:
-        print("The index {} is incorrect and index should lie between -5 and 4".format(index))
+        print(f"The index {index} is incorrect and index should lie between -5 and 4")
 
 except ValueError:
     print("Use an integer as an input") 

@@ -1,6 +1,6 @@
 import tkinter as tk
-from pytube import YouTube
 
+from pytube import YouTube
 
 #Display Window
 dock = tk.Tk()

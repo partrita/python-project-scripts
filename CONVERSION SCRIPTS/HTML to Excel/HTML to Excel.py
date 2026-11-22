@@ -1,5 +1,6 @@
 # Importing necessary libraries
 import csv
+
 import openpyxl
 import pandas as pd
 from openpyxl import Workbook
@@ -44,7 +45,6 @@ def modify_excel():
         for j in range(1, cols + 1):
             if ("Test_Cases" in str(sheet_obj.cell(i, j).value)) or ("Status" in str(sheet_obj.cell(i, j).value)):
                 x = sheet_obj.cell(i, j).coordinate
-                y = sheet_obj.cell(i, j).row
                 sheet_obj[x].font = Font(bold=True)
 
     # Saving the modified Excel file

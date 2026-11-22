@@ -1,8 +1,8 @@
  # importing necessary libraries
+
 import img2pdf
 from PIL import Image
-import os
-  
+
 # storing image path
 img_path = "C:/Users/vedan/OneDrive/Desktop/image.png"
   
@@ -15,11 +15,9 @@ image = Image.open(img_path)
 # converting into chunks using img2pdf
 pdf_bytes = img2pdf.convert(image.filename)
   
-# opening or creating pdf file
-file = open(pdf_path, "wb")
-  
-# writing pdf files with chunks
-file.write(pdf_bytes)
+# opening or creating pdf file and writing pdf files with chunks
+with open(pdf_path, "wb") as file:
+    file.write(pdf_bytes)
   
 # closing image file
 image.close()

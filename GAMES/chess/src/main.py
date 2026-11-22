@@ -1,10 +1,10 @@
-import pygame
 import sys
 
+import pygame
 from const import *
 from game import Game
-from square import Square
 from move import Move
+from square import Square
 
 
 class Main:

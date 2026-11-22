@@ -1,9 +1,14 @@
-import os,sys
+import os
+import sys
+
 currentdir=os.path.dirname(os.path.realpath(__file__))
 parentdir=os.path.dirname(currentdir)
 sys.path.append(parentdir)
 hda='0123456789abcdef';b64t="""ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"""
-fn=f'{currentdir}/log.txt';fh=open(fn,'w');fh.close();fh=open(fn,'r+')
+fn=f'{currentdir}/log.txt'
+with open(fn,'w'):
+    pass
+fh=open(fn,'r+')  # noqa: SIM115
 def hextodec(s):
     l,h=[],list(s)
     while len(h)>0:
@@ -35,7 +40,7 @@ def hextodec(s):
         bl.append(bc)
     bl=''.join(bl)
     for i in range(2):
-        if not len(bl)%6==0:
+        if len(bl) % 6 != 0:
             bl=list(bl)
             bl.append('00')
             bl=''.join(bl)
@@ -58,7 +63,7 @@ def hextodec(s):
         fl.append(c)
     fw=list(''.join(fl))
     for i in range(3):
-        if not len(fw)%4==0:fw.append('=')
+        if len(fw) % 4 != 0:fw.append('=')
     fw=''.join(fw)
     fh.write(f'{fw} is base64 conversion of {s}\n')
     return fw

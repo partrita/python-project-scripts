@@ -16,8 +16,16 @@ to extract and correct these errors.
 2022 Eduardo C. - https://github.com/ehcelino
 """
 import sys
+
 # import QtQuiz.design
-from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QVBoxLayout, QWidget
+from PyQt5.QtWidgets import (
+    QApplication,
+    QLabel,
+    QMainWindow,
+    QPushButton,
+    QVBoxLayout,
+    QWidget,
+)
 from QtQuiz.design import *
 
 datatable = {

@@ -1,8 +1,9 @@
 import csv
 import datetime
 from tkinter import *
-from PIL import Image, ImageTk
 from tkinter import filedialog
+
+from PIL import Image, ImageTk
 from tkcalendar import Calendar
 
 root = Tk()
@@ -328,9 +329,8 @@ class User:
                         l1.grid(row=8, column=0, columnspan=2, pady=5, padx=3, sticky="W")
                         l1_info = l1.grid_info()
                     else:
-                        if l1_info != {}:
-                            if l1_info["row"] == 8:
-                                l1.destroy()
+                        if l1_info != {} and l1_info["row"] == 8:
+                            l1.destroy()
                         # Setting object's attributes after data has been entered.
                         self.__email_or_phone = user_email
                         self.__password = user_password.get()
@@ -340,8 +340,8 @@ class User:
                         self.gender = user_gender.get()
 
                         # Each user gets a unique user id.
-                        r = csv.reader(open("Users_Database.csv"))
-                        lines = list(r)
+                        with open("Users_Database.csv") as f:
+                            lines = list(csv.reader(f))
                         for lst in range(1, len(lines)):
                             if lines[lst][0]:
                                 User.users_id = lines[lst][0]
@@ -470,9 +470,6 @@ class User:
 
                     pstitle = []
                     psdescription = []
-                    global psfilepath
-                    global psImage
-                    global images
                     global title_label
                     global image_label
                     global description_label
@@ -512,7 +509,6 @@ class User:
                             global description_label
                             global button_forward
                             global button_back
-                            global images
 
                             title_label.grid_forget()
                             image_label.grid_forget()
@@ -545,7 +541,6 @@ class User:
                             global description_label
                             global button_forward
                             global button_back
-                            global images
 
                             title_label.grid_forget()
                             image_label.grid_forget()
@@ -841,15 +836,16 @@ class User:
             self.Relationship_Status = user_relationship.get()
 
             # Updating user's info in the database.
-            r = csv.reader(open("Users_Database.csv"))
-            lines = list(r)
+            with open("Users_Database.csv") as f:
+                lines = list(csv.reader(f))
             for lst in range(len(lines)):
                 if lines[lst][0] == str(self.ID):
                     lines[lst][7], lines[lst][8], lines[lst][9] = self.about, self.current_city, self.Education
                     lines[lst][10], lines[lst][11] = self.Workplace, self.Relationship_Status
                     break
-            writer = csv.writer(open("Users_Database.csv", "w", newline=""))
-            writer.writerows(lines)
+            with open("Users_Database.csv", "w", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerows(lines)
             Label(edit_frame, text="Profile Updated!", font=("Roboto", 14), pady=8).\
                 grid(row=6, column=0, columnspan=2, pady=5, sticky="W")
             # Back.
@@ -885,9 +881,7 @@ class User:
         with open("Friends.csv") as data_file:
             csv_reader = csv.reader(data_file, delimiter=",")
             for row in csv_reader:
-                if row[0] == str(self.ID) and row[6] == str(False):
-                    has_friends = True
-                elif row[3] == str(self.ID) and row[6] == str(False):
+                if row[0] == str(self.ID) and row[6] == str(False) or row[3] == str(self.ID) and row[6] == str(False):
                     has_friends = True
 
         if has_friends:
@@ -955,14 +949,15 @@ class User:
                                                                 pady=7, sticky="W")
 
         # Updating account privacy in the database.
-        r = csv.reader(open("Users_Database.csv"))
-        lines = list(r)
+        with open("Users_Database.csv") as f:
+            lines = list(csv.reader(f))
         for lst in range(len(lines)):
             if lines[lst][0] == str(self.ID):
                 lines[lst][12] = self.account_privacy
                 break
-        writer = csv.writer(open("Users_Database.csv", "w", newline=""))
-        writer.writerows(lines)
+        with open("Users_Database.csv", "w", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerows(lines)
 
     # Update your password in the database.
     def user_update(self):
@@ -995,14 +990,15 @@ class User:
             self.__password = new
 
             # Updating user's password in the database.
-            r = csv.reader(open("Users_Database.csv"))
-            lines = list(r)
+            with open("Users_Database.csv") as f:
+                lines = list(csv.reader(f))
             for lst in range(len(lines)):
                 if lines[lst][0] == str(self.ID):
                     lines[lst][4] = self.__password
                     break
-            writer = csv.writer(open("Users_Database.csv", "w", newline=""))
-            writer.writerows(lines)
+            with open("Users_Database.csv", "w", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerows(lines)
 
             Label(up_frame, text="Password Updated!", font=("Roboto", 13), padx=20, pady=5, bd=1, relief="sunken"). \
                 grid(row=3, column=0, columnspan=2, pady=10, padx=3, sticky="W")
@@ -1130,14 +1126,15 @@ class User:
 
     def delete_user(self):
         # Deleting user's account from the database.
-        r = csv.reader(open("Users_Database.csv"))
-        lines = list(r)
+        with open("Users_Database.csv") as f:
+            lines = list(csv.reader(f))
         for lst in range(len(lines)):
             if lines[lst][0] == str(self.ID):
                 lines.remove(lines[lst])
                 break
-        writer = csv.writer(open("Users_Database.csv", "w", newline=""))
-        writer.writerows(lines)
+        with open("Users_Database.csv", "w", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerows(lines)
         print("Account deleted.")
 
     def block_a_user(self):
@@ -1240,14 +1237,15 @@ class User:
             ID = users[user_ID - 1]
             # Unblocking the user if blocked.
             blocked_user = False
-            r = csv.reader(open("Blocked_Users.csv"))
-            lines = list(r)
+            with open("Blocked_Users.csv") as f:
+                lines = list(csv.reader(f))
             for lst in range(len(lines)):
                 if lines[lst][0] == str(self.ID) and lines[lst][1] == ID:
                     blocked_user = True
                     lines.remove(lines[lst])
-            writer = csv.writer(open("Blocked_Users.csv", "w", newline=""))
-            writer.writerows(lines)
+            with open("Blocked_Users.csv", "w", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerows(lines)
             # If the user wasn't blocked.
             if not blocked_user:
                 Label(ub_frame, text="You've not blocked this user.", font=("Roboto", 13), padx=20, pady=5).\
@@ -1320,14 +1318,15 @@ class User:
                     value="0", fg="#1877F2").grid(row=1, column=1, pady=7, sticky="W")
 
         def post_in_page(page_ID, thepages, row_no):
-            rp = csv.reader(open("Posts.csv"))
-            linesp = list(rp)
+            with open("Posts.csv") as f:
+                linesp = list(csv.reader(f))
             for lst in range(len(linesp)):
                 if linesp[lst][3] == str(post_id):
                     linesp[lst][12] = thepages[int(page_ID) - 1]
                     break
-            writer = csv.writer(open("Posts.csv", "w", newline=""))
-            writer.writerows(linesp)
+            with open("Posts.csv", "w", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerows(linesp)
 
             Label(pp_frame, text="Posted.", font=("Roboto", 13), padx=20, pady=5). \
                 grid(row=row_no + 3, column=0, columnspan=3, pady=7, sticky="W")
@@ -1441,9 +1440,8 @@ class User:
                 l2.grid(row=7, column=0, columnspan=2, pady=5, padx=3, sticky="W")
                 l2_info = l2.grid_info()
             else:
-                if l2_info != {}:
-                    if l2_info["row"] == 7:
-                        l2.destroy()
+                if l2_info != {} and l2_info["row"] == 7:
+                    l2.destroy()
 
                 post_obj = Post()
 
@@ -1455,8 +1453,8 @@ class User:
                 post_obj.post_date = datetime.datetime.now().date()
 
                 # Each post gets a unique post id.
-                r = csv.reader(open("Posts.csv"))
-                lines = list(r)
+                with open("Posts.csv") as f:
+                    lines = list(csv.reader(f))
                 for lst in range(1, len(lines)):
                     if lines[lst][3]:
                         Post.post_id = lines[lst][3]
@@ -1709,9 +1707,8 @@ class User:
                 l3.grid(row=9, column=0, columnspan=2, pady=5, padx=3, sticky="W")
                 l3_info = l3.grid_info()
             else:
-                if l3_info != {}:
-                    if l3_info["row"] == 9:
-                        l3.destroy()
+                if l3_info != {} and l3_info["row"] == 9:
+                    l3.destroy()
 
                 page_obj = Page()
 
@@ -1721,8 +1718,8 @@ class User:
                 page_obj.creation_date = datetime.datetime.now().date()
 
                 # Each page gets a unique page id.
-                r = csv.reader(open("Pages.csv.csv"))
-                lines = list(r)
+                with open("Pages.csv.csv") as f:
+                    lines = list(csv.reader(f))
                 for lst in range(1, len(lines)):
                     if lines[lst][3]:
                         Page.page_id = lines[lst][3]
@@ -1844,9 +1841,6 @@ class User:
         ps_userid = []
         psfirst = []
         pslast = []
-        global psfilepath1
-        global psImage1
-        global images1
         global title_label1
         global image_label1
         global description_label1
@@ -1895,7 +1889,6 @@ class User:
                 global button_back1
                 global button_comment
                 global name_label
-                global images1
 
                 title_label1.grid_forget()
                 image_label1.grid_forget()
@@ -1937,7 +1930,6 @@ class User:
                 global button_back1
                 global name_label
                 global button_comment
-                global images1
 
                 title_label1.grid_forget()
                 image_label1.grid_forget()
@@ -2072,9 +2064,6 @@ class User:
         pstitle2 = []
         psdescription2 = []
         ps_postid = []
-        global psfilepath2
-        global psImage2
-        global images2
         global title_label2
         global image_label2
         global description_label2
@@ -2145,7 +2134,6 @@ class User:
                     global button_forward2
                     global button_back2
                     global button_comment
-                    global images2
 
                     title_label2.grid_forget()
                     image_label2.grid_forget()
@@ -2186,7 +2174,6 @@ class User:
                     global button_forward2
                     global button_back2
                     global button_comment
-                    global images2
 
                     title_label2.grid_forget()
                     image_label2.grid_forget()
@@ -2291,7 +2278,6 @@ class User:
                         global button_forward2
                         global button_back2
                         global button_comment
-                        global images2
 
                         title_label2.grid_forget()
                         image_label2.grid_forget()
@@ -2335,7 +2321,6 @@ class User:
                         global button_forward2
                         global button_back2
                         global button_comment
-                        global images2
 
                         title_label2.grid_forget()
                         image_label2.grid_forget()
@@ -2418,17 +2403,12 @@ class User:
         Label(ad_frame, text="New Friend Requests: ", font=("Roboto", 14), padx=5, pady=5, bd=1, relief="sunken",
               fg="#1877F2").grid(row=0, column=0, columnspan=2, pady=10, padx=3, sticky="W")
 
-        global request_to_accept
-        global request_to_reject
-        global friend_request
-        global acl
-        global adl
         global ta
         global la
         global ta_info
         global la_info
 
-        l5 = Label(ad_frame, text="*Required field(s)\nempty.", font=("Helvetica 18 bold", 13),
+        Label(ad_frame, text="*Required field(s)\nempty.", font=("Helvetica 18 bold", 13),
                    padx=20, pady=4, bd=1, relief="groove", fg="#FF0000")
 
         sender_first_name = []
@@ -2446,19 +2426,15 @@ class User:
                     break
 
         def accept_request(friend_request_no, sen_ID, row_no):
-            global request_to_accept
-            global acl
-            global request_to_reject
-            global adl
-
-            r = csv.reader(open("Friends.csv"))
-            lines = list(r)
+            with open("Friends.csv") as f:
+                lines = list(csv.reader(f))
             for lst in range(len(lines)):
                 if lines[lst][3] == str(self.ID) and lines[lst][6] == str(True) and lines[lst][0] == \
                         sen_ID[int(friend_request_no)-1]:
                     lines[lst][4], lines[lst][5], lines[lst][6] = self.first_name, self.last_name, False
-            writer = csv.writer(open("Friends.csv", "w", newline=""))
-            writer.writerows(lines)
+            with open("Friends.csv", "w", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerows(lines)
 
             request_to_accept.grid_forget()
             acl.grid_forget()
@@ -2471,20 +2447,16 @@ class User:
             take_action(row_no)
 
         def decline_request(friend_request_no, sen_ID, row_no):
-            global request_to_accept
-            global acl
-            global request_to_reject
-            global adl
-
-            r = csv.reader(open("Friends.csv"))
-            lines = list(r)
+            with open("Friends.csv") as f:
+                lines = list(csv.reader(f))
             for lst in range(len(lines)):
                 if lines[lst][3] == str(self.ID) and lines[lst][6] == str(True) and lines[lst][0] == \
                         sen_ID[int(friend_request_no) - 1]:
                     lines.remove(lines[lst])
                     break
-            writer = csv.writer(open("Friends.csv", "w", newline=""))
-            writer.writerows(lines)
+            with open("Friends.csv", "w", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerows(lines)
 
             request_to_accept.grid_forget()
             acl.grid_forget()
@@ -2494,14 +2466,10 @@ class User:
             take_action(row_no)
 
         def take_action(row_no):
-            global ta
-            global la
             global acl
             global adl
             global request_to_accept
             global request_to_reject
-            global ta_info
-            global la_info
             if ta.grid_info() != {}:
                 ta.grid_forget()
             if la.grid_info() != {}:

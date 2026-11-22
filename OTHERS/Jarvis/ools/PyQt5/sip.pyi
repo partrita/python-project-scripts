@@ -21,8 +21,7 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 
-from typing import Generic, overload, TypeVar, Union
-
+from typing import Generic, TypeAlias, TypeVar, overload
 
 # Constants.
 SIP_VERSION = ...       # type: int
@@ -52,7 +51,7 @@ class array(Generic[T]):
 # The voidptr type.
 class voidptr:
 
-    def __init__(addr: Union[int, Buffer], size: int = -1, writeable: bool = True) -> None: ...
+    def __init__(addr: int | Buffer, size: int = -1, writeable: bool = True) -> None: ...
 
     def __int__(self) -> int: ...
 
@@ -66,7 +65,7 @@ class voidptr:
 
     def __len__(self) -> int: ...
 
-    def __setitem__(self, i: Union[int, slice], v: Buffer) -> None: ...
+    def __setitem__(self, i: int | slice, v: Buffer) -> None: ...
 
     def asarray(self, size: int = -1) -> array: ...
 
@@ -86,7 +85,7 @@ class voidptr:
 
 # PEP 484 has no explicit support for the buffer protocol so we just name types
 # we know that implement it.
-Buffer = Union[bytes, bytearray, memoryview, array, voidptr]
+Buffer: TypeAlias = bytes | bytearray | memoryview | array | voidptr
 
 
 # Remaining functions.

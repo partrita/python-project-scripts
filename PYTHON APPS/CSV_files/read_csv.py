@@ -8,11 +8,7 @@ def read_using_DictReader(path):
     with open(path, mode='r') as file:
         # reading the CSV file
         csvFile = csv.DictReader(file)
-        main_dic = []
-        # displaying the contents of the CSV file
-        for lines in csvFile:
-            main_dic.append(lines)
-        return main_dic
+        return list(csvFile)
 
 
 # return the top 5 rows in CSV file

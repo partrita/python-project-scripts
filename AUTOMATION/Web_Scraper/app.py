@@ -1,6 +1,6 @@
-from bs4 import BeautifulSoup
-import requests
 import openpyxl
+import requests
+from bs4 import BeautifulSoup
 
 
 def extract_brand_name_and_title(name):
@@ -45,7 +45,7 @@ def scrape_graphics_cards_data():
         # Save the Excel file
         excel.save('Graphics Card.xlsx')
 
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
         print("An error occurred:", e)
 
 

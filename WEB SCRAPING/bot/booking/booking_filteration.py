@@ -1,8 +1,11 @@
-from selenium.webdriver.remote.webdriver import WebDriver
+import time
+
 from selenium.webdriver.common.by import By
+from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
-import time
+
+
 class booking_filter:
     def __init__(self,driver:WebDriver):
         self.driver=driver

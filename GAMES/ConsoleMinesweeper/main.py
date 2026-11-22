@@ -1,6 +1,6 @@
-from random import randint, choice
 import os
 import re
+from random import choice, randint
 
 
 class MineField:
@@ -52,36 +52,30 @@ class MineField:
             
     def fill_neighbors(self, row, column):
             if row != 0:
-                if column != 0:
-                    if self.grid[row-1][column-1] != '*':
-                        self.grid[row-1][column-1] += 1
+                if column != 0 and self.grid[row-1][column-1] != '*':
+                    self.grid[row-1][column-1] += 1
                         
                 if self.grid[row-1][column] != '*':
                     self.grid[row-1][column] += 1
                     
-                if column != self.size-1:
-                    if self.grid[row-1][column+1] != '*':
-                        self.grid[row-1][column+1] += 1
+                if column != self.size-1 and self.grid[row-1][column+1] != '*':
+                    self.grid[row-1][column+1] += 1
                         
-            if column != 0:
-                if self.grid[row][column-1] != '*':
-                    self.grid[row][column-1] += 1
+            if column != 0 and self.grid[row][column-1] != '*':
+                self.grid[row][column-1] += 1
                     
-            if column != self.size-1:
-                if self.grid[row][column+1] != '*':
-                    self.grid[row][column+1] += 1
+            if column != self.size-1 and self.grid[row][column+1] != '*':
+                self.grid[row][column+1] += 1
                     
             if row != self.size-1:
-                if column != 0:
-                    if self.grid[row+1][column-1] != '*':
-                        self.grid[row+1][column-1] += 1
+                if column != 0 and self.grid[row+1][column-1] != '*':
+                    self.grid[row+1][column-1] += 1
                         
                 if self.grid[row+1][column] != '*':
                     self.grid[row+1][column] += 1
                     
-                if column != self.size-1:
-                    if self.grid[row+1][column+1] != '*':
-                        self.grid[row+1][column+1] += 1
+                if column != self.size-1 and self.grid[row+1][column+1] != '*':
+                    self.grid[row+1][column+1] += 1
                 
     def first_dig(self):
         zeros = []

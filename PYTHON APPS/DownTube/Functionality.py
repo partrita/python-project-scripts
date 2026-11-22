@@ -1,12 +1,12 @@
 import re
+import urllib.request
+from tkinter import filedialog as fd
+from tkinter import messagebox as msg
 from tkinter.constants import END
+
 import downtube as dt
 import Exceptions as ex
-from tkinter import messagebox as msg
-from tkinter import filedialog as fd
-import urllib.request
 import pytube as pt
-from pytube import YouTube
 
 
 def clear(link, get_link):
@@ -34,7 +34,7 @@ def check_connectivity(link):                   # Referred website: codespeedy (
     """ Checks for internet connectivity or valid youtube link """
     try:
         urllib.request.urlopen(link)
-    except:
+    except (OSError, ValueError):
         msg.showerror(
                     title= "Network Error",
                     message= "Connectivity issue found",

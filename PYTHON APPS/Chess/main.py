@@ -1,6 +1,5 @@
-import pygame as p
 import engine
-
+import pygame as p
 
 # square window for our game.
 # can change screen size from here
@@ -163,14 +162,12 @@ def main():
                             if move == valid_moves[i]:
                                 
                                 gs.makeMove(valid_moves[i])
-                                user_choice = "Q"
                                 while move.pawn_promotion:
                                     p.display.set_caption("Choose a piece to promote to")
                                     screen.fill(p.Color("black"))
                                     screen.blit(p.transform.scale_by(p.image.load(r"Images\PromotionMenu.jpg"),0.2),p.Rect(200-sq_size,200-sq_size,10,10))
                                     showtext(screen, "Enter the corresponding character of the piece you want to promote to :", (200,200),12)
                                     p.display.flip()
-                                    user_choice = ""
                                     for event in p.event.get():
                                         if event.type == p.KEYDOWN:
                                             if event.key == p.K_q:
@@ -214,11 +211,10 @@ def main():
                         #gs.makeMove(move)
                         # to make the move
                             
-            elif event.type == p.KEYDOWN:
-                if event.key == p.K_z:
-                    gs.undoMove()
+            elif event.type == p.KEYDOWN and event.key == p.K_z:
+                gs.undoMove()
 
-                    move_made = True
+                move_made = True
                     # when the user undoes a move the valid moves change
                     # so change the flag variable to true
 
@@ -276,7 +272,7 @@ def drawboard(screen):
             # smpart
 
             # just draw rectangle (surface,color,)
-            custom_img = p.Surface((sq_size,sq_size))
+            p.Surface((sq_size,sq_size))
             
             screen.blit(image,p.Rect(columns*sq_size,rows*sq_size,sq_size,sq_size))
             

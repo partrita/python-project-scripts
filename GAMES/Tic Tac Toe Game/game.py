@@ -77,10 +77,7 @@ def empty_spaces():
         for column in range(3):
             if buttons[row][column]['text'] != "":
                 spaces -= 1
-    if spaces == 0:
-        return False
-    else:
-        return True
+    return spaces != 0
 
 
 def new_game():

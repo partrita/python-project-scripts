@@ -39,17 +39,16 @@
 
 
 import sys
-import re
 
 from .indenter import write_code
 from .misc import Literal, moduleMember
 
 if sys.hexversion >= 0x03000000:
-    from ..port_v3.proxy_base import ProxyBase
     from ..port_v3.as_string import as_string
+    from ..port_v3.proxy_base import ProxyBase
 else:
-    from ..port_v2.proxy_base import ProxyBase
     from ..port_v2.as_string import as_string
+    from ..port_v2.proxy_base import ProxyBase
 
 
 i18n_strings = []
@@ -78,7 +77,7 @@ def strict_getattr(module, clsname):
         return cls
     
 
-class i18n_string(object):
+class i18n_string:
     def __init__(self, string, disambig):
         self.string = string
         self.disambig = disambig
@@ -105,7 +104,7 @@ AS_SIGNAL = 0x01
 # ATTENTION: currently, classes can either be literal or normal. If a class
 # should need both kinds of behaviour, the code has to be changed.
 
-class ProxyClassMember(object):
+class ProxyClassMember:
     def __init__(self, proxy, function_name, flags):
         self.proxy = proxy
         self.function_name = function_name
@@ -161,7 +160,7 @@ class ProxyClassMember(object):
         return ProxySignalWithArguments(self.proxy, self.function_name, idx)
 
 
-class ProxySignalWithArguments(object):
+class ProxySignalWithArguments:
     """ This is a proxy for (what should be) a signal that passes arguments.
     """
 
@@ -261,7 +260,7 @@ class QtCore(ProxyNamespace):
         flags = AS_SIGNAL
 
         def metaObject(self):
-            class _FakeMetaObject(object):
+            class _FakeMetaObject:
                 def className(*args):
                     return self.__class__.__name__
             return _FakeMetaObject()

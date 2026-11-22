@@ -1,5 +1,6 @@
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
+
 my_bot=ChatBot(
   name="PyBot",
   read_only=True,
@@ -30,8 +31,6 @@ list_trainer = ListTrainer(my_bot)
 
 for item in (small_talk, math_talk_1, math_talk_2):
           list_trainer.train(item)
-          corpus_pusirainer(my_bot)
-corpus_tainer.train('chatterbot.corpus.english')
 print(my_bot.get_response("hi"))
 print(my_bot.get_response("Ifell awesome today"))
 print(my_bot.get_response("What's your name?"))

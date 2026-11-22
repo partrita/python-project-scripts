@@ -1,6 +1,7 @@
-import string
 import random
 import re
+import string
+
 
 def random_string_generator(N):
     res = ''.join(random.choices(string.ascii_lowercase +

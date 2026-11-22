@@ -1,5 +1,6 @@
-import json_parser
 from tkinter import *
+
+import json_parser
 
 
 class JSONValidator:

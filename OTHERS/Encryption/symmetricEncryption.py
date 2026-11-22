@@ -13,6 +13,7 @@ Author: Afolabi Adewale
 
 from cryptography.fernet import Fernet
 
+
 # 1. Generate a key for encryption and decryption
 def generate_key():
     """

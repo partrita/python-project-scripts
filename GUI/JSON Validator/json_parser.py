@@ -73,9 +73,7 @@ class JSONLexer:
                 escaped = True
             elif char == '"' and not escaped:
                 return str_, True, chars_count
-            elif escaped and char not in ["\\", '"', "b", "f", "n", "r", "t", "u", "/"]:
-                break
-            elif char in ["\t", "\n"]:
+            elif escaped and char not in ["\\", '"', "b", "f", "n", "r", "t", "u", "/"] or char in ["\t", "\n"]:
                 break
             else:
                 escaped = False
@@ -91,11 +89,12 @@ class JSONLexer:
         num_string = ""
 
         # Check for number starting with 0 which is not a float
-        if len(self.json_string[start_index:]) > 1:
-            if self.json_string[start_index] == "0" and self.json_string[
-                start_index + 1
-            ] not in [".", ","]:
-                return num_string, False, chars_count
+        if (
+            len(self.json_string[start_index:]) > 1
+            and self.json_string[start_index] == "0"
+            and self.json_string[start_index + 1] not in [".", ","]
+        ):
+            return num_string, False, chars_count
 
         for char in self.json_string[start_index:]:
             if not char.isdigit() and char not in ["-", ".", "e", "E", "+"]:
@@ -140,15 +139,7 @@ class JSONParser:
                     return result
 
     def parse_value(self):
-        if self.current_token[0] == "STRING":
-            return 0
-        elif self.current_token[0] == "FALSE":
-            return 0
-        elif self.current_token[0] == "TRUE":
-            return 0
-        elif self.current_token[0] == "NULL":
-            return 0
-        elif self.current_token[0] == "NUMBER":
+        if self.current_token[0] == "STRING" or self.current_token[0] == "FALSE" or self.current_token[0] == "TRUE" or self.current_token[0] == "NULL" or self.current_token[0] == "NUMBER":
             return 0
         elif self.current_token[0] == "LBRACE":
             return self.parse_object()

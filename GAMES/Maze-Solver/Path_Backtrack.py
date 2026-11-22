@@ -1,4 +1,3 @@
-import time
 
 class Path_Finder:
     def __init__(self):

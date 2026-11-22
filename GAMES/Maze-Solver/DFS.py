@@ -1,8 +1,9 @@
-import Path_Backtrack
 import copy
-import Draw
 import timeit
-import File_Opener
+
+import Draw
+import Path_Backtrack
+
 
 class Stack:
     def __init__(self):
@@ -35,7 +36,7 @@ class Stack:
         return self.stack
 
     def is_empty(self):
-        return True if len(self.stack) == 0 else False
+        return len(self.stack) == 0
 
 
 def read_file(FileLoc):
@@ -105,18 +106,14 @@ def Available_move(map, pos, walls, explored):
     for x in range(4):
         i = moves[x]
         # print(i)
-        if (i[0]) < 0:
-            if i in result:
-                result.remove(i)
-        if (i[1]) < 0:
-            if i in result:
-                result.remove(i)
-        if i[0] >= row:
-            if i in result:
-                result.remove(i)
-        if i[1] >= column:
-            if i in result:
-                result.remove(i)
+        if (i[0]) < 0 and i in result:
+            result.remove(i)
+        if (i[1]) < 0 and i in result:
+            result.remove(i)
+        if i[0] >= row and i in result:
+            result.remove(i)
+        if i[1] >= column and i in result:
+            result.remove(i)
 
     moves = copy.deepcopy(result)
 
@@ -162,7 +159,7 @@ def DFS_Algorithm(grid, start_point, end_point):
             elapsed_time = round((t1 - t0) * 10 ** 6, 3)
             l = len(res)  # type: ignore
             property = {"method":"DFS",
-                        "speed":str(elapsed_time)+str(" nano seconds"),
+                        "speed":str(elapsed_time)+" nano seconds",
                         "cost":str(len(explored)),
                         "moves":str(l)}
             graph = Draw.Create_Graph(res,walls,Map_Dimension(grid),property,explored)
@@ -179,8 +176,7 @@ def DFS_Algorithm(grid, start_point, end_point):
             else:
                 frontier.Add_element(moves)
 
-    else:
-        print("No Solutions Found !")
+    print("No Solutions Found !")
 
     #path.Trace(start_point, end_point)
 

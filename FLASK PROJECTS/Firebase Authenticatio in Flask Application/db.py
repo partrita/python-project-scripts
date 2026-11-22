@@ -1,6 +1,7 @@
 #Importing Firebase
-from firebase import Firebase
 import os
+
+from firebase import Firebase
 
 #Intializing Firebase Configuration from the Environment Variables
 config = {

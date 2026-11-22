@@ -1,6 +1,6 @@
-import numpy as np
-from sklearn.ensemble import RandomForestClassifier
 import joblib
+import numpy as np
+
 
 def label_encoder(x):
     if x == 'M':
@@ -21,7 +21,7 @@ def process_and_predict(data):
     model = joblib.load('model')
     
     #model prediction
-    prediction = list(model.predict(data))[0]
+    prediction = next(iter(model.predict(data)))
     
     if prediction == 0:
         text = "Not Eligible"

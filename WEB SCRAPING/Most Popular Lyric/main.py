@@ -9,7 +9,6 @@ with open(input("Please enter file name: "), 'r') as f:
                     wordsTallied[word] = 1
             else: #Repeated word
                 wordsTallied[word] += 1 #Updates number of times word appears
-    f.closed
 
 maxWord = max(wordsTallied, key=wordsTallied.get) #Gets the most lyric word of song
 maxCount = wordsTallied[maxWord] #Gets number of times the lyric appears

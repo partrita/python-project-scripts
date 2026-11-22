@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+import sys
 
 
 class Colors:
@@ -98,11 +99,11 @@ def main():
             i -= 1
             res.append((file1, REMOVE, i + 1, lines1[i]))
         else:
-            raise Exception("Unhandled action")
+            raise ValueError("Unhandled action")
 
     if not res:
         print(f"{Colors.HEADER}They are the same :){Colors.ENDC}")
-        exit(0)
+        sys.exit(0)
 
     for (fname, ac, lineno, line) in res:
         if ac == ADD:

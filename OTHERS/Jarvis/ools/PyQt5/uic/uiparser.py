@@ -38,15 +38,12 @@
 #############################################################################
 
 
-import sys
 import logging
 import os
-import re
-from xml.etree.ElementTree import parse, SubElement
+from xml.etree.ElementTree import SubElement, parse
 
 from .objcreator import QObjectCreator
 from .properties import Properties
-
 
 logger = logging.getLogger(__name__)
 DEBUG = logger.debug
@@ -161,7 +158,7 @@ class WidgetStack(list):
                 QtWidgets.QDockWidget)
 
 
-class ButtonGroup(object):
+class ButtonGroup:
     """ Encapsulate the configuration of a button group and its implementation.
     """
 
@@ -172,7 +169,7 @@ class ButtonGroup(object):
         self.object = None
 
 
-class UIParser(object):    
+class UIParser:    
     def __init__(self, qtcore_module, qtgui_module, qtwidgets_module, creatorPolicy):
         self.factory = QObjectCreator(creatorPolicy)
         self.wprops = Properties(self.factory, qtcore_module, qtgui_module,
@@ -463,10 +460,10 @@ class UIParser(object):
 
         # A layout widget should, by default, have no margins.
         if self.stack.topIsLayoutWidget():
-            if left < 0: left = 0
-            if top < 0: top = 0
-            if right < 0: right = 0
-            if bottom < 0: bottom = 0
+            left = max(left, 0)
+            top = max(top, 0)
+            right = max(right, 0)
+            bottom = max(bottom, 0)
 
         if left >= 0 or top >= 0 or right >= 0 or bottom >= 0:
             # We inject the new internal property.
@@ -814,8 +811,7 @@ class UIParser(object):
         if not wname:
             wname = cname
 
-            if wname.startswith("Q"):
-                wname = wname[1:]
+            wname = wname.removeprefix("Q")
 
             wname = wname[0].lower() + wname[1:]
 
@@ -876,7 +872,6 @@ class UIParser(object):
         Reimplemented by a sub-class if it needs to know the translation
         context.
         """
-        pass
 
     def readDefaults(self, elem):
         self.defaults['margin'] = int(elem.attrib['margin'])
@@ -898,9 +893,9 @@ class UIParser(object):
         list of them.
         """
         try:
-            iterator = getattr(elem, 'iter')
+            iterator = elem.iter
         except AttributeError:
-            iterator = getattr(elem, 'getiterator')
+            iterator = elem.getiterator
 
         for include in iterator("include"):
             loc = include.attrib.get("location")
@@ -949,8 +944,7 @@ class UIParser(object):
             >>> header2module("foo/bar/baz.h")
             'foo.bar.baz'
             """
-            if header.endswith(".h"):
-                header = header[:-2]
+            header = header.removesuffix(".h")
 
             mpath = []
             for part in header.split('/'):

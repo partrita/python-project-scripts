@@ -1,4 +1,6 @@
 import random
+import sys
+
 
 class Hangman:
     def __init__(self, category, difficulty):
@@ -93,7 +95,7 @@ class Hangman:
         if self.restart == "Y" or self.restart == "y":
             self.start_the_game()
         elif self.restart == "N" or self.restart == "n":
-            quit()
+            sys.exit()
 
 # This is where you create an instance
 try:
@@ -101,5 +103,5 @@ try:
     my_hangman.welcome_message()
     my_hangman.start_the_game()
 
-except:        
-    print("Please make sure the initialization arguments are strings.")              
+except TypeError:
+    print("Please make sure the initialization arguments are strings.")

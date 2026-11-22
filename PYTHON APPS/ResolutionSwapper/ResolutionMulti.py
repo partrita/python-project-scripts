@@ -1,8 +1,8 @@
-import pywintypes
-import win32con
-import win32api
 import time
 
+import pywintypes
+import win32api
+import win32con
 
 devmode = pywintypes.DEVMODEType()
 valid = 0

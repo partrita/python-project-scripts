@@ -1,6 +1,8 @@
 # @author deepak sai pendyala
 import csv
-from flask import Flask,render_template,url_for,redirect,request
+
+from flask import Flask, redirect, render_template, request
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -16,7 +18,7 @@ def write_to_database(data):
         name=data["name"]
         email=data["email"]
         message=data['message']
-        file=database.write(f'\n {name},{email},{message}')
+        database.write(f'\n {name},{email},{message}')
 
 def write_to_csv(data):
     with open('./Portfo/database.csv',mode='a',newline='')as database2:
@@ -34,7 +36,7 @@ def Sumbit_form():
             data=request.form.to_dict()
             write_to_csv(data)
             return redirect('/thankyou.html')
-        except:
+        except Exception:  # noqa: BLE001
             return 'didnt save to database'
     else:
         return 'woops,Something went wrong'

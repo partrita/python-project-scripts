@@ -1,6 +1,7 @@
+import pickle
+
 import pandas as pd
 from sklearn.linear_model import LinearRegression
-import pickle
 
 df = pd.read_csv("FuelConsumption.csv")
 
@@ -23,4 +24,5 @@ regressor.fit(x, y)
 
 # Saving model to disk
 # Pickle serializes objects so they can be saved to a file, and loaded in a program again later on.
-pickle.dump(regressor, open('model.pkl','wb'))
+with open('model.pkl', 'wb') as f:
+    pickle.dump(regressor, f)

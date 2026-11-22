@@ -1,4 +1,5 @@
 import wikipedia
+
 wikipedia.set_lang("fr")
 print(wikipedia.summary("Facebook", sentences=1))
 

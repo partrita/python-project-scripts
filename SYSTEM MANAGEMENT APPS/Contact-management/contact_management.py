@@ -1,12 +1,14 @@
-from prettytable import PrettyTable
-import sqlite3
 import os
-os.chdir('E:\project')
+import sqlite3
+
+from prettytable import PrettyTable
+
+os.chdir(r'E:\project')
 #--------------------------------------------------
 my_database = sqlite3.connect('contact.db')
 try: 
     my_database.execute('select * from contact')
-except:
+except sqlite3.OperationalError:
     my_database.execute('''CREATE TABLE CONTACT
          (NAME          char(30)   primary key  NOT NULL,
          Phone_no       INT   NOT NULL,
@@ -15,10 +17,10 @@ except:
 #--------------------------------------------------------
 #print(my_database.execute('select * from contact'))
 class contacts:
-    Name = str()
-    Mobile_no = str()
-    Address = str()
-    Email = str()
+    Name = ''
+    Mobile_no = ''
+    Address = ''
+    Email = ''
     def __init__(self):#constructor used for declaring variable
        self.Name =  ''
        self.Mobile_no = ''
@@ -26,9 +28,7 @@ class contacts:
        self.Email = ''
     def show_table_format(self,contact_detail):
         myview = PrettyTable(['Name','Phone no.','Address','Email Id'])
-        data = []
-        for i in contact_detail:
-            data.append(i)
+        data = list(contact_detail)
         if(not data):
             print('oops no data found !!! :(')
             return
@@ -42,10 +42,9 @@ class contacts:
         self.Address = input('Enter the address: ')
         self.Email = input('Enter the email: ')
 
-        my_database.execute('Insert into contact values("{}","{}","{}","{}")'.format(self.Name,self.Mobile_no,self.Address,self.Email))
+        my_database.execute(f'Insert into contact values("{self.Name}","{self.Mobile_no}","{self.Address}","{self.Email}")')
         my_database.commit()
         print('Data saved succesfully')
-        return
 
     def show_contacts(self):
         contact_detail = my_database.execute('select * from contact')
@@ -57,13 +56,13 @@ class contacts:
     def Delete_contacts(self):
         delete_name = input('Enter the name of contact to edit/delete: ')
 
-        my_database.execute('Delete from contact where NAME = "{}" COLLATE NOCASE'.format(delete_name))
+        my_database.execute(f'Delete from contact where NAME = "{delete_name}" COLLATE NOCASE')
         my_database.commit()
         print('Data deleted succefully')
 
     def search_contacts(self):
         search_name = input('Enter the name of contact to search: ')
-        data =  my_database.execute("select * from contact where name = '{}' COLLATE NOCASE".format(search_name))
+        data =  my_database.execute(f"select * from contact where name = '{search_name}' COLLATE NOCASE")
         self.show_table_format(data)
 
 def start_up():

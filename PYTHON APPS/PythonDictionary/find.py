@@ -1,7 +1,8 @@
 import json
 from difflib import get_close_matches  # Step 4
 
-data = json.loads(open('data.json').read())  # Step 1 - Check rando word
+with open('data.json') as data_file:
+    data = json.load(data_file)  # Step 1 - Check rando word
 
 
 def definition(name):  # Step 1
@@ -13,8 +14,7 @@ def definition(name):  # Step 1
 
     elif len(get_close_matches(name, data.keys())) > 0:  # Step 4
         # Step 4
-        check = input("Did you mean %s instead? Enter Y if yes, otherwise N to exit: " %
-                      get_close_matches(name, data.keys())[0])
+        check = input(f"Did you mean {get_close_matches(name, data.keys())[0]} instead? Enter Y if yes, otherwise N to exit: ")
         if check == "Y":
             return data[get_close_matches(name, data.keys())[0]]
         elif check == "N":

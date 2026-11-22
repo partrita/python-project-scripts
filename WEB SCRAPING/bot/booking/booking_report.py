@@ -1,9 +1,12 @@
 #file is going to include methods that will parse 
 # the specific data that we need from each boxes 
-from selenium.webdriver.remote.webelement import WebElement
+from selenium.common.exceptions import (
+    NoSuchElementException,
+    StaleElementReferenceException,
+)
 from selenium.webdriver.common.by import By
+from selenium.webdriver.remote.webelement import WebElement
 
-from selenium.common.exceptions import StaleElementReferenceException, NoSuchElementException
 
 class booking_report:
     def __init__(self,boxes_sec:WebElement) -> None:

@@ -1,7 +1,9 @@
-from django.shortcuts import render, redirect
-from .models import Room
-from .forms import RoomForm
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect, render
+
+from .forms import RoomForm
+from .models import Room
+
 
 # Create your views here.
 @login_required

@@ -88,8 +88,7 @@ while True:  # This is the main loop.
             QUESTIONING = False
             sg.popup('End of Quiz.')
 
-    if event == '-ANSWER-':
-        if (values['a'] or values['b'] or values['c']) and QUESTIONING:
+    if event == '-ANSWER-' and (values['a'] or values['b'] or values['c']) and QUESTIONING:
             for idx in ('a', 'b', 'c'):
                 if values[idx]:
                     USER_CHOICE = idx

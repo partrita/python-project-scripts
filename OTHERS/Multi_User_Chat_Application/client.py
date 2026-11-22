@@ -1,7 +1,7 @@
+import socket
+import threading
 import tkinter as tk
 from tkinter import scrolledtext
-import threading
-import socket
 
 # Create a socket
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -33,7 +33,7 @@ def receive_messages():
             else:
                 chat_text.insert(tk.END, message + "\n")
             chat_text.config(state=tk.DISABLED)
-        except:
+        except OSError:
             print("Connection closed.")
             client.close()
             break

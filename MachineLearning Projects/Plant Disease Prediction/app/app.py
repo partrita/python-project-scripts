@@ -1,24 +1,21 @@
 from flask import Flask, render_template, request
-from requests import get   #pip install flask
+
 app = Flask(__name__)
 
 
 import os
-import numpy as np
-import tensorflow as tf
 
-from tensorflow.compat.v1 import ConfigProto
-from tensorflow.compat.v1 import InteractiveSession
+import numpy as np
+from tensorflow.compat.v1 import ConfigProto, InteractiveSession
+
 config = ConfigProto()
 config.gpu_options.per_process_gpu_memory_fraction = 0.2
 config.gpu_options.allow_growth = True
 session = InteractiveSession(config=config)
 
 # Keras
-from tensorflow.keras.applications.resnet50 import preprocess_input
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
-
 from werkzeug.utils import secure_filename
 
 MODEL_PATH ='model_inception.h5'

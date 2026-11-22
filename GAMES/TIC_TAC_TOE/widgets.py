@@ -1,7 +1,15 @@
-import ttkbootstrap as ttk
 from tkinter import IntVar
+
+import ttkbootstrap as ttk
+from configuration import (
+    BOARD_COL,
+    BOARD_GAME,
+    BOARD_ROW,
+    BOARD_SCORE,
+    BOARD_SIZE,
+    MUSIC_PATH,
+)
 from pygame import mixer
-from configuration import MUSIC_PATH, BOARD_SIZE, BOARD_GAME, BOARD_SCORE, BOARD_ROW, BOARD_COL
 
 
 def play_sound():
@@ -121,10 +129,7 @@ class BoardGame(ttk.Frame):
     
     def check_win(self):
         # Check for winning conditions
-        if self.row_check() or self.column_check():
-            return True
-        
-        elif self.check_first_diagonal() or self.check_second_diagonal():
+        if self.row_check() or self.column_check() or self.check_first_diagonal() or self.check_second_diagonal():
             return True
         
         elif self.empty_space():
@@ -181,7 +186,7 @@ class BoardGame(ttk.Frame):
                 if self.board_position[row][column]['text'] != '':
                     spaces -= 1
         
-        return True if spaces == 0 else False
+        return spaces == 0
     
     def clean_board(self) -> None:
         # Clear the button texts and backgrounds

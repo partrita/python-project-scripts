@@ -1,10 +1,11 @@
-import ttkbootstrap as tb
-from ttkbootstrap.constants import *
 from tkinter import *
-from ttkbootstrap.scrolled import ScrolledFrame
-from quad import Quadratic
+
+import ttkbootstrap as tb
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
+from quad import Quadratic
+from ttkbootstrap.constants import *
 from ttkbootstrap.dialogs import Messagebox
+from ttkbootstrap.scrolled import ScrolledFrame
 
 # Most variables are named a,b,c according to ax² + bx + c in a quadratic equation
 
@@ -36,9 +37,9 @@ def plot():
         toolbar.update()
 
         canvas.get_tk_widget().pack()
-        solution_label.config(text = "Solution : x₁ = {0}, x₂ = {1}".format(eqn.solveQuad()[0], eqn.solveQuad()[1]))
+        solution_label.config(text = f"Solution : x₁ = {eqn.solveQuad()[0]}, x₂ = {eqn.solveQuad()[1]}")
         
-    except:
+    except Exception:  # noqa: BLE001
         Messagebox.show_error(title = "Error", message = "User entered wrong value")
  
 

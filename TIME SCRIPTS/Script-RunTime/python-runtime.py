@@ -1,8 +1,9 @@
 import time
 
 startTime_1 = time.time()
-import pandas as pd
 import numpy as np
+import pandas as pd
+
 executionTime_1 = (time.time() - startTime_1)
 print('Time to import modules: ' + str(executionTime_1))
 

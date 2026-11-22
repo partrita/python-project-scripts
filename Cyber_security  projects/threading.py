@@ -2,7 +2,9 @@
 
 #1/usr/bin/python3
 
-import threadinng 
+
+
+import threading
 
 
 def loop1():
@@ -11,8 +13,8 @@ def loop1():
 
 def loop2():
     while True:
-        prinnt("loop2")
+        print("loop2")
 
-t1 =threading.Threading(targrt=loop1)
+t1 = threading.Thread(target=loop1)
 t1.start()
 loop2()        

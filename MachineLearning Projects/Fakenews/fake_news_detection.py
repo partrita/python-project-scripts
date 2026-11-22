@@ -1,12 +1,12 @@
 #Importing the libraries
+import pickle
+
 import pandas as pd
-import numpy as np
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics import classification_report, confusion_matrix
-from sklearn.pipeline import Pipeline
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
-from sklearn.feature_extraction.text import TfidfVectorizer
-import pickle
+from sklearn.pipeline import Pipeline
 
 #Importing the cleaned file containing the text and label
 news = pd.read_csv('news.csv')

@@ -1,9 +1,11 @@
 import re
-import tweepy
-from tweepy import OAuthHandler
-from textblob import TextBlob
 
-class TwitterClient(object):
+import tweepy
+from textblob import TextBlob
+from tweepy import OAuthHandler
+
+
+class TwitterClient:
 	def __init__(self):
 		# keys and tokens from the Twitter Dev Console
 		consumer_key = 'XXXXXXXXXXXXXXXXXXXXXXXX'
@@ -19,7 +21,7 @@ class TwitterClient(object):
 			self.auth.set_access_token(access_token, access_token_secret)
 			# create tweepy API object to fetch tweets
 			self.api = tweepy.API(self.auth)
-		except:
+		except (OSError, ValueError):
 			print("Error: Authentication Failed")
 
 	def clean_tweet(self, tweet):
@@ -89,14 +91,14 @@ def main():
 	# picking positive tweets from tweets
 	ptweets = [tweet for tweet in tweets if tweet['sentiment'] == 'positive']
 	# percentage of positive tweets
-	print("Positive tweets percentage: {} %".format(100*len(ptweets)/len(tweets)))
+	print(f"Positive tweets percentage: {100*len(ptweets)/len(tweets)} %")
 	# picking negative tweets from tweets
 	ntweets = [tweet for tweet in tweets if tweet['sentiment'] == 'negative']
 	# percentage of negative tweets
-	print("Negative tweets percentage: {} %".format(100*len(ntweets)/len(tweets)))
+	print(f"Negative tweets percentage: {100*len(ntweets)/len(tweets)} %")
 	# percentage of neutral tweets
-	print("Neutral tweets percentage: {} % \
-		".format(100*(len(tweets) -(len( ntweets )+len( ptweets)))/len(tweets)))
+	print(f"Neutral tweets percentage: {100*(len(tweets) -(len( ntweets )+len( ptweets)))/len(tweets)} % \
+		")
 
 	# printing first 5 positive tweets
 	print("\n\nPositive tweets:")

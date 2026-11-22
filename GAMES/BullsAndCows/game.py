@@ -8,15 +8,15 @@
    Description :
 -------------------------------------------------
 """
+import abc
 import collections
 import logging
-import abc
 import math
 import random
 import time
-import fire
 from itertools import permutations
-from typing import List
+
+import fire
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s][%(filename)s:%(lineno)d]:%(message)s",
                     datefmt='%Y-%m-%d %H:%M:%S')
@@ -32,13 +32,13 @@ class IPlayer:
         self.name = name
 
     @abc.abstractmethod
-    def guess(self) -> List[int]:
+    def guess(self) -> list[int]:
         pass
 
     def refresh(self):
         pass
 
-    def notify(self, guess: List[int], judge_rs: dict):
+    def notify(self, guess: list[int], judge_rs: dict):
         pass
 
     def __str__(self):
@@ -50,21 +50,25 @@ class IPlayer:
 
 class RandomPlayer(IPlayer):
 
-    def guess(self) -> List[int]:
+    def guess(self) -> list[int]:
         return random.sample(ALL_NUMBER, NUMBER_COUNT)
 
 
+class InvalidGuessError(Exception):
+    pass
+
+
 class Human(IPlayer):
-    def guess(self) -> List[int]:
+    def guess(self) -> list[int]:
         while True:
             try:
                 logger.info("input your guess")
                 guess = input()
                 guess = [int(e) for e in guess]
                 if len(guess) != NUMBER_COUNT:
-                    raise Exception()
+                    raise InvalidGuessError()
                 return guess
-            except Exception as e:
+            except (ValueError, InvalidGuessError):
                 logger.error(f"invalid input:{guess}, please input again!")
         return guess
 
@@ -75,7 +79,7 @@ class Node:
         self.v = 0
         self.d = d
         if d < NUMBER_COUNT:
-            self.children: List[Node] = [Node(d + 1) for _ in range(10)]
+            self.children: list[Node] = [Node(d + 1) for _ in range(10)]
         else:
             self.children = None
 
@@ -103,7 +107,7 @@ class Node:
         return self.__repr__()
 
 
-def update_tree(root, cand: List[int]):
+def update_tree(root, cand: list[int]):
     n = root
     for idx in cand:
         n.n += 1
@@ -127,17 +131,17 @@ class TreePlayer(IPlayer):
         for cand in self.cands:
             update_tree(self.root, cand)
 
-    def guess(self) -> List[int]:
+    def guess(self) -> list[int]:
         n = self.root
         rs = []
         for _ in range(NUMBER_COUNT):
-            idx, n, v = n.get_next(his=rs)
+            idx, n, _v = n.get_next(his=rs)
             n.v += 1
             rs.append(idx)
         time.sleep(self.wait)
         return rs
 
-    def notify(self, guess: List[int], judge_rs: dict):
+    def notify(self, guess: list[int], judge_rs: dict):
         tmp = len(self.cands)
         self.cands = [e for e in self.cands if judge_rs2str(judge_rs) == judge_rs2str(judge(e, guess))]
         logger.info(f"cut cands from {tmp} to {len(self.cands)} after cuts")
@@ -146,13 +150,13 @@ class TreePlayer(IPlayer):
             update_tree(self.root, cand)
 
 
-def judge(ans: List[int], gs: List[int]) -> dict:
+def judge(ans: list[int], gs: list[int]) -> dict:
     assert len(ans) == len(gs) == NUMBER_COUNT
     a_list = [e for e in zip(ans, gs) if e[0] == e[1]]
     a = len(a_list)
     b = len(set(ans) & set(gs))
     b -= a
-    return dict(a=a, b=b)
+    return {"a": a, "b": b}
 
 
 def judge_rs2str(j_rs):

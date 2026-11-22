@@ -1,8 +1,6 @@
 import tkinter as Tk
-from tkinter import Button
-from tkinter import Label
-from tkinter import StringVar
-from tkinter import messagebox
+from tkinter import Button, Label, StringVar, messagebox
+
 from pygame import mixer
 
 # window geometry

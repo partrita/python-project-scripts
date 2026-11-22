@@ -1,5 +1,6 @@
-import requests
 import random
+
+import requests
 
 url = 'https://svnweb.freebsd.org/csrg/share/dict/propernames?revision=61766&view=co'
 

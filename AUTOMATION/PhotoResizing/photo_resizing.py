@@ -7,17 +7,17 @@ operation was successful.
 
 
 import collections
-import os
-import glob
-import shutil
 import gc
-import threading, time
-from time import time
+import glob
+import os
+import shutil
+import threading
 from functools import wraps
 from pathlib import Path
-from PIL import Image
-import win32com.client as win32
+from time import time
 
+import win32com.client as win32
+from PIL import Image
 
 target = 'folder to save resized photos'
 archive_path = 'folder to save original photos'
@@ -133,7 +133,7 @@ def process_sf_photos():
         thread_copy()
         thread_delete()
         gc.collect()
-    except Exception as x:
+    except Exception as x:  # noqa: BLE001
         print(f"Looks like we have a problem: {type(x)} -> {x}")
         # bad_email()
 

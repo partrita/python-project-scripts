@@ -1,6 +1,7 @@
 import os
-import requests
 from urllib.parse import urljoin
+
+import requests
 from bs4 import BeautifulSoup
 
 #Put the link from which you need to download all the pdf

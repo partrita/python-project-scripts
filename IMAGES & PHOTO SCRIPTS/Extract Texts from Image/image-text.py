@@ -1,13 +1,14 @@
 import os
-import pytesseract
 import signal
-import time
+import sys
+
+import pytesseract
 from PIL import Image
-from os import closerange
+
 
 def handler(signum, frame):
     print("Text extraction script exited!")
-    exit(1)
+    sys.exit(1)
 
 signal.signal(signal.SIGINT, handler)
 
@@ -16,7 +17,7 @@ directory_in_str = r"image files directory"
 
 for file in os.listdir(directory):
     filename = os.fsdecode(file)
-    if filename.endswith(".img") or filename.endswith(".jpeg") or filename.endswith(".jpg"):
+    if filename.endswith((".img", ".jpeg", ".jpg")):
         image = os.path.join(directory_in_str, filename)
 
         # check Program Files(x86) for tesseract.exe (Windows machines)

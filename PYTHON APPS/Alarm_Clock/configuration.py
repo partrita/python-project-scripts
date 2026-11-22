@@ -1,5 +1,4 @@
 # Configuration for the app size and title
-from typing import Dict, Tuple, List
 
 WIDTH: int = 700
 HEIGHT: int = 700
@@ -38,7 +37,7 @@ DATE = {
         }
 # Configuration for the top level
 LIST_DAY: tuple[str:] = ('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat',)
-TOP_LEVEL: dict[str, int] = dict(WIDTH = 300, HEIGHT = 200)
+TOP_LEVEL: dict[str, int] = {'WIDTH': 300, 'HEIGHT': 200}
 
 # Configuration for the backend of alarm
 TIME_RELAPSE = 60

@@ -1,6 +1,6 @@
 import turtle
-import pandas
 
+import pandas
 
 df = pandas.read_csv("50_states.csv")
 screen = turtle.Screen()

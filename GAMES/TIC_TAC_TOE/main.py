@@ -1,22 +1,29 @@
 import os
 import sys
-import ttkbootstrap as ttk
-
 from tkinter import IntVar
-from widgets import BoardGame, BoardScore
+
+import ttkbootstrap as ttk
 from configuration import (
-    # layout
-    MAIN_SIZE, BOARD_GAME, BOARD_SCORE, RESET_BUTTON,
+    BOARD_GAME,
+    BOARD_SCORE,
+    BUTTON_BOARD_STYLE,
+    BUTTON_RESET_STYLE,
+    FRAME_STYLE_GAME,
     # style
-    FRAME_STYLE_SCORE, FRAME_STYLE_GAME, BUTTON_BOARD_STYLE, BUTTON_RESET_STYLE, LABEL_SCORE_STYLE,
-    )
+    FRAME_STYLE_SCORE,
+    LABEL_SCORE_STYLE,
+    # layout
+    MAIN_SIZE,
+    RESET_BUTTON,
+)
+from widgets import BoardGame, BoardScore
 
 # import the modules for windows (it works  only on windows)
 
 try:
-    from ctypes import windll, byref, sizeof, c_int
-except Exception:
-    pass
+    from ctypes import byref, c_int, sizeof, windll
+except ImportError as e:
+    print(f"Windows ctypes not available: {e}")
 
 
 def path_resource(relative_path: str) -> str:
@@ -27,7 +34,7 @@ def path_resource(relative_path: str) -> str:
     """
     try:
         base_path: str = sys._MEIPASS
-    except Exception:
+    except AttributeError:
         base_path = os.path.abspath('.')
     return os.path.join(base_path, relative_path)
 
@@ -175,8 +182,8 @@ class TicTacToe(ttk.Window):
         try:
             path_image: str = path_resource('image/empty.ico')
             self.iconbitmap(path_image)
-        except Exception:
-            pass
+        except OSError as e:
+            print(f"Could not load icon: {e}")
     
     def set_window_size(self, width: int, height: int) -> None:
         """
@@ -196,8 +203,8 @@ class TicTacToe(ttk.Window):
             DWMWA_ATTRIBUTE: int = 35  # target the title bar
             color_tile: int = 0x00030303
             windll.dwmapi.DwmSetWindowAttribute(HWND, DWMWA_ATTRIBUTE, byref(c_int(color_tile)), sizeof(c_int))
-        except Exception:
-            pass
+        except (AttributeError, NameError, OSError) as e:
+            print(f"Could not set title bar color: {e}")
 
 
 if __name__ == '__main__':

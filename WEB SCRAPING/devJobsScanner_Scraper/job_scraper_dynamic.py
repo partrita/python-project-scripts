@@ -4,12 +4,14 @@
 # Version: 1.1
 
 
+import csv
 import os
 import re
-import csv
 import time
-from seleniumbase import Driver
+
 from bs4 import BeautifulSoup
+from seleniumbase import Driver
+
 
 def get_user_input():
     """
@@ -102,7 +104,7 @@ def scrape_jobs(url, num_jobs):
 
         driver.quit()
         return jobs[:num_jobs]
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
         print("Error scraping jobs:", e)
         return []
 
@@ -139,7 +141,7 @@ def save_as_csv(jobs, filename):
             dict_writer = csv.DictWriter(output_file, fieldnames=keys)
             dict_writer.writeheader()
             dict_writer.writerows(jobs)
-    except IOError as e:
+    except OSError as e:
         print("Error saving as CSV:", e)
 
 def save_as_txt(jobs, filename):
@@ -161,7 +163,7 @@ def save_as_txt(jobs, filename):
                 output_file.write(f"Compensation: {job['compensation_range']}\n")
                 output_file.write(f"Job URL: {job['job_url']}\n")
                 output_file.write("-" * 40 + "\n")
-    except IOError as e:
+    except OSError as e:
         print("Error saving as TXT:", e)
 
 if __name__ == '__main__':

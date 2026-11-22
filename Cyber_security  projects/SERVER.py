@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 
 import socket
-import threading 
+import threading
+
 
 def send_msg():
 	while True:
@@ -19,7 +20,7 @@ s.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
 s.bind("127.0.0.1",8888)
 print("Listeniing......")
 s.listen(1)
-client.addr = s.accept()
+client, addr = s.accept()
 print()
 print("connected.....")
 

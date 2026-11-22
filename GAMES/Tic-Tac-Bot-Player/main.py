@@ -1,11 +1,10 @@
-import with_person
 import bot
+import with_person
 
 
 def choice_checker(choice):
     """This checks if the user has entered a valid choice"""
 
-    global choices
     while choice not in choices:
         print("Enter a valid choice!")
         print("""Choose the mode of game.

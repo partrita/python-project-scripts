@@ -1,14 +1,13 @@
-import numpy as np 
-import pandas as pd 
-import matplotlib.pyplot as plt
-import cv2
-import tensorflow as tf
-from PIL import Image
 import os
-from sklearn.model_selection import train_test_split
+
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+from keras.layers import Conv2D, Dense, Dropout, Flatten, MaxPool2D
+from keras.models import Sequential
 from keras.utils import to_categorical
-from keras.models import Sequential, load_model
-from keras.layers import Conv2D, MaxPool2D, Dense, Flatten, Dropout
+from PIL import Image
+from sklearn.model_selection import train_test_split
 
 data = []
 labels = []
@@ -28,7 +27,7 @@ for i in range(classes):
             #sim = Image.fromarray(image)
             data.append(image)
             labels.append(i)
-        except:
+        except (OSError, ValueError):
             print("Error loading image")
 
 #Converting lists into numpy arrays
@@ -106,5 +105,4 @@ X_test=np.array(data)
 pred = model.predict_classes(X_test)
 
 #Accuracy with the test data
-from sklearn.metrics import accuracy_score
 print(accuracy_score(labels, pred))

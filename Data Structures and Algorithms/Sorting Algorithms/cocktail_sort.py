@@ -1,4 +1,3 @@
-import sys 
 
 def cocktail_sort(arr):
     n = len(arr)

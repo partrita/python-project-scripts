@@ -17,7 +17,7 @@ def chat_with_gemini():
         try:
             response = chat.send_message(user_input)
             print("Bot:", response.text)
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001
             print("⚠️ Error:", e)
 
 if __name__ == "__main__":

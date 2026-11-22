@@ -1,9 +1,9 @@
 import json
-from difflib import SequenceMatcher
 from difflib import get_close_matches
 
 # accessing the data.json file
-data = json.load(open("076 data.json"))
+with open("076 data.json") as f:
+    data = json.load(f)
 
 # function to check if entered word is present in the 076_data.json file and print neccessary output
 def translate(w):
@@ -14,7 +14,7 @@ def translate(w):
     elif w.upper() in data: #in case user enters words like USA or NATO
         return data[w.upper()]    
     elif len(get_close_matches(w,data.keys())) > 0:
-        answer = input("Did you mean %s instead? enter Y if yes or N if no:"%get_close_matches(w,data.keys())[0])
+        answer = input(f"Did you mean {get_close_matches(w,data.keys())[0]} instead? enter Y if yes or N if no:")
         answer = answer.lower()
         if answer == "y" or answer == "yes":
             return data[get_close_matches(w,data.keys())[0]]

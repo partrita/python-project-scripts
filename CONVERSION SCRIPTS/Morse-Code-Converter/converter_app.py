@@ -1,4 +1,5 @@
 from tkinter import *
+
 from morse import MorseCode
 
 # translate object

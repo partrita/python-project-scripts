@@ -1,5 +1,7 @@
 import unittest
+
 from hacktoberfest_quiz import Quiz
+
 
 class TestQuiz(unittest.TestCase):
     def test_correct_answer_to_question_one(self):

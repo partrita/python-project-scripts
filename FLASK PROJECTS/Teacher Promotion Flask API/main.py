@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, redirect, render_template, request
 from load_process_prediction import label_encoder, process_and_predict
 
 #Declaring the flask object

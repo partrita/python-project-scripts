@@ -20,7 +20,7 @@ def main(address:tuple[str,int]):
                     with open(result_file, "wb") as f:
                         f.write(res_buf)
                     break
-            except socket.timeout:
+            except TimeoutError:
                 with open(result_file, "wb") as f:
                     f.write(res_buf)
                 break

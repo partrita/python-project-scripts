@@ -1,14 +1,17 @@
-from fastapi import FastAPI, UploadFile, File
-import fitz
-import cv2
-from PIL import Image
-import numpy as np
 import os
+from pathlib import Path
+from typing import Annotated
+
+import cv2
+import fitz
+import numpy as np
+from fastapi import FastAPI, File, UploadFile
+from PIL import Image
 
 app = FastAPI()
 
 @app.post("/")
-async def get_pdf(file : UploadFile = File(...)):
+async def get_pdf(file: Annotated[UploadFile, File(...)]):
     #Initializing our variables.
     colored_page_count = 0
     color_list=[]
@@ -17,8 +20,7 @@ async def get_pdf(file : UploadFile = File(...)):
     black_count = 0
     #Getting the file name and then saving it in local.
     contents = await file.read()
-    with open(file.filename, "wb") as f:
-        f.write(contents)
+    Path(file.filename).write_bytes(contents)
     # Open the PDF file
     # Get the full path to the uploaded file
     file_path = os.path.join(os.getcwd(), file.filename)

@@ -2,8 +2,7 @@
 
 #modules
 import tkinter
-from tkinter import Label, StringVar, Entry, Text, Button, END
-
+from tkinter import END, Button, Entry, Label, StringVar, Text
 
 #initialize window
 

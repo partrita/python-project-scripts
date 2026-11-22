@@ -1,6 +1,6 @@
-from typing import List
 
-def cycle_sort(nums: List[int]) -> int:
+
+def cycle_sort(nums: list[int]) -> int:
 
     writes = 0
 

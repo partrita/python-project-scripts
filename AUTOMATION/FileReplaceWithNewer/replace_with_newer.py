@@ -1,6 +1,5 @@
 import os
 import shutil
-
 from contextlib import contextmanager
 from pathlib import Path
 
@@ -26,7 +25,7 @@ def copy_work(working_dir, text_to_replace, replacement_text):
                     shutil.copy(Path(file).as_posix(), Path(
                         f'{os.path.split(file.as_posix())[0].replace(text_to_replace, replacement_text)}/{os.path.split(file.as_posix())[1]}'))
                     print(f'{Path(file).name} replaced.')
-            except:
+            except OSError:
                 shutil.copy(Path(file).as_posix(), Path(
                     f'{os.path.split(file.as_posix())[0].replace(text_to_replace, replacement_text)}/{os.path.split(file.as_posix())[1]}'))
                 print(f'{Path(file).name} added.')

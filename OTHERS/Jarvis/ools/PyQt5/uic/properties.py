@@ -76,7 +76,7 @@ def needsWidget(func):
     return func
 
 
-class Properties(object):
+class Properties:
     def __init__(self, factory, qtcore_module, qtgui_module, qtwidgets_module):
         self.factory = factory
 
@@ -382,8 +382,7 @@ class Properties(object):
         for prop in elem.findall(elem_tag):
             if prop.attrib["name"] == name:
                 return self.convert(prop)
-        else:
-            return default
+        return default
 
     def getProperty(self, elem, name, default=None):
         return self._getChild("property", elem, name, default)

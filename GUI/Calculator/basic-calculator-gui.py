@@ -1,5 +1,5 @@
 # the calculator
-from tkinter import Tk, Button, Label, Grid, Entry, END
+from tkinter import END, Button, Entry, Tk
 
 root = Tk()
 root.title("CALCULATOR")

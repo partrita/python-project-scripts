@@ -1,10 +1,10 @@
-import os
 import base64
+import os
 import secrets
 
+import cryptography
 from cryptography.fernet import Fernet
 from cryptography.hazmat.primitives.kdf.scrypt import Scrypt
-import cryptography
 
 
 class EncryptionHelper:
@@ -198,8 +198,8 @@ class EncryptionHelper:
         with open(filename.replace(".envs", ""), "wb") as file:
             file.write(decrypted_data)
         # delete salt file after decrypting file
-        f = open(filename.replace(".envs", ".salt"), 'w')
-        f.close()
+        with open(filename.replace(".envs", ".salt"), 'w') as f:
+            pass
         os.remove(f.name)
         # delete decrypted file
         os.remove(filename)

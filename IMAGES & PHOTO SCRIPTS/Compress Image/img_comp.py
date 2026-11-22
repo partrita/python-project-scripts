@@ -1,5 +1,7 @@
-from PIL import Image
 import os
+
+from PIL import Image
+
 
 def compress_image():
     ''' Takes an image file and compress it without losing image quality. '''
@@ -18,7 +20,7 @@ def compress_image():
     # compress image
     default_image = default_image.resize((w, h), Image.ANTIALIAS)
     # return compressed image
-    return default_image.save('{}_compressed{}'.format(default_image_name[0], default_image_name[1]))
+    return default_image.save(f'{default_image_name[0]}_compressed{default_image_name[1]}')
 
 # Run
 compress_image()

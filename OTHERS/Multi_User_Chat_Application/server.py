@@ -26,14 +26,14 @@ def broadcast(message, sender=None):
         if client_socket != sender:
             try:
                 client_socket.send(message.encode('utf-8'))
-            except:
+            except OSError:
                 remove_client(client_socket)
 
 # Function to handle client connections
 def handle_client(client_socket):
     try:
         # Request and store the user's nickname
-        client_socket.send("Enter your nickname: ".encode('utf-8'))
+        client_socket.send(b"Enter your nickname: ")
         nickname = client_socket.recv(1024).decode('utf-8')
         nicknames[client_socket] = nickname
         print(f"Nickname of {nickname} is set.")
@@ -54,13 +54,13 @@ def handle_client(client_socket):
                 recipient = message.decode('utf-8').split(' ')[0][1:]
                 if recipient in nicknames.values():
                     recipient_socket = list(nicknames.keys())[list(nicknames.values()).index(recipient)]
-                    recipient_socket.send(f"(Private) {nickname}: {message.decode('utf-8')[len(recipient) + 2:]}".encode('utf-8'))
+                    recipient_socket.send(f"(Private) {nickname}: {message.decode('utf-8')[len(recipient) + 2:]}".encode())
                 else:
-                    client_socket.send("Recipient not found.".encode('utf-8'))
+                    client_socket.send(b"Recipient not found.")
             else:
                 # Broadcast regular message
                 broadcast(f"{nickname}: {message.decode('utf-8')}", sender=client_socket)
-    except:
+    except OSError:
         remove_client(client_socket)
 
 # Function to remove a client from the server

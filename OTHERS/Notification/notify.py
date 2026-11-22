@@ -1,5 +1,6 @@
-from win10toast import ToastNotifier
 import time
+
+from win10toast import ToastNotifier
 
 toaster = ToastNotifier()
 

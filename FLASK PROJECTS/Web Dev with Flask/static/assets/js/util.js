@@ -99,7 +99,7 @@
 			// Expand "target" if it's not a jQuery object already.
 				if (!(config.target instanceof $))
 					config.target = (typeof config.target === 'string')
-						? $(document).find(config.target)
+						? $(document.querySelectorAll(config.target))
 						: $this;
 
 		// Panel.

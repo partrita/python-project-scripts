@@ -1,7 +1,8 @@
-import yfinance as yf
-import pandas as pd
-from datetime import datetime, timedelta
+
 import matplotlib.pyplot as plt
+import pandas as pd
+import yfinance as yf
+
 
 # Function to get a list of tickers for analysis
 def get_ticker_list():
@@ -47,7 +48,7 @@ def main():
                 data[ticker] = df["Close"]
             else:
                 print("No data found for", ticker)
-        except Exception as e:
+        except (OSError, ValueError, KeyError, RuntimeError) as e:
             print("An error occurred while fetching data for", ticker, ":", str(e))
 
     if not data.empty:

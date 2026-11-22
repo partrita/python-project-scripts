@@ -1,11 +1,11 @@
-from flask import Flask, render_template, request, session, flash, redirect, url_for, g
+import pickle
+
+import numpy as np
+from flask import Flask, flash, redirect, render_template, request, session, url_for
+
 # from flask_bcrypt import bcrypt
 from flask_sqlalchemy import SQLAlchemy
-import pickle
-import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn import metrics
+
 # from models import User
 
 
@@ -108,7 +108,8 @@ def result():
 
       data = data.reshape(1,-1)
       print(data)
-      loaded_model = pickle.load(open("careerl.pkl", 'rb'))
+      with open("careerl.pkl", 'rb') as f:
+          loaded_model = pickle.load(f)
       predictions = loaded_model.predict(data)
      # return render_template('testafter.html',a=predictions)
       
@@ -131,7 +132,7 @@ def result():
       # print(j)
       #print(res)
       index = 0
-      for key, values in res.items():
+      for values in res.values():
           if values != predictions[0]:
               final_res[index] = values
               print('final_res[index]:',final_res[index])
@@ -156,7 +157,6 @@ def result():
                    16:'Technical Writer'}
                 
       #print(jobs_dict[predictions[0]])
-      job = {}
       #job[0] = jobs_dict[predictions[0]]
       index = 1
      

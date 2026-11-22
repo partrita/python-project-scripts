@@ -1,6 +1,6 @@
-import pygame
 import os
 
+import pygame
 from sound import Sound
 from theme import Theme
 

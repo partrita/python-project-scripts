@@ -1,4 +1,6 @@
-import string, random
+import random
+import string
+
 
 def random_id(N):
     res = ''.join(random.choices(string.ascii_lowercase +
@@ -8,5 +10,5 @@ def random_id(N):
 def handle_catch(caller, on_exception):
     try:
          return caller()
-    except:
+    except Exception:  # noqa: BLE001
          return on_exception

@@ -14,9 +14,9 @@ def images_to_pdf(
     for i in list_of_images:
         try:
             re = Image(i, width=width, height=height, hAlign=hAlign)
-        except:
-            pass
-        images.append(re)
+            images.append(re)
+        except Exception as e:  # noqa: BLE001
+            print(f"Skipping image {i}: {e}")
     pdf.build(images)
 
     return True

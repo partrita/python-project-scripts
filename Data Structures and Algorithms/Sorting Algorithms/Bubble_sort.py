@@ -3,7 +3,7 @@ def BubbleSort(array):
 
     # Loop to access each array element
     for i in range(len(array)):
-        for j in range(0,len(array)-1-i):
+        for j in range(len(array)-1-i):
             # Replace > with < for descending order
             if array[j] > array[j+1]:
 

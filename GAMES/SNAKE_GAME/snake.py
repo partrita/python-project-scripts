@@ -1,5 +1,7 @@
-import random
 import curses
+import random
+import sys
+
 
 def play_game():
     s = curses.initscr()
@@ -28,7 +30,7 @@ def play_game():
 
         if snake[0][0] in [0, sh] or snake[0][1] in [0, sw] or snake[0] in snake[1:]:
             curses.endwin()
-            quit()
+            sys.exit()
 
         new_head = [snake[0][0], snake[0][1]]
 
@@ -63,4 +65,4 @@ user_input = input("Do you want to play the snake game, type 'yes' or 'no': ").l
 if user_input == "yes":
     play_game()
 else:
-    quit()
+    sys.exit()

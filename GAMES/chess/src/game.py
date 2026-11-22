@@ -1,9 +1,8 @@
 import pygame
-
-from const import *
 from board import Board
-from dragger import Dragger
 from config import Config
+from const import *
+from dragger import Dragger
 from square import Square
 
 

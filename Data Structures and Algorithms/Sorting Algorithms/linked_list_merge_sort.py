@@ -10,9 +10,7 @@ def merge_sort(linked_list):
 
     runs in O(kn log n) time
     """
-    if linked_list.size() == 1:
-        return linked_list
-    elif linked_list.size() is None:
+    if linked_list.size() == 1 or linked_list.size() is None:
         return linked_list
 
     left_half, right_half = split(linked_list)

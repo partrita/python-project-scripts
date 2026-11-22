@@ -1,11 +1,9 @@
 """This code is to verify the image dataset and check that all the labels of the grid location are in the correct place.
 """
 
-import PIL.Image as Image
-from matplotlib import pyplot as plt
-import numpy as np
-from image import SudokuDataset, get_dataset, tqdm, Model
 import torch
+from image import get_dataset, tqdm
+from matplotlib import pyplot as plt
 
 img_size = (300,300)
 

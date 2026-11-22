@@ -1,8 +1,8 @@
-from frame_alarm import AlarmsFrame
-from configuration import TIME, DATE
-from ttkbootstrap.scrolled import ScrolledFrame
-import ttkbootstrap as ttk
 import time
+
+import ttkbootstrap as ttk
+from configuration import DATE, TIME
+from ttkbootstrap.scrolled import ScrolledFrame
 
 
 class ClockFrame(ttk.Frame):

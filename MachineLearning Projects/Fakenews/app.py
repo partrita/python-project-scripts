@@ -1,14 +1,13 @@
-import numpy as np
-from flask import Flask, request,render_template
-from flask_cors import CORS
-import joblib
-import pickle
-import flask
 import os
-import newspaper
-from newspaper import Article
+import pickle
 import urllib.request
+
+import flask
 import nltk
+from flask import Flask, render_template, request
+from flask_cors import CORS
+from newspaper import Article
+
 nltk.download('punkt')
 
 #Loading Flask and assigning the model variable
@@ -35,10 +34,10 @@ def predict():
     news = article.summary
     #Passing the news article to the model and returing whether it is Fake or Real
     pred = model.predict([news])
-    return render_template('index.html', prediction_text='The news is "{}"'.format(pred[0]))
+    return render_template('index.html', prediction_text=f'The news is "{pred[0]}"')
     
 if __name__=="__main__":
-    port=int(os.environ.get('PORT',5000))
+    port=int(os.environ.get('PORT', '5000'))
     app.run(port=port,debug=False,use_reloader=False)
 
 

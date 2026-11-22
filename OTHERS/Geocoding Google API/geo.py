@@ -1,8 +1,9 @@
+import openpyxl
 import pandas as pd
 import requests
-import openpyxl
-from requests.models import HTTPError
 import xlsxwriter
+from requests.models import HTTPError
+
 '''
 HOW TO USE:
 1. Simply just grab an api key from the google maps api/geocode.
@@ -42,7 +43,7 @@ API_KEY = '&key=' + GOOGLE_API_KEY
 
 def getGeoCodeFromAddress():
     wb = openpyxl.load_workbook(WORKBOOK_NAME)
-    ws = wb[SHEET_NAME]
+    wb[SHEET_NAME]
     excel_data_df = pd.read_excel(WORKBOOK_NAME, sheet_name=SHEET_NAME)
     list_data = excel_data_df[COLUMN_NAME].tolist()
     for address in list_data:
@@ -51,7 +52,7 @@ def getGeoCodeFromAddress():
     for row_num, data in enumerate(my_new_data, start=1):
         try:
             lat, long = getLatAndLong(data)
-        except:
+        except (KeyError, IndexError, TypeError, requests.RequestException):
             lat, long = 0, 0
         worksheet.write(row_num, COLUMN_IDX_START, lat)
         worksheet.write(row_num, COLUMN_IDX_START_2, long)
@@ -64,7 +65,7 @@ def getLatAndLong(url):
         response = requests.get(url)
     except HTTPError as http_err:
         print(f'HTTP error occurred: {http_err}')  # Python 3.6
-    except Exception as err:
+    except requests.RequestException as err:
         print(f'Other error occurred: {err}')  # Python 3.6
     else:
         print('Success!')

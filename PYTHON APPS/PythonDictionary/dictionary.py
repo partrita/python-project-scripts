@@ -1,4 +1,5 @@
 from tkinter import *
+
 from PyDictionary import PyDictionary
 
 # Create a window

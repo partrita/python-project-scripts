@@ -1,12 +1,11 @@
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
 import json
-import faculty
+
 import drawFigure
-
-
-from flask import Flask , render_template , redirect , request
+import faculty
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -155,7 +154,7 @@ def caption():
             'f2' : 'Course Content',
             'pos2' : pos2,
             'n2' : n2,
-            'neg1' : neg2,
+            'neg2' : neg2,
             'f3' : 'Examination pattern',
             'pos3' : pos3,
             'n3' : n3,
@@ -174,8 +173,8 @@ def caption():
             'neg6' : neg6,
         }
 
-        values = list([[pos1 , n1 , neg1], [pos2 , n2 , neg2], [pos3 , n3 , neg3], [pos4 , n4 , neg4], [pos5 , n5 , neg5], [pos6 , n6 , neg6]])
-        labels = list(['Teacher Feedback', 'Course Content', 'Examination pattern','Laboratory','Library Facilities', 'Extra Co-Curricular Activities'])
+        values = [[pos1 , n1 , neg1], [pos2 , n2 , neg2], [pos3 , n3 , neg3], [pos4 , n4 , neg4], [pos5 , n5 , neg5], [pos6 , n6 , neg6]]
+        labels = ['Teacher Feedback', 'Course Content', 'Examination pattern','Laboratory','Library Facilities', 'Extra Co-Curricular Activities']
         
         print(values[category_no-1] , labels[category_no-1] , category_no , category_no-1)
         
@@ -258,7 +257,7 @@ def caption():
 
 
         else:            
-            for i in range(0 , 6):
+            for i in range(6):
                 fig = plt.figure(figsize=(8,8) , edgecolor='red' , linewidth=10)
                 plt.bar(x = ['Positive' , 'Neutral' , 'Negative'] , height = values[i] , color=['blue','gold','red'])
                 plt.title(labels[i], fontsize = 24, weight = 'demibold', pad = 15, fontstyle = 'italic' , family = 'cursive')

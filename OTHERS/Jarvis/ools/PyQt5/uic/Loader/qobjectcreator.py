@@ -43,7 +43,7 @@ import sys
 from PyQt5 import QtGui, QtWidgets
 
 
-class _QtWrapper(object):
+class _QtWrapper:
     @classmethod
     def search(cls, name):
         return getattr(cls.module, name, None)
@@ -57,7 +57,7 @@ class _QtWidgetsWrapper(_QtWrapper):
     module = QtWidgets
 
 
-class _ModuleWrapper(object):
+class _ModuleWrapper:
     def __init__(self, moduleName, classes):
         self._moduleName = moduleName
         self._module = None
@@ -75,7 +75,7 @@ class _ModuleWrapper(object):
         return None
 
 
-class _CustomWidgetLoader(object):
+class _CustomWidgetLoader:
     def __init__(self, package):
         # should it stay this way?
         if '.' not in sys.path:
@@ -120,7 +120,7 @@ class _CustomWidgetLoader(object):
         return getattr(module, cls)
 
 
-class LoaderCreatorPolicy(object):
+class LoaderCreatorPolicy:
     def __init__(self, package):
         self._package = package
 

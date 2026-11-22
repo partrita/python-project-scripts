@@ -1,5 +1,6 @@
-from time import time
 from random import randint
+from time import time
+
 
 def user_hash_generator():
     n = 1

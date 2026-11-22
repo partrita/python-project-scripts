@@ -2,6 +2,7 @@
 """
 
 from copy import deepcopy
+
 import pygame as pg
 
 VISITED_COLOR = (50,50,50)
@@ -14,7 +15,7 @@ END_CELL_COLOR = (0,128,128)
 
 SIZE = (600,600)
 
-class Cell():
+class Cell:
     """Cell element of sudoku.
     """
     def __init__(self, name:int|str, domain:list[int]) -> None:
@@ -28,7 +29,7 @@ class Cell():
         self.value:int|str = None
         self.domain:list[int] = deepcopy(domain)
     
-class Grid():
+class Grid:
     """The actual sudoku grid.
     """
     def __init__(self, rows:int|None = None, columns:int|None = None) -> None:

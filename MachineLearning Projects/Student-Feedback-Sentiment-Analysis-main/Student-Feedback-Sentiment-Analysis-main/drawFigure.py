@@ -1,6 +1,4 @@
 import matplotlib.pyplot as plt
-import numpy as np
-
 
 
 def make(value , label , category_no):
@@ -27,4 +25,3 @@ def make(value , label , category_no):
         
     plt.savefig(f'./static/plot{category_no}.jpg')
 
-    return

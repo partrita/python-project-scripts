@@ -1,8 +1,8 @@
 import os
-import chimera
-import Midas
+
 from chimera import exports
-from chimera import runCommand as rc # use 'rc' as shorthand for runCommand
+from chimera import runCommand as rc  # use 'rc' as shorthand for runCommand
+
 # change to folder with data files
 os.chdir("")
 

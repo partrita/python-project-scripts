@@ -38,10 +38,9 @@
 #############################################################################
 
 
-__all__ = ("compileUi", "compileUiDir", "loadUiType", "loadUi", "widgetPluginPath")
+__all__ = ("compileUi", "compileUiDir", "loadUi", "loadUiType", "widgetPluginPath")
 
-from .Compiler import indenter, compiler
-
+from .Compiler import compiler, indenter
 
 _header = """# -*- coding: utf-8 -*-
 

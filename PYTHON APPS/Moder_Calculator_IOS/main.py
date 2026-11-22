@@ -1,17 +1,16 @@
 """
 	You need to install the ttkbootstrap, pip install ttkbootstrap(I recomand to use a virtual environment)
 """
-import ttkbootstrap as ttk
 import os
 import sys
+from contextlib import suppress
 
-from widgets import *
+import ttkbootstrap as ttk
 from configuration import *
+from widgets import *
 
-try:
-    from ctypes import windll, byref, sizeof, c_int
-except Exception:
-    pass
+with suppress(ImportError):
+    from ctypes import byref, c_int, sizeof, windll
 
 
 def resource_path(relative_path: str) -> str:
@@ -21,7 +20,7 @@ def resource_path(relative_path: str) -> str:
     """
     try:
         base_path = sys._MEIPASS
-    except Exception:
+    except AttributeError:
         base_path = os.path.abspath(".")
     return os.path.join(base_path, relative_path)
 
@@ -36,12 +35,9 @@ class CalculatorApp(ttk.Window):
         self.left: int = int((self.winfo_screenwidth() - APP_SIZE[0]) / 2)
         self.top: int = int((self.winfo_screenheight() - APP_SIZE[1]) / 2)
         self.geometry(f"{APP_SIZE[0]}x{APP_SIZE[1]}+{self.left}+{self.top}")
-        try:
+        with suppress(Exception):
             image_path = self.resource_path('image/empty.ico')
             self.iconbitmap(image_path)
-        
-        except Exception:
-            pass
         
         # set title bar color (only on windows is working)
         self.set_title_bar_color()
@@ -128,13 +124,11 @@ class CalculatorApp(ttk.Window):
         """
 It set the color for title bar, it works only in windows.
         """
-        try:
+        with suppress(Exception):
             HWND = windll.user32.GetParent(self.winfo_id())
             DWMWA_ATTRIBUTE: int = 35
             TITLE_BAR_COLOR: int = 0x004C3720
             windll.dwmapi.DwmSetWindowAttribute(HWND, DWMWA_ATTRIBUTE, byref(c_int(TITLE_BAR_COLOR)), sizeof(c_int))
-        except Exception:
-            pass
     
     def create_labels(self) -> None:
         """
@@ -179,7 +173,7 @@ Creating the number buttons, from 0 to 9 and the '.'.
 Creating the symbols, +, —, = and /
 
         """
-        for data, symbol in MATH_POSITIONS.items():
+        for symbol in MATH_POSITIONS.values():
             NumberButtons(
                     parent = self,
                     text = symbol['text'],

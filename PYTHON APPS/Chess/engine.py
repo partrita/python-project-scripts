@@ -1,6 +1,6 @@
 
 
-class gamestate():
+class gamestate:
     def __init__(self):
         # 2D 8x8 list, each element has 2 characters.
         # The first character represents the color of the piece
@@ -178,12 +178,11 @@ class gamestate():
                     self.currentCastlingRights.wqs = False
                 elif move.startCol == 7:
                     self.currentCastlingRights.wks = False
-        elif move.pieceMoved == 'bR':
-            if move.startRow == 0:
-                if move.startCol == 0:
-                    self.currentCastlingRights.bqs = False
-                elif move.startCol == 7:
-                    self.currentCastlingRights.bks = False
+        elif move.pieceMoved == 'bR' and move.startRow == 0:
+            if move.startCol == 0:
+                self.currentCastlingRights.bqs = False
+            elif move.startCol == 7:
+                self.currentCastlingRights.bks = False
     def getvalidmoves(self):
         for log in self.moveLog:
             print(log.getChessNotation())
@@ -268,7 +267,6 @@ class gamestate():
     # all moves without considering checks
     def getAllPossibleMoves(self):
 
-        # 
         
 
 
@@ -475,18 +473,27 @@ class gamestate():
             self.getQueenSideCastleMoves(rows,columns,poss_moves)
 
     def getKingSideCastleMoves(self,rows,columns,poss_moves):
-        if self.board[rows][columns+1] == '--' and self.board[rows][columns+2] == '--':
-            if not self.squareUnderAttack(rows,columns+1) and not self.squareUnderAttack(rows,columns+2):
-                poss_moves.append(Move((rows,columns),(rows,columns+2),self.board,isCastleMove = True))
+        if (
+            self.board[rows][columns+1] == '--'
+            and self.board[rows][columns+2] == '--'
+            and not self.squareUnderAttack(rows,columns+1)
+            and not self.squareUnderAttack(rows,columns+2)
+        ):
+            poss_moves.append(Move((rows,columns),(rows,columns+2),self.board,isCastleMove = True))
 
 
     def getQueenSideCastleMoves(self,rows,columns,poss_moves):
-        if self.board[rows][columns-1] == '--' and self.board[rows][columns-2] == '--' and self.board[rows][columns-3] == '--':
-            if not self.squareUnderAttack(rows,columns-1) and not self.squareUnderAttack(rows,columns-2):
-                poss_moves.append(Move((rows,columns),(rows,columns-2),self.board,isCastleMove = True))
+        if (
+            self.board[rows][columns-1] == '--'
+            and self.board[rows][columns-2] == '--'
+            and self.board[rows][columns-3] == '--'
+            and not self.squareUnderAttack(rows,columns-1)
+            and not self.squareUnderAttack(rows,columns-2)
+        ):
+            poss_moves.append(Move((rows,columns),(rows,columns-2),self.board,isCastleMove = True))
 
 
-class castleRights():
+class castleRights:
     def __init__(self,wks,bks,wqs,bqs):
         self.wks = wks
         self.bks = bks
@@ -503,22 +510,22 @@ class castleRights():
 
 
 
-class Move():
+class Move:
     # map position from rows and columns to ranks and files in chess
-
+    from typing import ClassVar
 
     # so using dictionaries to map
-    ranksToRows = {"1":7,"2":6,"3":5,"4":4,
+    ranksToRows: ClassVar[dict[str, int]] = {"1":7,"2":6,"3":5,"4":4,
                      "5":3,"6":2,"7":1,"8":0}
     
     # reversing the above dictionary
-    rowsToRanks = {v:k for k,v in ranksToRows.items()}
+    rowsToRanks: ClassVar[dict[int, str]] = {v:k for k,v in ranksToRows.items()}
 
 
     # using for converting columns to files
-    filesToCols = {"a":0,"b":1,"c":2,"d":3,
+    filesToCols: ClassVar[dict[str, int]] = {"a":0,"b":1,"c":2,"d":3,
                         "e":4,"f":5,"g":6,"h":7}
-    colsToFiles = {v:k for k,v in filesToCols.items()}
+    colsToFiles: ClassVar[dict[int, str]] = {v:k for k,v in filesToCols.items()}
 
 
     # fn with optional parameter

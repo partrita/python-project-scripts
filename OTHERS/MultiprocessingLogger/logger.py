@@ -3,8 +3,8 @@ import logging.handlers
 import multiprocessing
 import os
 import sys
-
 from pathlib import Path
+
 
 class MultiProcesses_Logging_Helper:
 
@@ -31,7 +31,6 @@ class MultiProcesses_Logging_Helper:
         def filter(record: logging.LogRecord):
             if record.process == main_process_id:
                 self.queue.put_nowait(record)
-            return None
 
         root = logging.getLogger()
         root.setLevel(logging.INFO)

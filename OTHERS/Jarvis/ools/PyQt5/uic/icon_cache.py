@@ -23,7 +23,7 @@
 import os.path
 
 
-class IconCache(object):
+class IconCache:
     """Maintain a cache of icons.  If an icon is used more than once by a GUI
     then ensure that only one copy is created.
     """
@@ -81,7 +81,7 @@ class IconCache(object):
         return iset.icon
 
 
-class _IconSet(object):
+class _IconSet:
     """An icon set, ie. the mode and state and the pixmap used for each."""
 
     def __init__(self, iconset, base_dir):

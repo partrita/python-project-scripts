@@ -1,11 +1,7 @@
-from bs4 import BeautifulSoup
-import requests
-
- 
 import webbrowser
 
-
-
+import requests
+from bs4 import BeautifulSoup
 
 booklinks = []
 booktitles = []

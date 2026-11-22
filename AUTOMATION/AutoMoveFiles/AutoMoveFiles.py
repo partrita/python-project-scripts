@@ -1,11 +1,11 @@
-from watchdog.observers import Observer
-from watchdog.events import FileSystemEventHandler
+import os
 
 # pip install watchdog /or/ poetry add watchdog    (required)
-
 import time
-import os
-import json
+
+from watchdog.events import FileSystemEventHandler
+from watchdog.observers import Observer
+
 
 class Handler(FileSystemEventHandler):
     def on_modified(self, event):

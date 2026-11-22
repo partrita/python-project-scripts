@@ -1,9 +1,10 @@
 import tkinter as tk
 from tkinter import ttk
-from tkinter.constants import  RAISED
+from tkinter.constants import RAISED
 
 # Importing the user defined module.
 import Functionality as fn
+
 
 def main():
 

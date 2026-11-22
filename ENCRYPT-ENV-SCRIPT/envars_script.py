@@ -1,5 +1,5 @@
-import sys
 import getpass
+import sys
 
 from envars_helper import EncryptionHelper
 

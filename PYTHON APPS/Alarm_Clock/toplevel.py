@@ -1,5 +1,6 @@
-import ttkbootstrap as ttk
 import tkinter as tk
+
+import ttkbootstrap as ttk
 from configuration import TOP_LEVEL
 
 

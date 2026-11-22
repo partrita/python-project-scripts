@@ -21,7 +21,8 @@ __path__ = __import__('pkgutil').extend_path(__path__, __name__)
 
 
 def find_qt():
-    import os, sys
+    import os
+    import sys
 
     qtcore_dll = '\\Qt5Core.dll'
 

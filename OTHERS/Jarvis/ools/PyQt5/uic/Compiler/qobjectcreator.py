@@ -42,7 +42,7 @@ import logging
 import sys
 
 from .indenter import write_code
-from .qtproxies import QtGui, QtWidgets, Literal, strict_getattr
+from .qtproxies import Literal, QtGui, QtWidgets, strict_getattr
 
 if sys.hexversion >= 0x03000000:
     from ..port_v3.as_string import as_string
@@ -54,7 +54,7 @@ logger = logging.getLogger(__name__)
 DEBUG = logger.debug
 
 
-class _QtWrapper(object):
+class _QtWrapper:
     @classmethod
     def search(cls, name):
         try:
@@ -71,7 +71,7 @@ class _QtWidgetsWrapper(_QtWrapper):
     module = QtWidgets
 
 
-class _ModuleWrapper(object):
+class _ModuleWrapper:
     def __init__(self, name, classes):
         if "." in name:
             idx = name.rfind(".")
@@ -103,7 +103,7 @@ class _ModuleWrapper(object):
                 write_code("from %s import %s" % (self._package, self._module))
 
 
-class _CustomWidgetLoader(object):
+class _CustomWidgetLoader:
     def __init__(self):
         self._widgets = {}
         self._usedWidgets = set()
@@ -114,13 +114,12 @@ class _CustomWidgetLoader(object):
 
     def _resolveBaseclass(self, baseClass):
         try:
-            for x in range(0, 10):
+            for x in range(10):
                 try: return strict_getattr(QtWidgets, baseClass)
                 except AttributeError: pass
                 
                 baseClass = self._widgets[baseClass][0]
-            else:
-                raise ValueError("baseclass resolve took too long, check custom widgets")
+            raise ValueError("baseclass resolve took too long, check custom widgets")
 
         except KeyError:
             raise ValueError("unknown baseclass %s" % baseClass)
@@ -146,7 +145,7 @@ class _CustomWidgetLoader(object):
             write_code("from %s import %s" % (module, ", ".join(sorted(classes))))
 
 
-class CompilerCreatorPolicy(object):
+class CompilerCreatorPolicy:
     def __init__(self):
         self._modules = []
         

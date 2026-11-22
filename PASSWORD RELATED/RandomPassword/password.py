@@ -1,6 +1,6 @@
-import string
-import secrets
 import hashlib
+import secrets
+import string
 
 # Define the set of characters to be used in the password
 CHARACTER_SET = string.ascii_letters + string.digits + string.punctuation

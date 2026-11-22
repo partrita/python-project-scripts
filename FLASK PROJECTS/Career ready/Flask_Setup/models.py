@@ -1,7 +1,9 @@
 
-import pandas as pd
-import numpy as np
 import pickle
+
+import numpy as np
+import pandas as pd
+
 # import seaborn as sns
 career = pd.read_csv('dataset9000.data', header=None)
 
@@ -31,8 +33,9 @@ career.head()
 from sklearn.model_selection import train_test_split
 
 X_train, X_test, Y_train, Y_test = train_test_split(X,Y, test_size=0.3, random_state=524)
-from sklearn.neighbors import KNeighborsClassifier
 from sklearn import metrics
+from sklearn.neighbors import KNeighborsClassifier
+
 scores = {}
 knn = KNeighborsClassifier(n_neighbors=5)
 
@@ -45,5 +48,6 @@ print("Y_pred", Y_pred)
 scores[5] = metrics.accuracy_score(Y_test,Y_pred)
 print("Accuracy:",scores[5]*100)
 
-pickle.dump(knn, open('careerl.pkl','wb'))
+with open('careerl.pkl', 'wb') as f:
+    pickle.dump(knn, f)
 print('test file created!')

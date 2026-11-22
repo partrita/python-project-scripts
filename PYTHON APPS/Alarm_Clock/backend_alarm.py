@@ -1,7 +1,7 @@
 import time
 from datetime import datetime
 from threading import Event
-from typing import List
+
 from configuration import TIME_RELAPSE, TIME_SPEED
 from pygame import mixer
 
@@ -21,7 +21,7 @@ def get_date_now() -> int:
 
 class AlarmClock:
     total_time: int
-    days: List[str:]
+    days: list[str:]
     event: Event
     clock: str
     

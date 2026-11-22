@@ -20,13 +20,13 @@
 #############################################################################
 
 
-import sys
 import logging
+import sys
 
 from . import compileUi, loadUi
 
 
-class Driver(object):
+class Driver:
     """ This encapsulates access to the pyuic functionality so that it can be
     called by code that is Python v2/v3 specific.
     """

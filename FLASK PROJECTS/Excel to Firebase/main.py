@@ -1,15 +1,15 @@
-import firebase_admin
-from flask import Flask,render_template,request,redirect
-from flask.helpers import url_for
-from openpyxl import load_workbook
-import pandas as pd
-import numpy as np
+import datetime
+import os
+
 # from firebase_admin import db
 # from firebase_admin import credentials
 from datetime import date
-import datetime
+
+import pandas as pd
 from firebase import Firebase
-import os
+from flask import Flask, redirect, render_template, request
+from flask.helpers import url_for
+from openpyxl import load_workbook
 
 firebase_config = {
     "apiKey": "your apiKey",
@@ -30,7 +30,7 @@ app = Flask(__name__)
 @app.route("/",methods = ['GET','POST'])
 def start():
     if request.method == 'POST':
-        global file,s_ds1
+        global file
         file = request.files['file']
         #file.save("random.xlsx")
         file.save("static/police_record_today.xlsx")

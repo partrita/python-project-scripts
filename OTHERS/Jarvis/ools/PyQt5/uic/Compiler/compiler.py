@@ -38,9 +38,7 @@
 #############################################################################
 
 
-import sys
 
-from ..properties import Properties
 from ..uiparser import UIParser
 from . import qtproxies
 from .indenter import createCodeIndenter, getIndenter, write_code

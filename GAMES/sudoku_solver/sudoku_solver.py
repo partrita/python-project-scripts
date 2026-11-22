@@ -1,5 +1,6 @@
 import tkinter as tk
 
+
 class SudokuSolverGUI:
     def __init__(self, master):
         self.master = master
@@ -81,7 +82,7 @@ class SudokuSolverGUI:
 
 def main():
     root = tk.Tk()
-    app = SudokuSolverGUI(root)
+    SudokuSolverGUI(root)
     root.mainloop()
 
 if __name__ == "__main__":

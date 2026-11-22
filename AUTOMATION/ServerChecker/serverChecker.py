@@ -1,4 +1,5 @@
-import socket 
+import socket
+
 
 def is_running(site):
     """This function attempts to connect to the given server using a socket.
@@ -7,7 +8,7 @@ def is_running(site):
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.connect((site, 80))
         return True
-    except:
+    except OSError:
         return False
 
 if __name__ == "__main__":

@@ -1,17 +1,17 @@
-import types
-import typing
-from selenium import webdriver
-import booking.constants as cons
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as ec 
 import os
+import time
+
+from prettytable import PrettyTable
+from selenium import webdriver
+from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys as keys
-from booking.booking_filteration import booking_filter 
-import time 
+from selenium.webdriver.support import expected_conditions as ec
+from selenium.webdriver.support.ui import WebDriverWait
+
+import booking.constants as cons
+from booking.booking_filteration import booking_filter
 from booking.booking_report import booking_report
-from selenium.common.exceptions import StaleElementReferenceException, NoSuchElementException
-from prettytable import PrettyTable 
+
 
 class booking(webdriver.Chrome):
 
@@ -22,7 +22,7 @@ class booking(webdriver.Chrome):
           # options=webdriver.ChromeOptions()
           # options.add_experimental_option('excludeswitches',['enable-logging'])
 
-          super(booking,self).__init__()
+          super().__init__()
           self.implicitly_wait(15)
           self.maximize_window()
 
@@ -39,7 +39,7 @@ class booking(webdriver.Chrome):
                     condition = ec.visibility_of_element_located((By.CSS_SELECTOR,'button[aria-label="Dismiss sign-in info."]'))
                     btn=wait.until(condition)
                     btn.click()
-               except Exception as e :
+               except Exception:  # noqa: BLE001
                     time.sleep(0.2)
                      
                      
@@ -73,7 +73,7 @@ class booking(webdriver.Chrome):
           checkout_data=wait.until(condition2)
           checkout_data.click()
      def booking_count_inc(self,adult,child=None,rooms=None):
-          wait=WebDriverWait(self,10)
+          WebDriverWait(self,10)
           selector=self.find_element(By.CSS_SELECTOR,'button[data-testid="occupancy-config"]')
           selector.click()
           time.sleep(1)

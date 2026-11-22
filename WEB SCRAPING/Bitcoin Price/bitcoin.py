@@ -1,6 +1,6 @@
-import requests
 import sys
 
+import requests
 
 """ Exit program if no command-line argument is provided """
 if len(sys.argv) == 1:

@@ -33,9 +33,7 @@ class FaceRecognition:
 
     def known_image_folder(self):
         for image in os.listdir(path=self.path):
-            if not (image.endswith('.jpeg') or image.endswith('.JPG')
-                    or image.endswith('.jpg') or image.endswith(
-                    '.png') or image.endswith('.PNG')):
+            if not (image.endswith(('.jpeg', '.JPG', '.jpg', '.png', '.PNG'))):
                 continue
             img = cv2.imread(f"{self.path}/{image}")
             self.images += [img]

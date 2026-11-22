@@ -20,14 +20,13 @@
 #############################################################################
 
 
-import sys
 import optparse
+import sys
 
 from PyQt5 import QtCore
 
 from .driver import Driver
 from .exceptions import NoSuchClassError, NoSuchWidgetError
-
 
 Version = "Python User Interface Compiler %s for Qt version %s" % (QtCore.PYQT_VERSION_STR, QtCore.QT_VERSION_STR)
 
@@ -74,7 +73,7 @@ def main():
     try:
         exit_status = driver.invoke()
 
-    except IOError as e:
+    except OSError as e:
         driver.on_IOError(e)
 
     except SyntaxError as e:

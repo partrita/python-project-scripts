@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request
+
 # from handle_calculation import calculate
 
 app = Flask(__name__)

@@ -1,20 +1,27 @@
 from tkinter import IntVar
 
-from toplevel import TopLevel
 import ttkbootstrap as ttk
 from configuration import (
-    WIDTH, HEIGHT,
-    ICON_PATH, TITLE_APP,
-    THEME, CLOCK, BUTTON, PANEL,
-    )
+    BUTTON,
+    CLOCK,
+    HEIGHT,
+    ICON_PATH,
+    PANEL,
+    THEME,
+    TITLE_APP,
+    WIDTH,
+)
+from toplevel import TopLevel
 from widgets import (
-    ClockFrame, AlarmClockPanel,
-    AddAlarmClock, AlarmsFrame,
-    )
+    AddAlarmClock,
+    AlarmClockPanel,
+    AlarmsFrame,
+    ClockFrame,
+)
 
 # Import the libraries for changing the title bar color, it works only on windows :/
 try:
-    from ctypes import windll, byref, sizeof, c_int
+    from ctypes import byref, c_int, sizeof, windll
 except ImportError:
     pass
 
@@ -80,10 +87,10 @@ class App(ttk.Window):
         self.mainloop()
     
     def set_icon(self, path_image: str) -> None:
-        try:
+        from contextlib import suppress
+
+        with suppress(Exception):
             self.iconbitmap(path_image)
-        except Exception:
-            pass
     
     def set_geometry(self, width: int, height: int) -> None:
         """
@@ -97,14 +104,13 @@ class App(ttk.Window):
         self.geometry(f'{width}x{height}+{window_left}+{window_top}')
     
     def set_title_color(self) -> None:
-        try:
+        from contextlib import suppress
+
+        with suppress(Exception):
             HWND: int = windll.user32.GetParent(self.winfo_id())
             DWMWA_ATTRIBUTE: int = 35
             color: int = 0x00000000
             windll.dwmapi.DwmSetWindowAttribute(HWND, DWMWA_ATTRIBUTE, byref(c_int(color)), sizeof(c_int))
-        
-        except Exception:
-            pass
     
     def start_top_level(self) -> None:
         """

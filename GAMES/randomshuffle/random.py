@@ -1,6 +1,5 @@
 import random
 
-
 #Sample Input
 #number_list = [7, 14, 21, 28, 35, 42, 49, 56, 63, 70]
 number_list=input("Enter the array of numbers inside a list: ")

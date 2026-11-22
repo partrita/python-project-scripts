@@ -45,7 +45,7 @@ def moduleMember(module, name):
     return name
 
 
-class Literal(object):
+class Literal:
     """Literal(string) -> new literal
 
     string will not be quoted when put into an argument list"""

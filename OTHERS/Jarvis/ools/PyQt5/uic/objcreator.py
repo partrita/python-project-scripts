@@ -42,7 +42,6 @@ import os.path
 
 from .exceptions import NoSuchWidgetError, WidgetPluginError
 
-
 # The list of directories that are searched for widget plugins.  This is
 # exposed as part of the API.
 widgetPluginPath = [os.path.join(os.path.dirname(__file__), 'widget-plugins')]
@@ -54,7 +53,7 @@ MODULE = 0
 CW_FILTER = 1
 
 
-class QObjectCreator(object):    
+class QObjectCreator:    
     def __init__(self, creatorPolicy):
         self._cpolicy = creatorPolicy
 

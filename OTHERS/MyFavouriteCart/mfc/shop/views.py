@@ -1,11 +1,11 @@
-from django.shortcuts import render
-from .models import Product, Contact, Orders, OrderUpdate
-from math import ceil
 import json
-
+from math import ceil
 
 # Create your views here.
 from django.http import HttpResponse
+from django.shortcuts import render
+
+from .models import Contact, Orders, OrderUpdate, Product
 
 
 def index(request):
@@ -53,7 +53,7 @@ def tracker(request):
                 return HttpResponse(response)
             else:
                 return HttpResponse('{}')
-        except Exception as e:
+        except (ValueError, TypeError, KeyError, IndexError):
             return HttpResponse('{}')
 
     return render(request, 'shop/tracker.html')

@@ -1,7 +1,7 @@
 import json
-import httpx
 from urllib.parse import quote
-from typing import Dict
+
+import httpx
 import jmespath
 
 client = httpx.Client(
@@ -24,7 +24,7 @@ def scrape_user_id(username: str):
     user_id = user_data.get("id")
     return user_id
 
-def parse_post(data: Dict) -> Dict:
+def parse_post(data: dict) -> dict:
     result = jmespath.search("""{
         shortcode: shortcode,
         likes: edge_media_preview_like.count,

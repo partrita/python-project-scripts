@@ -1,7 +1,7 @@
-from PySimpleGUI.PySimpleGUI import Button
-from configurer import create_config
 from tkinter.constants import CENTER
+
 import PySimpleGUI as sg
+from configurer import create_config
 
 choose = [
     [
@@ -57,8 +57,8 @@ while True:
     elif event == "nScreen":
         try:
             nScreen = int(values["nScreen"])
-        except:
-            pass
+        except ValueError as e:
+            print(f"Invalid screen count: {e}")
 
     elif event == "chooseApp":
         app = values["chooseApp"]

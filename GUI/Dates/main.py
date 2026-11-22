@@ -5,8 +5,9 @@ and date arithmetics using module datetime and numpy.
 2022 Eduardo C. - https://github.com/ehcelino
 """
 from datetime import datetime
-import PySimpleGUI as sg
+
 import numpy as np
+import PySimpleGUI as sg
 
 DATE_FRMT = '%m-%d-%Y'
 

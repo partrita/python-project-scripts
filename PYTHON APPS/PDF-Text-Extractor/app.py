@@ -1,7 +1,8 @@
 import tkinter as tk
+from tkinter.filedialog import askopenfile
+
 import pypdf
 from PIL import Image, ImageTk
-from tkinter.filedialog import askopenfile
 
 root = tk.Tk()
 root.title('PDF to TEXT')

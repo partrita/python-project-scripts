@@ -1,6 +1,6 @@
-import discord
-import os
 from random import randint
+
+import discord
 
 TOKEN = "" #place your bots token here
 

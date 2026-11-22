@@ -1,5 +1,6 @@
 from data import morse_code
 
+
 class MorseCode:
     def __init__(self):
         self.in_morse = ""

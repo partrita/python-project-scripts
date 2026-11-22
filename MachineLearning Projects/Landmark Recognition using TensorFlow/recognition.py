@@ -1,9 +1,9 @@
 
+import numpy as np
+import pandas as pd
 import PIL
 import tensorflow as tf
 import tensorflow_hub as hub
-import numpy as np
-import pandas as pd
 from geopy.geocoders import Nominatim
 
 model_url = 'https://tfhub.dev/google/on_device_vision/classifier/landmarks_classifier_asia_V1/1'

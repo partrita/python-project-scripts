@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'jarvisUi.ui'
 #
@@ -11,7 +10,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_jarvisUi(object):
+class Ui_jarvisUi:
     def setupUi(self, jarvisUi):
         jarvisUi.setObjectName("jarvisUi")
         jarvisUi.resize(997, 533)

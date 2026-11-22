@@ -1,7 +1,6 @@
 import re
 
 
-
 def evaluate_strength(input_text):
     """
         Checks the strength of a password and returns a tuple containing the strength score
@@ -22,7 +21,7 @@ def evaluate_strength(input_text):
     if len(input_text) >= min_length:
         score += 1
     else:
-        feedback_msgs.append("Password should have at least {} characters.".format(min_length))
+        feedback_msgs.append(f"Password should have at least {min_length} characters.")
 
     if has_lowercase.search(input_text):
         score += 1
@@ -51,10 +50,10 @@ if __name__ == "__main__":
     pwd_input = input("Enter your password: ")
     score_val, feedback = evaluate_strength(pwd_input)
 
-    print("\nPassword Strength: {}".format(score_val))
+    print(f"\nPassword Strength: {score_val}")
     if score_val == 5:
         print("Password is very strong!")
     else:
         print("Password needs improvement:")
         for rule in feedback:
-            print("- {}".format(rule))
+            print(f"- {rule}")

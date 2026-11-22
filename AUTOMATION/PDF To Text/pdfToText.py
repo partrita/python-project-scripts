@@ -1,4 +1,5 @@
 from pathlib import Path
+
 from PyPDF2 import PdfReader
 
 
@@ -8,7 +9,7 @@ def convert_pdf(filename):
     # Check if provided PDF file exists
     if not my_file.is_file():
         print('Error! File Not Found!')
-        return None
+        return
     print('PDF Found! Attempting Conversion...')
     
     # Exception Handling during Data Extraction from PDF File
@@ -24,9 +25,9 @@ def convert_pdf(filename):
         print('PDF to TXT Conversion Successful!')
         
     # If any Error is encountered, Print the Error on Screen
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
         print(f'Error Converting PDF to Text or Saving Converted Text into .txt file: {e}')
-        return None
+        return
 
 
 if __name__ == '__main__':

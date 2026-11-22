@@ -39,5 +39,5 @@ if __name__ == "__main__":
     n = len(Array)
     print("Sorted array is")
     for i in range(n):
-        print("%d " % Array[i], end='')
+        print(f"{Array[i]} ", end='')
   

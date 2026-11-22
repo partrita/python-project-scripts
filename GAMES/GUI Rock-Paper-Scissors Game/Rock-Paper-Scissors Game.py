@@ -1,6 +1,6 @@
+from random import *
 from tkinter import *
 from tkinter import ttk
-from random import *
 
 root = Tk()
 

@@ -14,5 +14,5 @@ try:
             break
 
     print("Congrats! You guessed the number.")
-except:
-    pass
+except (ValueError, EOFError, KeyboardInterrupt) as e:
+    print(f"Game exited: {e}")

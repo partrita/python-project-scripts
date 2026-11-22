@@ -1,5 +1,4 @@
-from instapy import InstaPy
-from instapy import smart_run
+from instapy import InstaPy, smart_run
 
 username = '***************' #enter your username
 password = '***************' #enter your password

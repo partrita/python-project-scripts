@@ -1,6 +1,5 @@
 import requests
 
-
 # Index
 # GK : 9
 # Computer Science: 18

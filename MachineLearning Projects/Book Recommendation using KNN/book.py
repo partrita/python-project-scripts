@@ -1,11 +1,8 @@
-import numpy as np 
 import pandas as pd
-import seaborn as sns
-from sklearn.cluster import KMeans
-from sklearn import neighbors
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import MinMaxScaler
 import streamlit as st
+from sklearn import neighbors
+from sklearn.preprocessing import MinMaxScaler
+
 data = pd.read_csv('books.csv',error_bad_lines = False)
 
 rating = data[data["ratings_count"] > 1000000] #1cr
@@ -30,7 +27,6 @@ rating_df = pd.get_dummies(df2['rating_between'])
 language_df = pd.get_dummies(df2['language_code'])
 features = pd.concat([rating_df, language_df, df2['average_rating'],  df2['ratings_count']], axis=1)
 
-from sklearn.preprocessing import MinMaxScaler
 min_max_scaler = MinMaxScaler()
 features = min_max_scaler.fit_transform(features)
 model = neighbors.NearestNeighbors(n_neighbors=6, algorithm='ball_tree')

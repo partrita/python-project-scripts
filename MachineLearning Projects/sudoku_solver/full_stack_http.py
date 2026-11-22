@@ -1,10 +1,11 @@
-import multiprocessing.util
-import socket
-from perspective import resolve_image
-from sudoku import Grid
 import argparse
 import multiprocessing
+import multiprocessing.util
 import os
+import socket
+
+from perspective import resolve_image
+from sudoku import Grid
 
 temp_result_file = "resultfile.png"
 temp_input_file = "tempfile.jpg"
@@ -27,7 +28,7 @@ def process_handle_transaction(proc_num:int, sock:socket.socket):
                 if len(rec) == 0:
                     print(f"[{proc_num}] Lost connection")
                     break
-            except socket.timeout:
+            except TimeoutError:
                 with open(my_temp_input_file, "wb") as f:
                     f.write(rec_buf)
                 rec_buf = b''
@@ -49,7 +50,7 @@ def process_handle_transaction(proc_num:int, sock:socket.socket):
     finally:
         sock2.close()
 
-class Manager():
+class Manager:
     def __init__(self, address:tuple[str,int]):
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.address = address
@@ -75,7 +76,7 @@ class Manager():
                         if len(rec) == 0:
                             print("Lost connection")
                             break
-                    except socket.timeout:
+                    except TimeoutError:
                         with open(temp_input_file, "wb") as f:
                             f.write(rec_buf)
                         rec_buf = b''
@@ -96,7 +97,7 @@ class Manager():
         finally:
             try:
                 self.sock2.close()
-            except socket.error:
+            except OSError:
                 pass
             except AttributeError:
                 pass

@@ -1,4 +1,3 @@
-import sys
 # from load import load_strings
 
 # names = load_strings(sys.argv[1])

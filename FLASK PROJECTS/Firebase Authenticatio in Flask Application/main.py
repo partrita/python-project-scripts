@@ -1,7 +1,16 @@
 #Importing Flask and other important functions
-from flask import Flask, render_template, request, redirect, abort, flash, session ,url_for
 #Importing firebase auth from db.py
 from db import auth
+from flask import (
+    Flask,
+    abort,
+    flash,
+    redirect,
+    render_template,
+    request,
+    session,
+    url_for,
+)
 
 app = Flask(__name__)
 app.secret_key = "MBSAIADITYA"
@@ -14,7 +23,7 @@ Signup Route
 @app.route("/signup", methods = ['GET','POST'])
 def signup():
     if request.method=='POST':
-        name = request.form.get("name")
+        request.form.get("name")
         username = request.form.get("email")
         password = request.form.get("password")
         repassword = request.form.get("repassword")
@@ -22,10 +31,10 @@ def signup():
             if len(password)>=6:
                 try:
                     #Creating User in firebase using create_user_with_email_and_password method of firebase/auth
-                    _user_ = auth.create_user_with_email_and_password(username ,password)
+                    auth.create_user_with_email_and_password(username ,password)
                     flash("User has been created successfully! Please Login")
                     return redirect("/")
-                except Exception as e:
+                except Exception as e:  # noqa: BLE001  # noqa: BLE001
                     abort(500, {'message': str(e)})
             else:
                 flash('Password is less than 6 characters!')
@@ -51,7 +60,7 @@ def login():
             session['user'] = user['localId']
             session['email'] = user['email']
             return redirect("/")     
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001
             abort(500, {'message': str(e)})
 
     if 'user' in session:

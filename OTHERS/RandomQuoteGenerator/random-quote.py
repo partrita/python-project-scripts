@@ -15,7 +15,7 @@ def get_random_quote():
 			print(data[0]['quoteText'])
 		else:
 			print("Error while getting quote")
-	except:
+	except (requests.RequestException, KeyError, IndexError, ValueError):
 		print("Something went wrong! Try Again!")
 
 

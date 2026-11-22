@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 from pytesseract import pytesseract as pt
 
+
 def resolve_perspective(source_image:np.ndarray, points:np.ndarray, target_shape:tuple[int,int]) -> np.ndarray:
     """Takes an source image and transforms takes the region demarkated by points and creates a rectangular image of target.
 
@@ -24,7 +25,9 @@ def resolve_perspective(source_image:np.ndarray, points:np.ndarray, target_shape
     output:cv2.typing.MatLike = cv2.warpPerspective(source_image, transformation_matrix, (target_shape[1], target_shape[0]), flags=cv2.INTER_LINEAR)
     return output
 
-def get_grid_size(image:np.ndarray, boxes:list[list[int]], allowed_sizes:list[tuple[int,int]]=[(2,3),(3,3),(4,4)]) -> tuple[int,int]:
+def get_grid_size(image:np.ndarray, boxes:list[list[int]], allowed_sizes:list[tuple[int, int]] | None=None) -> tuple[int,int]:
+    if allowed_sizes is None:
+        allowed_sizes = [(2, 3), (3, 3), (4, 4)]
     h,w = image.shape
     for size in allowed_sizes:
         s1 = float(w)/float(size[0])
@@ -80,7 +83,7 @@ def resolve_image(path:str) -> tuple[tuple,list[tuple[int,tuple]]]:
     output = cv2.GaussianBlur(output, (1,1), 0)
     boxes = pt.image_to_boxes(output, "eng", config=r'-c tessedit_char_whitelist=0123456789 --psm 13 --oem 3')
     print(boxes)
-    h,w = output.shape
+    h,_w = output.shape
     new_boxes_str = ""
     new_boxes = []
     for bt in boxes.splitlines():
@@ -89,7 +92,7 @@ def resolve_image(path:str) -> tuple[tuple,list[tuple[int,tuple]]]:
         if b[0] in numbers and area > min_area:
             output = cv2.rectangle(output, (int(b[1]), h - int(b[2])), (int(b[3]), h - int(b[4])), (255, 255, 255), 2)
             new_boxes_str += bt + "\n"
-            new_boxes.append(list(int(i) for i in b[:5]))
+            new_boxes.append([int(i) for i in b[:5]])
     grid_size = get_grid_size(output, new_boxes)
     final_points = get_points(output, new_boxes, grid_size)
     return grid_size,final_points

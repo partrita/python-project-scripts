@@ -11,8 +11,7 @@ def len_nth_word_from_end(str, num):
       return len(ls[plc])
     else:
       plc -= 1
-  else:
-    return -1
+  return -1
 
 s = "fly  me  to    the moon "
 print(len_nth_word_from_end(s, 3))

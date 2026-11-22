@@ -1,7 +1,8 @@
-import os
-import sys
 import math
+import os
 import random
+import sys
+
 import pygame
 
 WIDTH = 623
@@ -150,8 +151,7 @@ class Score:
         self.sound = pygame.mixer.Sound(path)
 
     def check_hs(self):
-        if self.act >= self.hs:
-            self.hs = self.act
+        self.hs = max(self.act, self.hs)
 
     def check_sound(self):
         if self.act % 100 == 0 and self.act != 0:
@@ -174,8 +174,8 @@ class Game:
     def set_labels(self):
         big_font = pygame.font.SysFont("monospace", 26, bold=True)
         small_font = pygame.font.SysFont("monospace", 20)
-        self.big_lbl = big_font.render(f"G A M E O V E R", 1, (0, 0, 0))
-        self.small_lbl = small_font.render(f"Press Enter to Restart", 1, (0, 0, 0))
+        self.big_lbl = big_font.render("G A M E O V E R", 1, (0, 0, 0))
+        self.small_lbl = small_font.render("Press Enter to Restart", 1, (0, 0, 0))
 
     def set_sound(self):
         path = os.path.join("assets/sounds/die.wav")
@@ -266,13 +266,12 @@ def main():
                 pygame.quit()
                 sys.exit()
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
-                    if not over:
-                        if dino.onground:
-                            dino.jump()
+                if event.key == pygame.K_SPACE and not over:
+                    if dino.onground:
+                        dino.jump()
 
-                        if not game.playing:
-                            game.start()
+                    if not game.playing:
+                        game.start()
 
                 if event.key == pygame.K_RETURN:
                     game.restart()

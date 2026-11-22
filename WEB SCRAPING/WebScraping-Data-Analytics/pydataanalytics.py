@@ -1,5 +1,6 @@
 import csv
-import requests 
+
+import requests
 from bs4 import BeautifulSoup
 
 #Url to the jobsite (using tottal job as an examples)
@@ -24,7 +25,7 @@ with open('job_data_2.csv', mode='w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(['Job Title', 'Location', 'Salary', 'Company Name']) # header row
     min_length = min(len(job_titles), len(company_name))
-    for i in range(0, min_length - 3):
+    for i in range(min_length - 3):
         job_title = job_titles[i].text.strip()
         location = job_titles[i+1].text.strip()
         salary = job_titles[i+2].text.strip()

@@ -2,8 +2,8 @@
 Source : https://github.com/iSiddharth20/DeepLearning-ImageClassification-Toolkit
 '''
 
-import matplotlib.pyplot as plt
 import cv2
+import matplotlib.pyplot as plt
 import numpy as np
 
 '''
@@ -11,7 +11,7 @@ Helper Function
     - Used to Show 2 Images Side-By-Side
 '''
 def images_on_side(img_1,label_1,img_2,label_2):
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 24))
+    _fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 24))
     ax1.imshow(img_1)
     ax1.set_title(label_1)
     ax2.imshow(img_2)

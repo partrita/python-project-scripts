@@ -1,8 +1,9 @@
-import requests
-import socket
 import platform
+import socket
 import subprocess
 import time
+
+import requests
 
 # List of websites
 websites = ['http://google.com', 'http://facebook.com', 'http://twitter.com']
@@ -13,10 +14,10 @@ def check_internet():
         try:
             response = requests.get(website, timeout=10)
             if response.status_code == 200:
-                print("\033[92mConnected to {}\033[0m".format(website))
+                print(f"\033[92mConnected to {website}\033[0m")
                 return True
         except requests.ConnectionError as e:
-            print("\033[91mFailed to connect to {}: {}\033[0m".format(website, e))
+            print(f"\033[91mFailed to connect to {website}: {e}\033[0m")
             break  # Stop further attempts if one website fails
     return False
 
@@ -25,19 +26,19 @@ def diagnose_issue():
     # Flush DNS cache
     try:
         if platform.system() == 'Windows':
-            subprocess.run(["ipconfig", "/flushdns"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
+            subprocess.run(["ipconfig", "/flushdns"], capture_output=True, check=True)
             print("\033[92mDNS cache flushed.\033[0m")
         elif platform.system() in ['Darwin']:
             subprocess.run(["sudo", "killall", "-HUP", "mDNSResponder"], check=True)
             subprocess.run(["sudo", "dscacheutil", "-flushcache"], check=True)
             print("\033[92mDNS cache flushed.\033[0m")
         elif platform.system() in ['Linux']:
-            subprocess.run(["sudo", "systemctl", "restart", "networking"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
+            subprocess.run(["sudo", "systemctl", "restart", "networking"], capture_output=True, check=True)
             print("\033[92mDNS cache flushed.\033[0m")
         else:
             print("\033[91mUnsupported platform for DNS cache flushing.\033[0m")
     except subprocess.CalledProcessError as e:
-        print("\033[91mFailed to flush DNS cache: {}\033[0m".format(e))
+        print(f"\033[91mFailed to flush DNS cache: {e}\033[0m")
 
     # Check DNS resolution
     try:
@@ -119,19 +120,19 @@ def restart_wifi():
             time.sleep(5)
             subprocess.run(["netsh", "interface", "set", "interface", "Wi-Fi", "enabled"], check=True)
         except subprocess.CalledProcessError as e:
-            print("\033[91mFailed to restart Wi-Fi on Windows: {}\033[0m".format(e))
+            print(f"\033[91mFailed to restart Wi-Fi on Windows: {e}\033[0m")
     elif system == 'Linux':
         try:
             subprocess.run(["sudo", "systemctl", "restart", "network-manager"], check=True)
         except subprocess.CalledProcessError as e:
-            print("\033[91mFailed to restart Wi-Fi on Linux: {}\033[0m".format(e))
+            print(f"\033[91mFailed to restart Wi-Fi on Linux: {e}\033[0m")
     elif system == 'Darwin':  # macOS
         try:
             subprocess.run(["networksetup", "-setairportpower", "en0", "off"], check=True)
             time.sleep(5)
             subprocess.run(["networksetup", "-setairportpower", "en0", "on"], check=True)
         except subprocess.CalledProcessError as e:
-            print("\033[91mFailed to restart Wi-Fi on macOS: {}\033[0m".format(e))
+            print(f"\033[91mFailed to restart Wi-Fi on macOS: {e}\033[0m")
     else:
         print("\033[91mUnsupported platform.\033[0m")
 

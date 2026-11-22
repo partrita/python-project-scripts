@@ -1,6 +1,6 @@
-from flask import Flask, request, jsonify
-from helper import get_all_posts, scrape_user_id
 import instaloader
+from flask import Flask, jsonify
+from helper import get_all_posts, scrape_user_id
 
 app = Flask(__name__)
 insta = instaloader.Instaloader()
@@ -27,7 +27,7 @@ def get_instagram_profile(username):
         return jsonify({"error": "Profile does not exist"}), 404
     except instaloader.exceptions.InstaloaderException:
         return jsonify({"error": "An error occurred while fetching Instagram data."}), 500
-    except Exception:
+    except Exception:  # noqa: BLE001
         return jsonify({"error": "An unexpected error occurred processing the request."}), 400
 
 

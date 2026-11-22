@@ -1,11 +1,11 @@
-from flask import Flask, render_template, redirect, url_for, request, flash, session
-from werkzeug.utils import secure_filename
 import os
-from random import choices, choice
-from string import ascii_letters, digits
-from time import sleep
-from datetime import datetime
 import socket
+from datetime import datetime
+from random import choices
+from string import ascii_letters, digits
+
+from flask import Flask, flash, redirect, render_template, request, session, url_for
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
@@ -19,7 +19,7 @@ def manage_solution(input_file, result_file) -> int:
             return 1
         except FileNotFoundError:
             return -2
-        except socket.error:
+        except OSError:
             return -1
     
     def connect() -> socket.socket:
@@ -58,13 +58,13 @@ def manage_solution(input_file, result_file) -> int:
                     with open(result_file, "wb") as f:
                         f.write(res_buf)
                     break
-            except socket.timeout:
+            except TimeoutError:
                 with open(result_file, "wb") as f:
                     f.write(res_buf)
                 break
     finally:
         sock.close()
-        return 0
+    return 0
 
 @app.route('/', methods=['POST', 'GET'])
 def index():

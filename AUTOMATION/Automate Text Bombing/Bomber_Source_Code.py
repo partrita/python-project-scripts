@@ -1,5 +1,6 @@
-import time # importing time module
-import pyautogui # importing pyautogui
+import time  # importing time module
+
+import pyautogui  # importing pyautogui
 
 T = int(input("How many seconds do you want to wait before sending each message?\nEnter 0 for the quickest sending!\n")) # Desired Time before sending each messages
 Text = input("Type the message you want to send as text BOMBING! :  \n") # Desired Text

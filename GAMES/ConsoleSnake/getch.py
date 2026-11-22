@@ -23,9 +23,9 @@ if os.name == 'nt':
 
 # Posix (Linux, OS X)
 else:
+    import atexit
     import sys
     import termios
-    import atexit
     from select import select
 
 
@@ -69,7 +69,6 @@ class KBHit:
             Should not be called in the same program as getarrow().
         '''
 
-        s = ''
 
         if os.name == 'nt':
             try:
@@ -109,7 +108,7 @@ class KBHit:
             return msvcrt.kbhit()
 
         else:
-            dr,dw,de = select([sys.stdin], [], [], 0)
+            dr,_dw,_de = select([sys.stdin], [], [], 0)
             return dr != []
 
 

@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 
+import os
+import sys
+
 from PIL import Image, ImageOps, UnidentifiedImageError
-import sys, os
+
 
 def check_input():
  """ Checks if the script is called with no input parameters. """

@@ -1,9 +1,13 @@
-from flask import Flask, request, render_template, redirect, flash
-from helpers import random_string_generator, random_string_generator_only_alpha, is_valid_url
-from db import url_data_collection
 import os
 from datetime import datetime
 
+from db import url_data_collection
+from flask import Flask, flash, redirect, render_template, request
+from helpers import (
+    is_valid_url,
+    random_string_generator,
+    random_string_generator_only_alpha,
+)
 
 app = Flask(__name__)
 app.secret_key = os.environ['APP_SECRET']
@@ -43,7 +47,7 @@ def shorten_url():
         "data_id": data_id,
         "created_at": datetime.now()
     }
-    if url_details := url_data_collection.find_one({"no_of_/": incoming_data['no_of_/'], "order":incoming_data['order']}):
+    if url_data_collection.find_one({"no_of_/": incoming_data['no_of_/'], "order":incoming_data['order']}):
         flash({'type':'error', 'data':"This Domain is Already Taken!"})
         return redirect("/")
     url_data_collection.insert_one(incoming_data)

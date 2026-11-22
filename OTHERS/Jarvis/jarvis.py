@@ -1,32 +1,24 @@
-from email.mime import audio
-from importlib.resources import path
-from logging import exception
-from random import Random, random
-from re import S
-import sys
-from typing_extensions import Self
-import pyttsx3
-import speech_recognition as sr
 import datetime
 import os
-import cv2
-import random
-from requests import get
-import wikipedia
-import webbrowser
-import pywhatkit as kit
 import smtplib
 import sys
+import webbrowser
+from logging import exception
+from random import Random
+
+import cv2
 import pyjokes
-from PyQt5 import QtWidgets, QtCore, QtGui
-from PyQt5.QtCore import QTimer, QTime, QDate, Qt
-from PyQt5.QtGui import QMovie
+import pyttsx3
+import pywhatkit as kit
+import speech_recognition as sr
+import wikipedia
+from jarvisUi import Ui_jarvisUi
+from PyQt5 import QtGui
 from PyQt5.QtCore import *
+from PyQt5.QtCore import QDate, Qt, QTime, QTimer
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
-from PyQt5.uic import loadUiType
-from jarvisUi import Ui_jarvisUi
-
+from requests import get
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -67,7 +59,7 @@ def sendEmail(to, content):
 # to convert voice  into text
 class Mainthread(QThread):
     def __init__(self):
-        super(Mainthread,self).__init__()
+        super().__init__()
     
     def run(self):
         self.TaskExecution()
@@ -86,7 +78,7 @@ class Mainthread(QThread):
             query = r.recognize_google(audio, language='en-in')
             print(f"user said: {query}")
 
-        except exception as e:
+        except exception:
             speak("could you please repeat...")
             return "none"
         query = query.lower()    
@@ -117,7 +109,7 @@ class Mainthread(QThread):
             elif "open camera" in self.query:
                 cap = cv2.VideoCapture(0)
                 while True:
-                    ret, img = cap.read()
+                    _ret, img = cap.read()
                     cv2.inshow('webcam', img)
                     k = cv2.waitKey(50)
                     if k == 27:
@@ -267,7 +259,7 @@ class Main(QMainWindow):
 app = QApplication(sys.argv)
 jarvis = Main()
 jarvis.show()
-exit(app.exec_())
+sys.exit(app.exec_())
 
 
 

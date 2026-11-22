@@ -1,4 +1,3 @@
-from fileinput import filename
 import os
 import unittest
 
@@ -15,13 +14,13 @@ class TestEnvvarsEncryption(unittest.TestCase):
 
     def tearDown(self):
         #delete test salt file from file
-        file_data = open(f"{self.filename}.salt", 'w')
-        file_data.close()
+        with open(f"{self.filename}.salt", 'w') as file_data:
+            pass
         os.remove(file_data.name)
 
         #delete test encrypted file from file
-        file_data = open(f"{self.filename}.envs", 'w')
-        file_data.close()
+        with open(f"{self.filename}.envs", 'w') as file_data:
+            pass
         os.remove(file_data.name)
         
         

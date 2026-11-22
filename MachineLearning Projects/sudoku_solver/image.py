@@ -1,9 +1,9 @@
-import torch
-from torch.utils.data import Dataset, DataLoader
-import PIL.Image as Image
-import pandas as pd
-from tqdm import tqdm
 import numpy as np
+import pandas as pd
+import torch
+from PIL import Image
+from torch.utils.data import DataLoader, Dataset
+from tqdm import tqdm
 
 
 class SudokuDataset(Dataset):
@@ -96,7 +96,6 @@ def train(epochs:int, config:dict, model:None|Model = None) -> Model:
     optimizer = torch.optim.Adam(model.parameters(), lr=config['lr'])
     loss = torch.nn.MSELoss().to(device)
     dataset = get_dataset(config['filename'], config['input_shape'], config['batch_size'])
-    prev_error = 0
     try:
         for epoch in range(1, epochs+1):
             batch_iterator = tqdm(dataset, f"Epoch {epoch}/{epochs}:")
@@ -115,16 +114,15 @@ def train(epochs:int, config:dict, model:None|Model = None) -> Model:
                 del(model)
                 model = create_model(config['input_shape'], config['number_of_layers'], config['dims']).to(device)
                 print("New model created")
-            prev_error = error
     except KeyboardInterrupt:
         torch.save(model, "model.pt")
     return model
 
 def test(config:dict, model_filename:str):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    model = torch.load("model.pt").to(device)
-    loss = torch.nn.MSELoss().to(device)
-    dataset = get_dataset(config['filename'], config['input_shape'], config['batch_size'])
+    torch.load("model.pt").to(device)
+    torch.nn.MSELoss().to(device)
+    get_dataset(config['filename'], config['input_shape'], config['batch_size'])
     
 
 if __name__ == '__main__':

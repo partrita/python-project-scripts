@@ -1,7 +1,8 @@
-import BFS
-import DFS
 import os
 import time
+
+import BFS
+import DFS
 
 '''
 Default parameters:

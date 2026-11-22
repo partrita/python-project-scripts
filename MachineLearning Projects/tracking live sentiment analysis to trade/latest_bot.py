@@ -1,24 +1,18 @@
-import requests
-import os
 import json
-import config
-import preprocessor as p
-from langdetect import detect
-from csv import writer
-import praw
-import config, pprint
-from textblob import TextBlob
-import config
+import re
 from threading import *
+from urllib.request import Request, urlopen
+
+import config
+import pandas as pd
 import praw
+import preprocessor as p
+import requests
 from binance.client import Client
 from binance.enums import *
-import pandas as pd
-from ta.momentum import RSIIndicator
-from ta.trend import SMAIndicator
-from urllib.request import urlopen,Request
 from bs4 import BeautifulSoup
-import re
+from ta.momentum import RSIIndicator
+from textblob import TextBlob
 
 # I have used another file called config.py to store the credentials
 
@@ -85,15 +79,13 @@ class Reddit(Thread):
             # if the sentiment is neutral it isn't much useful
             if sent.polarity != 0.0:
                 lst_reddit.append(sent.polarity)
-                avg = round(Average(lst_reddit), 2)
+                round(Average(lst_reddit), 2)
                 print(" ********** Total Sentiment is currently: "+str(round(Average(lst_reddit), 4)) + " and there are " + str(len(lst_reddit)) + " elements in reddit")
 
                 #Getting the candles information of past 1 minutes from binance api 
                 candles = client.get_historical_klines(TRADE_SYMBOL, Client.KLINE_INTERVAL_1MINUTE, "1 Minutes ago UTC")
 
-                if len(dogePrices) == 0:
-                    dogePrices.append(float(candles[-1][1]))
-                elif dogePrices[-1] != float(candles[-1][1]):
+                if len(dogePrices) == 0 or dogePrices[-1] != float(candles[-1][1]):
                     dogePrices.append(float(candles[-1][1]))
                 print(dogePrices)
 
@@ -136,13 +128,16 @@ class Twitter(Thread):
             return r
 
 
+        class TwitterAPIError(Exception):
+            pass
+
         def get_rules():
             response = requests.get(
                 "https://api.twitter.com/2/tweets/search/stream/rules", auth=bearer_oauth
             )
             if response.status_code != 200:
-                raise Exception(
-                    "Cannot get rules (HTTP {}): {}".format(response.status_code, response.text)
+                raise TwitterAPIError(
+                    f"Cannot get rules (HTTP {response.status_code}): {response.text}"
                 )
             print(json.dumps(response.json()))
             return response.json()
@@ -150,9 +145,9 @@ class Twitter(Thread):
 
         def delete_all_rules(rules):
             if rules is None or "data" not in rules:
-                return None
+                return
 
-            ids = list(map(lambda rule: rule["id"], rules["data"]))
+            ids = [rule["id"] for rule in rules["data"]]
             payload = {"delete": {"ids": ids}}
             response = requests.post(
                 "https://api.twitter.com/2/tweets/search/stream/rules",
@@ -160,10 +155,8 @@ class Twitter(Thread):
                 json=payload
             )
             if response.status_code != 200:
-                raise Exception(
-                    "Cannot delete rules (HTTP {}): {}".format(
-                        response.status_code, response.text
-                    )
+                raise TwitterAPIError(
+                    f"Cannot delete rules (HTTP {response.status_code}): {response.text}"
                 )
             print(json.dumps(response.json()))
 
@@ -181,8 +174,8 @@ class Twitter(Thread):
                 json=payload,
             )
             if response.status_code != 201:
-                raise Exception(
-                    "Cannot add rules (HTTP {}): {}".format(response.status_code, response.text)
+                raise TwitterAPIError(
+                    f"Cannot add rules (HTTP {response.status_code}): {response.text}"
                 )
             print(json.dumps(response.json()))
 
@@ -193,10 +186,8 @@ class Twitter(Thread):
             )
             print(response.status_code)
             if response.status_code != 200:
-                raise Exception(
-                    "Cannot get stream (HTTP {}): {}".format(
-                        response.status_code, response.text
-                    )
+                raise TwitterAPIError(
+                    f"Cannot get stream (HTTP {response.status_code}): {response.text}"
                 )
             # here the twitter api default code ends from here we need to make the changes and build the logic
             for response_line in response.iter_lines():
@@ -210,7 +201,7 @@ class Twitter(Thread):
 
                     if sent.polarity != 0.0:
                         lst_twitter.append(sent.polarity)
-                        avg = round(Average(lst_twitter), 2)
+                        round(Average(lst_twitter), 2)
                         print(" ********** Total Sentiment is currently: "+str(round(Average(lst_twitter), 4)) + " and there are " + str(len(lst_twitter)) + " elements in twitter")
 
                         if (round(Average(lst_twitter)) > 0.2 and len(lst_twitter) > neededSentiments and Fearandgreed()<40):
@@ -233,7 +224,6 @@ class Twitter(Thread):
             delete = delete_all_rules(rules)
             set = set_rules(delete)
             get_stream(set)
-            bearer_token = config.BEARER_TOKEN
             # headers = create_headers(bearer_token)
             # rules = get_rules(headers, bearer_token)
             # delete = delete_all_rules(headers, bearer_token, rules)

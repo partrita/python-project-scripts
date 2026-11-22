@@ -1,4 +1,5 @@
 import sqlite3
+
 from matplotlib import pyplot as plt
 
 plt.style.use('ggplot')
@@ -7,7 +8,7 @@ plt.style.use('ggplot')
 def send_bg_color(color):
     connection = sqlite3.connect("Finance.db")
     cur = connection.cursor()
-    cur.execute(f"UPDATE colorChoice SET color = (:color) WHERE rowid = 1", {"color": color})
+    cur.execute("UPDATE colorChoice SET color = (:color) WHERE rowid = 1", {"color": color})
     connection.commit()
     connection.close()
 
@@ -15,7 +16,7 @@ def send_bg_color(color):
 def get_bg_color():
     connection = sqlite3.connect("Finance.db")
     cur = connection.cursor()
-    cur.execute(f"SELECT * FROM colorChoice")
+    cur.execute("SELECT * FROM colorChoice")
     data = cur.fetchall()
     return data[0][0]
 
@@ -135,7 +136,7 @@ def graph_all():
     colors = ("limegreen", "cyan", "yellow", "pink",
               "red", "lightblue")
 
-    plt.pie(slices, labels=labels, shadow=True, wedgeprops={'edgecolor': 'black'}, autopct=f"%0.2f%%", colors=colors)
+    plt.pie(slices, labels=labels, shadow=True, wedgeprops={'edgecolor': 'black'}, autopct="%0.2f%%", colors=colors)
     plt.title("PIE CHART")
     plt.tight_layout()
     plt.show()

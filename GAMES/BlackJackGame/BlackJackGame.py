@@ -1,4 +1,5 @@
 import random as rn
+
 deck = [2,3,4,5,6,7,8,9,10,'J','Q','K','A']
 suit = ['spade' , 'heart' , 'diamond' , 'club']
 arr = []
@@ -7,17 +8,11 @@ dl = []
 
 # Check Blackjack__________________________________________
 def check_Twenty_One(s):
-    if s==21:
-        return True
-    else:
-        return False
+    return s == 21
 
 # Check Bust_______________________________________________
 def Bust(s):
-    if s>21:
-        return True
-    else:
-        return False
+    return s > 21
 
 # Check Ace is 1 or 11_____________________________________
 def check_For_Ace(s):
@@ -52,7 +47,7 @@ def startGame():
     
     print(f'\nDealer draws {dl[0]} and [xxxxxx,xx]\n')
     s = 0
-    for i in range(0,2):
+    for i in range(2):
         if arr[i][1] == 'J' or arr[i][1] == 'K' or arr[i][1] == 'Q':
             s += 10
         elif arr[i][1] == 'A':

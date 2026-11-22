@@ -2,8 +2,9 @@
 This script can automatically perform the google search process and open the website in default web browser.
 """
 
-from googlesearch import search
 from webbrowser import open
+
+from googlesearch import search
 
 
 def google_search(query, no_of_results):

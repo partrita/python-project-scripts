@@ -1,22 +1,40 @@
 import time
 
 start = time.time()
-from cv2 import VideoCapture, flip, COLOR_BGR2RGB, cvtColor, circle, FILLED, destroyAllWindows, imshow, CAP_PROP_FRAME_WIDTH, CAP_PROP_FRAME_HEIGHT
+from cv2 import (
+    CAP_PROP_FRAME_HEIGHT,
+    CAP_PROP_FRAME_WIDTH,
+    COLOR_BGR2RGB,
+    FILLED,
+    VideoCapture,
+    circle,
+    cvtColor,
+    destroyAllWindows,
+    flip,
+    imshow,
+)
+
 print("Importing cv stuff")
 import mediapipe.python.solutions.drawing_utils as mp_drawing
+
 print("Importing hand module  stuff")
 
 import mediapipe.python.solutions.hands as mp_hands
+
 print("Importing more hand module  stuff")
 
 import pygame
+
 print("Importing pygame")
 
 from math import sqrt
+
 print("Importing math")
 
-import pyautogui
 import os
+
+import pyautogui
+
 print("Importing other stuff")
 
 

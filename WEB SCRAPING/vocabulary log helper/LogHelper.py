@@ -1,14 +1,16 @@
-import time
-import aiohttp
 import asyncio
+import time
 from json import dumps
 from random import choice
+
+import aiohttp
 from bs4 import BeautifulSoup as Beau_Soup
+
 
 def get_syn_ant(word: str, page: str):
     soup =  Beau_Soup(page,'html.parser')
-    synonyms_list = list()
-    antonyms_list = list()
+    synonyms_list = []
+    antonyms_list = []
     
     # getting all the synonyms
     for a in soup.select('ul a.css-1kg1yv8'):
@@ -44,7 +46,7 @@ async def get_all_pages() :
     words_to_look_for =  input("Enter the words to look for : ").split()
     words_to_look_for = [word.strip() for word in words_to_look_for if word != '']
 
-    tasks = list()
+    tasks = []
     async with aiohttp.ClientSession() as session:
         for word in words_to_look_for:
             task = asyncio.ensure_future(get_page(session, word))

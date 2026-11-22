@@ -1,6 +1,7 @@
-from bs4 import BeautifulSoup
-import requests
 import time
+
+import requests
+from bs4 import BeautifulSoup
 
 print('Please Enter Skills You are not familiar with')
 unfamiliar_skill = input(' > ')
@@ -11,7 +12,7 @@ def find_jobs():
      soup = BeautifulSoup( html_text, 'lxml' )
      jobs = soup.find_all('li', class_ = 'job-list-li')
      for index, job in enumerate(jobs):
-          published_date = job.find('li', class_ = 'job-item')
+          job.find('li', class_ = 'job-item')
           company_name = job.find('h2').text.replace('  ', '  ')
           skills = job.find('li', class_ = 'job-desc').text.replace('  ', '  ')
           more_info = job.h2.a['href']

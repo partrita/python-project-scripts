@@ -1,7 +1,8 @@
 # -*- coding: UTF-8 -*-
-import time
 import os
+import time
 from random import randint
+
 from getch import KBHit
 
 
@@ -72,7 +73,7 @@ class Snake:
                     print('X', end=' ')
                 else:
                     print('·', end=' ')
-            print('')
+            print()
 
     def update_coors(self):
         """
@@ -106,9 +107,7 @@ class Snake:
         Check if the head hit a body part or has crossed the limits
         """
         head = self.parts[0]
-        if (head in self.parts[1:]) or (not(0 < head[0] <= self.size[0])) or (not(0 < head[1] <= self.size[1])):
-            return False
-        return True
+        return not (head in self.parts[1:] or not 0 < head[0] <= self.size[0] or not 0 < head[1] <= self.size[1])
 
     def get_action(self, character):
         if (character in 'wasd') and (self.get_opposites()[character] != self.dir or len(self.parts) == 1):

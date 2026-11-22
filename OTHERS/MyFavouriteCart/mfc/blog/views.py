@@ -1,7 +1,8 @@
-from django.shortcuts import render
-from .models import Blogpost
 # Create your views.py here.
-from django.http import HttpResponse
+from django.shortcuts import render
+
+from .models import Blogpost
+
 
 def index(request):
     myposts = Blogpost.objects.all()

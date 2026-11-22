@@ -32,7 +32,7 @@ def main():
             output = dictOfFunctions[user]()
             if output:
                 break
-        except (KeyError, TypeError) as e:
+        except (KeyError, TypeError):
             print("That was an invalid input. Please input either 1-5 or 'q'")
 
 if __name__ == '__main__':

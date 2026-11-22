@@ -1,13 +1,13 @@
 #49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d
 #SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t
 ########https://base64.guru/converter/encode/hex;
-hexalph = """!"#$%&'()*+,-./0123456789:'<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~"""
+hexalph = r"""!"#$%&'()*+,-./0123456789:'<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~"""
 hexdecalph = '0123456789abcdef'
 finalascii = """ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"""
 fname = 'NEWtestoutput.txt'
-fhand = open(fname, 'w')
-fhand.close()
-fhand = open(fname, 'r+')
+with open(fname, 'w'):
+    pass
+fhand = open(fname, 'r+')  # noqa: SIM115
 #
 #
 #
@@ -64,11 +64,11 @@ def hextodec(hexstring) :
         binlist.append(decbin)
     binlist = ''.join(binlist)
     #to convert to base64, 6bit words are needed. this ensures the list is divisible by 6
-    if not len(binlist) % 6 == 0 :
+    if len(binlist) % 6 != 0 :
         binlist = list(binlist)
         binlist.append('00')
         binlist = ''.join(binlist)
-    if not len(binlist) % 6 == 0 :
+    if len(binlist) % 6 != 0 :
         binlist = list(binlist)
         binlist.append('00')
         binlist = ''.join(binlist)
@@ -100,11 +100,11 @@ def hextodec(hexstring) :
     finalword = ''.join(finalcharlist)
     finalword = list(finalword)
     #base64 strings are divisible by 4, so the following three lines ensure that the string is padded with ending '=' if necessary
-    if not len(finalword) % 4 == 0 :
+    if len(finalword) % 4 != 0 :
         finalword.append('=')
-    if not len(finalword) % 4 == 0 :
+    if len(finalword) % 4 != 0 :
         finalword.append('=')
-    if not len(finalword) % 4 == 0 :
+    if len(finalword) % 4 != 0 :
         finalword.append('=')
     finalword = ''.join(finalword)
     fhand.write(f'{finalword} is base64 conversion of {hexstring}\n')

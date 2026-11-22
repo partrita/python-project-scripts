@@ -13,9 +13,8 @@ def find_naked_cell(sudoku: Sudoku) -> tuple:
     '''
 
     naked_cells_indexes = np.where(sudoku.grid == 0)
-    if naked_cells_indexes[0].size > 0:
-        if naked_cells_indexes[0][0].size > 0 and naked_cells_indexes[1][0].size > 0:
-            return (naked_cells_indexes[0][0], naked_cells_indexes[1][0])
+    if naked_cells_indexes[0].size > 0 and naked_cells_indexes[0][0].size > 0 and naked_cells_indexes[1][0].size > 0:
+        return (naked_cells_indexes[0][0], naked_cells_indexes[1][0])
 
     return naked_cells_indexes
 

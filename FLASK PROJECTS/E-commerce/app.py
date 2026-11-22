@@ -1,16 +1,11 @@
-import os
 
-from flask import Flask, flash, redirect, render_template, request, session, url_for
-from flask_session import Session
 from tempfile import mkdtemp
-from werkzeug.security import check_password_hash, generate_password_hash
-from flask_login import current_user
+
 from cs50 import SQL
-import sqlite3
-import re
-
+from flask import Flask, flash, redirect, render_template, request, session
+from flask_session import Session
 from helpers import apology, login_required, usd
-
+from werkzeug.security import check_password_hash, generate_password_hash
 
 # Configure application
 app = Flask(__name__)
@@ -98,10 +93,7 @@ def register():
         elif not password:
             return apology("must provide password", 400)
 
-        elif not confirmation:
-            return apology("must confirm password", 400)
-
-        elif password != confirmation:
+        elif not confirmation or password != confirmation:
             return apology("must confirm password", 400)
 
         # Query the database to check if the username is already taken.
@@ -236,7 +228,7 @@ def checkout():
                 flash("Address saved successfully.", "success")
                 return redirect("/cart")
 
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001  # noqa: BLE001
             # Log errors
             print("Error:", str(e))
             return apology("An error occurred while saving the address.", 500)
@@ -343,7 +335,7 @@ def addtocart(id):
             # Display success message.
             flash("Added to cart!", "success")
     # Log errors
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
         app.logger.error(f"Error in addtocart: {e}")
         return apology("an error occurred", 500)
     else:

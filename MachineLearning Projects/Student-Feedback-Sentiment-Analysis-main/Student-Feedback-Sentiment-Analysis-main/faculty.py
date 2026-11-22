@@ -1,6 +1,6 @@
 
-from sklearn.naive_bayes import MultinomialNB
 from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.naive_bayes import MultinomialNB
 
 label2category = {1: 'positive' , 0: 'neutral' , -1: 'negative'}
 category2label = {cat:label for label , cat in label2category.items()}

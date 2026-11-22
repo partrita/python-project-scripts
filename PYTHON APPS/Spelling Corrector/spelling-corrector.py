@@ -1,5 +1,6 @@
 from tkinter import *
-from PIL import ImageTk, Image
+
+from PIL import Image, ImageTk
 from textblob import TextBlob
 
 root = Tk()

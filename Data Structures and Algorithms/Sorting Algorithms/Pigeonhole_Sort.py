@@ -29,5 +29,5 @@ print("Sorted order is : ", end = ' ')
 
 pigeonhole_sort(a)
 		
-for i in range(0, len(a)):
+for i in range(len(a)):
 	print(a[i], end = ' ')

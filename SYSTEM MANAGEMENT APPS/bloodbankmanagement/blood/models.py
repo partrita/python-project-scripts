@@ -1,6 +1,8 @@
 from django.db import models
-from patient import models as pmodels
 from donor import models as dmodels
+from patient import models as pmodels
+
+
 class Stock(models.Model):
     bloodgroup=models.CharField(max_length=10)
     unit=models.PositiveIntegerField(default=0)

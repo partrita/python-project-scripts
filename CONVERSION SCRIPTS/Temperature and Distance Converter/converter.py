@@ -1,4 +1,3 @@
-from fractions import Fraction
 import tkinter as tk
 
 convert = {"Distance": {"Inches to Centimeters": lambda x: x * 2.54,
@@ -27,14 +26,16 @@ window.configure(bg = bg_color)
 entry_frame = tk.Frame(window, bg = bg_color)
 lbl = tk.Label(window, bg = bg_color, fg = fg_color)
 lbl.pack()
-for i in 'entry_lbl1', 'entry_lbl2', 'error_lbl', 'entry2':
-    globals()[i] = tk.Label(entry_frame, bg = bg_color, fg = fg_color)
+entry_lbl1 = tk.Label(entry_frame, bg=bg_color, fg=fg_color)
+entry_lbl2 = tk.Label(entry_frame, bg=bg_color, fg=fg_color)
+error_lbl = tk.Label(entry_frame, bg=bg_color, fg=fg_color)
+entry2 = tk.Label(entry_frame, bg=bg_color, fg=fg_color)
 entry1 = tk.Entry(entry_frame)
 def conversion(event):
     try:
         entry2['text'] = convert[category][choice](float(entry1.get()))
         error_lbl['text'] = ''
-    except:
+    except ValueError:
         error_lbl['text'] = "Sorry, please input a number."
         entry1.delete(0, tk.END); entry2['text'] = ''
 

@@ -1,11 +1,11 @@
 # import GUI library - Tkinter
-import tkinter as tk
-import time
 import random
+import time
+import tkinter as tk
 
 
 class Clock:
-    colors = ['red', 'blue', 'green', 'black', 'orange', 'purple', 'brown', 'yellow', 'pink']
+    colors = ('red', 'blue', 'green', 'black', 'orange', 'purple', 'brown', 'yellow', 'pink')
 
     def __init__(self):
         # instance of Tkinter window

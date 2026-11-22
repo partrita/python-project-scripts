@@ -1,7 +1,8 @@
 import os
 import smtplib
-from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+
 
 def send_email(sender_email, recipient_email, subject, message):
     # SMTP server configuration
@@ -22,16 +23,16 @@ def send_email(sender_email, recipient_email, subject, message):
     email['Subject'] = subject
 
     # Create a MIMEText object with HTML content
-    html_content = '''
+    html_content = f'''
     <html>
     <body>
-        <h1>{}</h1>
-        <p>{}</p>
+        <h1>{subject}</h1>
+        <p>{message}</p>
         <p>This is a <strong>bold</strong> example.</p>
         <p>This is an <em>italic</em> example.</p>
     </body>
     </html>
-    '''.format(subject, message)
+    '''
 
     email.attach(MIMEText(html_content, 'html'))
 

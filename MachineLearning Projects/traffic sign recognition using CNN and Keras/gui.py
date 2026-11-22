@@ -1,11 +1,13 @@
 import tkinter as tk
-from tkinter import filedialog
 from tkinter import *
-from PIL import ImageTk, Image
+from tkinter import filedialog
 
 import numpy
+
 #load the trained model to classify sign
 from keras.models import load_model
+from PIL import Image, ImageTk
+
 model = load_model('traffic_classifier.h5')
 
 #dictionary to label all traffic signs class.
@@ -63,7 +65,6 @@ label=Label(top,background='#CDCDCD', font=('arial',15,'bold'))
 sign_image = Label(top)
 
 def classify(file_path):
-    global label_packed
     image = Image.open(file_path)
     image = image.resize((30,30))
     image = numpy.expand_dims(image, axis=0)
@@ -91,8 +92,8 @@ def upload_image():
         sign_image.image=im
         label.configure(text='')
         show_classify_button(file_path)
-    except:
-        pass
+    except (OSError, ValueError) as e:
+        print(f"Error loading image: {e}")
 
 upload=Button(top,text="Upload an image",command=upload_image,padx=10,pady=5)
 upload.configure(background='#364156', foreground='white',font=('arial',10,'bold'))

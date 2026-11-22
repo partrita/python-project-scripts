@@ -1,4 +1,5 @@
 import os
+
 import numpy as np
 
 command = input("Input command (A Name, Remove, Exit): ")
@@ -58,7 +59,7 @@ def groupMaker(command):
       break
 
     elif command.upper() == "REMOVE":
-      print("")
+      print()
       for i, c in enumerate(groupList):
         print(f'{i+1} {c[0]}')
       choice = input("\nWho do you want to remove? (Insert Index Number): ")

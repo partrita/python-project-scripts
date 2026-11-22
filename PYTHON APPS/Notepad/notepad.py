@@ -1,8 +1,8 @@
-import tkinter
 import os
 from tkinter import *
-from tkinter.messagebox import *
 from tkinter.filedialog import *
+from tkinter.messagebox import *
+
 
 class Notepad:
 
@@ -24,10 +24,9 @@ class Notepad:
 	def __init__(self,**kwargs):
 
 		# Set icon
-		try:
+		from contextlib import suppress
+		with suppress(TclError):
 				self.__root.wm_iconbitmap("Notepad.ico")
-		except:
-				pass
 
 		# Set window size (the default is 300x300)
 
@@ -55,9 +54,7 @@ class Notepad:
 		top = (screenHeight / 2) - (self.__thisHeight /2)
 		
 		# For top and bottom
-		self.__root.geometry('%dx%d+%d+%d' % (self.__thisWidth,
-											self.__thisHeight,
-											left, top))
+		self.__root.geometry(f'{self.__thisWidth}x{self.__thisHeight}+{int(left)}+{int(top)}')
 
 		# To make the textarea auto resizable
 		self.__root.grid_rowconfigure(0, weight=1)
@@ -140,11 +137,8 @@ class Notepad:
 			self.__root.title(os.path.basename(self.__file) + " - Notepad")
 			self.__thisTextArea.delete(1.0,END)
 
-			file = open(self.__file,"r")
-
-			self.__thisTextArea.insert(1.0,file.read())
-
-			file.close()
+			with open(self.__file,"r") as file:
+				self.__thisTextArea.insert(1.0,file.read())
 
 		
 	def __newFile(self):
@@ -166,18 +160,16 @@ class Notepad:
 			else:
 				
 				# Try to save the file
-				file = open(self.__file,"w")
-				file.write(self.__thisTextArea.get(1.0,END))
-				file.close()
+				with open(self.__file,"w") as file:
+					file.write(self.__thisTextArea.get(1.0,END))
 				
 				# Change the window title
 				self.__root.title(os.path.basename(self.__file) + " - Notepad")
 				
 			
 		else:
-			file = open(self.__file,"w")
-			file.write(self.__thisTextArea.get(1.0,END))
-			file.close()
+			with open(self.__file,"w") as file:
+				file.write(self.__thisTextArea.get(1.0,END))
 
 	def __cut(self):
 		self.__thisTextArea.event_generate("<<Cut>>")

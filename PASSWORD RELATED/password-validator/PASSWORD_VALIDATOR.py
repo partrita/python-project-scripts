@@ -1,5 +1,6 @@
 import string
 
+
 def passwordValidator():
     """
     Validates passwords to match specific rules
